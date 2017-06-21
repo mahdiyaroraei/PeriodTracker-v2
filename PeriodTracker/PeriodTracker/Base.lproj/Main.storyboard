@@ -22,20 +22,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="9y5-7a-qZY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="9y5-7a-qZY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngA-Dj-5BZ" customClass="RQShineLabel">
-                                <rect key="frame" x="40" y="470" width="295" height="0.0"/>
+                                <rect key="frame" x="40" y="418.5" width="295" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u10-oK-5a5" customClass="LogoView" customModule="PeriodTracker" customModuleProvider="target">
+                                <rect key="frame" x="154.5" y="283.5" width="66" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="D6i-kW-6lt"/>
+                                    <constraint firstAttribute="width" constant="66" id="tNf-Ls-Ahy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ngA-Dj-5BZ" secondAttribute="bottom" constant="197" id="IrV-QM-fkA"/>
+                            <constraint firstItem="ngA-Dj-5BZ" firstAttribute="top" secondItem="u10-oK-5a5" secondAttribute="bottom" constant="35" id="6hO-Yz-dpF"/>
                             <constraint firstItem="ngA-Dj-5BZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="atM-bR-dkR"/>
+                            <constraint firstItem="u10-oK-5a5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bOk-3p-SJl"/>
+                            <constraint firstItem="u10-oK-5a5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bxz-mT-Zdp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ngA-Dj-5BZ" secondAttribute="trailing" constant="24" id="ypJ-8g-Q1f"/>
                         </constraints>
                     </view>
