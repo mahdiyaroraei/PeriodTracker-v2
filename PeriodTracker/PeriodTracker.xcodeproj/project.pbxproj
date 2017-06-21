@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55445B041EFA76550073DC75 /* StyleKitName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55445B031EFA76550073DC75 /* StyleKitName.swift */; };
 		55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD351EF94ADE00F75794 /* AppDelegate.swift */; };
 		55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD371EF94ADE00F75794 /* ViewController.swift */; };
 		55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD391EF94ADE00F75794 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
+		55445B031EFA76550073DC75 /* StyleKitName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKitName.swift; sourceTree = "<group>"; };
 		55B9BD321EF94ADE00F75794 /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B9BD351EF94ADE00F75794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B9BD371EF94ADE00F75794 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		55445B051EFA7AD30073DC75 /* components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = components;
+			sourceTree = "<group>";
+		};
 		55B9BD291EF94ADE00F75794 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +87,8 @@
 		55B9BD341EF94ADE00F75794 /* PeriodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				55445B051EFA7AD30073DC75 /* components */,
+				55445B031EFA76550073DC75 /* StyleKitName.swift */,
 				55B9BD351EF94ADE00F75794 /* AppDelegate.swift */,
 				55B9BD371EF94ADE00F75794 /* ViewController.swift */,
 				55B9BD391EF94ADE00F75794 /* Main.storyboard */,
@@ -214,6 +225,7 @@
 			files = (
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
+				55445B041EFA76550073DC75 /* StyleKitName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +391,7 @@
 				55B9BD461EF94ADE00F75794 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

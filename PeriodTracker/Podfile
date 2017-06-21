@@ -7,8 +7,9 @@ target 'PeriodTracker' do
 
   	pod 'IGListKit', '~> 3.0'
   	pod 'Moya'
-    	pod 'Alamofire', '~> 4.4'
-    	pod 'RealmSwift'
+    pod 'Alamofire', '~> 4.4'
+    pod 'RealmSwift'
+    pod "RQShineLabel"
 
   # Pods for PeriodTracker
 
