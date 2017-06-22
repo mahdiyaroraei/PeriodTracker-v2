@@ -14,6 +14,12 @@
 		55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD391EF94ADE00F75794 /* Main.storyboard */; };
 		55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */; };
 		55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */; };
+		730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */; };
+		730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */; };
+		730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */; };
+		730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */; };
+		730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */; };
+		730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DB3051EFBE07B001495EF /* BuyViewController.swift */; };
 		A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +34,12 @@
 		55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B9BD3F1EF94ADE00F75794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B9BD411EF94ADE00F75794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Bold.ttf"; sourceTree = "<group>"; };
+		730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Light.ttf"; sourceTree = "<group>"; };
+		730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Medium.ttf"; sourceTree = "<group>"; };
+		730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_UltraLight.ttf"; sourceTree = "<group>"; };
+		730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum).ttf"; sourceTree = "<group>"; };
+		730DB3051EFBE07B001495EF /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuyViewController.swift; path = Controllers/BuyViewController.swift; sourceTree = "<group>"; };
 		88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,6 +102,7 @@
 		55B9BD341EF94ADE00F75794 /* PeriodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				730DB3041EFBE004001495EF /* Controllers */,
 				55445B051EFA7AD30073DC75 /* components */,
 				55445B031EFA76550073DC75 /* StyleKitName.swift */,
 				55B9BD351EF94ADE00F75794 /* AppDelegate.swift */,
@@ -98,8 +111,29 @@
 				55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */,
 				55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */,
 				55B9BD411EF94ADE00F75794 /* Info.plist */,
+				730DB2F71EFBB29C001495EF /* Resources */,
 			);
 			path = PeriodTracker;
+			sourceTree = "<group>";
+		};
+		730DB2F71EFBB29C001495EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */,
+				730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */,
+				730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */,
+				730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */,
+				730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		730DB3041EFBE004001495EF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				730DB3051EFBE07B001495EF /* BuyViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +199,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */,
 				55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */,
 				55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */,
 				55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */,
+				730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */,
+				730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */,
+				730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */,
+				730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
+				730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */,
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
 				55445B041EFA76550073DC75 /* StyleKitName.swift in Sources */,

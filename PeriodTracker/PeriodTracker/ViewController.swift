@@ -17,6 +17,13 @@ class ViewController: UIViewController , CAAnimationDelegate {
         
         appNameLabel.text = "PERIOD TRACKER"
         appNameLabel.shine()
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "BuyViewController") as! UIViewController
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
