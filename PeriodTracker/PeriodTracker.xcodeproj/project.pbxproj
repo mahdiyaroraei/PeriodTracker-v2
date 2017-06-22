@@ -14,6 +14,7 @@
 		55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD391EF94ADE00F75794 /* Main.storyboard */; };
 		55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */; };
 		55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */; };
+		55CC458C1EFBB7B300E34DD3 /* PeriodTrackerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC458B1EFBB7B300E34DD3 /* PeriodTrackerAPI.swift */; };
 		A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B9BD3F1EF94ADE00F75794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B9BD411EF94ADE00F75794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55CC458B1EFBB7B300E34DD3 /* PeriodTrackerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodTrackerAPI.swift; sourceTree = "<group>"; };
 		88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,12 +63,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		55445B051EFA7AD30073DC75 /* components */ = {
+		55445B051EFA7AD30073DC75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				55445B081EFA9AFB0073DC75 /* LogoView.swift */,
 			);
-			name = components;
+			name = Components;
 			sourceTree = "<group>";
 		};
 		55B9BD291EF94ADE00F75794 = {
@@ -90,7 +92,8 @@
 		55B9BD341EF94ADE00F75794 /* PeriodTracker */ = {
 			isa = PBXGroup;
 			children = (
-				55445B051EFA7AD30073DC75 /* components */,
+				55CC45861EFBB4CD00E34DD3 /* API */,
+				55445B051EFA7AD30073DC75 /* Components */,
 				55445B031EFA76550073DC75 /* StyleKitName.swift */,
 				55B9BD351EF94ADE00F75794 /* AppDelegate.swift */,
 				55B9BD371EF94ADE00F75794 /* ViewController.swift */,
@@ -100,6 +103,14 @@
 				55B9BD411EF94ADE00F75794 /* Info.plist */,
 			);
 			path = PeriodTracker;
+			sourceTree = "<group>";
+		};
+		55CC45861EFBB4CD00E34DD3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				55CC458B1EFBB7B300E34DD3 /* PeriodTrackerAPI.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
+				55CC458C1EFBB7B300E34DD3 /* PeriodTrackerAPI.swift in Sources */,
 				55445B041EFA76550073DC75 /* StyleKitName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
