@@ -9,10 +9,13 @@
 import Alamofire
 
 public enum PeriodTrackerRouter: URLRequestConvertible {
-    static let baseURLString = "https://jsonplaceholder.typicode.com/"
+    static let baseURLString = "http://192.168.1.38/license/public/"
+    
     case get(Int)
     case create([String: Any])
     case delete(Int)
+    case checkLicenseStatus([String: Any])
+    
     public func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
@@ -22,6 +25,8 @@ public enum PeriodTrackerRouter: URLRequestConvertible {
                 return .post
             case .delete:
                 return .delete
+            case .checkLicenseStatus:
+                return .post
             }
         }
         let params: ([String: Any]?) = {
@@ -30,6 +35,8 @@ public enum PeriodTrackerRouter: URLRequestConvertible {
                 return nil
             case .create(let newTodo):
                 return (newTodo)
+            case .checkLicenseStatus(let userDetail):
+                return (userDetail);
             }
         }()
         let url: URL = {
@@ -42,6 +49,8 @@ public enum PeriodTrackerRouter: URLRequestConvertible {
                 relativePath = "todos"
             case .delete(let number):
                 relativePath = "todos/\(number)"
+            case .checkLicenseStatus:
+                relativePath = "checklicense"
             }
             var url = URL(string: PeriodTrackerRouter.baseURLString)!
             if let relativePath = relativePath {
