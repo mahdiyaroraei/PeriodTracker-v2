@@ -14,19 +14,20 @@
 		556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0801EFBE445008C5EA1 /* LogMood.swift */; };
 		556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0821EFBE522008C5EA1 /* Setting.swift */; };
 		556CA0851EFBE587008C5EA1 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0841EFBE587008C5EA1 /* Information.swift */; };
+		557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F959E1EFE628A00D1D68A /* Reachability.swift */; };
 		55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD351EF94ADE00F75794 /* AppDelegate.swift */; };
 		55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD371EF94ADE00F75794 /* ViewController.swift */; };
 		55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD391EF94ADE00F75794 /* Main.storyboard */; };
 		55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */; };
 		55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */; };
+		55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */; };
+		55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC45901EFBDB1F00E34DD3 /* User.swift */; };
 		730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */; };
 		730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */; };
 		730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */; };
 		730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */; };
 		730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */; };
 		730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DB3051EFBE07B001495EF /* BuyViewController.swift */; };
-		55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */; };
-		55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC45901EFBDB1F00E34DD3 /* User.swift */; };
 		A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		556CA0801EFBE445008C5EA1 /* LogMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogMood.swift; path = Database/LogMood.swift; sourceTree = "<group>"; };
 		556CA0821EFBE522008C5EA1 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = Database/Setting.swift; sourceTree = "<group>"; };
 		556CA0841EFBE587008C5EA1 /* Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Information.swift; path = Database/Information.swift; sourceTree = "<group>"; };
+		557F959E1EFE628A00D1D68A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Utilities/Reachability.swift; sourceTree = "<group>"; };
 		55B9BD321EF94ADE00F75794 /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B9BD351EF94ADE00F75794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B9BD371EF94ADE00F75794 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,14 +48,14 @@
 		55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B9BD3F1EF94ADE00F75794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B9BD411EF94ADE00F75794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodTrackerRouter.swift; path = API/PeriodTrackerRouter.swift; sourceTree = "<group>"; };
+		55CC45901EFBDB1F00E34DD3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Database/User.swift; sourceTree = "<group>"; };
 		730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Bold.ttf"; sourceTree = "<group>"; };
 		730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Light.ttf"; sourceTree = "<group>"; };
 		730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Medium.ttf"; sourceTree = "<group>"; };
 		730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_UltraLight.ttf"; sourceTree = "<group>"; };
 		730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum).ttf"; sourceTree = "<group>"; };
 		730DB3051EFBE07B001495EF /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuyViewController.swift; path = Controllers/BuyViewController.swift; sourceTree = "<group>"; };
-		55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodTrackerRouter.swift; path = API/PeriodTrackerRouter.swift; sourceTree = "<group>"; };
-		55CC45901EFBDB1F00E34DD3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Database/User.swift; sourceTree = "<group>"; };
 		88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +97,14 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		557F959D1EFE625E00D1D68A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				557F959E1EFE628A00D1D68A /* Reachability.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		55B9BD291EF94ADE00F75794 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		55B9BD341EF94ADE00F75794 /* PeriodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				557F959D1EFE625E00D1D68A /* Utilities */,
 				55CC458F1EFBD32D00E34DD3 /* Database */,
 				55CC45861EFBB4CD00E34DD3 /* API */,
 				55445B051EFA7AD30073DC75 /* Components */,
@@ -314,6 +325,7 @@
 				55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */,
 				55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
+				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

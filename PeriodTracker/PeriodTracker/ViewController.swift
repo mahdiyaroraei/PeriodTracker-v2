@@ -20,7 +20,11 @@ class ViewController: UIViewController , CAAnimationDelegate {
         
         let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
-            // Your code with delay
+            if Reachability.isConnectedToNetwork() {
+                print("Internet access!")
+            }else{
+                print("No internet access!")
+            }
         }
     }
     
