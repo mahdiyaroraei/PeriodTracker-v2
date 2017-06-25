@@ -12,32 +12,29 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     @IBOutlet weak var monthsTableView: UITableView!
     
     let cellReuseIdentifier = "cell"
-    let calendar = Calendar(identifier: .persian)
-    let MONTH = [
-        "فروردین" ,
-        "اردیبهشت" ,
-        "خرداد" ,
-        "تیر" ,
-        "مرداد" ,
-        "شهریور" ,
-        "مهر" ,
-        "آبان" ,
-        "آذر" ,
-        "دی" ,
-        "بهمن" ,
-        "اسفند"
-    ]
+    
+    // start of day and month
+    let nowDate = Calendar.current.startOfDay(for: Date())
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Register the table view cell class and its reuse id
-        self.monthsTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         // This view controller itself will provide the delegate methods and row data for the table view.
         monthsTableView.delegate = self
         monthsTableView.dataSource = self
-        //Select middle cell for start showing
-        monthsTableView.selectRow(at: IndexPath(row: 25, section: 0), animated: false, scrollPosition: .middle)
+        
+        // set delay for change table view cell height
+        let when = DispatchTime.now() + 0.3
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            
+            // Select middle cell for start showing today
+            self.monthsTableView.selectRow(at: IndexPath(row: 25, section: 0), animated: false, scrollPosition: .middle)
+        }
+        
+        // Hide scrollbar
+        monthsTableView.showsHorizontalScrollIndicator = false
+        monthsTableView.showsVerticalScrollIndicator = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,11 +49,22 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // create a new cell if needed or reuse an old one
-        let cell:MonthTableViewCell = self.monthsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! MonthTableViewCell!
+        let cell = self.monthsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MonthTableViewCell
         
-        cell.monthLabel.text = MONTH[calendar.dateComponents([.month], from: Date()).month!]
+        // for hide highlight
+        cell.selectionStyle = .none
+        
+        cell.monthDate = Calendar.current.date(byAdding: .month, value: indexPath.row - 25 , to: nowDate)
+        cell.refresh()
         
         return cell
+    }
+    
+    // return tableview cell height for no additional padding
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let tableViewCellHeight = monthsTableView.frame.size.width + 50
+        
+        return tableViewCellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
