@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class LogoView: UIView {
     
     override func layoutSubviews() {

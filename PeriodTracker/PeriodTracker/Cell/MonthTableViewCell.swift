@@ -10,6 +10,8 @@ import UIKit
 
 class MonthTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var monthLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
