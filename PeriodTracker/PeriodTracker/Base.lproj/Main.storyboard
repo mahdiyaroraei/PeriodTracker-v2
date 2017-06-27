@@ -13,6 +13,9 @@
         <array key="IRANSans(FaNum).ttf">
             <string>IRANSansFaNum</string>
         </array>
+        <array key="IRANSans(FaNum)_Bold.ttf">
+            <string>IRANSansFaNum-Bold</string>
+        </array>
         <array key="IRANSans(FaNum)_Light.ttf">
             <string>IRANSansFaNum-Light</string>
         </array>
@@ -77,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qvj-Ic-lRS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="91" width="375" height="576"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="BLT-J5-iyx" customClass="MonthTableViewCell" customModule="PeriodTracker" customModuleProvider="target">
@@ -87,8 +90,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="399.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pQ3-P3-bDJ">
-                                                    <rect key="frame" x="10" y="50" width="355" height="350"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pQ3-P3-bDJ">
+                                                    <rect key="frame" x="0.0" y="57" width="375" height="343"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="gOk-DW-kKY">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -98,25 +101,25 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="4JW-EQ-6Fe" customClass="DayCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
-                                                            <rect key="frame" x="305" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="325" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qb2-B6-FQc">
-                                                                        <rect key="frame" x="-3" y="26" width="50" height="21"/>
+                                                                        <rect key="frame" x="-8" y="26" width="50" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="vMg-iH-P8Y"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="14"/>
+                                                                        <color key="textColor" red="0.21176470588235294" green="0.27058823529411763" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="qb2-B6-FQc" secondAttribute="trailing" constant="-3" id="R9n-1a-SvL"/>
+                                                                <constraint firstAttribute="trailing" secondItem="qb2-B6-FQc" secondAttribute="trailing" constant="-8" id="R9n-1a-SvL"/>
                                                                 <constraint firstItem="qb2-B6-FQc" firstAttribute="width" secondItem="4JW-EQ-6Fe" secondAttribute="width" id="k7K-86-FNL"/>
                                                                 <constraint firstAttribute="bottom" secondItem="qb2-B6-FQc" secondAttribute="bottom" constant="3" id="m7g-AZ-adf"/>
                                                             </constraints>
@@ -127,9 +130,12 @@
                                                     </cells>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vuo-2H-8Ea">
-                                                    <rect key="frame" x="18" y="15" width="339" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="18" y="15" width="339" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="0oV-LE-eMm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="12"/>
+                                                    <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -137,10 +143,10 @@
                                                 <constraint firstItem="Vuo-2H-8Ea" firstAttribute="top" secondItem="6un-qq-Wy9" secondAttribute="topMargin" constant="7" id="1ZG-vL-DR1"/>
                                                 <constraint firstItem="Vuo-2H-8Ea" firstAttribute="leading" secondItem="6un-qq-Wy9" secondAttribute="leadingMargin" constant="10" id="4Cq-JL-utj"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Vuo-2H-8Ea" secondAttribute="trailing" constant="10" id="85n-d8-QvY"/>
-                                                <constraint firstAttribute="trailing" secondItem="pQ3-P3-bDJ" secondAttribute="trailing" constant="10" id="BRD-w0-819"/>
+                                                <constraint firstAttribute="trailing" secondItem="pQ3-P3-bDJ" secondAttribute="trailing" id="BRD-w0-819"/>
                                                 <constraint firstAttribute="bottom" secondItem="pQ3-P3-bDJ" secondAttribute="bottom" id="Rk4-gj-uRL"/>
-                                                <constraint firstItem="pQ3-P3-bDJ" firstAttribute="top" secondItem="Vuo-2H-8Ea" secondAttribute="bottom" constant="14" id="zMR-sh-y7a"/>
-                                                <constraint firstItem="pQ3-P3-bDJ" firstAttribute="leading" secondItem="6un-qq-Wy9" secondAttribute="leading" constant="10" id="zUx-VC-beZ"/>
+                                                <constraint firstItem="pQ3-P3-bDJ" firstAttribute="top" secondItem="Vuo-2H-8Ea" secondAttribute="bottom" constant="7" id="zMR-sh-y7a"/>
+                                                <constraint firstItem="pQ3-P3-bDJ" firstAttribute="leading" secondItem="6un-qq-Wy9" secondAttribute="leading" id="zUx-VC-beZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -151,17 +157,133 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyk-Ze-ISD">
+                                <rect key="frame" x="16" y="36" width="30" height="22.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="CTM-5F-TaS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="13"/>
+                                <color key="textColor" red="0.48627450980392156" green="0.63137254901960782" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="امروز" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2Y-f5-6Im">
+                                <rect key="frame" x="99.5" y="33" width="175" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YBf-Oq-pUR"/>
+                                    <constraint firstAttribute="width" constant="175" id="wMz-BY-QPn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="20"/>
+                                <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nln-5g-07W">
+                                <rect key="frame" x="10" y="69" width="355" height="22"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ج" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEW-TV-HMx">
+                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="8n9-vC-Kbt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="9"/>
+                                        <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="پ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-Rq-HdV">
+                                        <rect key="frame" x="50.5" y="0.0" width="51" height="22"/>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="9"/>
+                                        <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="چ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npr-MQ-FQ0">
+                                        <rect key="frame" x="101.5" y="0.0" width="50.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="9"/>
+                                        <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="س" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qa-jJ-ocn">
+                                        <rect key="frame" x="152" y="0.0" width="51" height="22"/>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="9"/>
+                                        <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="د" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqy-vm-Hm6">
+                                        <rect key="frame" x="203" y="0.0" width="50.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="9"/>
+                                        <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ی" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zea-zR-nXa">
+                                        <rect key="frame" x="253.5" y="0.0" width="51" height="22"/>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="9"/>
+                                        <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ش" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt4-F9-dEe">
+                                        <rect key="frame" x="304.5" y="0.0" width="50.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="9"/>
+                                        <color key="textColor" red="0.46274509803921571" green="0.52156862745098043" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PqY-Rq-HdV" firstAttribute="width" secondItem="nEW-TV-HMx" secondAttribute="width" id="56V-ef-UvE"/>
+                                    <constraint firstItem="Npr-MQ-FQ0" firstAttribute="height" secondItem="nEW-TV-HMx" secondAttribute="height" id="66k-h9-Eeg"/>
+                                    <constraint firstItem="Zea-zR-nXa" firstAttribute="width" secondItem="nEW-TV-HMx" secondAttribute="width" id="C95-za-0mk"/>
+                                    <constraint firstItem="Zea-zR-nXa" firstAttribute="height" secondItem="nEW-TV-HMx" secondAttribute="height" id="Fce-Oo-wpw"/>
+                                    <constraint firstItem="9Qa-jJ-ocn" firstAttribute="height" secondItem="nEW-TV-HMx" secondAttribute="height" id="GUQ-xc-sdd"/>
+                                    <constraint firstItem="Wt4-F9-dEe" firstAttribute="height" secondItem="nEW-TV-HMx" secondAttribute="height" id="Mic-tz-g46"/>
+                                    <constraint firstItem="9Qa-jJ-ocn" firstAttribute="width" secondItem="nEW-TV-HMx" secondAttribute="width" id="OIL-rx-BaJ"/>
+                                    <constraint firstItem="lqy-vm-Hm6" firstAttribute="height" secondItem="nEW-TV-HMx" secondAttribute="height" id="Prv-GJ-ZtX"/>
+                                    <constraint firstItem="Npr-MQ-FQ0" firstAttribute="width" secondItem="nEW-TV-HMx" secondAttribute="width" id="RA5-Xw-NFL"/>
+                                    <constraint firstItem="Wt4-F9-dEe" firstAttribute="width" secondItem="nEW-TV-HMx" secondAttribute="width" id="dk6-xK-bmw"/>
+                                    <constraint firstItem="lqy-vm-Hm6" firstAttribute="width" secondItem="nEW-TV-HMx" secondAttribute="width" id="tYq-hd-Kav"/>
+                                    <constraint firstItem="PqY-Rq-HdV" firstAttribute="height" secondItem="nEW-TV-HMx" secondAttribute="height" id="yby-Nq-ppa"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXL-ZN-s2j">
+                                <rect key="frame" x="16" y="27" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="4bP-2x-8ou"/>
+                                    <constraint firstAttribute="height" constant="30" id="F0H-de-xUE"/>
+                                </constraints>
+                                <state key="normal" image="calendar_green"/>
+                                <connections>
+                                    <action selector="goToToday:" destination="aDM-ua-en0" eventType="touchUpInside" id="4Ya-2t-z7K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fO9-Tb-Yh2">
+                                <rect key="frame" x="331" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="4vB-u8-9on"/>
+                                    <constraint firstAttribute="height" constant="30" id="JQt-3Z-ewI"/>
+                                </constraints>
+                                <state key="normal" image="question"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Fyk-Ze-ISD" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leadingMargin" id="9Jb-Mp-lVt"/>
+                            <constraint firstItem="qvj-Ic-lRS" firstAttribute="top" secondItem="Nln-5g-07W" secondAttribute="bottom" id="A1I-Na-wpu"/>
+                            <constraint firstAttribute="trailing" secondItem="Nln-5g-07W" secondAttribute="trailing" constant="10" id="BFN-VS-26H"/>
+                            <constraint firstItem="FXL-ZN-s2j" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="7" id="D5x-Rv-nbU"/>
                             <constraint firstAttribute="trailing" secondItem="qvj-Ic-lRS" secondAttribute="trailing" id="RXe-DB-llH"/>
+                            <constraint firstItem="Fyk-Ze-ISD" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="16" id="SBe-lO-EMJ"/>
+                            <constraint firstItem="H2Y-f5-6Im" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="13" id="WsO-TK-AaE"/>
+                            <constraint firstItem="FXL-ZN-s2j" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leadingMargin" id="azd-pm-Ic2"/>
+                            <constraint firstAttribute="trailing" secondItem="fO9-Tb-Yh2" secondAttribute="trailing" constant="14" id="e1w-rV-zJk"/>
+                            <constraint firstItem="Nln-5g-07W" firstAttribute="top" secondItem="FXL-ZN-s2j" secondAttribute="bottom" constant="12" id="ea3-pV-dWI"/>
+                            <constraint firstItem="H2Y-f5-6Im" firstAttribute="centerX" secondItem="Glv-Cv-Czm" secondAttribute="centerX" id="fYt-ft-1N9"/>
                             <constraint firstItem="qvj-Ic-lRS" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leading" id="gEJ-vM-1JV"/>
+                            <constraint firstItem="fO9-Tb-Yh2" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="8" id="gIN-4o-3GL"/>
                             <constraint firstItem="GFm-tM-nbp" firstAttribute="top" secondItem="qvj-Ic-lRS" secondAttribute="bottom" id="oXO-Ve-PiA"/>
-                            <constraint firstItem="qvj-Ic-lRS" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" id="wzU-sb-lM7"/>
+                            <constraint firstItem="Nln-5g-07W" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leading" constant="10" id="rl1-VV-WQL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="monthsTableView" destination="qvj-Ic-lRS" id="g1u-vB-XSX"/>
+                        <outlet property="stackView" destination="Nln-5g-07W" id="hHf-zj-MPR"/>
+                        <outlet property="titleLabel" destination="H2Y-f5-6Im" id="l8u-ld-p4i"/>
+                        <outlet property="todayLabel" destination="Fyk-Ze-ISD" id="fSC-HY-9FM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcA-Sq-Shl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,9 +357,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar_green" width="40" height="40"/>
         <image name="cancel" width="512" height="512"/>
         <image name="instruction" width="29" height="29"/>
         <image name="ok" width="80" height="80"/>
+        <image name="question" width="40" height="40"/>
         <image name="red_gradient" width="1242" height="2208"/>
         <image name="shoping" width="141" height="141"/>
     </resources>
