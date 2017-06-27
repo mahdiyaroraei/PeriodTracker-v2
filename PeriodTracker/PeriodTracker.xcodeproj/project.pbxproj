@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553039D31F025EA600C8EF07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553039D21F025EA600C8EF07 /* Colors.swift */; };
 		55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55445B081EFA9AFB0073DC75 /* LogoView.swift */; };
 		556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA07A1EFBDE8B008C5EA1 /* Setup.swift */; };
 		556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA07C1EFBDEF5008C5EA1 /* Log.swift */; };
@@ -14,6 +15,7 @@
 		556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0801EFBE445008C5EA1 /* LogMood.swift */; };
 		556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0821EFBE522008C5EA1 /* Setting.swift */; };
 		556CA0851EFBE587008C5EA1 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0841EFBE587008C5EA1 /* Information.swift */; };
+		556CF44B1F0135A100E3456B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CF44A1F0135A100E3456B /* Utility.swift */; };
 		557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F959E1EFE628A00D1D68A /* Reachability.swift */; };
 		557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */; };
 		557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */; };
@@ -36,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
+		553039D21F025EA600C8EF07 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Utilities/Colors.swift; sourceTree = "<group>"; };
 		55445B081EFA9AFB0073DC75 /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogoView.swift; path = Components/LogoView.swift; sourceTree = "<group>"; };
 		556CA07A1EFBDE8B008C5EA1 /* Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setup.swift; path = Database/Setup.swift; sourceTree = "<group>"; };
 		556CA07C1EFBDEF5008C5EA1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Database/Log.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		556CA0801EFBE445008C5EA1 /* LogMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogMood.swift; path = Database/LogMood.swift; sourceTree = "<group>"; };
 		556CA0821EFBE522008C5EA1 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = Database/Setting.swift; sourceTree = "<group>"; };
 		556CA0841EFBE587008C5EA1 /* Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Information.swift; path = Database/Information.swift; sourceTree = "<group>"; };
+		556CF44A1F0135A100E3456B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = Utilities/Utility.swift; sourceTree = "<group>"; };
 		557F959E1EFE628A00D1D68A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Utilities/Reachability.swift; sourceTree = "<group>"; };
 		557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = Controllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthTableViewCell.swift; path = Cell/MonthTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				557F959E1EFE628A00D1D68A /* Reachability.swift */,
+				556CF44A1F0135A100E3456B /* Utility.swift */,
+				553039D21F025EA600C8EF07 /* Colors.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				556CA0851EFBE587008C5EA1 /* Information.swift in Sources */,
+				553039D31F025EA600C8EF07 /* Colors.swift in Sources */,
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
@@ -346,6 +353,7 @@
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
 				557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */,
 				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
+				556CF44B1F0135A100E3456B /* Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
