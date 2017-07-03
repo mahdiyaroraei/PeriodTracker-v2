@@ -34,14 +34,6 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
         monthsTableView.delegate = self
         monthsTableView.dataSource = self
         
-        // set delay for change table view cell height
-        let when = DispatchTime.now() + 0.3
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            
-            // Select middle cell for start showing today
-            self.monthsTableView.selectRow(at: IndexPath(row: 25, section: 0), animated: false, scrollPosition: .middle)
-        }
-        
         // Hide scrollbar
         monthsTableView.showsHorizontalScrollIndicator = false
         monthsTableView.showsVerticalScrollIndicator = false
@@ -59,6 +51,12 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
         bottomLineLayer.backgroundColor = Colors.normalCellColor.cgColor
         bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
         stackView.layer.addSublayer(bottomLineLayer)
+    }
+    
+    // Scroll to current after layout subviews completed
+    override func viewDidLayoutSubviews() {
+        // Select middle cell for start showing today
+        self.monthsTableView.selectRow(at: IndexPath(row: 25, section: 0), animated: false, scrollPosition: .middle)
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */; };
+		5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */; };
 		553039D31F025EA600C8EF07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553039D21F025EA600C8EF07 /* Colors.swift */; };
 		55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55445B081EFA9AFB0073DC75 /* LogoView.swift */; };
 		556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA07A1EFBDE8B008C5EA1 /* Setup.swift */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
+		5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayLogViewController.swift; path = Controllers/DayLogViewController.swift; sourceTree = "<group>"; };
+		5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekCollectionViewCell.swift; path = Cell/WeekCollectionViewCell.swift; sourceTree = "<group>"; };
 		553039D21F025EA600C8EF07 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Utilities/Colors.swift; sourceTree = "<group>"; };
 		55445B081EFA9AFB0073DC75 /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogoView.swift; path = Components/LogoView.swift; sourceTree = "<group>"; };
 		556CA07A1EFBDE8B008C5EA1 /* Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setup.swift; path = Database/Setup.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			children = (
 				557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */,
 				557F95A51EFEA9BF00D1D68A /* DayCollectionViewCell.swift */,
+				5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 			children = (
 				730DB3051EFBE07B001495EF /* BuyViewController.swift */,
 				557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */,
+				5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 				556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */,
 				556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */,
 				730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */,
+				5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */,
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
 				556CA07F1EFBE2A3008C5EA1 /* Mood.swift in Sources */,
 				55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */,
@@ -353,6 +360,7 @@
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
 				557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */,
 				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
+				5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */,
 				556CF44B1F0135A100E3456B /* Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
