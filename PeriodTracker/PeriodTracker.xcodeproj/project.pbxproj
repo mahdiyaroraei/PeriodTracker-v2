@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551145561F0AC92700C2C08B /* mood.json in Resources */ = {isa = PBXBuildFile; fileRef = 551145551F0AC92700C2C08B /* mood.json */; };
 		5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */; };
 		5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */; };
 		553039D31F025EA600C8EF07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553039D21F025EA600C8EF07 /* Colors.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
+		551145551F0AC92700C2C08B /* mood.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mood.json; sourceTree = "<group>"; };
 		5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayLogViewController.swift; path = Controllers/DayLogViewController.swift; sourceTree = "<group>"; };
 		5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekCollectionViewCell.swift; path = Cell/WeekCollectionViewCell.swift; sourceTree = "<group>"; };
 		553039D21F025EA600C8EF07 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Utilities/Colors.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		730DB2F71EFBB29C001495EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				551145551F0AC92700C2C08B /* mood.json */,
 				730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */,
 				730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */,
 				730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */,
@@ -278,6 +281,7 @@
 			files = (
 				730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */,
 				55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */,
+				551145561F0AC92700C2C08B /* mood.json in Resources */,
 				55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */,
 				55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */,
 				730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */,

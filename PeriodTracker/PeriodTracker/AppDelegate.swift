@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +19,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if UserDefaults.standard.bool(forKey: "import_mood") {
+            importMoodTable()
+        }
         return true
+    }
+    
+    private func importMoodTable() {
+        do {
+            let realm = try! Realm()
+            if let file = Bundle.main.url(forResource: "mood", withExtension: "json") {
+                let data = try Data(contentsOf: file)
+                let json = JSON(data: data)
+                for (index,subJson):(String, JSON) in json {
+                    let mood: Mood = Mood()
+                    mood.name = subJson["name"].string!
+                    mood.fa_name = subJson["fa_name"].string!
+                    mood.color = subJson["color"].string!
+                    mood.multiselect = subJson["multiselect"].int!
+                    mood.value_type = subJson["value_type"].string!
+                    mood.enable = subJson["enable"].int!
+                    
+                    try! realm.write {
+                        realm.add(mood)
+                    }
+                }
+                
+                UserDefaults.standard.set(true, forKey: "import_mood")
+            } else {
+                print("no file")
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

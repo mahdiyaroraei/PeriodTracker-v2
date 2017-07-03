@@ -1,0 +1,250 @@
+ [
+  {
+  "name": "ailment",
+  "color": "202794",
+  "multiselect": "1",
+  "fa_name": "بیماری",
+  "value_type": "4",
+  "enable": "1"
+  },
+  {
+  "name": "appointment",
+  "color": "20b2aa",
+  "multiselect": "1",
+  "fa_name": "قرار",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "bleeding",
+  "color": "D82525",
+  "multiselect": "0",
+  "fa_name": "خونریزی",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "collection_method",
+  "color": "D82525",
+  "multiselect": "1",
+  "fa_name": "جمع کننده",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "craving",
+  "color": "008899",
+  "multiselect": "1",
+  "fa_name": "میل غذا",
+  "value_type": "4",
+  "enable": "1"
+  },
+  {
+  "name": "digestion",
+  "color": "008899",
+  "multiselect": "1",
+  "fa_name": "هضم",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "emotions",
+  "color": "ee6b48",
+  "multiselect": "1",
+  "fa_name": "احساسات",
+  "value_type": "4",
+  "enable": "1"
+  },
+  {
+  "name": "energy",
+  "color": "ee6b48",
+  "multiselect": "1",
+  "fa_name": "انرژی",
+  "value_type": "4",
+  "enable": "1"
+  },
+  {
+  "name": "exercise",
+  "color": "20b2aa",
+  "multiselect": "1",
+  "fa_name": "ورزش",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "fluid",
+  "color": "008899",
+  "multiselect": "1",
+  "fa_name": "مایعات",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "hair",
+  "color": "008899",
+  "multiselect": "1",
+  "fa_name": "مو",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "injection",
+  "color": "202794",
+  "multiselect": "0",
+  "fa_name": "نفوذ",
+  "value_type": "1",
+  "enable": "0"
+  },
+  {
+  "name": "iud",
+  "color": "202794",
+  "multiselect": "1",
+  "fa_name": "IUD",
+  "value_type": "3",
+  "enable": "0"
+  },
+  {
+  "name": "medication",
+  "color": "202794",
+  "multiselect": "1",
+  "fa_name": "دارو",
+  "value_type": "4",
+  "enable": "1"
+  },
+  {
+  "name": "meditation",
+  "color": "20b2aa",
+  "multiselect": "",
+  "fa_name": "مراقبه",
+  "value_type": "float",
+  "enable": "0"
+  },
+  {
+  "name": "mental",
+  "color": "ee6b48",
+  "multiselect": "1",
+  "fa_name": "ذهنی",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "motivation",
+  "color": "ee6b48",
+  "multiselect": "1",
+  "fa_name": "انگیزه",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "note",
+  "color": "f8f9bd",
+  "multiselect": "",
+  "fa_name": "متن",
+  "value_type": "array",
+  "enable": "0"
+  },
+  {
+  "name": "pain",
+  "color": "008899",
+  "multiselect": "1",
+  "fa_name": "درد",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "party",
+  "color": "20b2aa",
+  "multiselect": "1",
+  "fa_name": "مهمانی",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "patch",
+  "color": "202794",
+  "multiselect": "0",
+  "fa_name": "وصله",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "pill",
+  "color": "202794",
+  "multiselect": "0",
+  "fa_name": "قرص",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "ring",
+  "color": "202794",
+  "multiselect": "0",
+  "fa_name": "حلقه",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "sex",
+  "color": "20b2aa",
+  "multiselect": "1",
+  "fa_name": "رابطه جنسی",
+  "value_type": "4",
+  "enable": "1"
+  },
+  {
+  "name": "skin",
+  "color": "008899",
+  "multiselect": "1",
+  "fa_name": "پوست",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "sleep",
+  "color": "ee6b48",
+  "multiselect": "0",
+  "fa_name": "خواب",
+  "value_type": "4",
+  "enable": "1"
+  },
+  {
+  "name": "social",
+  "color": "ee6b48",
+  "multiselect": "1",
+  "fa_name": "اجتماع",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "stool",
+  "color": "008899",
+  "multiselect": "1",
+  "fa_name": "مدفوع",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "temperature",
+  "color": "008899",
+  "multiselect": "",
+  "fa_name": "دما",
+  "value_type": "float",
+  "enable": "0"
+  },
+  {
+  "name": "tests",
+  "color": "202794",
+  "multiselect": "1",
+  "fa_name": "تست",
+  "value_type": "4",
+  "enable": "0"
+  },
+  {
+  "name": "weight",
+  "color": "008899",
+  "multiselect": "",
+  "fa_name": "وزن",
+  "value_type": "float",
+  "enable": "0"
+  }
+  ]
