@@ -497,6 +497,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="stackView" destination="s93-sD-3H9" id="uoG-K7-1QN"/>
                         <outlet property="titleLabel" destination="MvW-6u-74k" id="Bgu-Gj-R9n"/>
                         <outlet property="todayLabel" destination="B7i-Ei-wd9" id="1Ug-Lz-VWh"/>
                         <outlet property="weekCollectionView" destination="DLB-2k-kFw" id="PJK-EJ-T7s"/>

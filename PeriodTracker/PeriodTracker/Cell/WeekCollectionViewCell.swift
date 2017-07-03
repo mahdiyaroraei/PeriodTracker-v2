@@ -15,10 +15,17 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
     var weekDate: Date!
     var calendar = Calendar(identifier: .persian)
     
+    // Selected cell layer
+    var strokeLayer: CAShapeLayer?
     var todayStrokeLayer: CAShapeLayer?
     
+    weak var delegate: SelectCellDelegate?
+    
     func refresh() {
+        
+        strokeLayer?.removeFromSuperlayer()
         todayStrokeLayer?.removeFromSuperlayer()
+        
         calendar.firstWeekday = 7
         self.daysCollectionView.delegate = self
         self.daysCollectionView.dataSource = self
@@ -27,6 +34,8 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.daysCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DayCollectionViewCell
+        
+        cell.deSelect()
         
         let startOfWeekDate = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear , .weekOfYear], from: weekDate))
         
@@ -53,9 +62,59 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
                 self.daysCollectionView.layer.addSublayer(todayStrokeLayer!)
             }
         }
-
+        
+        if cell.dayDate != nil && cell.dayDate == CalendarViewController.selectedDate {
+            selectCell(cell: cell)
+        }
         
         return cell
+    }
+    
+    // Handle click on item
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = daysCollectionView.cellForItem(at: indexPath) as! DayCollectionViewCell
+        
+        // Check don't select future
+        if cell.dayDate == nil || cell.dayDate > Date() || cell.dayDate == CalendarViewController.selectedDate{
+            if cell.dayDate != nil && cell.dayDate > Date() {
+                self.delegate?.cannotSelectFuture()
+            }
+            return
+        }
+        
+        // Clear selected cell and redraw for new selection
+        if strokeLayer != nil {
+            strokeLayer?.removeFromSuperlayer()
+            CalendarViewController.selectedDate = nil
+        }
+        
+        selectCell(cell: cell)
+        // Change title after selecting cell
+        delegate?.changeTitle(title: Utility.timeAgoSince(cell.dayDate))
+        
+        self.delegate?.updateTableView()
+    }
+    
+    func selectCell(cell: DayCollectionViewCell) {
+        CalendarViewController.selectedDate = cell.dayDate
+        
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: cell.frame.origin.x + cell.frame.size.width / 2, y: cell.frame.origin.y + cell.frame.size.height / 2), radius: cell.frame.size.width / 2 + 3, startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        
+        strokeLayer = CAShapeLayer()
+        strokeLayer?.path = circlePath.cgPath
+        
+        //change the fill color
+        strokeLayer?.fillColor = UIColor.clear.cgColor
+        //you can change the stroke color
+        strokeLayer?.strokeColor = Colors.accentColor.cgColor
+        //you can change the line width
+        strokeLayer?.lineWidth = 7.0
+        
+        // add to collection layer for draw on top of cell
+        self.daysCollectionView.layer.addSublayer(strokeLayer!)
+        
+        cell.select()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

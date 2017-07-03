@@ -21,6 +21,9 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     let nowDate = Calendar.current.startOfDay(for: Date())
     
     static var selectedDate: Date?
+    
+    // After select item viewDidLayoutSubviews called again for avoid scroll use this
+    var scrolledFirst = false
 
     @IBAction func goToToday(_ sender: Any) {
         monthsTableView.scrollToRow(at: IndexPath(row: 25, section: 0), at: .middle, animated: true)
@@ -55,8 +58,10 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     
     // Scroll to current after layout subviews completed
     override func viewDidLayoutSubviews() {
-        // Select middle cell for start showing today
-        self.monthsTableView.selectRow(at: IndexPath(row: 25, section: 0), animated: false, scrollPosition: .middle)
+        if !scrolledFirst {
+            // Select middle cell for start showing today
+            self.monthsTableView.selectRow(at: IndexPath(row: 25, section: 0), animated: false, scrollPosition: .middle)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,6 +91,7 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     }
     
     func updateTableView() {
+        self.scrolledFirst = true
         self.monthsTableView.reloadData()
     }
     
@@ -108,24 +114,4 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
         print("tap!")
     }
 
-}
-extension UIViewController{
-    func showToast(message : String) {
-        
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 110, y: self.view.frame.size.height-100, width: 220, height: 35))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = .center;
-        toastLabel.font = UIFont(name: "IRANSans(FaNum)", size: 12.0)
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10;
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 1, delay: 0.8, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            toastLabel.removeFromSuperview()
-        })
-    }
 }
