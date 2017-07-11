@@ -27,6 +27,7 @@
 		730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */; };
 		730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */; };
 		730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DB3051EFBE07B001495EF /* BuyViewController.swift */; };
+		73B52F5C1F139B940017F01F /* pageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B52F5B1F139B940017F01F /* pageViewController.swift */; };
 		A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_UltraLight.ttf"; sourceTree = "<group>"; };
 		730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum).ttf"; sourceTree = "<group>"; };
 		730DB3051EFBE07B001495EF /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuyViewController.swift; path = Controllers/BuyViewController.swift; sourceTree = "<group>"; };
+		73B52F5B1F139B940017F01F /* pageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pageViewController.swift; sourceTree = "<group>"; };
 		88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				730DB3041EFBE004001495EF /* Controllers */,
 				55B9BD351EF94ADE00F75794 /* AppDelegate.swift */,
 				55B9BD371EF94ADE00F75794 /* ViewController.swift */,
+				73B52F5B1F139B940017F01F /* pageViewController.swift */,
 				55B9BD391EF94ADE00F75794 /* Main.storyboard */,
 				55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */,
 				55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */,
@@ -304,6 +307,7 @@
 			files = (
 				556CA0851EFBE587008C5EA1 /* Information.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
+				73B52F5C1F139B940017F01F /* pageViewController.swift in Sources */,
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
 				556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */,
 				556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */,
@@ -439,6 +443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JBW63E2G5G;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ir.periodtracker.PeriodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,6 +458,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JBW63E2G5G;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ir.periodtracker.PeriodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
