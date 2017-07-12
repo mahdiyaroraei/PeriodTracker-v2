@@ -33,6 +33,8 @@
 		7302A6DA1F15E28300F06D99 /* PeriodDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6D91F15E28300F06D99 /* PeriodDateVC.swift */; };
 		7302A6DD1F15E31000F06D99 /* CycleLengthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6DC1F15E31000F06D99 /* CycleLengthVC.swift */; };
 		7302A6E01F15E33D00F06D99 /* PeriodLengthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6DF1F15E33D00F06D99 /* PeriodLengthVC.swift */; };
+		7302A6E21F16339400F06D99 /* MeanPeriodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6E11F16339300F06D99 /* MeanPeriodVC.swift */; };
+		7302A6E41F1633C200F06D99 /* MeanCycleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6E31F1633C200F06D99 /* MeanCycleVC.swift */; };
 		730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */; };
 		730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */; };
 		730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */; };
@@ -72,6 +74,8 @@
 		7302A6D91F15E28300F06D99 /* PeriodDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodDateVC.swift; path = Controllers/PageViewControllers/PeriodDateVC.swift; sourceTree = "<group>"; };
 		7302A6DC1F15E31000F06D99 /* CycleLengthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleLengthVC.swift; path = Controllers/PageViewControllers/CycleLengthVC.swift; sourceTree = "<group>"; };
 		7302A6DF1F15E33D00F06D99 /* PeriodLengthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthVC.swift; path = Controllers/PageViewControllers/PeriodLengthVC.swift; sourceTree = "<group>"; };
+		7302A6E11F16339300F06D99 /* MeanPeriodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeanPeriodVC.swift; path = Controllers/PageViewControllers/MeanPeriodVC.swift; sourceTree = "<group>"; };
+		7302A6E31F1633C200F06D99 /* MeanCycleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeanCycleVC.swift; path = Controllers/PageViewControllers/MeanCycleVC.swift; sourceTree = "<group>"; };
 		730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Bold.ttf"; sourceTree = "<group>"; };
 		730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Light.ttf"; sourceTree = "<group>"; };
 		730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Medium.ttf"; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 			children = (
 				7302A6D91F15E28300F06D99 /* PeriodDateVC.swift */,
 				7302A6DC1F15E31000F06D99 /* CycleLengthVC.swift */,
+				7302A6E11F16339300F06D99 /* MeanPeriodVC.swift */,
+				7302A6E31F1633C200F06D99 /* MeanCycleVC.swift */,
 				7302A6DF1F15E33D00F06D99 /* PeriodLengthVC.swift */,
 			);
 			name = PageViewControllers;
@@ -366,11 +372,13 @@
 				553039D31F025EA600C8EF07 /* Colors.swift in Sources */,
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
+				7302A6E41F1633C200F06D99 /* MeanCycleVC.swift in Sources */,
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
 				556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */,
 				556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */,
 				7302A6DA1F15E28300F06D99 /* PeriodDateVC.swift in Sources */,
 				7302A6DD1F15E31000F06D99 /* CycleLengthVC.swift in Sources */,
+				7302A6E21F16339400F06D99 /* MeanPeriodVC.swift in Sources */,
 				556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */,
 				730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */,
 				5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */,
