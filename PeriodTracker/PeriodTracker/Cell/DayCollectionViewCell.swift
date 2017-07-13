@@ -32,6 +32,9 @@ class DayCollectionViewCell: UICollectionViewCell {
     }
     
     func select() {
+        
+        print(self.frame.origin.x)
+        
         dayLabel.textColor = UIColor.white
         
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.width / 2), radius: self.frame.size.width / 2, startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)

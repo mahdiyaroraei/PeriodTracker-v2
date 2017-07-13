@@ -36,6 +36,8 @@ class ViewController: UIViewController , CAAnimationDelegate {
                 }else{
                     if (user?.license_id)! > 0{
                         //Open app
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "calendarViewController") as! CalendarViewController
+                        self.present(vc, animated: true, completion: nil)
                     }else{
                         //Purchase page
                         print("Purchase page")
@@ -45,6 +47,16 @@ class ViewController: UIViewController , CAAnimationDelegate {
                 //Purchase page
                 print("Purchase page")
             }
+            
+            
+            
+            //Open app
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "calendarViewController") as! CalendarViewController
+            self.present(vc, animated: true, completion: nil)
+            
+            
+            
+            
         }
     }
     

@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DayLogViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout ,
-SelectCellDelegate{
+SelectCellDelegate , SelectMoodDelegate{
 
+    @IBOutlet weak var moodValuesCollectionView: UICollectionView!
+    @IBOutlet weak var moodCollectionView: UICollectionView!
     @IBOutlet weak var weekCollectionView: UICollectionView!
     
     @IBOutlet weak var stackView: UIStackView!
@@ -19,6 +22,7 @@ SelectCellDelegate{
     
     let calendar = Calendar(identifier: .persian)
     
+    public static var selectedName: String!
     
     // start of day and month
     let nowDate = Calendar.current.startOfDay(for: Date())
@@ -26,19 +30,35 @@ SelectCellDelegate{
     // After select item viewDidLayoutSubviews called again for avoid scroll use this
     var scrolledFirst = false
     
+    // Enable moods store to this object
+    var moods: Results<Mood>!
+    
+    // Value type of selected mood get from database store here
+    var valueTypes: [String] = []
+    var selectedMood: Mood!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getEnabledMoodFromDatabase()
         
         todayLabel.text = "\(String(describing: Calendar(identifier: .persian).dateComponents([.day], from: nowDate).day!))"
 
         self.weekCollectionView.dataSource = self
         self.weekCollectionView.delegate = self
+        self.moodCollectionView.dataSource = self
+        self.moodCollectionView.delegate = self
+        self.moodValuesCollectionView.dataSource = self
+        self.moodValuesCollectionView.delegate = self
+        
+        self.moodValuesCollectionView.isScrollEnabled = false
         
         self.weekCollectionView.showsHorizontalScrollIndicator = false
+        self.moodCollectionView.showsHorizontalScrollIndicator = false
         
         // For scrolling like a page and not stay at middle of item
         self.weekCollectionView.isPagingEnabled = true
-        
+        self.moodCollectionView.isPagingEnabled = true
         
         // Add top and bottom border for stackView
         let topLineLayer = CALayer()
@@ -50,6 +70,32 @@ SelectCellDelegate{
         bottomLineLayer.backgroundColor = Colors.normalCellColor.cgColor
         bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
         stackView.layer.addSublayer(bottomLineLayer)
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        self.weekCollectionView.reloadData()
+    }
+    
+    func updateCollectinView(cell: MoodCollectionViewCell , moodCell: MoodsCollectionViewCell) {
+        moodCollectionView.reloadItems(at: [moodCollectionView.indexPath(for: moodCell)!])
+        
+        let realm = try! Realm()
+        let mood = realm.objects(Mood.self).filter("name == '\(cell.name!)'").first
+        
+        if mood!.value_type.contains(",") {
+            selectedMood = mood!
+            valueTypes = mood!.value_type.components(separatedBy: ",")
+            moodValuesCollectionView.reloadData()
+        }
+    }
+    
+    func getEnabledMoodFromDatabase() {
+        let realm = try! Realm()
+        moods = realm.objects(Mood.self).filter("enable == 1")
+        for mood: Mood in moods{
+            print(mood.name)
+        }
     }
     
     // Scroll to current after layout subviews completed
@@ -70,27 +116,71 @@ SelectCellDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        // 51 week show and middle of items is currently week
-        return 51
+        if collectionView == weekCollectionView {
+            
+            // 51 week show and middle of items is currently week
+            return 51
+        }else if collectionView == moodCollectionView {
+            if moods.count % 3 == 0 {
+                return moods.count / 3
+            }else{
+                return moods.count / 3 + 1
+            }
+        }else {
+            return valueTypes.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = self.weekCollectionView.dequeueReusableCell(withReuseIdentifier: "week_cell", for: indexPath) as! WeekCollectionViewCell
-        
-        cell.delegate = self
-        cell.weekDate = calendar.date(byAdding: .weekOfYear, value: indexPath.row - 25 , to: nowDate)
-        cell.refresh()
-        
-        return cell
+        if collectionView == weekCollectionView {
+            
+            let cell = self.weekCollectionView.dequeueReusableCell(withReuseIdentifier: "week_cell", for: indexPath) as! WeekCollectionViewCell
+            
+            cell.delegate = self
+            cell.weekDate = calendar.date(byAdding: .weekOfYear, value: indexPath.row - 25 , to: nowDate)
+            cell.refresh()
+            
+            return cell
+        }else if collectionView == moodCollectionView{
+            let cell = self.moodCollectionView.dequeueReusableCell(withReuseIdentifier: "moods_cell", for: indexPath) as! MoodsCollectionViewCell
+            
+            cell.delegate = self
+            cell.moods.removeAll()
+    
+            for i in 0...2{
+                // For avoid from index out of bounds
+                if (indexPath.row * 3) + i >= moods.count {
+                    break
+                }
+                cell.moods.append(moods[(indexPath.row * 3) + i])
+            }
+            
+            cell.refresh()
+            
+            return cell
+        }else {
+            let cell = moodValuesCollectionView.dequeueReusableCell(withReuseIdentifier: "value_cell", for: indexPath) as! MoodValueCollectionViewCell
+            
+            cell.color = Utility.uicolorFromHex(rgbValue: UInt32(selectedMood.color, radix: 16)!)
+            cell.value = valueTypes[indexPath.row]
+            cell.refresh()
+            
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: self.view.frame.width, height: 60)
+        if collectionView == weekCollectionView {
+            
+            return CGSize(width: self.view.frame.width, height: 60)
+        }else if collectionView == moodCollectionView{
+            
+            return CGSize(width: self.view.frame.width, height: 110)
+        } else{
+            return CGSize(width: moodValuesCollectionView.frame.width / 2 - 10, height: moodValuesCollectionView.frame.width / 2 - 10)
+        }
     }
     
     func updateTableView() {
@@ -104,6 +194,10 @@ SelectCellDelegate{
     
     func changeTitle(title: String) {
         titleLabel.text = title
+    }
+    
+    func presentVC(id: String) {
+        
     }
 
 }

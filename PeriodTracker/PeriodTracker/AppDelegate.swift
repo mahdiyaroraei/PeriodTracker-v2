@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if UserDefaults.standard.bool(forKey: "import_mood") {
+        if !UserDefaults.standard.bool(forKey: "imported_mood") {
             importMoodTable()
         }
         return true
@@ -34,18 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for (index,subJson):(String, JSON) in json {
                     let mood: Mood = Mood()
                     mood.name = subJson["name"].string!
-                    mood.fa_name = subJson["fa_name"].string!
                     mood.color = subJson["color"].string!
-                    mood.multiselect = subJson["multiselect"].int!
+                    mood.multiselect = Int(subJson["multiselect"].string!)!
                     mood.value_type = subJson["value_type"].string!
-                    mood.enable = subJson["enable"].int!
+                    mood.enable = Int(subJson["enable"].string!)!
                     
                     try! realm.write {
                         realm.add(mood)
                     }
                 }
                 
-                UserDefaults.standard.set(true, forKey: "import_mood")
+                UserDefaults.standard.set(true, forKey: "imported_mood")
             } else {
                 print("no file")
             }

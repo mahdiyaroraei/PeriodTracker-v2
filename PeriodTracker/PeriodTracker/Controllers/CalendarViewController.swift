@@ -90,6 +90,11 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
         return cell
     }
     
+    func presentVC(id: String) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: id)
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
     func updateTableView() {
         self.scrolledFirst = true
         self.monthsTableView.reloadData()

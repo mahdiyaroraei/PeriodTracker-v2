@@ -15,6 +15,7 @@ protocol SelectCellDelegate: class {
     func updateTableView()
     func cannotSelectFuture()
     func changeTitle(title: String)
+    func presentVC(id: String)
 }
 
 class MonthTableViewCell: UITableViewCell , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -163,6 +164,10 @@ class MonthTableViewCell: UITableViewCell , UICollectionViewDelegate , UICollect
         if cell.dayDate == nil || cell.dayDate > Date() || cell.dayDate == CalendarViewController.selectedDate{
             if cell.dayDate != nil && cell.dayDate > Date() {
                 self.delegate?.cannotSelectFuture()
+            }
+            // If tap on selected day goto dayViewController
+            if cell.dayDate == CalendarViewController.selectedDate {
+                delegate?.presentVC(id: "dayLogViewController")
             }
             return
         }

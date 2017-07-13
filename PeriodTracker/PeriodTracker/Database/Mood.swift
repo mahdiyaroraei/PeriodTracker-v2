@@ -12,7 +12,6 @@ class Mood: Object {
     dynamic var name = ""
     dynamic var color = ""
     dynamic var multiselect = 0
-    dynamic var fa_name = ""
     dynamic var value_type = ""
     dynamic var enable = 0
     

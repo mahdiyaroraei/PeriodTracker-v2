@@ -30,6 +30,9 @@
 		55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */; };
 		55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */; };
 		55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC45901EFBDB1F00E34DD3 /* User.swift */; };
+		55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */; };
+		55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */; };
+		55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */; };
 		730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */; };
 		730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */; };
 		730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */; };
@@ -66,6 +69,9 @@
 		55B9BD411EF94ADE00F75794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodTrackerRouter.swift; path = API/PeriodTrackerRouter.swift; sourceTree = "<group>"; };
 		55CC45901EFBDB1F00E34DD3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Database/User.swift; sourceTree = "<group>"; };
+		55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodValueCollectionViewCell.swift; path = Cell/MoodValueCollectionViewCell.swift; sourceTree = "<group>"; };
+		55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodsCollectionViewCell.swift; path = Cell/MoodsCollectionViewCell.swift; sourceTree = "<group>"; };
+		55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodCollectionViewCell.swift; path = Cell/MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Bold.ttf"; sourceTree = "<group>"; };
 		730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Light.ttf"; sourceTree = "<group>"; };
 		730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Medium.ttf"; sourceTree = "<group>"; };
@@ -129,6 +135,9 @@
 				557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */,
 				557F95A51EFEA9BF00D1D68A /* DayCollectionViewCell.swift */,
 				5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */,
+				55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */,
+				55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */,
+				55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -349,14 +358,17 @@
 				556CA0851EFBE587008C5EA1 /* Information.swift in Sources */,
 				553039D31F025EA600C8EF07 /* Colors.swift in Sources */,
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
+				55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
+				55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */,
 				556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */,
 				556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */,
 				556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */,
 				730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */,
 				5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */,
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
+				55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */,
 				556CA07F1EFBE2A3008C5EA1 /* Mood.swift in Sources */,
 				55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */,
 				557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */,

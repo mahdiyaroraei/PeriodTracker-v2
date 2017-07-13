@@ -89,7 +89,7 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
             CalendarViewController.selectedDate = nil
         }
         
-        selectCell(cell: cell)
+        CalendarViewController.selectedDate = cell.dayDate
         // Change title after selecting cell
         delegate?.changeTitle(title: Utility.timeAgoSince(cell.dayDate))
         
@@ -97,9 +97,8 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
     }
     
     func selectCell(cell: DayCollectionViewCell) {
-        CalendarViewController.selectedDate = cell.dayDate
         
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: cell.frame.origin.x + cell.frame.size.width / 2, y: cell.frame.origin.y + cell.frame.size.height / 2), radius: cell.frame.size.width / 2 + 3, startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: cell.center , radius: cell.frame.size.width / 2 + 3, startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
         
         strokeLayer = CAShapeLayer()
         strokeLayer?.path = circlePath.cgPath
@@ -120,7 +119,7 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         // Minus 2 for minimum distance define in storyboard
-        let collectionCellSize = (daysCollectionView.frame.size.width - 20) / 7 - 4
+        let collectionCellSize = (self.frame.size.width - 20) / 7 - 4
         
         return CGSize(width: collectionCellSize, height: collectionCellSize)
         
