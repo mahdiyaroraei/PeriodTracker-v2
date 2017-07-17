@@ -10,14 +10,22 @@ import UIKit
 
 class MoodValueCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var moodImageView: UIImageView!
+    
     var color: UIColor!
     var value: String!
     
-    let shapeLayer = CAShapeLayer()
+    var isSelect = false
+    
+    var shapeLayer: CAShapeLayer! = nil
     
     func refresh() {
-        shapeLayer.removeFromSuperlayer()
         
+        // Icon
+        moodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
+        moodImageView.tintColor = color
+        
+        shapeLayer = CAShapeLayer()
         let squarePath = UIBezierPath(roundedRect: CGRect(x: 7, y:7, width: self.frame.width - 14, height: self.frame.height - 14), cornerRadius: 5).cgPath
         shapeLayer.path = squarePath
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -26,5 +34,35 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
         shapeLayer.strokeColor = color.cgColor
         
         self.layer.insertSublayer(shapeLayer, at: 0)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        deselect()
+        shapeLayer.removeFromSuperlayer()
+        
+        // Use fucking this statement for correct reload collectionview and dont use pervious layer :/
+        shapeLayer = nil
+    }
+    
+    func toggle() {
+        if isSelect {
+            deselect()
+        }else{
+            select()
+        }
+    }
+    
+    func select()  {
+        isSelect = true
+        shapeLayer.fillColor = color.cgColor
+        moodImageView.tintColor = UIColor.white
+    }
+    
+    func deselect()  {
+        isSelect = false
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        moodImageView.tintColor = color
     }
 }

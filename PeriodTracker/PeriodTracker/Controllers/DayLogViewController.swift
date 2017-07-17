@@ -52,6 +52,7 @@ SelectCellDelegate , SelectMoodDelegate{
         self.moodValuesCollectionView.delegate = self
         
         self.moodValuesCollectionView.isScrollEnabled = false
+        self.moodValuesCollectionView.allowsMultipleSelection = false
         
         self.weekCollectionView.showsHorizontalScrollIndicator = false
         self.moodCollectionView.showsHorizontalScrollIndicator = false
@@ -76,7 +77,8 @@ SelectCellDelegate , SelectMoodDelegate{
     override func viewWillLayoutSubviews() {
         self.weekCollectionView.reloadData()
     }
-    
+        
+    // Select mode and run this closure
     func updateCollectinView(cell: MoodCollectionViewCell , moodCell: MoodsCollectionViewCell) {
         moodCollectionView.reloadItems(at: [moodCollectionView.indexPath(for: moodCell)!])
         
@@ -166,6 +168,22 @@ SelectCellDelegate , SelectMoodDelegate{
             cell.refresh()
             
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == moodValuesCollectionView {
+            let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
+            
+            cell.toggle()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView == moodValuesCollectionView {
+            let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
+            
+            cell.deselect()
         }
     }
     
