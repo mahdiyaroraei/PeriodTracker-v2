@@ -43,8 +43,12 @@ class MoodsCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate ,
         
         let cell = moodCollectionView.cellForItem(at: indexPath) as! MoodCollectionViewCell
         
-        DayLogViewController.selectedName = cell.name
-        delegate.updateCollectinView(cell: cell , moodCell: self)
+        if cell.name == "manage_mood" {
+            delegate.presentViewController("moodSelectorViewController")
+        }else{
+            DayLogViewController.selectedName = cell.name
+            delegate.updateCollectinView(cell: cell , moodCell: self)
+        }
         
     }
     
@@ -76,4 +80,5 @@ class MoodsCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate ,
 
 protocol SelectMoodDelegate {
     func updateCollectinView(cell: MoodCollectionViewCell , moodCell: MoodsCollectionViewCell)
+    func presentViewController(_ identifier: String)
 }

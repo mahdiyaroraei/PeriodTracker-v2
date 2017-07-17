@@ -625,6 +625,51 @@
             </objects>
             <point key="canvasLocation" x="2404" y="34.632683658170919"/>
         </scene>
+        <!--Mood Selector Table View Controller-->
+        <scene sceneID="myM-ym-ahN">
+            <objects>
+                <tableViewController storyboardIdentifier="moodSelectorViewController" id="1Xw-Ry-SXF" customClass="MoodSelectorTableViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="78g-v9-b2b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mood_cell" id="5vJ-Fm-iMg" customClass="MoodSelectorTableViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5vJ-Fm-iMg" id="oWc-N2-u37">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDZ-3R-78X">
+                                            <rect key="frame" x="8" y="14" width="51" height="31"/>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ec-Es-c4D">
+                                            <rect key="frame" x="325" y="19" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QDZ-3R-78X" firstAttribute="leading" secondItem="oWc-N2-u37" secondAttribute="leadingMargin" id="8jn-HL-IRJ"/>
+                                        <constraint firstItem="8Ec-Es-c4D" firstAttribute="trailing" secondItem="oWc-N2-u37" secondAttribute="trailingMargin" id="NvM-mU-FCm"/>
+                                        <constraint firstItem="QDZ-3R-78X" firstAttribute="centerY" secondItem="oWc-N2-u37" secondAttribute="centerY" id="Rlq-Hr-XDD"/>
+                                        <constraint firstItem="8Ec-Es-c4D" firstAttribute="centerY" secondItem="oWc-N2-u37" secondAttribute="centerY" id="pGF-Z2-d7z"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Xw-Ry-SXF" id="xfy-bj-Z74"/>
+                            <outlet property="delegate" destination="1Xw-Ry-SXF" id="FwJ-GD-Om2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8c6-NR-Jup" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3378.4000000000001" y="38.23088455772114"/>
+        </scene>
         <!--Buy View Controller-->
         <scene sceneID="kVR-xh-CmK">
             <objects>

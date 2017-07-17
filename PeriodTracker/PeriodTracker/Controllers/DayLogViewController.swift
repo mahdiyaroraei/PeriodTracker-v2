@@ -95,9 +95,6 @@ SelectCellDelegate , SelectMoodDelegate{
     func getEnabledMoodFromDatabase() {
         let realm = try! Realm()
         moods = realm.objects(Mood.self).filter("enable == 1")
-        for mood: Mood in moods{
-            print(mood.name)
-        }
     }
     
     // Scroll to current after layout subviews completed
@@ -123,10 +120,12 @@ SelectCellDelegate , SelectMoodDelegate{
             // 51 week show and middle of items is currently week
             return 51
         }else if collectionView == moodCollectionView {
-            if moods.count % 3 == 0 {
-                return moods.count / 3
+            // plus 1 for manage enabale mood
+            let moodsCount = moods.count + 1
+            if moodsCount % 3 == 0 {
+                return moodsCount / 3
             }else{
-                return moods.count / 3 + 1
+                return moodsCount / 3 + 1
             }
         }else {
             return valueTypes.count
@@ -152,6 +151,13 @@ SelectCellDelegate , SelectMoodDelegate{
             for i in 0...2{
                 // For avoid from index out of bounds
                 if (indexPath.row * 3) + i >= moods.count {
+                    
+                    // Add manageMood as mood and should be handle when select
+                    let manageMood = Mood()
+                    manageMood.name = "manage_mood"
+                    manageMood.color = "E9E9E9"
+                    cell.moods.append(manageMood)
+                    
                     break
                 }
                 cell.moods.append(moods[(indexPath.row * 3) + i])
@@ -207,8 +213,19 @@ SelectCellDelegate , SelectMoodDelegate{
     }
     
     func updateTableView() {
+        // Update all collection view for log new timestamp
         self.scrolledFirst = true
         self.weekCollectionView.reloadData()
+        self.moodCollectionView.reloadData()
+        self.moodValuesCollectionView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.weekCollectionView.reloadData()
+        self.moodCollectionView.reloadData()
+        self.moodValuesCollectionView.reloadData()
     }
     
     func cannotSelectFuture() {
@@ -221,6 +238,11 @@ SelectCellDelegate , SelectMoodDelegate{
     
     func presentVC(id: String) {
         
+    }
+    
+    func presentViewController(_ identifier: String) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: identifier)
+        present(vc!, animated: true, completion: nil)
     }
 
 }
