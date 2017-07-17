@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MoodValueCollectionViewCell: UICollectionViewCell {
     
@@ -18,6 +19,8 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
     var isSelect = false
     
     var shapeLayer: CAShapeLayer! = nil
+    
+    let realm = try! Realm()
     
     func refresh() {
         
@@ -33,36 +36,62 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
         shapeLayer.lineWidth = 5
         shapeLayer.strokeColor = color.cgColor
         
+        let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
+        isSelect = realm.objects(Log.self).filter("timestamp == \(timestamp) AND value = '\(value!)'").count > 0
+        if isSelect {
+            self.isSelected = true
+            shapeLayer.fillColor = color.cgColor
+            moodImageView.tintColor = UIColor.white
+        }else{
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            moodImageView.tintColor = color
+        }
+        
         self.layer.insertSublayer(shapeLayer, at: 0)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        deselect()
         shapeLayer.removeFromSuperlayer()
         
         // Use fucking this statement for correct reload collectionview and dont use pervious layer :/
         shapeLayer = nil
     }
     
-    func toggle() {
+    func toggle(mood: Mood) {
         if isSelect {
-            deselect()
+            deselect(mood: mood)
         }else{
-            select()
+            select(mood: mood)
         }
     }
     
-    func select()  {
+    func select(mood: Mood)  {
         isSelect = true
         shapeLayer.fillColor = color.cgColor
         moodImageView.tintColor = UIColor.white
+        
+        let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
+        let log = Log()
+        log.timestamp = timestamp
+        log.mood = mood
+        log.value = value
+        
+        try! realm.write {
+            realm.add(log)
+        }
     }
     
-    func deselect()  {
+    func deselect(mood: Mood)  {
         isSelect = false
         shapeLayer.fillColor = UIColor.clear.cgColor
         moodImageView.tintColor = color
+        
+        let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
+        let log: Log = realm.objects(Log.self).filter("timestamp == \(timestamp) AND value = '\(value!)'").first!
+        try! realm.write {
+            realm.delete(log)
+        }
     }
 }

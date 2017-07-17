@@ -10,7 +10,6 @@ import RealmSwift
 
 class Log: Object {
     dynamic var timestamp: Double = 0.0
-    dynamic var period = -1
-    dynamic var prediction = -1
-    let moods = List<LogMood>()
+    dynamic var mood: Mood? = nil
+    dynamic var value: String = ""
 }

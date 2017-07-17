@@ -166,6 +166,10 @@ SelectCellDelegate , SelectMoodDelegate{
             cell.color = Utility.uicolorFromHex(rgbValue: UInt32(selectedMood.color, radix: 16)!)
             cell.value = valueTypes[indexPath.row]
             cell.refresh()
+            if cell.isSelect{
+                cell.isSelected = true
+                moodValuesCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
+            }
             
             return cell
         }
@@ -175,7 +179,7 @@ SelectCellDelegate , SelectMoodDelegate{
         if collectionView == moodValuesCollectionView {
             let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
             
-            cell.toggle()
+            cell.toggle(mood: selectedMood)
         }
     }
     
@@ -183,7 +187,7 @@ SelectCellDelegate , SelectMoodDelegate{
         if collectionView == moodValuesCollectionView {
             let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
             
-            cell.deselect()
+            cell.deselect(mood: selectedMood)
         }
     }
     
