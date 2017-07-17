@@ -180,6 +180,7 @@ SelectCellDelegate , SelectMoodDelegate{
             let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
             
             cell.toggle(mood: selectedMood)
+            self.moodCollectionView.reloadData()
         }
     }
     

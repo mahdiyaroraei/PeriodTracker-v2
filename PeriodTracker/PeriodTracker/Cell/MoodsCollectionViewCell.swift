@@ -27,6 +27,7 @@ class MoodsCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate ,
         
         cell.color = Utility.uicolorFromHex(rgbValue: UInt32(moods[indexPath.row].color, radix: 16)!)
         cell.name = moods[indexPath.row].name
+        cell.mood = moods[indexPath.row]
         cell.refresh()
         cell.deselect()
         
