@@ -19,7 +19,10 @@ SelectCellDelegate , SelectMoodDelegate{
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+
+    @IBOutlet weak var moodInfoButton: UIButton!
     
+    @IBOutlet weak var valueTextField: UITextField!
     let calendar = Calendar(identifier: .persian)
     
     public static var selectedName: String!
@@ -36,6 +39,8 @@ SelectCellDelegate , SelectMoodDelegate{
     // Value type of selected mood get from database store here
     var valueTypes: [String] = []
     var selectedMood: Mood!
+
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +57,6 @@ SelectCellDelegate , SelectMoodDelegate{
         self.moodValuesCollectionView.delegate = self
         
         self.moodValuesCollectionView.isScrollEnabled = false
-        self.moodValuesCollectionView.allowsMultipleSelection = false
         
         self.weekCollectionView.showsHorizontalScrollIndicator = false
         self.moodCollectionView.showsHorizontalScrollIndicator = false
@@ -74,6 +78,13 @@ SelectCellDelegate , SelectMoodDelegate{
         
     }
     
+    func refreshMoodInfoButton()  {
+        moodInfoButton.isHidden = false
+        moodInfoButton.backgroundColor = Utility.uicolorFromHex(rgbValue: UInt32(selectedMood.color, radix: 16)!)
+        moodInfoButton.layer.cornerRadius = 13
+        moodInfoButton.setTitle(selectedMood.name, for: .normal)
+    }
+    
     override func viewWillLayoutSubviews() {
         self.weekCollectionView.reloadData()
     }
@@ -82,14 +93,62 @@ SelectCellDelegate , SelectMoodDelegate{
     func updateCollectinView(cell: MoodCollectionViewCell , moodCell: MoodsCollectionViewCell) {
         moodCollectionView.reloadItems(at: [moodCollectionView.indexPath(for: moodCell)!])
         
-        let realm = try! Realm()
         let mood = realm.objects(Mood.self).filter("name == '\(cell.name!)'").first
         
-        if mood!.value_type.contains(",") {
-            selectedMood = mood!
+        selectedMood = mood!
+        // refresh info button color and name based on selected mood
+        refreshMoodInfoButton()
+        if mood!.value_type == "float" || mood!.value_type == "array"{
+            moodValuesCollectionView.isHidden = true
+            valueTextField.isHidden = false
+            // set input type for textfield: (float | text)
+            if mood!.value_type == "float"{
+                valueTextField.keyboardType = .decimalPad
+            }else if mood!.value_type == "array"{
+                valueTextField.keyboardType = .default
+            }
+            
+            guard let log = realm.objects(Log.self).filter("timestamp == \(CalendarViewController.selectedDate!.timeIntervalSince1970) AND mood.name = '\(selectedMood.name)'").first else {
+                return
+            }
+            
+            valueTextField.text = log.value
+        }else { // collection values
             valueTypes = mood!.value_type.components(separatedBy: ",")
             moodValuesCollectionView.reloadData()
+            moodValuesCollectionView.isHidden = false
+            valueTextField.isHidden = true
+            // check mood multiselection or not for set this
+            self.moodValuesCollectionView.allowsMultipleSelection = mood?.multiselect == 1
         }
+    }
+    
+    @IBAction func textValueEditingChanged(_ sender: Any) {
+        
+        guard let log = realm.objects(Log.self).filter("timestamp == \(Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970) AND mood.name = '\(selectedMood.name)'").first else {
+            
+            // log not exist and should create one
+            let log = Log()
+            log.mood = selectedMood
+            log.timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
+            log.value = valueTextField.text!
+            
+            try! realm.write{
+                realm.add(log)
+            }
+            moodCollectionView.reloadData()
+            return
+        }
+        
+        // if log exist should update only
+        try! realm.write {
+            if (valueTextField.text?.isEmpty)! {
+                realm.delete(log)
+            }else{
+                log.value = valueTextField.text!
+            }
+        }
+        moodCollectionView.reloadData()
     }
     
     func getEnabledMoodFromDatabase() {
@@ -101,7 +160,9 @@ SelectCellDelegate , SelectMoodDelegate{
     override func viewDidLayoutSubviews() {
         if !scrolledFirst {
             // Scroll to current week
-            self.weekCollectionView.scrollToItem(at: IndexPath(row: 25, section: 0), at: .left, animated: false)
+            let diffrence = calendar.dateComponents([.weekOfYear], from: calendar.startOfDay(for: Date()), to: CalendarViewController.selectedDate!).weekOfYear
+            
+            self.weekCollectionView.scrollToItem(at: IndexPath(row: 25 + diffrence!, section: 0), at: .left, animated: false)
         }
     }
     
@@ -195,6 +256,7 @@ SelectCellDelegate , SelectMoodDelegate{
             let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
             
             cell.deselect(mood: selectedMood)
+            self.moodCollectionView.reloadData()
         }
     }
     
@@ -206,7 +268,7 @@ SelectCellDelegate , SelectMoodDelegate{
             return CGSize(width: self.view.frame.width, height: 60)
         }else if collectionView == moodCollectionView{
             
-            return CGSize(width: self.view.frame.width, height: 110)
+            return CGSize(width: self.view.frame.width, height: 130)
         } else{
             return CGSize(width: moodValuesCollectionView.frame.width / 2 - 10, height: moodValuesCollectionView.frame.width / 2 - 10)
         }

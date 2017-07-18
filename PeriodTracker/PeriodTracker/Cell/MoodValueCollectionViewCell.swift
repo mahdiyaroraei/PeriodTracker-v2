@@ -73,13 +73,24 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
         moodImageView.tintColor = UIColor.white
         
         let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
-        let log = Log()
-        log.timestamp = timestamp
-        log.mood = mood
-        log.value = value
         
+        guard let log: Log = realm.objects(Log.self).filter("timestamp == \(timestamp) AND value CONTAINS '\(value!)'").first else {
+            
+            let log = Log()
+            log.timestamp = timestamp
+            log.mood = mood
+            log.value = value!
+            
+            try! realm.write {
+                realm.add(log)
+            }
+            
+            return
+        }
+        
+        // If log exist and multiselection enabled value save like array and seperate by ,
         try! realm.write {
-            realm.add(log)
+            log.value += ",\(value!)"
         }
     }
     
@@ -89,9 +100,30 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
         moodImageView.tintColor = color
         
         let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
-        let log: Log = realm.objects(Log.self).filter("timestamp == \(timestamp) AND value = '\(value!)'").first!
-        try! realm.write {
-            realm.delete(log)
+        
+        guard let log: Log = realm.objects(Log.self).filter("timestamp == \(timestamp) AND value CONTAINS '\(value!)'").first else {
+            return
         }
+        
+        // if only this value saved delete row if not update it
+        if log.value == value! {
+            try! realm.write {
+                realm.delete(log)
+            }
+        }else{
+            let values = log.value.components(separatedBy: ",")
+            var editedValues: String = ""
+            for val in values {
+                if val != value! {
+                    editedValues += ",\(val)"
+                }
+            }
+            // remove first ,
+            editedValues.remove(at: editedValues.startIndex)
+            try! realm.write {
+                log.value = editedValues
+            }
+        }
+        
     }
 }

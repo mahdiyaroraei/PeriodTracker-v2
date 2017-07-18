@@ -19,7 +19,7 @@ class MoodSelectorTableViewController: UITableViewController {
         super.viewDidLoad()
 
         moods = realm.objects(Mood.self)
-        
+                
     }
 
     override func didReceiveMemoryWarning() {

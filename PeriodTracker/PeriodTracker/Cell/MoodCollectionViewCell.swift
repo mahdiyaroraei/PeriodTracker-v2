@@ -44,6 +44,12 @@ class MoodCollectionViewCell: UICollectionViewCell {
             if mood.value_type.contains(log.value) {
                 logExist = true
                 break
+            }else if mood.value_type == "float" && Float(log.value) != nil{
+                logExist = true
+                break
+            }else if mood.value_type == "array" && log.value.contains("["){
+                logExist = true
+                break
             }
         }
         hasLog(logExist)
