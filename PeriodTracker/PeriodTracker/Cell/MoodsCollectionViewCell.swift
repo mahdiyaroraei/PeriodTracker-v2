@@ -33,6 +33,7 @@ class MoodsCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate ,
         
         if DayLogViewController.selectedName != nil && DayLogViewController.selectedName == cell.name {
             cell.select()
+            delegate.updateCollectinView(cell: cell , moodCell: self)
         }
     
         return cell

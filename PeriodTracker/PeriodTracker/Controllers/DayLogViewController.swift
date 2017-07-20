@@ -76,6 +76,14 @@ SelectCellDelegate , SelectMoodDelegate{
         bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
         stackView.layer.addSublayer(bottomLineLayer)
         
+        // Hide keyboard on touch outside textfield
+//        let tap = UIGestureRecognizer(target: self, action: #selector(dissmisKeyboard))
+//        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dissmisKeyboard() {
+        
     }
     
     func refreshMoodInfoButton()  {
@@ -109,6 +117,7 @@ SelectCellDelegate , SelectMoodDelegate{
             }
             
             guard let log = realm.objects(Log.self).filter("timestamp == \(CalendarViewController.selectedDate!.timeIntervalSince1970) AND mood.name = '\(selectedMood.name)'").first else {
+                valueTextField.text = ""
                 return
             }
             
@@ -156,6 +165,7 @@ SelectCellDelegate , SelectMoodDelegate{
         moods = realm.objects(Mood.self).filter("enable == 1")
     }
     
+    @IBOutlet weak var weekCollectionViewHeight: NSLayoutConstraint!
     // Scroll to current after layout subviews completed
     override func viewDidLayoutSubviews() {
         if !scrolledFirst {
@@ -164,6 +174,9 @@ SelectCellDelegate , SelectMoodDelegate{
             
             self.weekCollectionView.scrollToItem(at: IndexPath(row: 25 + diffrence!, section: 0), at: .left, animated: false)
         }
+        
+        weekCollectionViewHeight.constant = (self.weekCollectionView.frame.width / 7 + 20)
+        
     }
     
     @IBAction func gotoCurrentWeek(_ sender: Any) {
@@ -265,7 +278,7 @@ SelectCellDelegate , SelectMoodDelegate{
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == weekCollectionView {
             
-            return CGSize(width: self.view.frame.width, height: 60)
+            return CGSize(width: self.view.frame.width, height: self.weekCollectionView.frame.width / 7 + 20)
         }else if collectionView == moodCollectionView{
             
             return CGSize(width: self.view.frame.width, height: 130)

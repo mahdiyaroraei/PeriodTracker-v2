@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QJT-ql-jNo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -67,6 +67,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
+        </scene>
+        <!--Setup Page View Controller-->
+        <scene sceneID="TQ3-HD-j6h">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QJT-ql-jNo" customClass="SetupPageViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Zq-mu-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="1922"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3tV-gg-DAx">
+            <objects>
+                <viewController restorationIdentifier="cycleLenghtViewController" storyboardIdentifier="cycleLenghtViewController" id="gwH-1P-Vc9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nnC-Bf-pfv"/>
+                        <viewControllerLayoutGuide type="bottom" id="g2B-8Y-Uos"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M6t-UC-BHm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N17-YA-prO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2002" y="1922"/>
+        </scene>
+        <!--Last Period View Controller-->
+        <scene sceneID="FYM-tD-etm">
+            <objects>
+                <viewController restorationIdentifier="lastPeriodViewController" storyboardIdentifier="lastPeriodViewController" id="i6b-I6-tvg" customClass="LastPeriodViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Bx-tf-WJh"/>
+                        <viewControllerLayoutGuide type="bottom" id="I8c-th-pqr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lFw-QZ-IQl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="JZ9-iX-MF7">
+                                <rect key="frame" x="137" y="54" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="szL-sL-qGX"/>
+                                    <constraint firstAttribute="height" constant="100" id="v07-R3-cyx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آخرین پریودی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3w-G1-m5g">
+                                <rect key="frame" x="127.5" y="176" width="120.5" height="37.5"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4r-ac-o9j">
+                                <rect key="frame" x="36" y="235.5" width="303" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="nb4-Rh-xeS"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="آیا روز آخرین پریودیتان را به یاد دارید؟">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="IRANSansFaNum"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="u3w-G1-m5g" firstAttribute="centerX" secondItem="lFw-QZ-IQl" secondAttribute="centerX" id="9M9-wA-AoZ"/>
+                            <constraint firstItem="JZ9-iX-MF7" firstAttribute="centerX" secondItem="lFw-QZ-IQl" secondAttribute="centerX" id="Dvb-0s-Pey"/>
+                            <constraint firstItem="Q4r-ac-o9j" firstAttribute="top" secondItem="u3w-G1-m5g" secondAttribute="bottom" constant="22" id="O2m-tG-Gdf"/>
+                            <constraint firstItem="JZ9-iX-MF7" firstAttribute="top" secondItem="0Bx-tf-WJh" secondAttribute="bottom" constant="34" id="Tum-M9-i2z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q4r-ac-o9j" secondAttribute="trailing" constant="20" id="ZJ9-dT-o3g"/>
+                            <constraint firstItem="Q4r-ac-o9j" firstAttribute="leading" secondItem="lFw-QZ-IQl" secondAttribute="leadingMargin" constant="20" id="ZSv-Rn-AYs"/>
+                            <constraint firstItem="Q4r-ac-o9j" firstAttribute="centerX" secondItem="lFw-QZ-IQl" secondAttribute="centerX" id="ohP-ak-cXE"/>
+                            <constraint firstItem="u3w-G1-m5g" firstAttribute="top" secondItem="JZ9-iX-MF7" secondAttribute="bottom" constant="22" id="tFD-l2-4co"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="periodImageView" destination="JZ9-iX-MF7" id="gZj-e7-PWF"/>
+                        <outlet property="questionTextView" destination="Q4r-ac-o9j" id="xcR-dF-gUh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="biM-7O-ila" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="1921.8890554722641"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zhp-FN-EYZ">
+            <objects>
+                <viewController restorationIdentifier="periodLengthViewController" storyboardIdentifier="periodLengthViewController" id="gRQ-18-jTe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uoc-Kh-4ND"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jgu-Ri-xmO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sL7-2C-MWO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGI-fA-c5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2929" y="1922"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="j8Y-P0-GVC">
@@ -405,11 +508,11 @@
                                 </constraints>
                                 <state key="normal" image="question"/>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-2k-kFw">
-                                <rect key="frame" x="0.0" y="94" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" bounces="NO" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-2k-kFw">
+                                <rect key="frame" x="0.0" y="94" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="w3f-EU-gCC"/>
+                                    <constraint firstAttribute="height" constant="80" id="w3f-EU-gCC"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8Xo-Tg-Stc">
                                     <size key="itemSize" width="310" height="61"/>
@@ -419,13 +522,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="week_cell" id="Aa4-F5-pb7" customClass="WeekCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-0.5" width="310" height="61"/>
+                                        <rect key="frame" x="0.0" y="9.5" width="310" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lne-67-pMc">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" bounces="NO" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lne-67-pMc">
                                                     <rect key="frame" x="0.0" y="0.0" width="310" height="61"/>
                                                     <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="wM6-Op-jhS">
@@ -443,7 +546,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndh-dq-0Ei">
-                                                                        <rect key="frame" x="-4" y="29" width="50" height="21"/>
+                                                                        <rect key="frame" x="-8" y="27" width="50" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="JYy-pl-1S4"/>
                                                                         </constraints>
@@ -455,8 +558,8 @@
                                                             </view>
                                                             <constraints>
                                                                 <constraint firstItem="Ndh-dq-0Ei" firstAttribute="width" secondItem="Xvu-z5-ag3" secondAttribute="width" id="CEv-rC-YXP"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Ndh-dq-0Ei" secondAttribute="trailing" constant="-4" id="bbj-gz-RYe"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Ndh-dq-0Ei" secondAttribute="bottom" id="wAP-bh-PSr"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Ndh-dq-0Ei" secondAttribute="trailing" constant="-8" id="bbj-gz-RYe"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Ndh-dq-0Ei" secondAttribute="bottom" constant="2" id="wAP-bh-PSr"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="dayLabel" destination="Ndh-dq-0Ei" id="kvI-PK-Ojh"/>
@@ -480,7 +583,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" bounces="NO" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rBa-Qm-QI5">
-                                <rect key="frame" x="0.0" y="157" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="177" width="375" height="130"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="lhe-qF-b3b"/>
@@ -648,6 +751,7 @@
                         <outlet property="todayLabel" destination="B7i-Ei-wd9" id="1Ug-Lz-VWh"/>
                         <outlet property="valueTextField" destination="y09-Dc-HSz" id="F3d-ar-zwA"/>
                         <outlet property="weekCollectionView" destination="DLB-2k-kFw" id="PJK-EJ-T7s"/>
+                        <outlet property="weekCollectionViewHeight" destination="w3f-EU-gCC" id="zAU-72-ESv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QY-CD-Wef" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -811,5 +915,6 @@
         <image name="question" width="40" height="40"/>
         <image name="red_gradient" width="1242" height="2208"/>
         <image name="shoping" width="141" height="141"/>
+        <image name="smiling" width="36" height="38"/>
     </resources>
 </document>
