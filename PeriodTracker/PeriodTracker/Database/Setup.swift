@@ -9,7 +9,7 @@
 import RealmSwift
 
 class Setup: Object {
-    dynamic var startDate = NSDate()
+    dynamic var startDate: Double = 0
     dynamic var periodLength = 0
     dynamic var cycleLength = 0
 }

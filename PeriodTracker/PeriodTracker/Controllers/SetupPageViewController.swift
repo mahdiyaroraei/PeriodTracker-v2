@@ -19,11 +19,6 @@ class SetupPageViewController: UIPageViewController, UIPageViewControllerDelegat
 
         self.delegate = self
         self.dataSource = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         
         // Set init visible item in pagecontroller
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: pages[0]) else {

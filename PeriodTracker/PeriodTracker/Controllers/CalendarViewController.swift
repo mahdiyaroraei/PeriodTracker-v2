@@ -24,6 +24,10 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     
     // After select item viewDidLayoutSubviews called again for avoid scroll use this
     var scrolledFirst = false
+    
+    // Use controller as selector
+    var isSeector = false
+    var delegate: CalendarDateSelector!
 
     @IBAction func goToToday(_ sender: Any) {
         monthsTableView.scrollToRow(at: IndexPath(row: 25, section: 0), at: .middle, animated: true)
@@ -91,8 +95,14 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     }
     
     func presentVC(id: String) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: id)
-        self.present(vc!, animated: true, completion: nil)
+        // If open in selector mode run this segment
+        if id == "dayLogViewController" && isSeector {
+            delegate.selectedDate(interval: (CalendarViewController.selectedDate?.timeIntervalSince1970)!)
+            self.dismiss(animated: true, completion: nil)
+        }else{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: id)
+            self.present(vc!, animated: true, completion: nil)
+        }
     }
     
     func updateTableView() {
@@ -119,4 +129,8 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
         print("tap!")
     }
 
+}
+
+protocol CalendarDateSelector {
+    func selectedDate(interval: Double)
 }

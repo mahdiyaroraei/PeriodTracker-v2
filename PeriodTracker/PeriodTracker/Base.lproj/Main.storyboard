@@ -76,23 +76,6 @@
             </objects>
             <point key="canvasLocation" x="121" y="1922"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="3tV-gg-DAx">
-            <objects>
-                <viewController restorationIdentifier="cycleLenghtViewController" storyboardIdentifier="cycleLenghtViewController" id="gwH-1P-Vc9" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nnC-Bf-pfv"/>
-                        <viewControllerLayoutGuide type="bottom" id="g2B-8Y-Uos"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="M6t-UC-BHm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N17-YA-prO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2002" y="1922"/>
-        </scene>
         <!--Last Period View Controller-->
         <scene sceneID="FYM-tD-etm">
             <objects>
@@ -105,6 +88,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l2r-oc-cYu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="JZ9-iX-MF7">
                                 <rect key="frame" x="137" y="54" width="100" height="100"/>
                                 <constraints>
@@ -119,9 +107,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4r-ac-o9j">
-                                <rect key="frame" x="36" y="235.5" width="303" height="100"/>
+                                <rect key="frame" x="36" y="263.5" width="303" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="nb4-Rh-xeS"/>
+                                    <constraint firstAttribute="height" constant="150" id="nb4-Rh-xeS"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="آیا روز آخرین پریودیتان را به یاد دارید؟">
@@ -133,11 +121,37 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybs-Lo-NiM">
+                                <rect key="frame" x="239" y="507" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="gc6-sA-5s1"/>
+                                    <constraint firstAttribute="height" constant="80" id="lcj-XP-Sft"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="noButtonClicked:" destination="i6b-I6-tvg" eventType="touchUpInside" id="Qjk-Ih-Olu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tao-EQ-T65">
+                                <rect key="frame" x="56" y="507" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="nLq-Pj-6q2"/>
+                                    <constraint firstAttribute="width" constant="80" id="xNA-me-wn0"/>
+                                </constraints>
+                                <state key="normal" image="ok"/>
+                                <connections>
+                                    <action selector="yesButtonClicked:" destination="i6b-I6-tvg" eventType="touchUpInside" id="in4-Rs-xWB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="u3w-G1-m5g" firstAttribute="centerX" secondItem="lFw-QZ-IQl" secondAttribute="centerX" id="9M9-wA-AoZ"/>
                             <constraint firstItem="JZ9-iX-MF7" firstAttribute="centerX" secondItem="lFw-QZ-IQl" secondAttribute="centerX" id="Dvb-0s-Pey"/>
-                            <constraint firstItem="Q4r-ac-o9j" firstAttribute="top" secondItem="u3w-G1-m5g" secondAttribute="bottom" constant="22" id="O2m-tG-Gdf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ybs-Lo-NiM" secondAttribute="trailing" constant="40" id="GJV-Wk-8Ie"/>
+                            <constraint firstItem="tao-EQ-T65" firstAttribute="leading" secondItem="lFw-QZ-IQl" secondAttribute="leadingMargin" constant="40" id="Jmw-0g-EWB"/>
+                            <constraint firstItem="Q4r-ac-o9j" firstAttribute="top" secondItem="u3w-G1-m5g" secondAttribute="bottom" constant="50" id="O2m-tG-Gdf"/>
+                            <constraint firstItem="I8c-th-pqr" firstAttribute="top" secondItem="Ybs-Lo-NiM" secondAttribute="bottom" constant="80" id="QBx-6K-3KE"/>
+                            <constraint firstItem="I8c-th-pqr" firstAttribute="top" secondItem="tao-EQ-T65" secondAttribute="bottom" constant="80" id="Tg8-h2-cUx"/>
                             <constraint firstItem="JZ9-iX-MF7" firstAttribute="top" secondItem="0Bx-tf-WJh" secondAttribute="bottom" constant="34" id="Tum-M9-i2z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q4r-ac-o9j" secondAttribute="trailing" constant="20" id="ZJ9-dT-o3g"/>
                             <constraint firstItem="Q4r-ac-o9j" firstAttribute="leading" secondItem="lFw-QZ-IQl" secondAttribute="leadingMargin" constant="20" id="ZSv-Rn-AYs"/>
@@ -154,22 +168,81 @@
             </objects>
             <point key="canvasLocation" x="1076" y="1921.8890554722641"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="zhp-FN-EYZ">
+        <!--About Last Period View Controller-->
+        <scene sceneID="j9h-2M-sXO">
             <objects>
-                <viewController restorationIdentifier="periodLengthViewController" storyboardIdentifier="periodLengthViewController" id="gRQ-18-jTe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutLastPeriodViewController" id="v3T-Qv-9YM" customClass="AboutLastPeriodViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uoc-Kh-4ND"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jgu-Ri-xmO"/>
+                        <viewControllerLayoutGuide type="top" id="Iy5-yI-NOH"/>
+                        <viewControllerLayoutGuide type="bottom" id="iNg-kB-kgc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sL7-2C-MWO">
+                    <view key="view" contentMode="scaleToFill" id="83v-7t-nDj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mit-wX-Xgj">
+                                <rect key="frame" x="0.0" y="240" width="375" height="312.5"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugf-kw-Gtj">
+                                <rect key="frame" x="19" y="23" width="10" height="22"/>
+                                <state key="normal" image="close_white"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="v3T-Qv-9YM" eventType="touchUpInside" id="6sC-qe-BFY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecq-dy-yQF">
+                                <rect key="frame" x="152" y="570" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="27e-bK-sti"/>
+                                    <constraint firstAttribute="height" constant="70" id="Tnd-WQ-sT9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="17"/>
+                                <state key="normal" title="باشه">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okClicked:" destination="v3T-Qv-9YM" eventType="touchUpInside" id="Rru-h9-FhP"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="Q5y-73-pog">
+                                <rect key="frame" x="137.5" y="54" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Yfh-qT-XP6"/>
+                                    <constraint firstAttribute="height" constant="100" id="hkZ-Y0-jrU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آخرین پریودی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cc-6r-BfE">
+                                <rect key="frame" x="127" y="176" width="120.5" height="37.5"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.59575737847222221" green="0.034966362847222224" blue="0.036539713541666664" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ecq-dy-yQF" firstAttribute="top" secondItem="mit-wX-Xgj" secondAttribute="bottom" constant="17" id="BJI-nK-Mpe"/>
+                            <constraint firstItem="iNg-kB-kgc" firstAttribute="top" secondItem="Ecq-dy-yQF" secondAttribute="bottom" constant="27" id="DBz-7H-v9H"/>
+                            <constraint firstItem="ugf-kw-Gtj" firstAttribute="leading" secondItem="83v-7t-nDj" secondAttribute="leadingMargin" constant="3" id="I9v-eG-gaS"/>
+                            <constraint firstItem="mit-wX-Xgj" firstAttribute="leading" secondItem="83v-7t-nDj" secondAttribute="leading" id="IeQ-Dj-Tma"/>
+                            <constraint firstItem="Ecq-dy-yQF" firstAttribute="centerX" secondItem="83v-7t-nDj" secondAttribute="centerX" id="Tgz-PG-EAq"/>
+                            <constraint firstItem="9cc-6r-BfE" firstAttribute="centerX" secondItem="83v-7t-nDj" secondAttribute="centerX" id="UV8-zM-BcH"/>
+                            <constraint firstItem="ugf-kw-Gtj" firstAttribute="top" secondItem="Iy5-yI-NOH" secondAttribute="bottom" constant="3" id="Yrg-ey-3w6"/>
+                            <constraint firstItem="Q5y-73-pog" firstAttribute="top" secondItem="Iy5-yI-NOH" secondAttribute="bottom" constant="34" id="gUy-aX-bjv"/>
+                            <constraint firstAttribute="trailing" secondItem="mit-wX-Xgj" secondAttribute="trailing" id="hA4-ei-870"/>
+                            <constraint firstItem="mit-wX-Xgj" firstAttribute="top" secondItem="9cc-6r-BfE" secondAttribute="bottom" constant="27" id="iSK-Hz-fvM"/>
+                            <constraint firstItem="Q5y-73-pog" firstAttribute="centerX" secondItem="83v-7t-nDj" secondAttribute="centerX" id="jGU-XW-63t"/>
+                            <constraint firstItem="9cc-6r-BfE" firstAttribute="top" secondItem="Q5y-73-pog" secondAttribute="bottom" constant="22" id="rRg-u6-CWl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aboutTimesPicker" destination="mit-wX-Xgj" id="xWz-U3-NWF"/>
+                        <outlet property="okButton" destination="Ecq-dy-yQF" id="bjG-Fu-dgr"/>
+                        <outlet property="periodImageView" destination="Q5y-73-pog" id="mBf-z4-ypV"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oGI-fA-c5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wka-Zk-vVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2929" y="1922"/>
+            <point key="canvasLocation" x="1076" y="2673"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="j8Y-P0-GVC">
@@ -905,10 +978,229 @@
             </objects>
             <point key="canvasLocation" x="25" y="-978"/>
         </scene>
+        <!--Cycle Length View Controller-->
+        <scene sceneID="XE9-78-95r">
+            <objects>
+                <viewController restorationIdentifier="cycleLenghtViewController" storyboardIdentifier="cycleLenghtViewController" id="VUS-e0-I2Z" customClass="CycleLengthViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="beX-CL-KvI"/>
+                        <viewControllerLayoutGuide type="bottom" id="oVK-yN-L9m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AQB-w5-QrW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aAc-Dy-mp7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-pK-1KO">
+                                <rect key="frame" x="137" y="54" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="HML-0U-5ac"/>
+                                    <constraint firstAttribute="width" constant="100" id="JIO-TI-g5z"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="طول دوره" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-NH-F9t">
+                                <rect key="frame" x="147.5" y="176" width="81" height="37.5"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
+                                <color key="textColor" red="0.074509803921568626" green="0.49411764705882355" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Il-tR-OW8">
+                                <rect key="frame" x="36" y="263.5" width="303" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="apw-0a-Ozr"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="آیا از طول آخرین ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="دوره">
+                                        <attributes>
+                                            <color key="NSColor" red="0.074510000000000007" green="0.49412" blue="0.40783999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="IRANSans-Medium"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                            <color key="NSUnderlineColor" red="0.074510000000000007" green="0.49412" blue="0.40783999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> ای که
+برایتان رخ داده اطلاع دارید؟</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <color key="NSUnderlineColor" red="0.074510000000000007" green="0.49412" blue="0.40783999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRx-J0-7s3">
+                                <rect key="frame" x="239" y="507" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="YWe-Bv-fog"/>
+                                    <constraint firstAttribute="width" constant="80" id="dvQ-eV-roX"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCp-Au-QsX">
+                                <rect key="frame" x="56" y="507" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Rhf-cv-GRr"/>
+                                    <constraint firstAttribute="width" constant="80" id="Zsx-cE-Ts8"/>
+                                </constraints>
+                                <state key="normal" image="ok"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0Il-tR-OW8" firstAttribute="leading" secondItem="AQB-w5-QrW" secondAttribute="leadingMargin" constant="20" id="2x8-kt-BAj"/>
+                            <constraint firstItem="ilC-NH-F9t" firstAttribute="top" secondItem="VFe-pK-1KO" secondAttribute="bottom" constant="22" id="8fe-e9-i9F"/>
+                            <constraint firstItem="WCp-Au-QsX" firstAttribute="leading" secondItem="AQB-w5-QrW" secondAttribute="leadingMargin" constant="40" id="Ch3-mA-ulP"/>
+                            <constraint firstItem="VFe-pK-1KO" firstAttribute="top" secondItem="beX-CL-KvI" secondAttribute="bottom" constant="34" id="FIX-Iq-gcy"/>
+                            <constraint firstItem="ilC-NH-F9t" firstAttribute="centerX" secondItem="AQB-w5-QrW" secondAttribute="centerX" id="Fpo-Qg-DET"/>
+                            <constraint firstItem="oVK-yN-L9m" firstAttribute="top" secondItem="kRx-J0-7s3" secondAttribute="bottom" constant="80" id="Ph9-zG-hcx"/>
+                            <constraint firstItem="VFe-pK-1KO" firstAttribute="centerX" secondItem="AQB-w5-QrW" secondAttribute="centerX" id="f5h-H2-UWX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Il-tR-OW8" secondAttribute="trailing" constant="20" id="hB9-rJ-fUC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kRx-J0-7s3" secondAttribute="trailing" constant="40" id="q0Q-Wx-Pdu"/>
+                            <constraint firstItem="oVK-yN-L9m" firstAttribute="top" secondItem="WCp-Au-QsX" secondAttribute="bottom" constant="80" id="uin-Rx-0Ht"/>
+                            <constraint firstItem="0Il-tR-OW8" firstAttribute="centerX" secondItem="AQB-w5-QrW" secondAttribute="centerX" id="wLm-M0-Mhe"/>
+                            <constraint firstItem="0Il-tR-OW8" firstAttribute="top" secondItem="ilC-NH-F9t" secondAttribute="bottom" constant="50" id="xh8-LZ-hlW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="periodImageView" destination="VFe-pK-1KO" id="5pN-LT-Qo6"/>
+                        <outlet property="questionTextView" destination="0Il-tR-OW8" id="KAR-2l-1DR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDz-n7-Z5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="1922"/>
+        </scene>
+        <!--Period Length View Controller-->
+        <scene sceneID="bmT-l9-ehg">
+            <objects>
+                <viewController restorationIdentifier="periodLengthViewController" storyboardIdentifier="periodLengthViewController" id="FGL-1Z-A9i" customClass="PeriodLengthViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dBO-oR-Ret"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ri-am-eAX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VJD-m3-MLK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TaA-L0-yA9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="71F-me-Gt7">
+                                <rect key="frame" x="137" y="54" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="5Gn-2N-T1y"/>
+                                    <constraint firstAttribute="height" constant="100" id="SM6-ab-IIs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="پریود" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE5-U4-O04">
+                                <rect key="frame" x="165.5" y="176" width="44.5" height="37.5"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXd-me-B87">
+                                <rect key="frame" x="36" y="263.5" width="303" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="tV3-Bd-lUC"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="آیا از طول مدت آخرین ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="پریودیتان">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="IRANSans-Medium"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+ اطلاع دارید؟</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8c-cV-9Gw">
+                                <rect key="frame" x="239" y="507" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Dbi-iF-tDV"/>
+                                    <constraint firstAttribute="height" constant="80" id="H4r-xA-XvH"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-py-4yb">
+                                <rect key="frame" x="56" y="507" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="MwZ-mb-abo"/>
+                                    <constraint firstAttribute="height" constant="80" id="eM7-xW-Taf"/>
+                                </constraints>
+                                <state key="normal" image="ok"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="bTw-py-4yb" firstAttribute="leading" secondItem="VJD-m3-MLK" secondAttribute="leadingMargin" constant="40" id="3Mw-D5-rxv"/>
+                            <constraint firstItem="71F-me-Gt7" firstAttribute="top" secondItem="dBO-oR-Ret" secondAttribute="bottom" constant="34" id="47D-Gd-gvx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nXd-me-B87" secondAttribute="trailing" constant="20" id="5NR-s0-chv"/>
+                            <constraint firstItem="9ri-am-eAX" firstAttribute="top" secondItem="bTw-py-4yb" secondAttribute="bottom" constant="80" id="5lC-kD-ASv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j8c-cV-9Gw" secondAttribute="trailing" constant="40" id="7bs-I4-E7c"/>
+                            <constraint firstItem="DE5-U4-O04" firstAttribute="centerX" secondItem="VJD-m3-MLK" secondAttribute="centerX" id="98f-B9-jMG"/>
+                            <constraint firstItem="DE5-U4-O04" firstAttribute="top" secondItem="71F-me-Gt7" secondAttribute="bottom" constant="22" id="9HE-6l-fGV"/>
+                            <constraint firstItem="nXd-me-B87" firstAttribute="top" secondItem="DE5-U4-O04" secondAttribute="bottom" constant="50" id="BGO-C1-hUO"/>
+                            <constraint firstItem="9ri-am-eAX" firstAttribute="top" secondItem="j8c-cV-9Gw" secondAttribute="bottom" constant="80" id="BK8-mt-62g"/>
+                            <constraint firstItem="nXd-me-B87" firstAttribute="centerX" secondItem="VJD-m3-MLK" secondAttribute="centerX" id="BMj-aK-Ioq"/>
+                            <constraint firstItem="71F-me-Gt7" firstAttribute="centerX" secondItem="VJD-m3-MLK" secondAttribute="centerX" id="DOi-3B-ALf"/>
+                            <constraint firstItem="nXd-me-B87" firstAttribute="leading" secondItem="VJD-m3-MLK" secondAttribute="leadingMargin" constant="20" id="cht-gu-zcS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="periodImageView" destination="71F-me-Gt7" id="sy9-h6-Ezv"/>
+                        <outlet property="questionTextView" destination="nXd-me-B87" id="ZDt-Gq-hRy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EgU-ZL-CGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2991" y="1922"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar_green" width="40" height="40"/>
         <image name="cancel" width="512" height="512"/>
+        <image name="close_white" width="10" height="10"/>
         <image name="info" width="10" height="10"/>
         <image name="instruction" width="29" height="29"/>
         <image name="ok" width="80" height="80"/>
