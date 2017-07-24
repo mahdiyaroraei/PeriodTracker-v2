@@ -34,21 +34,18 @@
 		55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */; };
 		55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */; };
 		55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC45901EFBDB1F00E34DD3 /* User.swift */; };
-<<<<<<< HEAD
 		55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */; };
 		55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */; };
 		55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */; };
 		55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */; };
 		55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */; };
 		55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */; };
-=======
 		7302A6D81F15DF5500F06D99 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6D71F15DF5500F06D99 /* MyPageViewController.swift */; };
 		7302A6DA1F15E28300F06D99 /* PeriodDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6D91F15E28300F06D99 /* PeriodDateVC.swift */; };
 		7302A6DD1F15E31000F06D99 /* CycleLengthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6DC1F15E31000F06D99 /* CycleLengthVC.swift */; };
 		7302A6E01F15E33D00F06D99 /* PeriodLengthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6DF1F15E33D00F06D99 /* PeriodLengthVC.swift */; };
 		7302A6E21F16339400F06D99 /* MeanPeriodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6E11F16339300F06D99 /* MeanPeriodVC.swift */; };
 		7302A6E41F1633C200F06D99 /* MeanCycleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302A6E31F1633C200F06D99 /* MeanCycleVC.swift */; };
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
 		730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */; };
 		730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */; };
 		730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */; };
@@ -89,21 +86,18 @@
 		55B9BD411EF94ADE00F75794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodTrackerRouter.swift; path = API/PeriodTrackerRouter.swift; sourceTree = "<group>"; };
 		55CC45901EFBDB1F00E34DD3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Database/User.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodValueCollectionViewCell.swift; path = Cell/MoodValueCollectionViewCell.swift; sourceTree = "<group>"; };
 		55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupPageViewController.swift; path = Controllers/SetupPageViewController.swift; sourceTree = "<group>"; };
 		55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastPeriodViewController.swift; path = Controllers/LastPeriodViewController.swift; sourceTree = "<group>"; };
 		55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodsCollectionViewCell.swift; path = Cell/MoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodCollectionViewCell.swift; path = Cell/MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodSelectorViewController.swift; path = Controllers/MoodSelectorViewController.swift; sourceTree = "<group>"; };
-=======
 		7302A6D71F15DF5500F06D99 /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Controllers/MyPageViewController.swift; sourceTree = "<group>"; };
 		7302A6D91F15E28300F06D99 /* PeriodDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodDateVC.swift; path = Controllers/PageViewControllers/PeriodDateVC.swift; sourceTree = "<group>"; };
 		7302A6DC1F15E31000F06D99 /* CycleLengthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleLengthVC.swift; path = Controllers/PageViewControllers/CycleLengthVC.swift; sourceTree = "<group>"; };
 		7302A6DF1F15E33D00F06D99 /* PeriodLengthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthVC.swift; path = Controllers/PageViewControllers/PeriodLengthVC.swift; sourceTree = "<group>"; };
 		7302A6E11F16339300F06D99 /* MeanPeriodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeanPeriodVC.swift; path = Controllers/PageViewControllers/MeanPeriodVC.swift; sourceTree = "<group>"; };
 		7302A6E31F1633C200F06D99 /* MeanCycleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeanCycleVC.swift; path = Controllers/PageViewControllers/MeanCycleVC.swift; sourceTree = "<group>"; };
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
 		730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Bold.ttf"; sourceTree = "<group>"; };
 		730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Light.ttf"; sourceTree = "<group>"; };
 		730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Medium.ttf"; sourceTree = "<group>"; };
@@ -267,16 +261,7 @@
 				557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */,
 				7302A6DB1F15E28E00F06D99 /* PageViewControllers */,
 				5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */,
-<<<<<<< HEAD
-				55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */,
-				55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */,
-				55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */,
-				5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */,
-				5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */,
-				5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */,
-=======
 				7302A6D71F15DF5500F06D99 /* MyPageViewController.swift */,
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -438,17 +423,12 @@
 				557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */,
 				55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
-<<<<<<< HEAD
 				5535EB631F25F926007D70F5 /* AboutLastPeriodViewController.swift in Sources */,
-				557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */,
-				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
-				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
-=======
 				7302A6D81F15DF5500F06D99 /* MyPageViewController.swift in Sources */,
 				557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */,
 				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
+				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
 				7302A6E01F15E33D00F06D99 /* PeriodLengthVC.swift in Sources */,
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
 				5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */,
 				556CF44B1F0135A100E3456B /* Utility.swift in Sources */,
 				5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */,

@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QJT-ql-jNo">
     <device id="retina4_7" orientation="portrait">
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1i7-Ky-LzR">
-    <device id="retina4_0" orientation="portrait">
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -589,15 +584,12 @@
                                 </constraints>
                                 <state key="normal" image="question"/>
                             </button>
-<<<<<<< HEAD
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" bounces="NO" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-2k-kFw">
                                 <rect key="frame" x="0.0" y="94" width="375" height="80"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-=======
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-2k-kFw">
                                 <rect key="frame" x="0.0" y="99" width="320" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="w3f-EU-gCC"/>
                                 </constraints>
@@ -609,11 +601,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="week_cell" id="Aa4-F5-pb7" customClass="WeekCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
-<<<<<<< HEAD
                                         <rect key="frame" x="0.0" y="9.5" width="310" height="61"/>
-=======
-                                        <rect key="frame" x="0.0" y="-1" width="310" height="61"/>
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="61"/>
@@ -1116,7 +1104,8 @@
                                     <constraint firstItem="PbG-VF-ISn" firstAttribute="centerY" secondItem="i4w-cU-49E" secondAttribute="centerY" constant="65" id="XIT-zb-oML"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آیا روز آخرین پریودیتان را به یاد دارید؟" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxu-qC-40n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آیا روز آخرین پریودیتان را
+به یاد دارید؟" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxu-qC-40n">
                                 <rect key="frame" x="20" y="331" width="280" height="87"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1670,17 +1659,11 @@
         <image name="blood-drop" width="149" height="149"/>
         <image name="blood-drop-red" width="149" height="149"/>
         <image name="calendar_green" width="40" height="40"/>
-<<<<<<< HEAD
         <image name="cancel" width="512" height="512"/>
         <image name="close_white" width="10" height="10"/>
         <image name="info" width="10" height="10"/>
         <image name="instruction" width="29" height="29"/>
         <image name="ok" width="80" height="80"/>
-        <image name="question" width="40" height="40"/>
-        <image name="red_gradient" width="1242" height="2208"/>
-        <image name="shoping" width="141" height="141"/>
-        <image name="smiling" width="36" height="38"/>
-=======
         <image name="cancel" width="60" height="60"/>
         <image name="ok" width="60" height="60"/>
         <image name="ok-green" width="65" height="65"/>
@@ -1689,8 +1672,8 @@
         <image name="question" width="40" height="40"/>
         <image name="red_gradient" width="1242" height="2208"/>
         <image name="shoping" width="141" height="141"/>
+        <image name="smiling" width="36" height="38"/>
         <image name="small-calendar" width="141" height="141"/>
         <image name="small-calendar-green" width="141" height="141"/>
->>>>>>> d5bfbebcde0e7b466a54dc266bad383fee0e611b
     </resources>
 </document>
