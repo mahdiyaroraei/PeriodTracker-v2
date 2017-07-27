@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
-class PeriodLengthViewController: UIViewController , UITextViewDelegate{
+class PeriodLengthViewController: UIViewController , UITextViewDelegate , PeriodLengthDelegate {
     
     @IBOutlet weak var periodImageView: UIImageView!
     @IBOutlet weak var questionTextView: UITextView!
+    
+    let realm = try! Realm()
+    
+    var isUserSavedData = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,8 +32,14 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate{
         periodImageView.layer.cornerRadius = periodImageView.frame.height / 2
         periodImageView.clipsToBounds = true
         
+        initQuestion()
+        checkExistDataInDatabase()
+    }
+    
+    func initQuestion() {
+        
         // Init attribute text
-        let text = questionTextView.text!
+        let text = "آیا از طول مدت آخرین پریودیتان اطلاع دارید؟"
         
         let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: text)
         
@@ -61,6 +73,95 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate{
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         let ce = ""
         return false
+    }
+    
+    
+    @IBAction func noButtonClicked(_ sender: Any) {
+        // If user click no in saved data mode clear data from database and refresh UI
+        if isUserSavedData {
+            try! realm.write {
+                guard let setup = realm.objects(Setup.self).first else{
+                    return
+                }
+                setup.periodLength = 0
+            }
+            // Clear fill circle and data from UI
+            checkExistDataInDatabase()
+        }else{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "periodLengthSelectorViewController") as! PeriodLengthSelectorViewController
+            
+            vc.showWorldNormalValue = true
+            vc.delegate = self
+            
+            present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func yesButtonClicked(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "periodLengthSelectorViewController") as! PeriodLengthSelectorViewController
+        
+        vc.delegate = self
+        
+        present(vc, animated: true, completion: nil)
+    }
+    
+    // This function created by follow PeriodLengthDelegate protocol
+    func period(length: Int) {
+        // Check if setup exist replace and if not add new
+        
+        guard let setup = realm.objects(Setup.self).first else {
+            let setup = Setup()
+            setup.periodLength = length
+            try! realm.write {
+                realm.add(setup)
+            }
+            return
+        }
+        
+        try! realm.write {
+            setup.periodLength = length
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkExistDataInDatabase()
+    }
+    
+    func checkExistDataInDatabase() {
+        
+        guard let setup = realm.objects(Setup.self).first else {
+            // if dont setup yet ui must clear
+            isUserSavedData = false
+            
+            periodImageView.tintColor = UIColor.red
+            periodImageView.backgroundColor = UIColor.white
+            initQuestion()
+            
+            return
+        }
+        
+        // maybe other data is exist and only this not
+        if setup.periodLength == 0 {
+            // if dont setup yet ui must clear
+            isUserSavedData = false
+            
+            periodImageView.tintColor = UIColor.red
+            periodImageView.backgroundColor = UIColor.white
+            initQuestion()
+            
+            return
+        }
+        
+        // if setup this level ui should chnage from clear
+        periodImageView.tintColor = UIColor.white
+        periodImageView.backgroundColor = UIColor.red
+        
+        questionTextView.text = "طول دوره پریودی شما \(setup.periodLength) ثبت شده است."
+        
+        isUserSavedData = true
+
     }
     
     override func viewDidLayoutSubviews() {

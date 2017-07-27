@@ -1003,7 +1003,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="طول دوره" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-NH-F9t">
-                                <rect key="frame" x="147.5" y="176" width="81" height="37.5"/>
+                                <rect key="frame" x="147" y="176" width="81" height="37.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" red="0.074509803921568626" green="0.49411764705882355" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1112,7 +1112,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="پریود" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE5-U4-O04">
-                                <rect key="frame" x="165.5" y="176" width="44.5" height="37.5"/>
+                                <rect key="frame" x="166" y="176" width="44.5" height="37.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1162,6 +1162,9 @@
                                     <constraint firstAttribute="height" constant="80" id="H4r-xA-XvH"/>
                                 </constraints>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="noButtonClicked:" destination="FGL-1Z-A9i" eventType="touchUpInside" id="R0h-mL-Gz5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-py-4yb">
                                 <rect key="frame" x="56" y="507" width="80" height="80"/>
@@ -1170,6 +1173,9 @@
                                     <constraint firstAttribute="height" constant="80" id="eM7-xW-Taf"/>
                                 </constraints>
                                 <state key="normal" image="ok"/>
+                                <connections>
+                                    <action selector="yesButtonClicked:" destination="FGL-1Z-A9i" eventType="touchUpInside" id="THA-dp-5Tw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -1195,6 +1201,151 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EgU-ZL-CGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2991" y="1922"/>
+        </scene>
+        <!--Period Length Selector View Controller-->
+        <scene sceneID="URS-5t-fqQ">
+            <objects>
+                <viewController storyboardIdentifier="periodLengthSelectorViewController" id="KlF-qH-hKg" customClass="PeriodLengthSelectorViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5j0-0f-cTH"/>
+                        <viewControllerLayoutGuide type="bottom" id="49A-SU-udA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zVf-cK-dfq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywe-Uq-CX4">
+                                <rect key="frame" x="0.0" y="240" width="375" height="312.5"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsp-1e-jU2">
+                                <rect key="frame" x="19" y="23" width="10" height="22"/>
+                                <state key="normal" image="close_white"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="KlF-qH-hKg" eventType="touchUpInside" id="eQ6-Ne-tiF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeK-fk-48I">
+                                <rect key="frame" x="152" y="570" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="ap7-wc-NmZ"/>
+                                    <constraint firstAttribute="height" constant="70" id="cog-Wr-cST"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="17"/>
+                                <state key="normal" title="باشه">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okClicked:" destination="KlF-qH-hKg" eventType="touchUpInside" id="kef-NT-L6Z"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="unu-gz-HTy">
+                                <rect key="frame" x="137.5" y="54" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6M4-7q-4Yb"/>
+                                    <constraint firstAttribute="height" constant="100" id="v6I-F9-oaV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="طول مدت پریودی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djR-W4-yxe">
+                                <rect key="frame" x="111" y="176" width="152.5" height="37.5"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nvg-nX-0MH">
+                                <rect key="frame" x="36" y="350" width="303" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="MKw-o9-TXa"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="برای طول مدت پریودی میانگین جهانی">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="۷">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="روز">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="را برای شما در نظر میگیریم.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.59575737849999999" green="0.034966362850000002" blue="0.036539713539999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ywe-Uq-CX4" firstAttribute="leading" secondItem="zVf-cK-dfq" secondAttribute="leading" id="09g-Zr-yLJ"/>
+                            <constraint firstItem="djR-W4-yxe" firstAttribute="top" secondItem="unu-gz-HTy" secondAttribute="bottom" constant="22" id="AhP-2F-NQi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nvg-nX-0MH" secondAttribute="trailing" constant="20" id="Qvs-lx-qgf"/>
+                            <constraint firstItem="WeK-fk-48I" firstAttribute="top" secondItem="ywe-Uq-CX4" secondAttribute="bottom" constant="17" id="Tca-u7-tAG"/>
+                            <constraint firstAttribute="trailing" secondItem="ywe-Uq-CX4" secondAttribute="trailing" id="UZQ-G2-G5U"/>
+                            <constraint firstItem="zsp-1e-jU2" firstAttribute="leading" secondItem="zVf-cK-dfq" secondAttribute="leadingMargin" constant="3" id="cwh-a9-VqQ"/>
+                            <constraint firstItem="zsp-1e-jU2" firstAttribute="top" secondItem="5j0-0f-cTH" secondAttribute="bottom" constant="3" id="eFM-fa-lGe"/>
+                            <constraint firstItem="WeK-fk-48I" firstAttribute="centerX" secondItem="zVf-cK-dfq" secondAttribute="centerX" id="eMC-zC-6ui"/>
+                            <constraint firstItem="unu-gz-HTy" firstAttribute="centerX" secondItem="zVf-cK-dfq" secondAttribute="centerX" id="fAB-Je-bdT"/>
+                            <constraint firstItem="ywe-Uq-CX4" firstAttribute="top" secondItem="djR-W4-yxe" secondAttribute="bottom" constant="27" id="i4w-mU-xOW"/>
+                            <constraint firstItem="49A-SU-udA" firstAttribute="top" secondItem="WeK-fk-48I" secondAttribute="bottom" constant="27" id="if1-bI-CfO"/>
+                            <constraint firstItem="unu-gz-HTy" firstAttribute="top" secondItem="5j0-0f-cTH" secondAttribute="bottom" constant="34" id="tAd-eV-A7A"/>
+                            <constraint firstItem="WeK-fk-48I" firstAttribute="top" secondItem="Nvg-nX-0MH" secondAttribute="bottom" constant="80" id="wBZ-Oh-m7A"/>
+                            <constraint firstItem="Nvg-nX-0MH" firstAttribute="leading" secondItem="zVf-cK-dfq" secondAttribute="leadingMargin" constant="20" id="ySE-Jy-ieT"/>
+                            <constraint firstItem="djR-W4-yxe" firstAttribute="centerX" secondItem="zVf-cK-dfq" secondAttribute="centerX" id="ywx-Ab-XuB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutTimesPicker" destination="ywe-Uq-CX4" id="Uae-zc-9fe"/>
+                        <outlet property="normalWorldValueLabel" destination="Nvg-nX-0MH" id="3KF-W4-Q8C"/>
+                        <outlet property="okButton" destination="WeK-fk-48I" id="Yds-3K-JDi"/>
+                        <outlet property="periodImageView" destination="unu-gz-HTy" id="hMw-Wq-vnT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6n1-k9-SFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2989.5999999999999" y="2671.2143928035985"/>
         </scene>
     </scenes>
     <resources>

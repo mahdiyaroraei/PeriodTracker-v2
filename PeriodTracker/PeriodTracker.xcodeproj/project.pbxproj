@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55016A6D1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */; };
 		5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */; };
 		5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */; };
 		551145561F0AC92700C2C08B /* mood.json in Resources */ = {isa = PBXBuildFile; fileRef = 551145551F0AC92700C2C08B /* mood.json */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
+		55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthSelectorViewController.swift; path = Controllers/PeriodLengthSelectorViewController.swift; sourceTree = "<group>"; };
 		5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleLengthViewController.swift; path = Controllers/CycleLengthViewController.swift; sourceTree = "<group>"; };
 		5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthViewController.swift; path = Controllers/PeriodLengthViewController.swift; sourceTree = "<group>"; };
 		551145551F0AC92700C2C08B /* mood.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mood.json; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */,
 				5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */,
 				5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */,
+				55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55016A6D1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift in Sources */,
 				556CA0851EFBE587008C5EA1 /* Information.swift in Sources */,
 				553039D31F025EA600C8EF07 /* Colors.swift in Sources */,
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
