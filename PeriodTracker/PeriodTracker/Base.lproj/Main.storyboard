@@ -924,8 +924,55 @@
                     <view key="view" contentMode="scaleToFill" id="6zu-Ve-Or3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="امروز" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-0O-SiL">
+                                <rect key="frame" x="100" y="28" width="175" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="cyq-fP-8bO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="20"/>
+                                <color key="textColor" red="0.46274509800000002" green="0.52156862749999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Oy-4K-GIA">
+                                <rect key="frame" x="16" y="23" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="d6t-yr-Zaj"/>
+                                    <constraint firstAttribute="height" constant="30" id="jGW-5a-RKs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="15" backgroundImage="calendar_green">
+                                    <color key="titleColor" red="0.48301392793655396" green="0.62899035215377808" blue="0.07599765807390213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoCurrentWeek:" destination="gUD-gb-1tx" eventType="touchUpInside" id="6Ws-Sk-VmM"/>
+                                    <action selector="todayClicked:" destination="3N1-OY-0Bg" eventType="touchUpInside" id="cFz-2z-5oN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="die-uN-T8s">
+                                <rect key="frame" x="329" y="23" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ofT-Qs-gvY"/>
+                                    <constraint firstAttribute="height" constant="30" id="xdH-S7-Vid"/>
+                                </constraints>
+                                <state key="normal" image="question"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="die-uN-T8s" firstAttribute="trailing" secondItem="6zu-Ve-Or3" secondAttribute="trailingMargin" id="7Jg-PV-msH"/>
+                            <constraint firstItem="b0O-0O-SiL" firstAttribute="centerX" secondItem="6zu-Ve-Or3" secondAttribute="centerX" id="OLC-ZE-hLr"/>
+                            <constraint firstItem="b0O-0O-SiL" firstAttribute="centerX" secondItem="6zu-Ve-Or3" secondAttribute="centerX" id="YcZ-fd-6bi"/>
+                            <constraint firstItem="5Oy-4K-GIA" firstAttribute="leading" secondItem="6zu-Ve-Or3" secondAttribute="leadingMargin" id="k3O-8h-ZFD"/>
+                            <constraint firstItem="die-uN-T8s" firstAttribute="top" secondItem="G5l-7Q-J8e" secondAttribute="bottom" constant="3" id="nLv-ec-UZZ"/>
+                            <constraint firstItem="b0O-0O-SiL" firstAttribute="top" secondItem="G5l-7Q-J8e" secondAttribute="bottom" constant="8" id="oTr-TZ-Ypf"/>
+                            <constraint firstItem="5Oy-4K-GIA" firstAttribute="top" secondItem="G5l-7Q-J8e" secondAttribute="bottom" constant="3" id="oUV-QK-1y6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="todayButton" destination="5Oy-4K-GIA" id="hJD-zy-tO2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3be-gh-baM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1021,7 +1068,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="طول دوره" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-NH-F9t">
-                                <rect key="frame" x="147" y="176" width="81" height="37.5"/>
+                                <rect key="frame" x="147.5" y="176" width="81" height="37.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" red="0.074509803921568626" green="0.49411764705882355" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1130,7 +1177,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="پریود" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE5-U4-O04">
-                                <rect key="frame" x="166" y="176" width="44.5" height="37.5"/>
+                                <rect key="frame" x="165.5" y="176" width="44.5" height="37.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

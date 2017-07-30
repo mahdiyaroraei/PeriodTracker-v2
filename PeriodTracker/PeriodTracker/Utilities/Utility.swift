@@ -10,6 +10,25 @@ import UIKit
 
 class Utility: NSObject {
     
+    static func computeFertileRange(_ cycleLength: Int) -> CountableClosedRange<Int> {
+        // Based on https://periodtracker.slack.com/files/oraei.mossi/F6FGYMC66/wila3140.f3.jpg compute percentage above 50
+        var min = 0 , max = 0
+        if cycleLength < 28 {
+            min = 8
+            max = 15
+        }else if cycleLength == 28{
+            min = 9
+            max = 16
+        }else if cycleLength == 29{
+            min = 10
+            max = 18
+        }else if cycleLength >= 30{
+            min = 12
+            max = 20
+        }
+        return min...max
+    }
+    
     static func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
