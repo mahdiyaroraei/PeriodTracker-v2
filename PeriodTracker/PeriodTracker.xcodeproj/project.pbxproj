@@ -14,6 +14,7 @@
 		551145561F0AC92700C2C08B /* mood.json in Resources */ = {isa = PBXBuildFile; fileRef = 551145551F0AC92700C2C08B /* mood.json */; };
 		5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */; };
 		5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */; };
+		5520DE7F1F302CEB0003A844 /* PregnantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5520DE7E1F302CEB0003A844 /* PregnantViewController.swift */; };
 		553039D31F025EA600C8EF07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553039D21F025EA600C8EF07 /* Colors.swift */; };
 		5535EB631F25F926007D70F5 /* AboutLastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */; };
 		5537E5A41F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537E5A31F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		551145551F0AC92700C2C08B /* mood.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mood.json; sourceTree = "<group>"; };
 		5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayLogViewController.swift; path = Controllers/DayLogViewController.swift; sourceTree = "<group>"; };
 		5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekCollectionViewCell.swift; path = Cell/WeekCollectionViewCell.swift; sourceTree = "<group>"; };
+		5520DE7E1F302CEB0003A844 /* PregnantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PregnantViewController.swift; path = Controllers/PregnantViewController.swift; sourceTree = "<group>"; };
 		553039D21F025EA600C8EF07 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Utilities/Colors.swift; sourceTree = "<group>"; };
 		5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutLastPeriodViewController.swift; path = Controllers/AboutLastPeriodViewController.swift; sourceTree = "<group>"; };
 		5537E5A31F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodSelectorTableViewCell.swift; path = Cell/MoodSelectorTableViewCell.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */,
 				5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */,
 				55016A6E1F29C22F00EC567E /* CycleViewController.swift */,
+				5520DE7E1F302CEB0003A844 /* PregnantViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
 				55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */,
 				55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */,
+				5520DE7F1F302CEB0003A844 /* PregnantViewController.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
 				55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */,
