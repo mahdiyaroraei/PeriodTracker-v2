@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55016A6F1F29C22F00EC567E /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A6E1F29C22F00EC567E /* CycleViewController.swift */; };
 		55016A741F29C30100EC567E /* CircleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A731F29C30100EC567E /* CircleOption.swift */; };
+		5505E91C1F30AF7500379085 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505E91B1F30AF7500379085 /* Extensions.swift */; };
 		5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */; };
 		5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */; };
 		551145561F0AC92700C2C08B /* mood.json in Resources */ = {isa = PBXBuildFile; fileRef = 551145551F0AC92700C2C08B /* mood.json */; };
@@ -56,6 +57,7 @@
 		3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
 		55016A6E1F29C22F00EC567E /* CycleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleViewController.swift; path = Controllers/CycleViewController.swift; sourceTree = "<group>"; };
 		55016A731F29C30100EC567E /* CircleOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleOption.swift; path = Model/CircleOption.swift; sourceTree = "<group>"; };
+		5505E91B1F30AF7500379085 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
 		5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleLengthViewController.swift; path = Controllers/CycleLengthViewController.swift; sourceTree = "<group>"; };
 		5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthViewController.swift; path = Controllers/PeriodLengthViewController.swift; sourceTree = "<group>"; };
 		551145551F0AC92700C2C08B /* mood.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mood.json; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				557F959E1EFE628A00D1D68A /* Reachability.swift */,
 				556CF44A1F0135A100E3456B /* Utility.swift */,
 				553039D21F025EA600C8EF07 /* Colors.swift */,
+				5505E91B1F30AF7500379085 /* Extensions.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
 				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
 				5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */,
+				5505E91C1F30AF7500379085 /* Extensions.swift in Sources */,
 				556CF44B1F0135A100E3456B /* Utility.swift in Sources */,
 				5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */,
 			);

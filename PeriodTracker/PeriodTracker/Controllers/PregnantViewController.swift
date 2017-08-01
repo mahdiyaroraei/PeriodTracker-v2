@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class PregnantViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout ,
+class PregnantViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout , UICollectionViewDataSource ,
 SelectCellDelegate {
     
     @IBOutlet weak var weekCollectionView: UICollectionView!
@@ -18,7 +18,13 @@ SelectCellDelegate {
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
-    let calendar = Calendar(identifier: .persian)
+    @IBOutlet weak var articleView: UIView!
+    @IBOutlet weak var articleSubjectLabel: UILabel!
+    
+    var pregnantImageView: UIImageView!
+    var pregnantLabel: UILabel!
+    
+    var calendar = Calendar(identifier: .persian)
     
     public static var selectedName: String!
     
@@ -35,10 +41,14 @@ SelectCellDelegate {
     var valueTypes: [String] = []
     var selectedMood: Mood!
     
+    var pregnantWeek: Int!
+    
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pregnantWeek = calendar.compare(Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: Date(), toGranularity: .day).rawValue / 7 + 1
         
         todayLabel.text = "\(String(describing: Calendar(identifier: .persian).dateComponents([.day], from: nowDate).day!))"
         
@@ -66,14 +76,81 @@ SelectCellDelegate {
         //        let tap = UIGestureRecognizer(target: self, action: #selector(dissmisKeyboard))
         //        view.addGestureRecognizer(tap)
         
+        setupPregnantImage()
+        setupPregnantLabel()
+        setupPregnantLogLabel()
     }
     
+    func setupArticleViews() {
+        articleView.roundCorners([.topLeft , .topRight], radius: 10)
+        
+        articleSubjectLabel.text = "مقاله مربوط به هفته \(pregnantWeek!) بارداری"
+    }
+    
+    func setupPregnantLogLabel() {
+        let pregnantLogLabel = UIButton()
+        pregnantLogLabel.setTitle("ثبت جزییات", for: .normal)
+        pregnantLogLabel.titleLabel?.font = UIFont(name: "IRANSans(FaNum)", size: 16)
+        pregnantLogLabel.titleLabel?.textColor = .white
+        pregnantLogLabel.titleLabel?.textAlignment = .center
+        pregnantLogLabel.backgroundColor = .orange
+        
+        self.view.addSubview(pregnantLogLabel)
+        
+        pregnantLogLabel.frame.size = CGSize(width: 100, height: 35)
+        pregnantLogLabel.center = CGPoint(x: self.view.center.x, y: self.pregnantImageView.frame.maxY - 40)
+        pregnantLogLabel.layer.cornerRadius = 10
+        pregnantLogLabel.layer.masksToBounds = true
+    }
+    
+    func setupPregnantLabel() {
+        pregnantLabel = UILabel()
+        pregnantLabel.textAlignment = .center
+        
+        let title = "بارداری: هفته \(pregnantWeek!)"
+        let attributeString = NSMutableAttributedString(string: title)
+        attributeString.addAttribute(NSFontAttributeName, value: UIFont(name: "IRANSansFaNum-Light", size: 20)!, range: NSRange(location: 0, length: 9))
+        attributeString.addAttribute(NSFontAttributeName, value: UIFont(name: "IRANSansFaNum-Bold", size: 20)!, range: NSRange(location: 9, length: "\(pregnantWeek!)".characters.count + 5))
+        attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSRange(location: 0, length: title.characters.count))
+        
+        pregnantLabel.attributedText = attributeString
+        
+        self.view.addSubview(pregnantLabel)
+        
+        pregnantLabel.frame.size = CGSize(width: pregnantImageView.frame.width, height: 25)
+        pregnantLabel.center = CGPoint(x: self.view.center.x, y: self.pregnantImageView.frame.origin.y + 40)
+        
+    }
+    
+    func setupPregnantImage() {
+
+        let centerY = (self.view.frame.height - (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height)) / 2 + (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height) - 40 // 40 is padding
+        
+        pregnantImageView = UIImageView(image: UIImage(named: "pregnant\(pregnantWeek!)"))
+        pregnantImageView.backgroundColor = .blue
+        
+        self.view.addSubview(pregnantImageView)
+        
+        let imageSize = self.view.frame.width - 20
+        pregnantImageView.frame.size = CGSize(width: imageSize, height: imageSize)
+        pregnantImageView.center = CGPoint(x: self.view.center.x, y: centerY)
+        pregnantImageView.layer.masksToBounds = true
+        pregnantImageView.layer.cornerRadius = imageSize / 2
+        
+        let colorOverlayLayer = CAShapeLayer()
+        colorOverlayLayer.path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: pregnantImageView.frame.width, height: pregnantImageView.frame.height)).cgPath
+        colorOverlayLayer.fillColor = UIColor.lightGray.cgColor
+        colorOverlayLayer.opacity = 0.3
+        
+        pregnantImageView.layer.addSublayer(colorOverlayLayer)
+    }
     func dissmisKeyboard() {
         
     }
     
     override func viewWillLayoutSubviews() {
         self.weekCollectionView.reloadData()
+        
     }
     
     @IBOutlet weak var weekCollectionViewHeight: NSLayoutConstraint!
@@ -87,6 +164,7 @@ SelectCellDelegate {
             let diffrence = calendar.dateComponents([.weekOfYear], from: calendar.startOfDay(for: Date()), to: Date()).weekOfYear
             
             self.weekCollectionView.scrollToItem(at: IndexPath(row: 25 + diffrence!, section: 0), at: .left, animated: false)
+            setupArticleViews()
         }
         
         weekCollectionViewHeight.constant = (self.weekCollectionView.frame.width / 7 + 20)

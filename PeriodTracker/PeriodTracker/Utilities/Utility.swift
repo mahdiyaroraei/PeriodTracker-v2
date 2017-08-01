@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 class Utility: NSObject {
+    
+    static func latestPeriodLog() -> Double{
+        let realm = try! Realm()
+        
+        if let log = realm.objects(Log.self).filter("mood.name == 'bleeding'").last {
+            return log.timestamp
+        }else{
+            return 0
+        }
+    }
     
     static func computeFertileRange(_ cycleLength: Int) -> CountableClosedRange<Int> {
         // Based on https://periodtracker.slack.com/files/oraei.mossi/F6FGYMC66/wila3140.f3.jpg compute percentage above 50
