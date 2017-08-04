@@ -42,6 +42,8 @@ SelectCellDelegate , SelectMoodDelegate{
 
     let realm = try! Realm()
     
+    var isPregnant = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -162,7 +164,11 @@ SelectCellDelegate , SelectMoodDelegate{
     
     func getEnabledMoodFromDatabase() {
         let realm = try! Realm()
-        moods = realm.objects(Mood.self).filter("enable == 1")
+        if !isPregnant {
+            moods = realm.objects(Mood.self).filter("enable == 1")
+        }else{
+            moods = realm.objects(Mood.self).filter("enable == 1 AND name != 'collection_method'")
+        }
     }
     
     @IBOutlet weak var weekCollectionViewHeight: NSLayoutConstraint!
@@ -259,6 +265,10 @@ SelectCellDelegate , SelectMoodDelegate{
         if collectionView == moodValuesCollectionView {
             let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
             
+            if isPregnant && selectedMood.name == "bleeding" && cell.value != "spotting" {
+                showToast(message: "در حالت بارداری فقط امکان ذخیره لکه بینی را در دسته بندی خونریزی دارید")
+                return
+            }
             cell.toggle(mood: selectedMood)
             self.moodCollectionView.reloadData()
         }

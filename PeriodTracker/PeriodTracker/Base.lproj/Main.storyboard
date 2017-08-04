@@ -891,7 +891,7 @@
                                     <color key="titleColor" red="0.48301392793655396" green="0.62899035215377808" blue="0.07599765807390213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gUD-gb-1tx" kind="show" id="2LD-0R-NuO"/>
+                                    <action selector="saveChangesClicked:" destination="w2N-Fo-trX" eventType="touchUpInside" id="3OK-OL-esr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -977,6 +977,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3be-gh-baM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4244" y="35"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uME-KO-QWx">
+            <objects>
+                <viewController storyboardIdentifier="settingViewController" id="2G5-Md-1vI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Hz-cQ-55I"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vrb-dU-KUQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H2x-Dg-v0b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCv-sq-peL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5305" y="40"/>
         </scene>
         <!--Buy View Controller-->
         <scene sceneID="kVR-xh-CmK">

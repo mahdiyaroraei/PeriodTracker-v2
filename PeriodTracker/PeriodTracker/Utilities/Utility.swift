@@ -14,7 +14,7 @@ class Utility: NSObject {
     static func latestPeriodLog() -> Double{
         let realm = try! Realm()
         
-        if let log = realm.objects(Log.self).filter("mood.name == 'bleeding'").last {
+        if let log = realm.objects(Log.self).filter("mood.name == 'bleeding' AND value != 'spotting'").last {
             return log.timestamp
         }else{
             return 0

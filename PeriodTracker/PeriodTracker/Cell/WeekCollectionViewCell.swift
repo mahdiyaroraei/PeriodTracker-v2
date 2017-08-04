@@ -19,6 +19,8 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
     var strokeLayer: CAShapeLayer?
     var todayStrokeLayer: CAShapeLayer?
     
+    var isPregnant = false
+    
     weak var delegate: SelectCellDelegate?
     
     func refresh() {
@@ -76,7 +78,7 @@ class WeekCollectionViewCell: UICollectionViewCell , UICollectionViewDelegate , 
         let cell = daysCollectionView.cellForItem(at: indexPath) as! DayCollectionViewCell
         
         // Check don't select future
-        if cell.dayDate == nil || cell.dayDate > Date() || cell.dayDate == CalendarViewController.selectedDate{
+        if (cell.dayDate == nil || cell.dayDate > Date() || cell.dayDate == CalendarViewController.selectedDate) && !isPregnant{ // If in pregnant mode don't problem to select future
             if cell.dayDate != nil && cell.dayDate > Date() {
                 self.delegate?.cannotSelectFuture()
             }

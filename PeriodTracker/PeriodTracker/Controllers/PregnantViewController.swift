@@ -45,10 +45,13 @@ SelectCellDelegate {
     
     let realm = try! Realm()
     
+    // Color overlay layer on period image view
+    let colorOverlayLayer = CAShapeLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pregnantWeek = calendar.compare(Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: Date(), toGranularity: .day).rawValue / 7 + 1
+        pregnantWeek = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: Date()).day! / 7 + 1
         
         todayLabel.text = "\(String(describing: Calendar(identifier: .persian).dateComponents([.day], from: nowDate).day!))"
         
@@ -88,19 +91,26 @@ SelectCellDelegate {
     }
     
     func setupPregnantLogLabel() {
-        let pregnantLogLabel = UIButton()
-        pregnantLogLabel.setTitle("ثبت جزییات", for: .normal)
-        pregnantLogLabel.titleLabel?.font = UIFont(name: "IRANSans(FaNum)", size: 16)
-        pregnantLogLabel.titleLabel?.textColor = .white
-        pregnantLogLabel.titleLabel?.textAlignment = .center
-        pregnantLogLabel.backgroundColor = .orange
+        let pregnantLogButton = UIButton()
+        pregnantLogButton.setTitle("ثبت جزییات", for: .normal)
+        pregnantLogButton.titleLabel?.font = UIFont(name: "IRANSans(FaNum)", size: 16)
+        pregnantLogButton.titleLabel?.textColor = .white
+        pregnantLogButton.titleLabel?.textAlignment = .center
+        pregnantLogButton.backgroundColor = .orange
         
-        self.view.addSubview(pregnantLogLabel)
+        self.view.addSubview(pregnantLogButton)
         
-        pregnantLogLabel.frame.size = CGSize(width: 100, height: 35)
-        pregnantLogLabel.center = CGPoint(x: self.view.center.x, y: self.pregnantImageView.frame.maxY - 40)
-        pregnantLogLabel.layer.cornerRadius = 10
-        pregnantLogLabel.layer.masksToBounds = true
+        pregnantLogButton.frame.size = CGSize(width: 100, height: 35)
+        pregnantLogButton.center = CGPoint(x: self.view.center.x, y: self.pregnantImageView.frame.maxY - 40)
+        pregnantLogButton.layer.cornerRadius = 10
+        pregnantLogButton.layer.masksToBounds = true
+        pregnantLogButton.addTarget(self, action: #selector(pregnantLogButtonClicked(sender:)), for: .touchUpInside)
+    }
+    
+    func pregnantLogButtonClicked(sender: UIButton) {
+        let dayLogViewController = self.storyboard?.instantiateViewController(withIdentifier: "dayLogViewController") as! DayLogViewController
+        dayLogViewController.isPregnant = true
+        present(dayLogViewController , animated: true, completion: nil)
     }
     
     func setupPregnantLabel() {
@@ -137,7 +147,6 @@ SelectCellDelegate {
         pregnantImageView.layer.masksToBounds = true
         pregnantImageView.layer.cornerRadius = imageSize / 2
         
-        let colorOverlayLayer = CAShapeLayer()
         colorOverlayLayer.path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: pregnantImageView.frame.width, height: pregnantImageView.frame.height)).cgPath
         colorOverlayLayer.fillColor = UIColor.lightGray.cgColor
         colorOverlayLayer.opacity = 0.3
@@ -192,6 +201,7 @@ SelectCellDelegate {
             let cell = self.weekCollectionView.dequeueReusableCell(withReuseIdentifier: "week_cell", for: indexPath) as! WeekCollectionViewCell
             
             cell.delegate = self
+            cell.isPregnant = true
             cell.weekDate = calendar.date(byAdding: .weekOfYear, value: indexPath.row - 25 , to: nowDate)
             cell.refresh()
             
@@ -211,6 +221,36 @@ SelectCellDelegate {
         // Update all collection view for log new timestamp
         self.scrolledFirst = true
         self.weekCollectionView.reloadData()
+        refreshPregnantViewsIfWeekChange()
+    }
+    
+    func refreshPregnantViewsIfWeekChange() {
+        let tempPregnant = pregnantWeek
+        
+        if  calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: CalendarViewController.selectedDate!).day! < 0 {
+            colorOverlayLayer.opacity = 0.9
+            pregnantLabel.font = UIFont(name: "IRANSans(FaNum)", size: 15)
+            pregnantLabel.text = "در این روز هنوز باردار نیستید"
+            pregnantWeek = -1
+            articleView.isHidden = true
+            return
+        }
+        articleView.isHidden = false
+        colorOverlayLayer.opacity = 0.3
+
+        pregnantWeek = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: CalendarViewController.selectedDate!).day! / 7 + 1
+        
+        if pregnantWeek != tempPregnant {
+            pregnantImageView.image = UIImage(named: "pregnant\(pregnantWeek!)")
+            
+            let title = "بارداری: هفته \(pregnantWeek!)"
+            let attributeString = NSMutableAttributedString(string: title)
+            attributeString.addAttribute(NSFontAttributeName, value: UIFont(name: "IRANSansFaNum-Light", size: 20)!, range: NSRange(location: 0, length: 9))
+            attributeString.addAttribute(NSFontAttributeName, value: UIFont(name: "IRANSansFaNum-Bold", size: 20)!, range: NSRange(location: 9, length: "\(pregnantWeek!)".characters.count + 5))
+            attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSRange(location: 0, length: title.characters.count))
+            
+            pregnantLabel.attributedText = attributeString
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

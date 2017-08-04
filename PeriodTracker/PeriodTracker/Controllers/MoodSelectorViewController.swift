@@ -26,6 +26,9 @@ class MoodSelectorViewController: UIViewController , UITableViewDelegate , UITab
         moodTableView.dataSource = self
     }
 
+    @IBAction func saveChangesClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
