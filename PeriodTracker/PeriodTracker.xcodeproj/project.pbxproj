@@ -27,10 +27,12 @@
 		556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0821EFBE522008C5EA1 /* Setting.swift */; };
 		556CA0851EFBE587008C5EA1 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0841EFBE587008C5EA1 /* Information.swift */; };
 		556CF44B1F0135A100E3456B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CF44A1F0135A100E3456B /* Utility.swift */; };
+		556FB7DA1F36D34D006DDAB9 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7D91F36D34D006DDAB9 /* SettingModel.swift */; };
 		557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F959E1EFE628A00D1D68A /* Reachability.swift */; };
 		557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */; };
 		557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */; };
 		557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A51EFEA9BF00D1D68A /* DayCollectionViewCell.swift */; };
+		55B958011F35A45A004AAFA3 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */; };
 		55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD351EF94ADE00F75794 /* AppDelegate.swift */; };
 		55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD371EF94ADE00F75794 /* ViewController.swift */; };
 		55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD391EF94ADE00F75794 /* Main.storyboard */; };
@@ -39,6 +41,7 @@
 		55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */; };
 		55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC45901EFBDB1F00E34DD3 /* User.swift */; };
 		55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */; };
+		55DAEFDD1F34C79300937210 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAEFDC1F34C79300937210 /* SettingViewController.swift */; };
 		55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */; };
 		55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */; };
 		55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */; };
@@ -75,10 +78,12 @@
 		556CA0821EFBE522008C5EA1 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = Database/Setting.swift; sourceTree = "<group>"; };
 		556CA0841EFBE587008C5EA1 /* Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Information.swift; path = Database/Information.swift; sourceTree = "<group>"; };
 		556CF44A1F0135A100E3456B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = Utilities/Utility.swift; sourceTree = "<group>"; };
+		556FB7D91F36D34D006DDAB9 /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingModel.swift; path = Model/SettingModel.swift; sourceTree = "<group>"; };
 		557F959E1EFE628A00D1D68A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Utilities/Reachability.swift; sourceTree = "<group>"; };
 		557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = Controllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthTableViewCell.swift; path = Cell/MonthTableViewCell.swift; sourceTree = "<group>"; };
 		557F95A51EFEA9BF00D1D68A /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayCollectionViewCell.swift; path = Cell/DayCollectionViewCell.swift; sourceTree = "<group>"; };
+		55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewCell.swift; path = Cell/SettingTableViewCell.swift; sourceTree = "<group>"; };
 		55B9BD321EF94ADE00F75794 /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B9BD351EF94ADE00F75794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B9BD371EF94ADE00F75794 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodTrackerRouter.swift; path = API/PeriodTrackerRouter.swift; sourceTree = "<group>"; };
 		55CC45901EFBDB1F00E34DD3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Database/User.swift; sourceTree = "<group>"; };
 		55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodValueCollectionViewCell.swift; path = Cell/MoodValueCollectionViewCell.swift; sourceTree = "<group>"; };
+		55DAEFDC1F34C79300937210 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controllers/SettingViewController.swift; sourceTree = "<group>"; };
 		55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupPageViewController.swift; path = Controllers/SetupPageViewController.swift; sourceTree = "<group>"; };
 		55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastPeriodViewController.swift; path = Controllers/LastPeriodViewController.swift; sourceTree = "<group>"; };
 		55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodsCollectionViewCell.swift; path = Cell/MoodsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				55016A731F29C30100EC567E /* CircleOption.swift */,
+				556FB7D91F36D34D006DDAB9 /* SettingModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 				55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */,
 				55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */,
 				5537E5A31F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift */,
+				55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 				5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */,
 				55016A6E1F29C22F00EC567E /* CycleViewController.swift */,
 				5520DE7E1F302CEB0003A844 /* PregnantViewController.swift */,
+				55DAEFDC1F34C79300937210 /* SettingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
 				55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */,
 				55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */,
+				55DAEFDD1F34C79300937210 /* SettingViewController.swift in Sources */,
 				5520DE7F1F302CEB0003A844 /* PregnantViewController.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
@@ -425,8 +435,10 @@
 				5535EB631F25F926007D70F5 /* AboutLastPeriodViewController.swift in Sources */,
 				557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */,
 				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
+				55B958011F35A45A004AAFA3 /* SettingTableViewCell.swift in Sources */,
 				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
 				5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */,
+				556FB7DA1F36D34D006DDAB9 /* SettingModel.swift in Sources */,
 				5505E91C1F30AF7500379085 /* Extensions.swift in Sources */,
 				556CF44B1F0135A100E3456B /* Utility.swift in Sources */,
 				5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */,
