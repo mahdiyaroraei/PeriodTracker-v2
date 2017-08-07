@@ -28,6 +28,15 @@
 		556CA0851EFBE587008C5EA1 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA0841EFBE587008C5EA1 /* Information.swift */; };
 		556CF44B1F0135A100E3456B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CF44A1F0135A100E3456B /* Utility.swift */; };
 		556FB7DA1F36D34D006DDAB9 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7D91F36D34D006DDAB9 /* SettingModel.swift */; };
+		556FB7DE1F372844006DDAB9 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7DD1F372844006DDAB9 /* ArticleViewController.swift */; };
+		556FB7E01F372C07006DDAB9 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7DF1F372C07006DDAB9 /* ArticleCollectionViewCell.swift */; };
+		556FB7E21F37365C006DDAB9 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7E11F37365C006DDAB9 /* Article.swift */; };
+		556FB7E41F382768006DDAB9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7E31F382768006DDAB9 /* Config.swift */; };
+		556FB7E61F3848AC006DDAB9 /* ArticlePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7E51F3848AC006DDAB9 /* ArticlePageViewController.swift */; };
+		556FB7E81F3850F6006DDAB9 /* AttributeTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7E71F3850F6006DDAB9 /* AttributeTextCollectionViewCell.swift */; };
+		556FB7EE1F3851C6006DDAB9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7ED1F3851C6006DDAB9 /* Item.swift */; };
+		556FB7F21F387016006DDAB9 /* TextAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7F11F387016006DDAB9 /* TextAttribute.swift */; };
+		556FB7F41F38876B006DDAB9 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7F31F38876B006DDAB9 /* ImageCollectionViewCell.swift */; };
 		557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F959E1EFE628A00D1D68A /* Reachability.swift */; };
 		557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */; };
 		557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */; };
@@ -79,6 +88,15 @@
 		556CA0841EFBE587008C5EA1 /* Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Information.swift; path = Database/Information.swift; sourceTree = "<group>"; };
 		556CF44A1F0135A100E3456B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = Utilities/Utility.swift; sourceTree = "<group>"; };
 		556FB7D91F36D34D006DDAB9 /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingModel.swift; path = Model/SettingModel.swift; sourceTree = "<group>"; };
+		556FB7DD1F372844006DDAB9 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = Controllers/ArticleViewController.swift; sourceTree = "<group>"; };
+		556FB7DF1F372C07006DDAB9 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleCollectionViewCell.swift; path = Cell/ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		556FB7E11F37365C006DDAB9 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = Model/Article.swift; sourceTree = "<group>"; };
+		556FB7E31F382768006DDAB9 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Utilities/Config.swift; sourceTree = "<group>"; };
+		556FB7E51F3848AC006DDAB9 /* ArticlePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticlePageViewController.swift; path = Controllers/ArticlePageViewController.swift; sourceTree = "<group>"; };
+		556FB7E71F3850F6006DDAB9 /* AttributeTextCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeTextCollectionViewCell.swift; path = Cell/AttributeTextCollectionViewCell.swift; sourceTree = "<group>"; };
+		556FB7ED1F3851C6006DDAB9 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Model/Item.swift; sourceTree = "<group>"; };
+		556FB7F11F387016006DDAB9 /* TextAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextAttribute.swift; path = Model/TextAttribute.swift; sourceTree = "<group>"; };
+		556FB7F31F38876B006DDAB9 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCollectionViewCell.swift; path = Cell/ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		557F959E1EFE628A00D1D68A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Utilities/Reachability.swift; sourceTree = "<group>"; };
 		557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = Controllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthTableViewCell.swift; path = Cell/MonthTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +162,9 @@
 			children = (
 				55016A731F29C30100EC567E /* CircleOption.swift */,
 				556FB7D91F36D34D006DDAB9 /* SettingModel.swift */,
+				556FB7E11F37365C006DDAB9 /* Article.swift */,
+				556FB7ED1F3851C6006DDAB9 /* Item.swift */,
+				556FB7F11F387016006DDAB9 /* TextAttribute.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -163,6 +184,7 @@
 				556CF44A1F0135A100E3456B /* Utility.swift */,
 				553039D21F025EA600C8EF07 /* Colors.swift */,
 				5505E91B1F30AF7500379085 /* Extensions.swift */,
+				556FB7E31F382768006DDAB9 /* Config.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -178,6 +200,9 @@
 				55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */,
 				5537E5A31F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift */,
 				55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */,
+				556FB7DF1F372C07006DDAB9 /* ArticleCollectionViewCell.swift */,
+				556FB7E71F3850F6006DDAB9 /* AttributeTextCollectionViewCell.swift */,
+				556FB7F31F38876B006DDAB9 /* ImageCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -271,6 +296,8 @@
 				55016A6E1F29C22F00EC567E /* CycleViewController.swift */,
 				5520DE7E1F302CEB0003A844 /* PregnantViewController.swift */,
 				55DAEFDC1F34C79300937210 /* SettingViewController.swift */,
+				556FB7DD1F372844006DDAB9 /* ArticleViewController.swift */,
+				556FB7E51F3848AC006DDAB9 /* ArticlePageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -405,9 +432,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556FB7E01F372C07006DDAB9 /* ArticleCollectionViewCell.swift in Sources */,
 				556CA0851EFBE587008C5EA1 /* Information.swift in Sources */,
+				556FB7E81F3850F6006DDAB9 /* AttributeTextCollectionViewCell.swift in Sources */,
 				553039D31F025EA600C8EF07 /* Colors.swift in Sources */,
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
+				556FB7E21F37365C006DDAB9 /* Article.swift in Sources */,
+				556FB7E41F382768006DDAB9 /* Config.swift in Sources */,
 				55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */,
 				55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */,
 				55DAEFDD1F34C79300937210 /* SettingViewController.swift in Sources */,
@@ -417,6 +448,7 @@
 				55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */,
 				55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */,
 				556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */,
+				556FB7F41F38876B006DDAB9 /* ImageCollectionViewCell.swift in Sources */,
 				556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */,
 				556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */,
 				730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */,
@@ -429,6 +461,7 @@
 				55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */,
 				557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */,
 				55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */,
+				556FB7EE1F3851C6006DDAB9 /* Item.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
 				55016A6F1F29C22F00EC567E /* CycleViewController.swift in Sources */,
 				55016A741F29C30100EC567E /* CircleOption.swift in Sources */,
@@ -438,6 +471,9 @@
 				55B958011F35A45A004AAFA3 /* SettingTableViewCell.swift in Sources */,
 				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
 				5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */,
+				556FB7E61F3848AC006DDAB9 /* ArticlePageViewController.swift in Sources */,
+				556FB7DE1F372844006DDAB9 /* ArticleViewController.swift in Sources */,
+				556FB7F21F387016006DDAB9 /* TextAttribute.swift in Sources */,
 				556FB7DA1F36D34D006DDAB9 /* SettingModel.swift in Sources */,
 				5505E91C1F30AF7500379085 /* Extensions.swift in Sources */,
 				556CF44B1F0135A100E3456B /* Utility.swift in Sources */,

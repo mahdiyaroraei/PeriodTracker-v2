@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2G5-Md-1vI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v3Y-2L-42c">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -989,12 +989,30 @@
                     <view key="view" contentMode="scaleToFill" id="H2x-Dg-v0b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCv-sq-peL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5305" y="40"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="LTj-EE-ZhS">
+            <objects>
+                <viewController id="v3Y-2L-42c" customClass="ArticleViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="85h-00-aUB"/>
+                        <viewControllerLayoutGuide type="bottom" id="mQN-DG-6b8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r6K-rR-q01">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7x-sp-uTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6158" y="35"/>
         </scene>
         <!--Buy View Controller-->
         <scene sceneID="kVR-xh-CmK">
@@ -1086,7 +1104,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="طول دوره" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-NH-F9t">
-                                <rect key="frame" x="147" y="176" width="81" height="37.5"/>
+                                <rect key="frame" x="147.5" y="176" width="81" height="37.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" red="0.074509803921568626" green="0.49411764705882355" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1195,7 +1213,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="پریود" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE5-U4-O04">
-                                <rect key="frame" x="166" y="176" width="44.5" height="37.5"/>
+                                <rect key="frame" x="165.5" y="176" width="44.5" height="37.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

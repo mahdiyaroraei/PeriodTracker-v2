@@ -11,6 +11,49 @@ import RealmSwift
 
 class Utility: NSObject {
     
+    static func createAttributeTextFromTextItem(textItem: Item) -> NSMutableAttributedString {
+        let text = textItem.text
+        let attributeText = NSMutableAttributedString(string: text!)
+        
+        if let attributes = textItem.attributes {
+            for attribute in attributes {
+                let range = attribute.range == nil ? NSRange(location: 0, length: text!.characters.count) : attribute.range!
+                if attribute.key == "font" {
+                    attributeText.addAttribute(NSFontAttributeName, value: UIFont(name: attribute.value!, size: 15)!, range: range)
+                } else if attribute.key == "text_alignment" {
+                    let paragraph = NSMutableParagraphStyle()
+                    if attribute.value! == "left" {
+                        paragraph.alignment = .left
+                    } else if attribute.value! == "center" {
+                        paragraph.alignment = .center
+                    } else if attribute.value! == "right" {
+                        paragraph.alignment = .right
+                    }
+                    attributeText.addAttribute(NSParagraphStyleAttributeName, value: paragraph, range: range)
+                } else if attribute.key == "text_color" {
+                    attributeText.addAttribute(NSForegroundColorAttributeName, value: UIColor.uicolorFromHex(rgbValue: UInt32(attribute.value! , radix: 16)!), range: range)
+                } else if attribute.key == "font" {
+                    
+                } else if attribute.key == "font" {
+                    
+                } else if attribute.key == "font" {
+                    
+                } else if attribute.key == "font" {
+                    
+                } else if attribute.key == "font" {
+                    
+                } else if attribute.key == "font" {
+                    
+                } else if attribute.key == "font" {
+                    
+                } else if attribute.key == "font" {
+                    
+                }
+            }
+        }
+        return attributeText
+    }
+    
     static func latestPeriodLog() -> Double{
         let realm = try! Realm()
         
