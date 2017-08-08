@@ -1307,6 +1307,7 @@
             </objects>
             <point key="canvasLocation" x="2991" y="1922"/>
         </scene>
+<<<<<<< HEAD
         <!--Pregnant View Controller-->
         <scene sceneID="F5W-CP-901">
             <objects>
@@ -1590,7 +1591,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJP-Xc-Dqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525.5999999999999" y="34.632683658170919"/>
-        </scene>
+=======
         <!--Period Length Selector View Controller-->
         <scene sceneID="URS-5t-fqQ">
             <objects>
@@ -1735,6 +1736,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6n1-k9-SFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2989.5999999999999" y="2671.2143928035985"/>
+>>>>>>> setup
         </scene>
     </scenes>
     <resources>

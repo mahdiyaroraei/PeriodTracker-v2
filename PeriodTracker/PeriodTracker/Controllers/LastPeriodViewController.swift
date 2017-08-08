@@ -33,6 +33,7 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
         periodImageView.clipsToBounds = true
         
         initQuestion()
+        checkExistDataInDatabase()
     }
     
     func initQuestion()  {
@@ -99,6 +100,7 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
         present(vc, animated: true, completion: nil)
     }
     
+    // This function created by follow CalendarDateSelector protocol
     func selectedDate(interval: Double) {
         // Check if setup exist replace and if not add new
         
@@ -121,6 +123,11 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        checkExistDataInDatabase()
+    }
+    
+    func checkExistDataInDatabase() {
         
         guard let setup = realm.objects(Setup.self).first else {
             // if dont setup yet ui must clear
@@ -154,7 +161,6 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
         questionTextView.text = "تاریخ \(dateComponents.day!) / \(dateComponents.month!) / \(dateComponents.year!) به عنوان آخرین پریودی شما ثبت شده است، از این تاریخ اطمینان دارید؟"
         
         isUserSavedData = true
-        
     }
     
     override func viewDidLayoutSubviews() {
