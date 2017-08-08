@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DayCollectionViewCell: UICollectionViewCell {
     
@@ -23,6 +24,29 @@ class DayCollectionViewCell: UICollectionViewCell {
         dayLabel.text = "\(String(describing: dateComponents.day!))"
         self.backgroundColor = Colors.normalCellColor
         
+        let realm = try! Realm()
+        if calendar.startOfDay(for: Date()) > dayDate {
+            if realm.objects(Log.self).filter("timestamp = \(dayDate.timeIntervalSince1970) AND mood.name = 'bleeding'").first != nil {
+                self.backgroundColor = .red // TODO change color
+            }
+        } else {
+            if let setup = realm.objects(Setup.self).last {
+                switch Utility.forecastingDate(dayDate , setup: setup) {
+                case .period:
+                    self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xFFABAB)
+                    break
+                case .fertile:
+                    self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xABE3FF)
+                    break
+                case .pms:
+                    self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0x838383)
+                    break
+                case.normal:
+                    self.backgroundColor = Colors.normalCellColor
+                    break
+                }
+            }
+        }
     }
     
     func empty() {

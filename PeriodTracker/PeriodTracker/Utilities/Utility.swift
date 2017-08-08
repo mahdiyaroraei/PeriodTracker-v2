@@ -9,7 +9,29 @@
 import UIKit
 import RealmSwift
 
+enum DayType {
+    case fertile
+    case period
+    case pms
+    case normal
+}
+
 class Utility: NSObject {
+    
+    static func forecastingDate(_ date: Date , setup: Setup) -> DayType {
+        let calendar = Calendar(identifier: .persian)
+        let diffrence = calendar.dateComponents([.day], from: Date(), to: date).day!
+//        let remain = diffrence % setup.cycleLength
+//        if remain < setup.periodLength {
+//            return .period
+//        } else if computeFertileRange(setup.cycleLength).contains(remain) {
+//            return .fertile
+//        } else if setup.cycleLength - remain < 4 {
+//            return .pms
+//        } else {
+            return .normal
+//        }
+    }
     
     static func createAttributeTextFromTextItem(textItem: Item) -> NSMutableAttributedString {
         let text = textItem.text
