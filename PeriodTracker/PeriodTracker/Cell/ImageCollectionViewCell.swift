@@ -12,7 +12,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     var imageItem: Item! {
         didSet {
-            imageView.downloadedFrom(link: imageItem.images![0])
+            imageView.downloadedFrom(link: imageItem.images![0].imageURL!)
         }
     }
     

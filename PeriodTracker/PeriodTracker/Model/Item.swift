@@ -22,9 +22,9 @@ class Item {
     }
     
     // Image item
-    var images: [String]?
+    var images: [Image]?
     
-    init(images: [String]!) {
+    init(images: [Image]!) {
         self.type = .Image
         self.images = images
     }

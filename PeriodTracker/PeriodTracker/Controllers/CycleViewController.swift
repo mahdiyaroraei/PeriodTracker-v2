@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CycleViewController: UIViewController {
     
@@ -30,6 +31,8 @@ class CycleViewController: UIViewController {
     
     var todayPoint: CGPoint!
     @IBOutlet weak var todayButton: UIButton!
+    
+    let realm = try! Realm()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -126,8 +129,9 @@ class CycleViewController: UIViewController {
             
             points.append(CGPoint(x: x, y: y))
             
-            // TODO change this statement
-            let startPeriodDate = calendar.date(byAdding: .day, value: -15, to: calendar.startOfDay(for: Date()))
+            // Compute satrt of this cycle
+            let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: realm.objects(Setup.self).last!.startDate), to: calendar.startOfDay(for: Date())).day!
+            let startPeriodDate = calendar.date(byAdding: .day, value: -diffrence, to: calendar.startOfDay(for: Date()))
             
             if calendar.isDateInToday(calendar.date(byAdding: .day, value: i, to: startPeriodDate!)!) {
                 // Today mark visible in this condition
@@ -148,7 +152,7 @@ class CycleViewController: UIViewController {
                 self.view.addSubview(todayMark)
             }
             if fertileDayIndex == i {
-                // Today mark visible in this condition
+                // Fertile mark visible in this condition
                 let fertileDayMarker = UILabel()
                 
                 fertileDayMarker.frame.size = CGSize(width: 50, height: 50)

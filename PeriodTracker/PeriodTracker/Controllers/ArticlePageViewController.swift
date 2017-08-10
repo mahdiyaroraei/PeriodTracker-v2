@@ -109,5 +109,13 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
         }
         return CGSize(width: self.view.frame.width, height: 280)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if article.content[indexPath.item - 1].type == .Image && !(article.content[indexPath.item - 1].images![0].link?.isEmpty)! {
+            
+            Utility.openLinkInSafari(link: article.content[indexPath.item - 1].images![0].link!)
+
+        }
+    }
 
 }

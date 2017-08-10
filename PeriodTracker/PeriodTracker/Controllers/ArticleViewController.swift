@@ -15,6 +15,20 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
     // Models
     var articles: [Article] = []
     
+    var offset: Int! {
+        didSet {
+            getArticlesFromServer()
+        }
+    }
+    
+    var lockOffset = false
+    
+    var loadNewArticle: Bool! {
+        didSet {
+            self.articleCollectionView.reloadData()
+        }
+    }
+    
     let articleCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 4
@@ -28,50 +42,42 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         super.viewDidLoad()
         
         setupViews()
-        getArticlesFromServer()
+        offset = 7
         
         articleCollectionView.register(ArticleCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        articleCollectionView.register(ActivityIndicatorCollectionViewCell.self, forCellWithReuseIdentifier: "loading_cell")
+        self.articleCollectionView.delegate = self
+        self.articleCollectionView.dataSource = self
     }
     
     func getArticlesFromServer() {
+        // Show loading here
+        self.loadNewArticle = true
+        
         let parameters: Parameters = [
             "limit": 10,
-            "offset": 0
+            "offset": offset
         ]
         
         Alamofire.request("\(Config.WEB_DOMAIN)articles", method: .get, parameters:parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             if let data = response.data{
                 let parsedResult = JSON(data: data)
-                for json in parsedResult.array! {
-                    
-                    var items: [Item] = []
-                    let parsedItem = JSON(json["content"].string!.data(using: .utf8)!)
-                    for itemJson in parsedItem.array! {
-                        if itemJson["type"].string! == ItemType.AttributeText.rawValue {
-                            var attributes: [TextAttribute] = []
-                            for jsonAttribute in itemJson["attributes"].array! {
-                                attributes.append(TextAttribute(key: jsonAttribute["key"].string!, value: jsonAttribute["value"].string, range: jsonAttribute["range"].string))
-                            }
-                            let textItem = Item(text: itemJson["text"].string!, attributes: attributes)
-                            items.append(textItem)
-                        } else if itemJson["type"].string! == ItemType.Image.rawValue {
-                            var images: [String] = []
-                            for jsonAttribute in itemJson["images"].array! {
-                                images.append(jsonAttribute.string!)
-                            }
-                            let imageItem = Item(images: images)
-                            items.append(imageItem)
-                        }
+                if let array = parsedResult.array {
+                    for json in array {
+                        self.articles.append(Utility.createArticleFromJSON(json))
                     }
-                    
-                    let article = Article(id: json["id"].int, title: json["title"].string, addedtime: json["addedtime"].string, view: json["view"].int, clap: json["clap"].int, desc: json["desc"].string, image: json["image"].string, content: items, creator_name: json["creator_name"].string, article_read_time: json["article_read_time"].string)
-                    
-                    self.articles.append(article)
+                    if array.count == 0 {
+                        // All article loads
+                        self.lockOffset = true
+                    }
+                } else {
+                    // All article loads
+                    self.lockOffset = true
                 }
                 
-                self.articleCollectionView.delegate = self
-                self.articleCollectionView.dataSource = self
             }
+            // Hide loading
+            self.loadNewArticle = false
         }
     }
     
@@ -85,32 +91,58 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         ]
         allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[topLayoutGuide][articleCollectionView]|", options: [], metrics: nil, views: views)
         allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[articleCollectionView]|", options: [], metrics: nil, views: views)
+        
         NSLayoutConstraint.activate(allConstraints)
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articles.count
+        if loadNewArticle {
+            return articles.count + 1
+        } else {
+            return articles.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = articleCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ArticleCollectionViewCell
-        cell.backgroundColor = .white
-        cell.article = articles[indexPath.item]
-        return cell
+        if loadNewArticle && indexPath.item >= articles.count {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loading_cell", for: indexPath) as! ActivityIndicatorCollectionViewCell
+            return cell
+        } else {
+            let cell = articleCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ArticleCollectionViewCell
+            cell.backgroundColor = .white
+            cell.article = articles[indexPath.item]
+            
+            if indexPath.item == articles.count - 1 && !loadNewArticle && !lockOffset {
+                offset = offset + 1
+            }
+            
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width - 6, height: 280)
+        if loadNewArticle && indexPath.item == articles.count {
+            return CGSize(width: self.view.frame.width - 6, height: 100)
+        } else {
+            return CGSize(width: self.view.frame.width - 6, height: 280)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(4, 3, 4, 3)
+        return UIEdgeInsetsMake(4, 3, 54, 3)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ArticlePageViewController()
-        vc.article = articles[indexPath.item]
+        let article = articles[indexPath.item]
+        article.increaseView()
+        vc.article = article
         present(vc, animated: true, completion: nil)
+        
+        Alamofire.request("\(Config.WEB_DOMAIN)view/\(article.id!)")
     }
+    
 
 }

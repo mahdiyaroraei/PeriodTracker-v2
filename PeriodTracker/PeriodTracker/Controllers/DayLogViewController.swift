@@ -67,16 +67,6 @@ SelectCellDelegate , SelectMoodDelegate{
         self.weekCollectionView.isPagingEnabled = true
         self.moodCollectionView.isPagingEnabled = true
         
-        // Add top and bottom border for stackView
-        let topLineLayer = CALayer()
-        topLineLayer.backgroundColor = Colors.normalCellColor.cgColor
-        topLineLayer.frame = CGRect(x:-50,y: 0, width:stackView.frame.size.width + 100, height:1)
-        stackView.layer.addSublayer(topLineLayer)
-        
-        let bottomLineLayer = CALayer()
-        bottomLineLayer.backgroundColor = Colors.normalCellColor.cgColor
-        bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
-        stackView.layer.addSublayer(bottomLineLayer)
         
         // Hide keyboard on touch outside textfield
 //        let tap = UIGestureRecognizer(target: self, action: #selector(dissmisKeyboard))
@@ -97,6 +87,17 @@ SelectCellDelegate , SelectMoodDelegate{
     
     override func viewWillLayoutSubviews() {
         self.weekCollectionView.reloadData()
+        
+        // Add top and bottom border for stackView
+        let topLineLayer = CALayer()
+        topLineLayer.backgroundColor = Colors.normalCellColor.cgColor
+        topLineLayer.frame = CGRect(x:-50,y: 0, width:stackView.frame.size.width + 100, height:1)
+        stackView.layer.addSublayer(topLineLayer)
+        
+        let bottomLineLayer = CALayer()
+        bottomLineLayer.backgroundColor = Colors.normalCellColor.cgColor
+        bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
+        stackView.layer.addSublayer(bottomLineLayer)
     }
         
     // Select mode and run this closure
@@ -268,6 +269,10 @@ SelectCellDelegate , SelectMoodDelegate{
             if isPregnant && selectedMood.name == "bleeding" && cell.value != "spotting" {
                 showToast(message: "در حالت بارداری فقط امکان ذخیره لکه بینی را در دسته بندی خونریزی دارید")
                 return
+            } else if selectedMood.name == "bleeding" && cell.value != "spotting" {
+                if Utility.forecastingDate(CalendarViewController.selectedDate! , setup: realm.objects(Setup.self).last!) != .period {
+                    // Show Module and ask from user that log is not matches by forecasting do you change setup values and show user actually when she should change values TODO
+                }
             }
             cell.toggle(mood: selectedMood)
             self.moodCollectionView.reloadData()

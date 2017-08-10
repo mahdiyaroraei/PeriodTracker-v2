@@ -5,6 +5,7 @@ PODS:
   - IGListKit/Default (3.0.0):
     - IGListKit/Diffing
   - IGListKit/Diffing (3.0.0)
+  - OneSignal (2.5.4)
   - Realm (2.8.3):
     - Realm/Headers (= 2.8.3)
   - Realm/Headers (2.8.3)
@@ -16,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - IGListKit (~> 3.0)
+  - OneSignal (< 3.0, >= 2.5.2)
   - RealmSwift
   - RQShineLabel
   - SwiftyJSON
@@ -23,11 +25,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   IGListKit: 9eab6856a15fa25ad72018ff9d9eb2178c240fff
+  OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   RQShineLabel: ae66343d6c779a8efdf61241734ddcec5d79d351
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 0920b450779a1855c4f0c6e62746515ba067bcbf
+PODFILE CHECKSUM: 7944ab141e845b3e42d3107d1ea240a093e155e7
 
 COCOAPODS: 1.2.0

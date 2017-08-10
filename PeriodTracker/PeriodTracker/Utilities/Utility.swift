@@ -8,29 +8,70 @@
 
 import UIKit
 import RealmSwift
+import SwiftyJSON
 
 enum DayType {
     case fertile
+    case fertileDate
     case period
     case pms
     case normal
 }
 
-class Utility: NSObject {
+class Utility: NSObject, UITextViewDelegate {
+    
+    static func createArticleFromJSON(_ json: JSON) -> Article {
+        
+        var items: [Item] = []
+        let parsedItem = JSON(json["content"].string!.data(using: .utf8)!)
+        for itemJson in parsedItem.array! {
+            if itemJson["type"].string! == ItemType.AttributeText.rawValue {
+                var attributes: [TextAttribute] = []
+                for jsonAttribute in itemJson["attributes"].array! {
+                    attributes.append(TextAttribute(key: jsonAttribute["key"].string!, value: jsonAttribute["value"].string, range: jsonAttribute["range"].string))
+                }
+                let textItem = Item(text: itemJson["text"].string!, attributes: attributes)
+                items.append(textItem)
+            } else if itemJson["type"].string! == ItemType.Image.rawValue {
+                var images: [Image] = []
+                for jsonAttribute in itemJson["images"].array! {
+                    images.append(Image(imageURL: jsonAttribute["imageURL"].string!, link: jsonAttribute["link"].string))
+                }
+                let imageItem = Item(images: images)
+                items.append(imageItem)
+            }
+        }
+        
+        let article = Article(id: json["id"].int, title: json["title"].string, addedtime: json["addedtime"].string, view: json["view"].int, clap: json["clap"].int, desc: json["desc"].string, image: json["image"].string, content: items, creator_name: json["creator_name"].string, article_read_time: json["article_read_time"].string)
+        
+        return article
+    }
     
     static func forecastingDate(_ date: Date , setup: Setup) -> DayType {
+        let cycleLength = 40
         let calendar = Calendar(identifier: .persian)
-        let diffrence = calendar.dateComponents([.day], from: Date(), to: date).day!
-//        let remain = diffrence % setup.cycleLength
-//        if remain < setup.periodLength {
-//            return .period
-//        } else if computeFertileRange(setup.cycleLength).contains(remain) {
-//            return .fertile
-//        } else if setup.cycleLength - remain < 4 {
-//            return .pms
-//        } else {
+        let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: setup.startDate), to: date).day!
+        let remain = diffrence % cycleLength
+        if remain < setup.periodLength {
+            return .period
+        } else if computeFertileRange(cycleLength).contains(remain) {
+            let fertileRange = computeFertileRange(cycleLength)
+            let fertileDay = Int(ceil(Double((fertileRange.max()! + fertileRange.min()!) / 2))) - 1
+            if remain == fertileDay {
+                return .fertileDate
+            }
+            return .fertile
+        } else if cycleLength - remain < 4 {
+            return .pms
+        } else {
             return .normal
-//        }
+        }
+    }
+    
+    static func openLinkInSafari(link: String) {
+        UIApplication.shared.open(URL(string: link)!, options: [:]) { (finish) in
+            
+        }
     }
     
     static func createAttributeTextFromTextItem(textItem: Item) -> NSMutableAttributedString {
@@ -54,7 +95,10 @@ class Utility: NSObject {
                     attributeText.addAttribute(NSParagraphStyleAttributeName, value: paragraph, range: range)
                 } else if attribute.key == "text_color" {
                     attributeText.addAttribute(NSForegroundColorAttributeName, value: UIColor.uicolorFromHex(rgbValue: UInt32(attribute.value! , radix: 16)!), range: range)
-                } else if attribute.key == "font" {
+                } else if attribute.key == "link" {
+                    attributeText.addAttribute(NSLinkAttributeName, value: attribute.value!, range: range)
+                    attributeText.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+                    attributeText.addAttribute(NSUnderlineColorAttributeName, value: UIColor.blue , range: range) // TODO change blue
                     
                 } else if attribute.key == "font" {
                     
@@ -74,6 +118,11 @@ class Utility: NSObject {
             }
         }
         return attributeText
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        Utility.openLinkInSafari(link: URL.absoluteString)
+        return false
     }
     
     static func latestPeriodLog() -> Double{

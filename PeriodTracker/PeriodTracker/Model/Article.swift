@@ -41,4 +41,12 @@ class Article: NSObject {
         self.creator_name = creator_name
         self.article_read_time = article_read_time
     }
+    
+    public func increaseView(){
+        self.view = self.view + Int("1")!
+    }
+    
+    public func increaseClap(count: Int){
+        self.clap = self.clap + Int("\(count)")!
+    }
 }

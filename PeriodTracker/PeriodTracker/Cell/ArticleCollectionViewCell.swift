@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ArticleCollectionViewCell: UICollectionViewCell {
     
@@ -36,7 +37,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     let articleImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "test_article"))
-//        imageView.backgroundColor = .black
+        //        imageView.backgroundColor = .black
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +59,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         label.textColor = .darkGray
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 2
-//        label.backgroundColor = .yellow
+        //        label.backgroundColor = .yellow
         label.textAlignment = .right
         label.text = "عنوان تست"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -134,6 +135,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     let clapImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "clapping"))
         imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -147,11 +149,21 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let clappingCountLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "IRANSansFaNum-Medium", size: 30)
+        label.textColor = .white
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        label.isHidden = true
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let clapCountStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 2
-        stackView.alignment = UIStackViewAlignment.center
         stackView.alignment = UIStackViewAlignment.trailing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -195,12 +207,16 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         addSubview(subjectStack)
         addSubview(articleAddTimeLabel)
         addSubview(seperatorView)
+        addSubview(clappingCountLabel)
+        
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(clapping(gesture:)))
+        clapCountStack.addGestureRecognizer(longGesture)
         
         // view stack
         viewCountStack.addArrangedSubview(viewCountLabel)
         viewCountStack.addArrangedSubview(viewImageView)
         addSubview(viewCountStack)
-
+        
         // clap stack
         clapCountStack.addArrangedSubview(clapCountLabel)
         clapCountStack.addArrangedSubview(clapImageView)
@@ -219,7 +235,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             "viewCountStack": viewCountStack,
             "clapCountStack": clapCountStack,
             "readTimeStack": readTimeStack,
-            "seperatorView": seperatorView
+            "seperatorView": seperatorView,
+            "clappingCountLabel": clappingCountLabel
         ]
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[articleImageView]|", options: [], metrics: nil, views: views))
@@ -228,7 +245,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[creatorIconImageView(36)]-4-|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[articleImageView]-4-[creatorIconImageView(36)]", options: [], metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleImageView]-4-[subjectStack]-[seperatorView(0.7)]-32-|", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleImageView]-4-[subjectStack]-[seperatorView(0.7)]-37-|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-44-[subjectStack]-4-[creatorIconImageView]", options: [], metrics: nil, views: views))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleImageView]-[articleAddTimeLabel]", options: [], metrics: nil, views: views))
@@ -236,20 +253,64 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[seperatorView]|", options: [], metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[viewCountStack(15)]-|", options: [], metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[clapCountStack(15)]-|", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[viewCountStack(20)]-|", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[clapCountStack(20)]-|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[viewCountStack]-[clapCountStack]", options: [], metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[readTimeStack(15)]-|", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[readTimeStack(15)]-10-|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[readTimeStack]-|", options: [], metrics: nil, views: views))
         
-        addConstraint(NSLayoutConstraint(item: clapImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 15))
-        addConstraint(NSLayoutConstraint(item: viewImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 15))
-        addConstraint(NSLayoutConstraint(item: timeImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 15))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[clappingCountLabel]-40-[clapCountStack]", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-40-[clappingCountLabel]", options: [], metrics: nil, views: views))
+        
+        addConstraint(NSLayoutConstraint(item: clapImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
+        addConstraint(NSLayoutConstraint(item: viewImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
+        addConstraint(NSLayoutConstraint(item: timeImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
+        
+    }
+    
+    var clappingCount = 0
+    var timer: Timer?
+    
+    func clapping(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            labelAnimationStart()
+            timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
+        } else if gesture.state == .ended || gesture.state == .cancelled {
+            // Update clap count
+            Alamofire.request("\(Config.WEB_DOMAIN)clapping/\(article.id!)/\(clappingCount)")
+            article.increaseClap(count: clappingCount)
+            clappingCount = 0
+            labelAnimationStop()
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    func handleTimer(timer: Timer) {
+        clappingCount += 1
+        clapCountLabel.text = "\(article.clap + clappingCount)"
+        clappingCountLabel.text = "\(article.clap + clappingCount)"
+        vibrateWithHaptic()
+        print(clappingCount)
+    }
+    
+    var labelBeforAnimFrame: CGRect?
+    func labelAnimationStart() {
+        clappingCountLabel.isHidden = false
+    }
+    
+    func labelAnimationStop() {
+        clappingCountLabel.isHidden = true
+    }
+    
+    private func vibrateWithHaptic() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SettingTableViewCell: UITableViewCell {
+    
+    let realm = try! Realm()
+    
     var setting: SettingModel!{
         didSet{
             setupViews()
             settingNameLabel.text = setting.name
             iconImageView.image = UIImage(named: "setting_\(setting.key!)")
+            if setting.key == "pregnant" {
+                if let setting = realm.objects(Setting.self).last {
+                    actionSwitch.setOn(setting.pregnantMode == 1, animated: false)
+                }
+            }
+            
         }
     }
     
@@ -72,6 +82,7 @@ class SettingTableViewCell: UITableViewCell {
         
         if isAction {
             addSubview(actionSwitch)
+            actionSwitch.addTarget(self, action: #selector(actionSwitchValueChanged(sender:)), for: .valueChanged)
         }else{
             addSubview(arrowImageView)
             addConstraint(NSLayoutConstraint(item: arrowImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 15))
@@ -92,6 +103,23 @@ class SettingTableViewCell: UITableViewCell {
         addConstraint(NSLayoutConstraint(item: iconImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: isAction ? actionSwitch : arrowImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
+    }
+    
+    func actionSwitchValueChanged(sender: UISwitch) {
+        if setting.key == "pregnant" {
+            if let setting = realm.objects(Setting.self).last {
+                try! realm.write {
+                    setting.pregnantMode = sender.isOn ? 1 : 0
+                }
+            } else {
+                try! realm.write {
+                    let setting = Setting()
+                    setting.pregnantMode = sender.isOn ? 1 : 0
+                    realm.add(setting)
+                }
+            }
+        }
+        MyTabBarController.instance.viewDidLoad()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -8,9 +8,28 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
+import SwiftyJSON
 
 class PregnantViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout , UICollectionViewDataSource ,
 SelectCellDelegate {
+    
+    var article: Article! {
+        didSet {
+            viewCountLabel.text = article.view.forrmated
+            
+            articleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedOnArticle)))
+        }
+    }
+    
+    func tappedOnArticle() {
+        let vc = ArticlePageViewController()
+        article.increaseView()
+        vc.article = article
+        present(vc, animated: true, completion: nil)
+        
+        Alamofire.request("\(Config.WEB_DOMAIN)view/\(article.id!)")
+    }
     
     @IBOutlet weak var weekCollectionView: UICollectionView!
     
@@ -21,6 +40,7 @@ SelectCellDelegate {
     @IBOutlet weak var articleView: UIView!
     @IBOutlet weak var articleSubjectLabel: UILabel!
     
+    @IBOutlet weak var viewCountLabel: UILabel!
     var pregnantImageView: UIImageView!
     var pregnantLabel: UILabel!
     
@@ -41,7 +61,14 @@ SelectCellDelegate {
     var valueTypes: [String] = []
     var selectedMood: Mood!
     
-    var pregnantWeek: Int!
+    var pregnantWeek: Int! {
+        didSet {
+            if pregnantWeek != -1 {
+                articleSubjectLabel.text = "مقاله مربوط به هفته \(pregnantWeek!) بارداری"
+                getPregnantWeekArticle()
+            }
+        }
+    }
     
     let realm = try! Realm()
     
@@ -64,16 +91,6 @@ SelectCellDelegate {
         // For scrolling like a page and not stay at middle of item
         self.weekCollectionView.isPagingEnabled = true
         
-        // Add top and bottom border for stackView
-        let topLineLayer = CALayer()
-        topLineLayer.backgroundColor = Colors.normalCellColor.cgColor
-        topLineLayer.frame = CGRect(x:-50,y: 0, width:stackView.frame.size.width + 100, height:1)
-        stackView.layer.addSublayer(topLineLayer)
-        
-        let bottomLineLayer = CALayer()
-        bottomLineLayer.backgroundColor = Colors.normalCellColor.cgColor
-        bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
-        stackView.layer.addSublayer(bottomLineLayer)
         
         // Hide keyboard on touch outside textfield
         //        let tap = UIGestureRecognizer(target: self, action: #selector(dissmisKeyboard))
@@ -82,6 +99,15 @@ SelectCellDelegate {
         setupPregnantImage()
         setupPregnantLabel()
         setupPregnantLogLabel()
+    }
+    
+    func getPregnantWeekArticle() {
+        Alamofire.request("\(Config.WEB_DOMAIN)article/\(pregnantWeek!)").response { (response) in
+            if let data = response.data {
+                let serilizedJson = JSON(data)
+                self.article = Utility.createArticleFromJSON(serilizedJson)
+            }
+        }
     }
     
     func setupArticleViews() {
@@ -160,6 +186,19 @@ SelectCellDelegate {
     override func viewWillLayoutSubviews() {
         self.weekCollectionView.reloadData()
         
+        if stackView.frame.size.height == 0 {
+            return
+        }
+        // Add top and bottom border for stackView
+        let topLineLayer = CALayer()
+        topLineLayer.backgroundColor = Colors.normalCellColor.cgColor
+        topLineLayer.frame = CGRect(x:-50,y: 0, width:self.view.frame.size.width + 100, height:1)
+        stackView.layer.addSublayer(topLineLayer)
+        
+        let bottomLineLayer = CALayer()
+        bottomLineLayer.backgroundColor = Colors.normalCellColor.cgColor
+        bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
+        stackView.layer.addSublayer(bottomLineLayer)
     }
     
     @IBOutlet weak var weekCollectionViewHeight: NSLayoutConstraint!
@@ -225,7 +264,7 @@ SelectCellDelegate {
     }
     
     func refreshPregnantViewsIfWeekChange() {
-        let tempPregnant = pregnantWeek
+        let tempPregnant = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: CalendarViewController.selectedDate!).day! / 7 + 1
         
         if  calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: CalendarViewController.selectedDate!).day! < 0 {
             colorOverlayLayer.opacity = 0.9
@@ -237,10 +276,9 @@ SelectCellDelegate {
         }
         articleView.isHidden = false
         colorOverlayLayer.opacity = 0.3
-
-        pregnantWeek = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: CalendarViewController.selectedDate!).day! / 7 + 1
         
         if pregnantWeek != tempPregnant {
+            pregnantWeek = tempPregnant
             pregnantImageView.image = UIImage(named: "pregnant\(pregnantWeek!)")
             
             let title = "بارداری: هفته \(pregnantWeek!)"

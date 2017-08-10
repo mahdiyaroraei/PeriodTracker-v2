@@ -10,9 +10,14 @@ target 'PeriodTracker' do
     pod 'RealmSwift'
     pod "RQShineLabel"
     pod 'SwiftyJSON'
+    pod 'OneSignal', '>= 2.5.2', '< 3.0'
 
   # Pods for PeriodTracker
 
+end
+
+target 'OneSignalNotificationServiceExtension' do
+    pod 'OneSignal', '>= 2.5.2', '< 3.0'
 end
 
 post_install do |installer|
