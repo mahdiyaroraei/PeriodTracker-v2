@@ -17,12 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if !UserDefaults.standard.bool(forKey: "imported_mood") {
             importMoodTable()
         }
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "IRANSans(FaNum)", size: 14.0)!], for: .normal)
         
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         
@@ -39,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         OneSignal.promptForPushNotifications(userResponse: { accepted in
             print("User accepted notifications: \(accepted)")
         })
+        
+        Utility.setLocalPushForEnableNotices(withCompletionHandler: nil)
+        
         return true
     }
     

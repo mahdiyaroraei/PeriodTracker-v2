@@ -172,10 +172,16 @@ SelectCellDelegate , SelectMoodDelegate{
         }
     }
     
+    @IBAction func closeController(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var weekCollectionViewHeight: NSLayoutConstraint!
     // Scroll to current after layout subviews completed
     override func viewDidLayoutSubviews() {
         if !scrolledFirst {
+            if CalendarViewController.selectedDate == nil {
+                CalendarViewController.selectedDate = calendar.startOfDay(for: Date())
+            }
             // Scroll to current week
             let diffrence = calendar.dateComponents([.weekOfYear], from: calendar.startOfDay(for: Date()), to: CalendarViewController.selectedDate!).weekOfYear
             

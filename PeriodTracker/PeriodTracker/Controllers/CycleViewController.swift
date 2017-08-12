@@ -199,7 +199,7 @@ class CycleViewController: UIViewController {
         
         circleShapeLayer.path = circlePath.cgPath
         circleShapeLayer.fillColor = UIColor.clear.cgColor
-        circleShapeLayer.lineWidth = 30
+        circleShapeLayer.lineWidth = 40
         circleShapeLayer.strokeColor = option.color.cgColor
         circleShapeLayer.lineCap = kCALineCapRound
         

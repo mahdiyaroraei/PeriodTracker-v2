@@ -85,6 +85,7 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
                 }
                 setup.periodLength = 0
             }
+            Utility.setLocalPushForEnableNotices(withCompletionHandler: nil)
             // Clear fill circle and data from UI
             checkExistDataInDatabase()
         }else{
@@ -121,6 +122,7 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
         try! realm.write {
             setup.periodLength = length
         }
+        Utility.setLocalPushForEnableNotices(withCompletionHandler: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {

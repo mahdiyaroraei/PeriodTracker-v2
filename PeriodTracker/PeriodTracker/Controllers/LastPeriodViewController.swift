@@ -82,6 +82,7 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
                 }
                 setup.startDate = 0
             }
+            Utility.setLocalPushForEnableNotices(withCompletionHandler: nil)
             viewDidAppear(false)
         }else{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "aboutLastPeriodViewController") as! AboutLastPeriodViewController
@@ -116,6 +117,7 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
         try! realm.write {
             setup.startDate = interval
         }
+        Utility.setLocalPushForEnableNotices(withCompletionHandler: nil)
         
         // Avoid to show start period date as selected date and show today as selected
         CalendarViewController.selectedDate = Calendar.current.startOfDay(for: Date())

@@ -8,10 +8,13 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class SettingTableViewCell: UITableViewCell {
     
     let realm = try! Realm()
+    
+    let notificationCenter = UNUserNotificationCenter.current()
     
     var setting: SettingModel!{
         didSet{
@@ -21,6 +24,14 @@ class SettingTableViewCell: UITableViewCell {
             if setting.key == "pregnant" {
                 if let setting = realm.objects(Setting.self).last {
                     actionSwitch.setOn(setting.pregnantMode == 1, animated: false)
+                }
+            } else if setting.key == "notice-period" {
+                if let setting = realm.objects(Setting.self).last {
+                    actionSwitch.setOn(setting.priodNotice == 1, animated: false)
+                }
+            } else if setting.key == "notice-fertile" {
+                if let setting = realm.objects(Setting.self).last {
+                    actionSwitch.setOn(setting.fertileNotice == 1, animated: false)
                 }
             }
             
@@ -97,7 +108,7 @@ class SettingTableViewCell: UITableViewCell {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[settingNameLabel]-12-[iconImageView(30)]-12-|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[actionView]", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[seperatorView]-54-|", options: [], metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[seperatorView(0.5)]|", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[seperatorView(0.5)]-1-|", options: [], metrics: nil, views: views))
         
         addConstraint(NSLayoutConstraint(item: settingNameLabel, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: iconImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
@@ -118,12 +129,58 @@ class SettingTableViewCell: UITableViewCell {
                     realm.add(setting)
                 }
             }
+            // For change second tab item
+            MyTabBarController.instance.viewDidLoad()
+        } else if setting.key == "notice-period" {
+            
+            notificationCenter.requestAuthorization(options: [.alert , .sound]) { (granted, error) in
+                Utility.setLocalPushForEnableNotices(withCompletionHandler: { (error) in
+                    if error != nil {
+                        self.actionSwitch.setOn(false, animated: true)
+                        return
+                    }
+                })
+            }
+            
+            if let setting = realm.objects(Setting.self).last {
+                try! realm.write {
+                    setting.priodNotice = sender.isOn ? 1 : 0
+                }
+            } else {
+                try! realm.write {
+                    let setting = Setting()
+                    setting.priodNotice = sender.isOn ? 1 : 0
+                    realm.add(setting)
+                }
+            }
+        }else if setting.key == "notice-fertile" {
+            
+            notificationCenter.requestAuthorization(options: [.alert , .sound]) { (granted, error) in
+                Utility.setLocalPushForEnableNotices(withCompletionHandler: { (error) in
+                    if error != nil {
+                        self.actionSwitch.setOn(false, animated: true)
+                        return
+                    }
+                })
+            }
+            
+            if let setting = realm.objects(Setting.self).last {
+                try! realm.write {
+                    setting.fertileNotice = sender.isOn ? 1 : 0
+                }
+            } else {
+                try! realm.write {
+                    let setting = Setting()
+                    setting.fertileNotice = sender.isOn ? 1 : 0
+                    realm.add(setting)
+                }
+            }
         }
-        MyTabBarController.instance.viewDidLoad()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
     }
-
+    
 }

@@ -23,7 +23,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
     
     var lockOffset = false
     
-    var loadNewArticle: Bool! {
+    var loadNewArticle: Bool! = true {
         didSet {
             self.articleCollectionView.reloadData()
         }
@@ -42,12 +42,20 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         super.viewDidLoad()
         
         setupViews()
-        offset = 7
+        
+        self.title = "مقالات"
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "IRANSansFaNum", size: 20)! , NSForegroundColorAttributeName: UIColor.uicolorFromHex(rgbValue: 0x76858e)]
         
         articleCollectionView.register(ArticleCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         articleCollectionView.register(ActivityIndicatorCollectionViewCell.self, forCellWithReuseIdentifier: "loading_cell")
         self.articleCollectionView.delegate = self
         self.articleCollectionView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        offset = 7
     }
     
     func getArticlesFromServer() {
@@ -86,10 +94,10 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         
         var allConstraints = [NSLayoutConstraint]()
         let views: [String: Any] = [
-            "topLayoutGuide": topLayoutGuide,
+            "topLayoutGuide": navigationItem,
             "articleCollectionView": articleCollectionView
         ]
-        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[topLayoutGuide][articleCollectionView]|", options: [], metrics: nil, views: views)
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleCollectionView]|", options: [], metrics: nil, views: views)
         allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[articleCollectionView]|", options: [], metrics: nil, views: views)
         
         NSLayoutConstraint.activate(allConstraints)
@@ -126,12 +134,12 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         if loadNewArticle && indexPath.item == articles.count {
             return CGSize(width: self.view.frame.width - 6, height: 100)
         } else {
-            return CGSize(width: self.view.frame.width - 6, height: 280)
+            return CGSize(width: self.view.frame.width - 6, height: 300)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(4, 3, 54, 3)
+        return UIEdgeInsetsMake(4, 3, 4, 3)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -139,7 +147,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         let article = articles[indexPath.item]
         article.increaseView()
         vc.article = article
-        present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
         
         Alamofire.request("\(Config.WEB_DOMAIN)view/\(article.id!)")
     }

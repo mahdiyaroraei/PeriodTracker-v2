@@ -211,6 +211,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(clapping(gesture:)))
         clapCountStack.addGestureRecognizer(longGesture)
+        clapCountStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clappingOnce)))
         
         // view stack
         viewCountStack.addArrangedSubview(viewCountLabel)
@@ -287,12 +288,19 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func clappingOnce() {
+        // Update clap count
+        Alamofire.request("\(Config.WEB_DOMAIN)clapping/\(article.id!)/\(1)")
+        article.increaseClap(count: 1)
+        clapCountLabel.text = "\(article.clap!)"
+        vibrateWithHaptic()
+    }
+    
     func handleTimer(timer: Timer) {
         clappingCount += 1
         clapCountLabel.text = "\(article.clap + clappingCount)"
         clappingCountLabel.text = "\(article.clap + clappingCount)"
         vibrateWithHaptic()
-        print(clappingCount)
     }
     
     var labelBeforAnimFrame: CGRect?

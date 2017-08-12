@@ -16,6 +16,10 @@
 		551145561F0AC92700C2C08B /* mood.json in Resources */ = {isa = PBXBuildFile; fileRef = 551145551F0AC92700C2C08B /* mood.json */; };
 		5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */; };
 		5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */; };
+		551AD1AE1F3F3B28003167E0 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AD1AD1F3F3B28003167E0 /* GuideViewController.swift */; };
+		551AD1B01F3F3D87003167E0 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AD1AF1F3F3D87003167E0 /* Guide.swift */; };
+		551AD1B21F3F3F2F003167E0 /* Guide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 551AD1B11F3F3F2F003167E0 /* Guide.plist */; };
+		551AD1B41F3F45BD003167E0 /* translate-fa.plist in Resources */ = {isa = PBXBuildFile; fileRef = 551AD1B31F3F45BD003167E0 /* translate-fa.plist */; };
 		5520DE7F1F302CEB0003A844 /* PregnantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5520DE7E1F302CEB0003A844 /* PregnantViewController.swift */; };
 		553039D31F025EA600C8EF07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553039D21F025EA600C8EF07 /* Colors.swift */; };
 		5535EB631F25F926007D70F5 /* AboutLastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */; };
@@ -107,6 +111,10 @@
 		551145551F0AC92700C2C08B /* mood.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mood.json; sourceTree = "<group>"; };
 		5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayLogViewController.swift; path = Controllers/DayLogViewController.swift; sourceTree = "<group>"; };
 		5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekCollectionViewCell.swift; path = Cell/WeekCollectionViewCell.swift; sourceTree = "<group>"; };
+		551AD1AD1F3F3B28003167E0 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuideViewController.swift; path = Controllers/GuideViewController.swift; sourceTree = "<group>"; };
+		551AD1AF1F3F3D87003167E0 /* Guide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Guide.swift; path = Model/Guide.swift; sourceTree = "<group>"; };
+		551AD1B11F3F3F2F003167E0 /* Guide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Guide.plist; sourceTree = "<group>"; };
+		551AD1B31F3F45BD003167E0 /* translate-fa.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "translate-fa.plist"; sourceTree = "<group>"; };
 		5520DE7E1F302CEB0003A844 /* PregnantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PregnantViewController.swift; path = Controllers/PregnantViewController.swift; sourceTree = "<group>"; };
 		553039D21F025EA600C8EF07 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Utilities/Colors.swift; sourceTree = "<group>"; };
 		5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutLastPeriodViewController.swift; path = Controllers/AboutLastPeriodViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +226,7 @@
 				556FB7ED1F3851C6006DDAB9 /* Item.swift */,
 				556FB7F11F387016006DDAB9 /* TextAttribute.swift */,
 				55743EBC1F3B59BC003FF4EC /* Image.swift */,
+				551AD1AF1F3F3D87003167E0 /* Guide.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -343,6 +352,8 @@
 				730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */,
 				730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */,
 				730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */,
+				551AD1B11F3F3F2F003167E0 /* Guide.plist */,
+				551AD1B31F3F45BD003167E0 /* translate-fa.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -365,6 +376,7 @@
 				556FB7DD1F372844006DDAB9 /* ArticleViewController.swift */,
 				556FB7E51F3848AC006DDAB9 /* ArticlePageViewController.swift */,
 				55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */,
+				551AD1AD1F3F3B28003167E0 /* GuideViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -473,11 +485,13 @@
 			files = (
 				730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */,
 				55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */,
+				551AD1B41F3F45BD003167E0 /* translate-fa.plist in Resources */,
 				551145561F0AC92700C2C08B /* mood.json in Resources */,
 				55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */,
 				55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */,
 				730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */,
 				730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */,
+				551AD1B21F3F3F2F003167E0 /* Guide.plist in Resources */,
 				730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */,
 				730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */,
 			);
@@ -592,6 +606,7 @@
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
 				55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */,
 				55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */,
+				551AD1B01F3F3D87003167E0 /* Guide.swift in Sources */,
 				556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */,
 				556FB7F41F38876B006DDAB9 /* ImageCollectionViewCell.swift in Sources */,
 				556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */,
@@ -620,6 +635,7 @@
 				556FB7E61F3848AC006DDAB9 /* ArticlePageViewController.swift in Sources */,
 				556FB7DE1F372844006DDAB9 /* ArticleViewController.swift in Sources */,
 				556FB7F81F399B68006DDAB9 /* MyTabBarController.swift in Sources */,
+				551AD1AE1F3F3B28003167E0 /* GuideViewController.swift in Sources */,
 				556FB7F21F387016006DDAB9 /* TextAttribute.swift in Sources */,
 				556FB7DA1F36D34D006DDAB9 /* SettingModel.swift in Sources */,
 				5505E91C1F30AF7500379085 /* Extensions.swift in Sources */,

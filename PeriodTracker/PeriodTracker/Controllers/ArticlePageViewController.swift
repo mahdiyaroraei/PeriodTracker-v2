@@ -24,8 +24,15 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "IRANSansFaNum", size: 20)! , NSForegroundColorAttributeName: UIColor.uicolorFromHex(rgbValue: 0x76858e)]
+        
         self.view.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xF6F6F6)
         setupViews()
+        
+        self.title = article.title
+        let yourBackImage = UIImage(named: "back")
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
         
         articleCollectionView.register(ArticleCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         articleCollectionView.register(AttributeTextCollectionViewCell.self, forCellWithReuseIdentifier: "text_cell")
@@ -42,7 +49,7 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
             "topLayoutGuide": topLayoutGuide,
             "articleCollectionView": articleCollectionView
         ]
-        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[topLayoutGuide][articleCollectionView]|", options: [], metrics: nil, views: views)
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleCollectionView]|", options: [], metrics: nil, views: views)
         allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[articleCollectionView]|", options: [], metrics: nil, views: views)
         NSLayoutConstraint.activate(allConstraints)
     }
@@ -80,7 +87,7 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 {
-            return CGSize(width: self.view.frame.width , height: 280)
+            return CGSize(width: self.view.frame.width , height: 300)
         }  else if article.content[indexPath.item - 1].type == ItemType.AttributeText {
             var abortedFontCount = 0
             var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
@@ -111,10 +118,13 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if article.content[indexPath.item - 1].type == .Image && !(article.content[indexPath.item - 1].images![0].link?.isEmpty)! {
+        if indexPath.item != 0 && article.content[indexPath.item - 1].type == .Image && !(article.content[indexPath.item - 1].images![0].link?.isEmpty)! {
             
             Utility.openLinkInSafari(link: article.content[indexPath.item - 1].images![0].link!)
 
+        } else if indexPath.item != 0 && article.content[indexPath.item - 1].type == .AttributeText && !(article.content[indexPath.item - 1].link?.isEmpty)! {
+            
+            Utility.openLinkInSafari(link: article.content[indexPath.item - 1].link!)
         }
     }
 

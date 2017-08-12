@@ -130,6 +130,12 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tap!")
     }
+    
+    @IBAction func openGuide(_ sender: Any) {
+        let vc = GuideViewController()
+        vc.guide = Utility.createGuideObjectFromKey(key: "calendarViewController")!
+        present(vc, animated: true, completion: nil)
+    }
 
 }
 

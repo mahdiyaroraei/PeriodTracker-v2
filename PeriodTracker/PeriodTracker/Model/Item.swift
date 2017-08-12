@@ -14,11 +14,13 @@ class Item {
     // Attribute text item
     var text: String!
     var attributes: [TextAttribute]?
+    var link: String?
     
-    init(text: String!, attributes: [TextAttribute]?) {
+    init(text: String!, attributes: [TextAttribute]? , link: String?) {
         self.type = .AttributeText
         self.text = text
         self.attributes = attributes
+        self.link = link
     }
     
     // Image item

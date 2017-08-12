@@ -26,7 +26,8 @@ SelectCellDelegate {
         let vc = ArticlePageViewController()
         article.increaseView()
         vc.article = article
-        present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.navigationBar.isHidden = false
         
         Alamofire.request("\(Config.WEB_DOMAIN)view/\(article.id!)")
     }
@@ -78,6 +79,9 @@ SelectCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "امروز"
+        navigationController?.navigationBar.isHidden = true
+        
         pregnantWeek = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: Date()).day! / 7 + 1
         
         todayLabel.text = "\(String(describing: Calendar(identifier: .persian).dateComponents([.day], from: nowDate).day!))"
@@ -105,7 +109,7 @@ SelectCellDelegate {
         Alamofire.request("\(Config.WEB_DOMAIN)article/\(pregnantWeek!)").response { (response) in
             if let data = response.data {
                 let serilizedJson = JSON(data)
-                self.article = Utility.createArticleFromJSON(serilizedJson)
+                self.article = Utility.createArticleFromJSON((serilizedJson.array?[0])!)
             }
         }
     }
@@ -160,7 +164,7 @@ SelectCellDelegate {
     
     func setupPregnantImage() {
 
-        let centerY = (self.view.frame.height - (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height)) / 2 + (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height) - 40 // 40 is padding
+        let centerY = (self.view.frame.height - (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height)) / 2 + (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height) - 85 // 40 is padding + 45 for hidden nav item
         
         pregnantImageView = UIImageView(image: UIImage(named: "pregnant\(pregnantWeek!)"))
         pregnantImageView.backgroundColor = .blue
@@ -295,6 +299,7 @@ SelectCellDelegate {
         super.viewDidAppear(animated)
         
         self.weekCollectionView.reloadData()
+        navigationController?.navigationBar.isHidden = true
     }
     
     func cannotSelectFuture() {
@@ -303,6 +308,7 @@ SelectCellDelegate {
     
     func changeTitle(title: String) {
         titleLabel.text = title
+        self.title = title
     }
     
     func presentVC(id: String) {
