@@ -47,8 +47,12 @@ class Utility: NSObject, UITextViewDelegate {
         
         let realm = try! Realm()
         
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeAllPendingNotificationRequests()
+        if #available(iOS 10.0, *) {
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.removeAllPendingNotificationRequests()
+        } else {
+            UIApplication.shared.cancelAllLocalNotifications()
+        }
         
         if let setting = realm.objects(Setting.self).last , setting.pregnantMode == 0 {
             if let setup = realm.objects(Setup.self).last {
@@ -58,53 +62,73 @@ class Utility: NSObject, UITextViewDelegate {
                     return
                 }
                 if setting.fertileNotice == 1 {
-                    notificationCenter.requestAuthorization(options: [.alert , .sound]) { (granted, error) in
-                        if granted {
-                            let content = UNMutableNotificationContent()
-                            content.title = "Don't forget fertile"
-                            content.body = "Buy some milk"
-                            content.sound = UNNotificationSound.default()
-                            
-                            let date = Utility.nextFertileDate(Date(), setup: try! Realm().objects(Setup.self).last!)
-                            let triggerDate = Calendar.current.dateComponents([.year,.month,.day], from: date)
-                            
-                            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate,
-                                                                        repeats: false)
-                            
-                            let identifier = "FertileLocalNotification"
-                            let request = UNNotificationRequest(identifier: identifier,
-                                                                content: content, trigger: trigger)
-                            notificationCenter.add(request, withCompletionHandler: withCompletionHandler)
-                        } else {
-                            withCompletionHandler!(error)
-                        }
+                    
+                    let date = Utility.nextFertileDate(Date(), setup: try! Realm().objects(Setup.self).last!)
+                    let title = "Period"
+                    let body = "Don't forget"
+                    
+                    if #available(iOS 10.0, *) {
+                        sendLocalPushiOS10(date: date, title: title, body: body , identifier: "PeriodLocalNotification", withCompletionHandler: withCompletionHandler)
+                    } else {
+                        sendLocalPushBellowiOS10(date: date, title: title, body: body)
                     }
+                    
                 }
                 
                 if setting.priodNotice == 1 {
-                    notificationCenter.requestAuthorization(options: [.alert , .sound]) { (granted, error) in
-                        if granted {
-                            let content = UNMutableNotificationContent()
-                            content.title = "Don't forget period"
-                            content.body = "Buy some milk"
-                            content.sound = UNNotificationSound.default()
-                            let date = Utility.nextPeriodDate(Date(), setup: try! Realm().objects(Setup.self).last!)
-                            let triggerDate = Calendar.current.dateComponents([.year,.month,.day], from: date)
-                            
-                            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate,
-                                                                        repeats: false)
-                            
-                            let identifier = "PeriodLocalNotification"
-                            let request = UNNotificationRequest(identifier: identifier,
-                                                                content: content, trigger: trigger)
-                            notificationCenter.add(request, withCompletionHandler: withCompletionHandler)
-                        } else {
-                            withCompletionHandler!(error)
-                        }
+                    
+                    let date = Utility.nextPeriodDate(Date(), setup: try! Realm().objects(Setup.self).last!)
+                    let title = "Fertile"
+                    let body = "Don't forget"
+                    
+                    if #available(iOS 10.0, *) {
+                        sendLocalPushiOS10(date: date, title: title, body: body , identifier: "FertileLocalNotification", withCompletionHandler: withCompletionHandler)
+                    } else {
+                        sendLocalPushBellowiOS10(date: date, title: title, body: body)
                     }
                 }
             }
         }
+    }
+    
+    static func sendLocalPushiOS10(date: Date , title: String , body: String , identifier: String, withCompletionHandler: ((Error?) -> Void)? ) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        notificationCenter.requestAuthorization(options: [.alert , .sound]) { (granted, error) in
+            if granted {
+                let content = UNMutableNotificationContent()
+                content.title = title
+                content.body = body
+                content.sound = UNNotificationSound.default()
+                
+                let date = date
+                let triggerDate = Calendar.current.dateComponents([.year,.month,.day], from: date)
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate,
+                                                            repeats: false)
+                
+                let identifier = identifier
+                let request = UNNotificationRequest(identifier: identifier,
+                                                    content: content, trigger: trigger)
+                notificationCenter.add(request, withCompletionHandler: withCompletionHandler)
+            } else {
+                withCompletionHandler!(error)
+            }
+        }
+    }
+    
+    static func sendLocalPushBellowiOS10(date: Date , title: String , body: String) {
+        
+        let notificationSettings = UIUserNotificationSettings(types: [.alert , .sound] , categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(notificationSettings)
+        
+        let notification = UILocalNotification()
+        notification.fireDate = date
+        notification.alertTitle = title
+        notification.alertBody = body
+        
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.shared.scheduleLocalNotification(notification)
     }
     
     static func createArticleFromJSON(_ json: JSON) -> Article {
