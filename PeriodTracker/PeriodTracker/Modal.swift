@@ -17,13 +17,13 @@ class Modal {
     var secondTextFieldHint: String?
     var leftButtonTitle: String?
     var rightButtonTitle: String?
-    var onLeftTapped: ((UIViewController) -> Void)?
-    var onRightTapped: ((UIViewController) -> Void)?
+    var onLeftTapped: ((ModalViewController) -> Void)?
+    var onRightTapped: ((ModalViewController) -> Void)?
     var type: ModalType
     
     init(title: String , desc: String , image: UIImage? ,
             leftButtonTitle: String?, rightButtonTitle: String? ,
-            onLeftTapped: ((UIViewController) -> Void)?, onRightTapped: ((UIViewController) -> Void)?) {
+            onLeftTapped: ((ModalViewController) -> Void)?, onRightTapped: ((ModalViewController) -> Void)?) {
         self.title = title
         self.desc = desc
         self.image = image
@@ -38,7 +38,7 @@ class Modal {
     }
     
     init(title: String , desc: String , image: UIImage? , firstTextFieldHint: String ,secondTextFieldHint: String, leftButtonTitle: String, rightButtonTitle: String
-    , onLeftTapped: @escaping ((UIViewController) -> Void), onRightTapped: @escaping ((UIViewController) -> Void), type: ModalType) {
+    , onLeftTapped: @escaping ((ModalViewController) -> Void), onRightTapped: @escaping ((ModalViewController) -> Void), type: ModalType) {
         self.title = title
         self.desc = desc
         self.image = image

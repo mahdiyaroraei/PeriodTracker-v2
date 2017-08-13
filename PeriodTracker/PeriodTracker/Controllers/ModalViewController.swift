@@ -108,7 +108,7 @@ class ModalViewController: UIViewController {
     
     let leftActionButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont(name: "IRANSans(FaNum)", size: 16)!
+        button.titleLabel?.font = UIFont(name: "IRANSansFaNum-Bold", size: 16)!
         button.setTitle("باشه", for: .normal)
         button.setTitleColor(UIColor.uicolorFromHex(rgbValue: 0x36454a), for: .normal)
         button.setTitleColor(UIColor.uicolorFromHex(rgbValue: 0x6d8c96), for: .highlighted)
@@ -118,12 +118,28 @@ class ModalViewController: UIViewController {
     
     let rightActionButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont(name: "IRANSansFaNum-Bold", size: 16)!
+        button.titleLabel?.font = UIFont(name: "IRANSans(FaNum)", size: 16)!
         button.setTitle("خیر", for: .normal)
         button.setTitleColor(UIColor.uicolorFromHex(rgbValue: 0xFF0000), for: .normal)
         button.setTitleColor(UIColor.uicolorFromHex(rgbValue: 0xD70000), for: .highlighted)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    let loadingActivityIndicatorView: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicatorView.startAnimating()
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+        return indicatorView
+    }()
+    
+    let indicatorHolderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
+        view.layer.cornerRadius = 10
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     override func viewDidLoad() {
@@ -157,13 +173,13 @@ class ModalViewController: UIViewController {
     }
     
     func leftButtonTapped() {
-        if let onLeftTapped = modalObject.onLeftTapped {
+        if let onLeftTapped = modalObject.onLeftTapped , !lockUI {
             onLeftTapped(self)
         }
     }
     
     func rightButtonTapped() {
-        if let onRightTapped = modalObject.onRightTapped {
+        if let onRightTapped = modalObject.onRightTapped , !lockUI {
             onRightTapped(self)
         }
     }
@@ -179,6 +195,7 @@ class ModalViewController: UIViewController {
         self.textFieldsStackView.addArrangedSubview(firstTextField)
         self.buttonsStack.addArrangedSubview(leftActionButton)
         self.buttonsStack.addArrangedSubview(rightActionButton)
+        self.indicatorHolderView.addSubview(loadingActivityIndicatorView)
         self.backgroundView.addSubview(buttonsStack)
         self.backgroundView.addSubview(iconImageView)
         self.backgroundView.addSubview(titleLabel)
@@ -196,6 +213,8 @@ class ModalViewController: UIViewController {
             modalHeight = 240
         }
         
+        self.backgroundView.addSubview(indicatorHolderView)
+        
         var allConsraint: [NSLayoutConstraint] = []
         
         let views: [String : Any] = [
@@ -205,7 +224,8 @@ class ModalViewController: UIViewController {
             "iconImageView": iconImageView,
             "titleLabel": titleLabel,
             "descLabel": descLabel,
-            "textFieldsStackView": textFieldsStackView
+            "textFieldsStackView": textFieldsStackView,
+            "indicatorHolderView": indicatorHolderView
         ]
         
         allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[backgroundView]-10-|", options: [.alignAllCenterY], metrics: nil, views: views)
@@ -246,7 +266,28 @@ class ModalViewController: UIViewController {
             allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "V:[descLabel]-4-[textFieldsStackView(\(textFieldStackHeight))]-4-[buttonsStack]", options: [], metrics: nil, views: views)
         }
         
+        allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "V:[indicatorHolderView(100)]", options: [], metrics: nil, views: views)
+        allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "H:[indicatorHolderView(100)]", options: [], metrics: nil, views: views)
+        
+        allConsraint.append(NSLayoutConstraint(item: self.indicatorHolderView, attribute: .centerX, relatedBy: .equal, toItem: self.backgroundView, attribute: .centerX, multiplier: 1, constant: 0))
+        allConsraint.append(NSLayoutConstraint(item: self.indicatorHolderView, attribute: .centerY, relatedBy: .equal, toItem: self.backgroundView, attribute: .centerY, multiplier: 1, constant: 0))
+        
+        allConsraint.append(NSLayoutConstraint(item: self.loadingActivityIndicatorView, attribute: .centerX, relatedBy: .equal, toItem: self.backgroundView, attribute: .centerX, multiplier: 1, constant: 0))
+        allConsraint.append(NSLayoutConstraint(item: self.loadingActivityIndicatorView, attribute: .centerY, relatedBy: .equal, toItem: self.backgroundView, attribute: .centerY, multiplier: 1, constant: 0))
+        
         NSLayoutConstraint.activate(allConsraint)
+    }
+    
+    var lockUI = false
+    
+    func startLoading() {
+        lockUI = true
+        indicatorHolderView.isHidden = false
+    }
+    
+    func stopLoading() {
+        lockUI = false
+        indicatorHolderView.isHidden = true
     }
     
     func doNothing() {

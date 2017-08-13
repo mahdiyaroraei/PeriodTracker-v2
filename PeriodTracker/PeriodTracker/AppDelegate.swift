@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         Utility.setLocalPushForEnableNotices(withCompletionHandler: nil)
-        
+                
         return true
     }
     

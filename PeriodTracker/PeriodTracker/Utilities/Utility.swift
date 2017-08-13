@@ -21,6 +21,14 @@ enum DayType {
 
 class Utility: NSObject, UITextViewDelegate {
     
+    static func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
     static func translate(key: String) -> String? {
         return translate(to: Config.Locale, key: key)
     }
@@ -212,8 +220,12 @@ class Utility: NSObject, UITextViewDelegate {
     }
     
     static func openLinkInSafari(link: String) {
-        UIApplication.shared.open(URL(string: link)!, options: [:]) { (finish) in
-            
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: link)!, options: [:]) { (finish) in
+                
+            }
+        } else {
+            UIApplication.shared.openURL(URL(string: link)!)
         }
     }
     

@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import RealmSwift
 import RQShineLabel
+import SwiftyJSON
 
 class ViewController: UIViewController , CAAnimationDelegate {
     @IBOutlet weak var appNameLabel: RQShineLabel!
@@ -20,10 +21,10 @@ class ViewController: UIViewController , CAAnimationDelegate {
         appNameLabel.text = "PERIOD TRACKER"
         appNameLabel.shine()
         
-        let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             let realm = try! Realm()
-            let user = realm.objects(User.self).first
+            let user = realm.objects(User.self).last
             if (user != nil){
                 if Reachability.isConnectedToNetwork() {
                     if (user?.license_id)! > 0{
@@ -31,7 +32,7 @@ class ViewController: UIViewController , CAAnimationDelegate {
                         self.checkUserLicense()
                     }else{
                         //Purchase page
-                        print("Purchase page")
+                        self.openPurchaseController()
                     }
                 }else{
                     if (user?.license_id)! > 0{
@@ -40,58 +41,70 @@ class ViewController: UIViewController , CAAnimationDelegate {
                         self.present(vc, animated: true, completion: nil)
                     }else{
                         //Purchase page
-                        print("Purchase page")
+                        self.openPurchaseController()
                     }
                 }
             }else{
-                //Purchase page
-                print("Purchase page")
+                //Purchase 
+                self.openPurchaseController()
             }
             
-            //Open app
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
-            self.present(vc!, animated: true, completion: nil)
+            self.animationEnd = true
+            self.takeAction()
             
         }
     }
     
+    let realm = try! Realm()
+    
     func checkUserLicense() {
-        let params: [String: Any] = ["license_id": 20, "user_id": 1]
-        Alamofire.request(PeriodTrackerRouter.checkLicenseStatus(params)).responseJSON { response in
-            guard response.result.error == nil else {
-                // got an error in getting the data, need to handle it
-                print("error calling POST on /todos/1")
-                print(response.result.error!)
-                return
-            }
-            // make sure we got some JSON since that's what we expect
-            guard let json = response.result.value as? [String: Any] else {
-                print("didn't get todo object as JSON from API")
-                print("Error: \(response.result.error)")
-                return
-            }
-            // get and print the title
-            guard let status = json["status"] as? Int else {
-                print("Could not get todo title from JSON")
-                return
-            }
+        
+        if let user = realm.objects(User.self).last {
             
-            switch status{
-            case -1:
-                //Purchase page
-                break
-            case 0:
-                //Another device use this license
-                //Purchase page
-                break
-            case 1:
-                //Open app
-                break
-            default:
-                break
-            }
-
+            let parameters: Parameters = [
+                "app": "period_tracker",
+                "license_id": user.license_id,
+                "user_id": user.user_id
+            ]
+            
+            
+            Alamofire.request("\(Config.WEB_DOMAIN)v2/login", method: .post, parameters: parameters).responseJSON(completionHandler: { (response) in
+                
+                self.apiResult = true
+                
+                if let data = response.data {
+                    if let success = JSON(data)["success"].int , success != 1 {
+                        self.isLicenseValid = false
+                    }
+                    self.takeAction()
+                }
+            })
         }
+
+    }
+    
+    var animationEnd = false , apiResult = false , isLicenseValid = true
+    
+    func takeAction() {
+        if animationEnd && apiResult {
+            if isLicenseValid {
+                //Open app
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+                self.present(vc!, animated: true, completion: nil)
+            } else {
+                if let user = realm.objects(User.self).last {
+                    try! realm.write {
+                        realm.delete(user)
+                    }
+                }
+                openPurchaseController()
+            }
+        }
+    }
+    
+    func openPurchaseController() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "buyViewController")
+        self.present(vc!, animated: true, completion: nil)
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {

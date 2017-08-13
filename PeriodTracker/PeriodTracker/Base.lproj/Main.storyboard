@@ -17,9 +17,6 @@
         <array key="IRANSans(FaNum)_Bold.ttf">
             <string>IRANSansFaNum-Bold</string>
         </array>
-        <array key="IRANSans(FaNum)_Light.ttf">
-            <string>IRANSansFaNum-Light</string>
-        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -134,7 +131,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="241"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Plw-WZ-feh">
-                                        <rect key="frame" x="127" y="41" width="120.5" height="157.5"/>
+                                        <rect key="frame" x="127" y="41.5" width="120.5" height="157.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="JZ9-iX-MF7">
                                                 <rect key="frame" x="0.0" y="0.0" width="120.5" height="120"/>
@@ -179,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biM-7O-ila" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1921.8890554722641"/>
+            <point key="canvasLocation" x="1076" y="1922"/>
         </scene>
         <!--About Last Period View Controller-->
         <scene sceneID="j9h-2M-sXO">
@@ -1040,71 +1037,6 @@
             </objects>
             <point key="canvasLocation" x="8975.2000000000007" y="34.632683658170919"/>
         </scene>
-        <!--Buy View Controller-->
-        <scene sceneID="kVR-xh-CmK">
-            <objects>
-                <viewController storyboardIdentifier="BuyViewController" id="36w-Al-hsO" customClass="BuyViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EBg-Dl-hOs"/>
-                        <viewControllerLayoutGuide type="bottom" id="UcX-Y6-iUz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aeX-0V-0Y8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rH-ba-P8z">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shoping" translatesAutoresizingMaskIntoConstraints="NO" id="fVu-LB-LRF">
-                                        <rect key="frame" x="93" y="66" width="188" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="خریدی ثبت نشده" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wd7-N8-cTs">
-                                        <rect key="frame" x="51" y="207" width="272" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="28"/>
-                                        <color key="textColor" red="0.081249840557575226" green="0.49245280027389526" blue="0.40713256597518921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instruction" translatesAutoresizingMaskIntoConstraints="NO" id="ycG-3l-Vku">
-                                        <rect key="frame" x="328" y="19" width="39" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.92280602331606221" green="0.92280602331606221" blue="0.92280602331606221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="آیا برای فعالسازیی برنامه کدی در دست دارید؟" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKv-8J-iaG">
-                                <rect key="frame" x="53" y="322" width="269" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="22"/>
-                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-gT-p6p">
-                                <rect key="frame" x="54" y="496" width="95" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="9ai-Yv-J9c">
-                                <rect key="frame" x="224" y="496" width="96" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZP-uq-mLc">
-                                <rect key="frame" x="54" y="617" width="268" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="IRANSansFaNum-Light" family="IRANSans(FaNum)" pointSize="14"/>
-                                <state key="normal" title=" تراکنش انجام دادید و خزید انجام نشد!">
-                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Iv-vc-Q84" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="25" y="-978"/>
-        </scene>
         <!--Cycle Length View Controller-->
         <scene sceneID="XE9-78-95r">
             <objects>
@@ -1159,7 +1091,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="241"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RFf-n4-rzY">
-                                        <rect key="frame" x="127.5" y="42" width="120" height="157.5"/>
+                                        <rect key="frame" x="127.5" y="42.5" width="120" height="157.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-pK-1KO">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -1308,7 +1240,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="241"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0rC-9y-jbH">
-                                        <rect key="frame" x="127.5" y="42" width="120" height="157.5"/>
+                                        <rect key="frame" x="127.5" y="42.5" width="120" height="157.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="71F-me-Gt7">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -1837,6 +1769,153 @@
             </objects>
             <point key="canvasLocation" x="2404" y="980.95952023988013"/>
         </scene>
+        <!--Buy View Controller-->
+        <scene sceneID="fyl-Ym-mKr">
+            <objects>
+                <viewController storyboardIdentifier="buyViewController" extendedLayoutIncludesOpaqueBars="YES" id="fxD-iK-DGx" customClass="BuyViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7aQ-5S-McD"/>
+                        <viewControllerLayoutGuide type="bottom" id="xvG-1q-5l5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rxw-E9-Exp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kbx-CB-fli">
+                                <rect key="frame" x="36" y="266" width="303" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="4GQ-wx-4pd"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="آیا برای فعالسازیی برنامه کدی در دست دارید؟">
+                                        <attributes>
+                                            <color key="NSColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="22" name="IRANSansFaNum"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="pdg-TQ-KGS">
+                                <rect key="frame" x="83" y="517" width="210" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOD-Os-cZu">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="PSa-Eb-oSp"/>
+                                            <constraint firstAttribute="height" constant="80" id="uT6-gA-dul"/>
+                                        </constraints>
+                                        <state key="normal" image="ok"/>
+                                        <connections>
+                                            <action selector="yesButtonClicked:" destination="fxD-iK-DGx" eventType="touchUpInside" id="QYb-72-ZKC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8g-fZ-tFs">
+                                        <rect key="frame" x="130" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="STF-Qd-XcT"/>
+                                            <constraint firstAttribute="width" constant="80" id="jQ7-Rq-y7t"/>
+                                        </constraints>
+                                        <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="noButtonClicked:" destination="fxD-iK-DGx" eventType="touchUpInside" id="KVy-QV-TNx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFL-FM-yME">
+                                <rect key="frame" x="0.0" y="20" width="375" height="241"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fXQ-oi-DGc">
+                                        <rect key="frame" x="67" y="38" width="240" height="165.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBm-m3-aEQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="139.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="pHC-B9-hwc">
+                                                        <rect key="frame" x="60" y="10" width="120" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="120" id="WRW-Sp-YqS"/>
+                                                            <constraint firstAttribute="height" constant="120" id="ZUm-LE-wne"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="pHC-B9-hwc" firstAttribute="centerY" secondItem="jBm-m3-aEQ" secondAttribute="centerY" id="aDH-ae-5Pq"/>
+                                                    <constraint firstItem="pHC-B9-hwc" firstAttribute="centerX" secondItem="jBm-m3-aEQ" secondAttribute="centerX" id="rmF-4p-ZKC"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خریدی ثبت نشده" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez9-6Q-CCV">
+                                                <rect key="frame" x="0.0" y="139.5" width="240" height="26"/>
+                                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
+                                                <color key="textColor" red="0.3221927285194397" green="0.60970783233642578" blue="0.54904192686080933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="165.5" id="RpH-Sb-jmQ"/>
+                                            <constraint firstAttribute="width" constant="240" id="Yhe-ig-AHk"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fXQ-oi-DGc" firstAttribute="centerY" secondItem="fFL-FM-yME" secondAttribute="centerY" id="0TU-6u-KKt"/>
+                                    <constraint firstItem="fXQ-oi-DGc" firstAttribute="centerX" secondItem="fFL-FM-yME" secondAttribute="centerX" id="dtS-Ak-ZCM"/>
+                                    <constraint firstItem="fXQ-oi-DGc" firstAttribute="centerY" secondItem="fFL-FM-yME" secondAttribute="centerY" id="enm-qB-gAQ"/>
+                                    <constraint firstAttribute="height" constant="241" id="f00-Ma-yEJ"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GON-ny-Eck">
+                                <rect key="frame" x="61.5" y="623" width="252" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqz-Ht-jWb">
+                                        <rect key="frame" x="0.0" y="0.0" width="252" height="36"/>
+                                        <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
+                                        <state key="normal" title="تراکنش انجام دادید و کدی دریافت نکرده اید؟">
+                                            <color key="titleColor" red="0.031372549019607843" green="0.035294117647058823" blue="0.035294117647058823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRJ-6e-lYz">
+                                <rect key="frame" x="136.5" y="350" width="101" height="31"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="11"/>
+                                <state key="normal" title="  کد را فراموش کرده ام ">
+                                    <color key="titleColor" red="0.33034509420394897" green="0.61362415552139282" blue="0.55294227600097656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotCodeTapped:" destination="fxD-iK-DGx" eventType="touchUpInside" id="KqP-oP-6Eb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="pdg-TQ-KGS" firstAttribute="centerX" secondItem="rxw-E9-Exp" secondAttribute="centerX" id="29R-mN-NGL"/>
+                            <constraint firstItem="cRJ-6e-lYz" firstAttribute="centerX" secondItem="rxw-E9-Exp" secondAttribute="centerX" id="4AV-oQ-G4l"/>
+                            <constraint firstItem="xvG-1q-5l5" firstAttribute="top" secondItem="pdg-TQ-KGS" secondAttribute="bottom" constant="70" id="7Ca-SV-38b"/>
+                            <constraint firstItem="fFL-FM-yME" firstAttribute="leading" secondItem="rxw-E9-Exp" secondAttribute="leading" id="ULu-hZ-STR"/>
+                            <constraint firstItem="GON-ny-Eck" firstAttribute="centerX" secondItem="rxw-E9-Exp" secondAttribute="centerX" id="UOc-Ch-43d"/>
+                            <constraint firstItem="Kbx-CB-fli" firstAttribute="leading" secondItem="rxw-E9-Exp" secondAttribute="leadingMargin" constant="20" id="VJY-Gd-eq0"/>
+                            <constraint firstItem="xvG-1q-5l5" firstAttribute="top" secondItem="GON-ny-Eck" secondAttribute="bottom" constant="8" id="XoW-bT-aaG"/>
+                            <constraint firstItem="Kbx-CB-fli" firstAttribute="centerX" secondItem="rxw-E9-Exp" secondAttribute="centerX" id="bRT-N3-aku"/>
+                            <constraint firstItem="cRJ-6e-lYz" firstAttribute="top" secondItem="Kbx-CB-fli" secondAttribute="bottom" constant="-16" id="bYp-Kx-u4k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kbx-CB-fli" secondAttribute="trailing" constant="20" id="gJW-4U-1hs"/>
+                            <constraint firstItem="Kbx-CB-fli" firstAttribute="top" secondItem="fFL-FM-yME" secondAttribute="bottom" constant="5" id="hlx-Bm-Ly8"/>
+                            <constraint firstAttribute="trailing" secondItem="fFL-FM-yME" secondAttribute="trailing" id="oXT-dI-DDQ"/>
+                            <constraint firstItem="fFL-FM-yME" firstAttribute="top" secondItem="7aQ-5S-McD" secondAttribute="bottom" id="sFA-b8-PfY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="periodImageView" destination="pHC-B9-hwc" id="yXe-Sc-NDc"/>
+                        <outlet property="questionTextView" destination="Kbx-CB-fli" id="nje-0T-EBD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKS-yq-RTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.6" y="-978.26086956521749"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar_green" width="40" height="40"/>
@@ -1844,11 +1923,9 @@
         <image name="close_white" width="10" height="10"/>
         <image name="eye" width="23" height="14"/>
         <image name="info" width="10" height="10"/>
-        <image name="instruction" width="29" height="29"/>
         <image name="ok" width="80" height="80"/>
         <image name="question" width="40" height="40"/>
         <image name="red_gradient" width="1242" height="2208"/>
-        <image name="shoping" width="141" height="141"/>
         <image name="small-light-bulb" width="26" height="38"/>
         <image name="smiling" width="36" height="38"/>
     </resources>
