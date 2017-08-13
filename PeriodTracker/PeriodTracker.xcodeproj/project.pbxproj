@@ -63,6 +63,8 @@
 		55DAEFDD1F34C79300937210 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAEFDC1F34C79300937210 /* SettingViewController.swift */; };
 		55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */; };
 		55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */; };
+		55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA41F400E3E00761F71 /* ModalViewController.swift */; };
+		55F5FDA71F403D7200761F71 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA61F403D7200761F71 /* Modal.swift */; };
 		55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */; };
 		55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */; };
 		55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */; };
@@ -161,6 +163,8 @@
 		55DAEFDC1F34C79300937210 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controllers/SettingViewController.swift; sourceTree = "<group>"; };
 		55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupPageViewController.swift; path = Controllers/SetupPageViewController.swift; sourceTree = "<group>"; };
 		55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastPeriodViewController.swift; path = Controllers/LastPeriodViewController.swift; sourceTree = "<group>"; };
+		55F5FDA41F400E3E00761F71 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalViewController.swift; path = Controllers/ModalViewController.swift; sourceTree = "<group>"; };
+		55F5FDA61F403D7200761F71 /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodsCollectionViewCell.swift; path = Cell/MoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodCollectionViewCell.swift; path = Cell/MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodSelectorViewController.swift; path = Controllers/MoodSelectorViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 				556FB7F11F387016006DDAB9 /* TextAttribute.swift */,
 				55743EBC1F3B59BC003FF4EC /* Image.swift */,
 				551AD1AF1F3F3D87003167E0 /* Guide.swift */,
+				55F5FDA61F403D7200761F71 /* Modal.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				556FB7E51F3848AC006DDAB9 /* ArticlePageViewController.swift */,
 				55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */,
 				551AD1AD1F3F3B28003167E0 /* GuideViewController.swift */,
+				55F5FDA41F400E3E00761F71 /* ModalViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -596,6 +602,7 @@
 				553039D31F025EA600C8EF07 /* Colors.swift in Sources */,
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
 				556FB7E21F37365C006DDAB9 /* Article.swift in Sources */,
+				55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */,
 				556FB7E41F382768006DDAB9 /* Config.swift in Sources */,
 				55743EBD1F3B59BC003FF4EC /* Image.swift in Sources */,
 				55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */,
@@ -614,6 +621,7 @@
 				730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */,
 				5537E5A41F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift in Sources */,
 				5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */,
+				55F5FDA71F403D7200761F71 /* Modal.swift in Sources */,
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
 				55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */,
 				556CA07F1EFBE2A3008C5EA1 /* Mood.swift in Sources */,

@@ -55,6 +55,15 @@ extension UIColor{
     }
 }
 
+extension UIViewController {
+    func showModal(modalObject: Modal) {
+        let vc = ModalViewController()
+        vc.modalObject = modalObject
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false, completion: nil)
+    }
+}
+
 extension String {
     public static var loremipsum: String {
         get {

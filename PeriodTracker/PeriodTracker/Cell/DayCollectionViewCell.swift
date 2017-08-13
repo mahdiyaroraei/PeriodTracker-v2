@@ -25,7 +25,7 @@ class DayCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = Colors.normalCellColor
         
         let realm = try! Realm()
-        if calendar.startOfDay(for: Date()) > dayDate {
+        if calendar.startOfDay(for: Date()) >= dayDate {
             if realm.objects(Log.self).filter("timestamp = \(dayDate.timeIntervalSince1970) AND mood.name = 'bleeding' AND value != 'spotting'").first != nil {
                 self.backgroundColor = .red // TODO change color
             }

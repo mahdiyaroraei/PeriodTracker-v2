@@ -276,8 +276,15 @@ SelectCellDelegate , SelectMoodDelegate{
                 showToast(message: "در حالت بارداری فقط امکان ذخیره لکه بینی را در دسته بندی خونریزی دارید")
                 return
             } else if selectedMood.name == "bleeding" && cell.value != "spotting" {
-                if Utility.forecastingDate(CalendarViewController.selectedDate! , setup: realm.objects(Setup.self).last!) != .period {
-                    // Show Module and ask from user that log is not matches by forecasting do you change setup values and show user actually when she should change values TODO
+                if Utility.forecastingDate(CalendarViewController.selectedDate! , setup: realm.objects(Setup.self).last!) != .period && !cell.isSelect {
+                    
+                    showModal(modalObject: Modal(title: "پریودی خارج از پیش بینی", desc: "پریودی شما طبق پیش بینی ما انجام نشده، این اتفاق میتواند به دلیل شرایط محیطی باشد، اما اگر دوره پریودی شما تغییر کرده یا اشتباهی در ورود اطلاعات دارید میتوانید دوباره اطلاعاتتان را راه اندازی کنید", image: nil, firstTextFieldHint: "", secondTextFieldHint: "", leftButtonTitle: "راه اندازی دوباره", rightButtonTitle: "بیخیال", onLeftTapped: { (modal) in
+                        // On left button tapped
+                        
+                    }, onRightTapped: { (modal) in
+                        // On right button tapped
+                        modal.dismiss(animated: false, completion: nil)
+                    }, type: .normal))
                 }
             }
             cell.toggle(mood: selectedMood)
