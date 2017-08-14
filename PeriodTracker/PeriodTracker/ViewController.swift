@@ -21,37 +21,55 @@ class ViewController: UIViewController , CAAnimationDelegate {
         appNameLabel.text = "PERIOD TRACKER"
         appNameLabel.shine()
         
+        
         let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
-            let realm = try! Realm()
-            let user = realm.objects(User.self).last
-            if (user != nil){
-                if Reachability.isConnectedToNetwork() {
-                    if (user?.license_id)! > 0{
-                        //Check license status with alamofire
-                        self.checkUserLicense()
-                    }else{
-                        //Purchase page
-                        self.openPurchaseController()
-                    }
-                }else{
-                    if (user?.license_id)! > 0{
-                        //Open app
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as! CalendarViewController
-                        self.present(vc, animated: true, completion: nil)
-                    }else{
-                        //Purchase page
-                        self.openPurchaseController()
-                    }
-                }
-            }else{
-                //Purchase 
-                self.openPurchaseController()
-            }
             
             self.animationEnd = true
             self.takeAction()
             
+        }
+    }
+    
+    let loadingActivityIndicatorView: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicatorView.startAnimating()
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+        return indicatorView
+    }()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        let realm = try! Realm()
+        let user = realm.objects(User.self).last
+        if (user != nil){
+            if Reachability.isConnectedToNetwork() {
+                if (user?.license_id)! > 0{
+                    //Check license status with alamofire
+                    self.checkUserLicense()
+                }else{
+                    self.isLicenseValid = false
+                    self.apiResult = true
+                    takeAction()
+                }
+            }else{
+                if (user?.license_id)! > 0{
+                    //Open app
+                    self.isLicenseValid = true
+                    self.apiResult = true
+                    takeAction()
+                }else{
+                    self.isLicenseValid = false
+                    self.apiResult = true
+                    takeAction()
+                }
+            }
+        }else{
+            self.isLicenseValid = false
+            self.apiResult = true
+            takeAction()
         }
     }
     
@@ -99,6 +117,10 @@ class ViewController: UIViewController , CAAnimationDelegate {
                 }
                 openPurchaseController()
             }
+        } else if animationEnd {
+            self.view.addSubview(loadingActivityIndicatorView)
+            self.view.addConstraint(NSLayoutConstraint(item: loadingActivityIndicatorView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0))
+            self.view.addConstraint(NSLayoutConstraint(item: loadingActivityIndicatorView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: -25))
         }
     }
     

@@ -30,9 +30,6 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
         setupViews()
         
         self.title = article.title
-        let yourBackImage = UIImage(named: "back")
-        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
         
         articleCollectionView.register(ArticleCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         articleCollectionView.register(AttributeTextCollectionViewCell.self, forCellWithReuseIdentifier: "text_cell")

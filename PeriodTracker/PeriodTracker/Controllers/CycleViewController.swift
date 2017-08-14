@@ -60,6 +60,8 @@ class CycleViewController: UIViewController {
         computePoints(fertileDayIndex: Int(ceil(Double((fertileRange.max()! + fertileRange.min()!) / 2))) - 1)
         
         initDayMarkerView()
+        
+        selectDay(sender: todayPoint)
     }
     
     func initDayMarkerView() {
@@ -82,6 +84,7 @@ class CycleViewController: UIViewController {
         selectDay(sender: touches.first!.location(in: self.view))
     }
     
+    @IBOutlet weak var titleLabel: UILabel!
     func selectDay(sender: CGPoint) {
         var day = 1
         
@@ -92,7 +95,6 @@ class CycleViewController: UIViewController {
                 day = index + 1
             }
         }
-        
         dayMarker.center = selectedPoint
         dayMarker.text = "\(day)"
         
@@ -109,6 +111,28 @@ class CycleViewController: UIViewController {
             dayMarker.backgroundColor = .orange
             logButton.backgroundColor = .orange
         }
+        
+        let date = calendar.date(byAdding: .day, value: day - 1, to: startPeriodDate)
+        if date! > Date() {
+            logButton.backgroundColor = .lightGray
+            logButton.isEnabled = false
+            
+            let dateComponents = calendar.dateComponents([.year, .month , .day], from: date!)
+            let dateString = "\(dateComponents.year!)/\(dateComponents.month!)/\(dateComponents.day!)"
+            
+            logButton.setTitle(dateString, for: .disabled)
+        } else {
+            logButton.isEnabled = true
+            let dateComponents = calendar.dateComponents([.year, .month , .day], from: date!)
+            let dateString = "\(dateComponents.year!)/\(dateComponents.month!)/\(dateComponents.day!)"
+            logButton.setTitle("اطلاعات روز \(dateString) را وارد کنید", for: .normal)
+            
+            if calendar.isDateInToday(date!) {
+                
+                logButton.setTitle("اطلاعات امروز را وارد کنید", for: .normal)
+            }
+            CalendarViewController.selectedDate = date
+        }
     }
     
     func distance(a: CGPoint, b: CGPoint) -> CGFloat {
@@ -116,6 +140,8 @@ class CycleViewController: UIViewController {
         let yDist = a.y - b.y
         return CGFloat(sqrt((xDist * xDist) + (yDist * yDist)))
     }
+    
+    var startPeriodDate: Date!
     
     func computePoints(fertileDayIndex: Int) {
         points.removeAll()
@@ -130,8 +156,8 @@ class CycleViewController: UIViewController {
             points.append(CGPoint(x: x, y: y))
             
             // Compute satrt of this cycle
-            let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: realm.objects(Setup.self).last!.startDate), to: calendar.startOfDay(for: Date())).day!
-            let startPeriodDate = calendar.date(byAdding: .day, value: -diffrence, to: calendar.startOfDay(for: Date()))
+            let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: realm.objects(Setup.self).last!.startDate), to: calendar.startOfDay(for: Date())).day! % cycleLength
+            startPeriodDate = calendar.date(byAdding: .day, value: -diffrence, to: calendar.startOfDay(for: Date()))
             
             if calendar.isDateInToday(calendar.date(byAdding: .day, value: i, to: startPeriodDate!)!) {
                 // Today mark visible in this condition
@@ -160,7 +186,6 @@ class CycleViewController: UIViewController {
                 
                 self.view.addSubview(fertileDayMarker)
                 
-                todayPoint = points[i]
                 fertileDayMarker.center = points[i]
                 fertileDayMarker.layer.masksToBounds = true
                 fertileDayMarker.layer.cornerRadius = 25
@@ -174,11 +199,14 @@ class CycleViewController: UIViewController {
         let circleRadius = self.view.frame.width / 2 - CGFloat(circlePadding) - 30 - 20
         
         logButton = UIButton()
-        logButton.titleLabel?.font = UIFont(name: "IRANSans(FaNum)", size: 15)
+        logButton.titleLabel?.font = UIFont(name: "IRANSansFaNum-Light", size: 19)
         logButton.setTitle("اطلاعات امروز را وارد کنید", for: .normal)
         logButton.titleLabel?.lineBreakMode = .byWordWrapping
         logButton.titleLabel?.textAlignment = .center
+        logButton.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 15)
         logButton.backgroundColor = UIColor.red
+        logButton.setTitleColor(.white, for: .normal)
+        logButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .highlighted)
         logButton.frame.size = CGSize(width: circleRadius * 2, height: circleRadius * 2)
         logButton.addTarget(self, action: #selector(logButtonClicked(sender:)), for: .touchUpInside)
         
@@ -189,7 +217,7 @@ class CycleViewController: UIViewController {
     }
     
     func logButtonClicked(sender: UIButton) {
-        print("Button tapped!")
+        present((self.storyboard?.instantiateViewController(withIdentifier: "dayLogViewController"))!, animated: true, completion: nil)
     }
 
     func drawCircle(option: CircleOption) {

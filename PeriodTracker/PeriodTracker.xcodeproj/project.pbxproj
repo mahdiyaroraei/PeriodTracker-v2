@@ -61,6 +61,7 @@
 		55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC45901EFBDB1F00E34DD3 /* User.swift */; };
 		55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */; };
 		55DAEFDD1F34C79300937210 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAEFDC1F34C79300937210 /* SettingViewController.swift */; };
+		55E532501F41A86500759741 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5324F1F41A86500759741 /* ContactUsViewController.swift */; };
 		55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */; };
 		55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */; };
 		55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA41F400E3E00761F71 /* ModalViewController.swift */; };
@@ -161,6 +162,7 @@
 		55CC45901EFBDB1F00E34DD3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Database/User.swift; sourceTree = "<group>"; };
 		55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodValueCollectionViewCell.swift; path = Cell/MoodValueCollectionViewCell.swift; sourceTree = "<group>"; };
 		55DAEFDC1F34C79300937210 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controllers/SettingViewController.swift; sourceTree = "<group>"; };
+		55E5324F1F41A86500759741 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactUsViewController.swift; path = Controllers/ContactUsViewController.swift; sourceTree = "<group>"; };
 		55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupPageViewController.swift; path = Controllers/SetupPageViewController.swift; sourceTree = "<group>"; };
 		55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastPeriodViewController.swift; path = Controllers/LastPeriodViewController.swift; sourceTree = "<group>"; };
 		55F5FDA41F400E3E00761F71 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalViewController.swift; path = Controllers/ModalViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */,
 				551AD1AD1F3F3B28003167E0 /* GuideViewController.swift */,
 				55F5FDA41F400E3E00761F71 /* ModalViewController.swift */,
+				55E5324F1F41A86500759741 /* ContactUsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */,
 				55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */,
 				557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */,
+				55E532501F41A86500759741 /* ContactUsViewController.swift in Sources */,
 				55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */,
 				556FB7EE1F3851C6006DDAB9 /* Item.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,

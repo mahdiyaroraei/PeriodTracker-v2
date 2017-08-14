@@ -183,9 +183,15 @@ SelectCellDelegate , SelectMoodDelegate{
                 CalendarViewController.selectedDate = calendar.startOfDay(for: Date())
             }
             // Scroll to current week
-            let diffrence = calendar.dateComponents([.weekOfYear], from: calendar.startOfDay(for: Date()), to: CalendarViewController.selectedDate!).weekOfYear
+            let diffrence = calendar.dateComponents([.day], from: calendar.startOfDay(for: Date()), to: CalendarViewController.selectedDate!).day!
             
-            self.weekCollectionView.scrollToItem(at: IndexPath(row: 25 + diffrence!, section: 0), at: .left, animated: false)
+            var scrollCount = diffrence / 7
+            
+            if let weekDay =  calendar.dateComponents([.weekday], from: Date()).weekday , weekDay != 7 {
+                scrollCount -= (-diffrence % 7 - weekDay) > 0 ? 1 : 0
+            }
+            
+            self.weekCollectionView.scrollToItem(at: IndexPath(row: 25 + scrollCount, section: 0), at: .left, animated: false)
         }
         
         weekCollectionViewHeight.constant = (self.weekCollectionView.frame.width / 7 + 20)

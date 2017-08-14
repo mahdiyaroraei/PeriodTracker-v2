@@ -80,6 +80,7 @@ SelectCellDelegate {
         super.viewDidLoad()
         
         self.title = "امروز"
+        self.tabBarController?.tabBar.items?[1].title = "بارداری"
         navigationController?.navigationBar.isHidden = true
         
         pregnantWeek = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: Date()).day! / 7 + 1
@@ -309,6 +310,7 @@ SelectCellDelegate {
     func changeTitle(title: String) {
         titleLabel.text = title
         self.title = title
+        self.tabBarController?.tabBar.items?[1].title = "بارداری"
     }
     
     func presentVC(id: String) {

@@ -76,6 +76,8 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
             ]
 
             navigationController?.pushViewController(vc, animated: true)
+        } else if settings[indexPath.item].key == "support" {
+            self.navigationController?.pushViewController(ContactUsViewController(), animated: true)
         }
     }
 
