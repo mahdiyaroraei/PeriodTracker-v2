@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ModalViewController: UIViewController {
+class ModalViewController: UIViewController , UITextFieldDelegate {
     
     var modalObject: Modal! {
         didSet {
@@ -79,6 +79,7 @@ class ModalViewController: UIViewController {
         textField.font = UIFont(name: "IRANSans(FaNum)", size: 12)
         textField.textAlignment = .center
         textField.backgroundColor = .white
+        textField.keyboardType = .emailAddress
         textField.layer.borderColor = UIColor.uicolorFromHex(rgbValue: 0xd4d4d4).cgColor
         textField.layer.borderWidth = 1
         textField.placeholder = "ایمیل شما"
@@ -93,6 +94,9 @@ class ModalViewController: UIViewController {
         textField.backgroundColor = .white
         textField.layer.borderColor = UIColor.uicolorFromHex(rgbValue: 0xd4d4d4).cgColor
         textField.layer.borderWidth = 1
+        textField.keyboardType = .asciiCapable
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         textField.placeholder = "کد شما"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -150,6 +154,10 @@ class ModalViewController: UIViewController {
         
         setupViews()
         setupViewActions()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -165,11 +173,14 @@ class ModalViewController: UIViewController {
     }
     
     func setupViewActions() {
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissModal)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(doNothing)))
         self.backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(doNothing)))
         
         self.leftActionButton.addTarget(self, action: #selector(leftButtonTapped), for: .touchUpInside)
         self.rightActionButton.addTarget(self, action: #selector(rightButtonTapped), for: .touchUpInside)
+        
+        firstTextField.delegate = self
+        secondTextField.delegate = self
     }
     
     func leftButtonTapped() {
@@ -187,6 +198,8 @@ class ModalViewController: UIViewController {
     func dismissModal() {
         dismiss(animated: false, completion: nil)
     }
+    
+    var centerYConstraint: NSLayoutConstraint?
     
     func setupViews() {
         
@@ -228,8 +241,13 @@ class ModalViewController: UIViewController {
             "indicatorHolderView": indicatorHolderView
         ]
         
-        allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[backgroundView]-10-|", options: [.alignAllCenterY], metrics: nil, views: views)
-        allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "V:[backgroundView(\(modalHeight))]-10-|", options: [], metrics: nil, views: views)
+        allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "H:[backgroundView(300)]", options: [.alignAllCenterY], metrics: nil, views: views)
+        allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "V:[backgroundView(\(modalHeight))]", options: [], metrics: nil, views: views)
+        
+        allConsraint.append(NSLayoutConstraint(item: self.backgroundView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0))
+        
+        centerYConstraint = NSLayoutConstraint(item: self.backgroundView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
+        allConsraint.append(centerYConstraint!)
         
         allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "V:[buttonsStack(40)]-2-|", options: [], metrics: nil, views: views)
         allConsraint += NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[buttonsStack]-20-|", options: [], metrics: nil, views: views)
@@ -282,16 +300,49 @@ class ModalViewController: UIViewController {
     
     func startLoading() {
         lockUI = true
+        firstTextField.isEnabled = false
+        secondTextField.isEnabled = false
         indicatorHolderView.isHidden = false
     }
     
     func stopLoading() {
         lockUI = false
+        firstTextField.isEnabled = true
+        secondTextField.isEnabled = true
         indicatorHolderView.isHidden = true
     }
     
     func doNothing() {
-        
+        view.endEditing(true)
+    }
+    
+    var tempY: CGFloat = 0.0
+    func keyboardWillShow(sender: NSNotification) {
+        UIView.animate(withDuration: 0.3, animations: {
+            if self.centerYConstraint?.constant == 0 {
+                self.tempY = self.backgroundView.frame.origin.y
+                self.backgroundView.frame.origin.y = self.backgroundView.frame.origin.y - 80
+                self.centerYConstraint?.constant = -80
+            }
+        })
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.backgroundView.frame.origin.y = self.tempY
+            self.centerYConstraint?.constant = 0
+        })
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == firstTextField && modalObject.type == .oneTextField {
+            self.view.endEditing(true)
+        } else if textField == firstTextField && modalObject.type == .twoTextField {
+            self.secondTextField.becomeFirstResponder()
+        } else if textField == secondTextField {
+            self.view.endEditing(true)
+        }
+        return true
     }
 
 }

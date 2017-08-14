@@ -184,12 +184,10 @@ class BuyViewController: UIViewController , UITextViewDelegate {
                         }
                         
                     }
-
+                    // Open app
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+                    modal.present(vc!, animated: true, completion: nil)
                 }
-                
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
-                self.present(vc!, animated: true, completion: nil)
-                    
             })
             
         }, onRightTapped: { (modal) in
