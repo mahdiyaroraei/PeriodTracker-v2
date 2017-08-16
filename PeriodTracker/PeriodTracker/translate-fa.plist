@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>cycleLengthViewController</key>
+	<string></string>
+	<key>dayLogViewController</key>
+	<string></string>
+	<key>pregnantViewController</key>
+	<string></string>
+	<key>periodLengthViewController</key>
+	<string></string>
+	<key>cycleViewController</key>
+	<string></string>
+	<key>lastPeriodViewController</key>
+	<string></string>
 	<key>calendarViewController</key>
 	<string>صفحه تقویم</string>
 </dict>

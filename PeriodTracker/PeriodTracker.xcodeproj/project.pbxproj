@@ -66,6 +66,7 @@
 		55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */; };
 		55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA41F400E3E00761F71 /* ModalViewController.swift */; };
 		55F5FDA71F403D7200761F71 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA61F403D7200761F71 /* Modal.swift */; };
+		55F8E13D1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */; };
 		55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */; };
 		55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */; };
 		55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */; };
@@ -167,6 +168,7 @@
 		55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastPeriodViewController.swift; path = Controllers/LastPeriodViewController.swift; sourceTree = "<group>"; };
 		55F5FDA41F400E3E00761F71 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalViewController.swift; path = Controllers/ModalViewController.swift; sourceTree = "<group>"; };
 		55F5FDA61F403D7200761F71 /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutCycleLengthViewController.swift; path = Controllers/AboutCycleLengthViewController.swift; sourceTree = "<group>"; };
 		55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodsCollectionViewCell.swift; path = Cell/MoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodCollectionViewCell.swift; path = Cell/MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodSelectorViewController.swift; path = Controllers/MoodSelectorViewController.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				551AD1AD1F3F3B28003167E0 /* GuideViewController.swift */,
 				55F5FDA41F400E3E00761F71 /* ModalViewController.swift */,
 				55E5324F1F41A86500759741 /* ContactUsViewController.swift */,
+				55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */,
 				55F5FDA71F403D7200761F71 /* Modal.swift in Sources */,
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
+				55F8E13D1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift in Sources */,
 				55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */,
 				556CA07F1EFBE2A3008C5EA1 /* Mood.swift in Sources */,
 				55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */,

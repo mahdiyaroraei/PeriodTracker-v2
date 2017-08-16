@@ -70,7 +70,9 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-            let ce = ""
+        let vc = GuideViewController()
+        vc.guide = Utility.createGuideObjectFromKey(key: "lastPeriodViewController")!
+        present(vc, animated: true, completion: nil)
         return false
     }
     
@@ -93,12 +95,18 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
     }
     
     @IBAction func yesButtonClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "calendarViewController") as! CalendarViewController
-        
-        vc.isSeector = true
-        vc.delegate = self
-        
-        present(vc, animated: true, completion: nil)
+        if isUserSavedData {
+            let pageViewController: SetupPageViewController = self.parent as! SetupPageViewController
+            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "cycleLenghtViewController"))!], direction: .forward, animated: false, completion: nil)
+            pageViewController.pageController.currentPage = 1
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "calendarViewController") as! CalendarViewController
+            
+            vc.isSeector = true
+            vc.delegate = self
+            
+            present(vc, animated: true, completion: nil)
+        }
     }
     
     // This function created by follow CalendarDateSelector protocol

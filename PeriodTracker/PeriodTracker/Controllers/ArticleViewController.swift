@@ -58,6 +58,11 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         offset = 7
     }
     
+    // Scrolls to top nicely
+    func scrollToTop() {
+        self.articleCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+    }
+    
     func getArticlesFromServer() {
         // Show loading here
         self.loadNewArticle = true

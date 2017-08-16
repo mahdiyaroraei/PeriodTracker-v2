@@ -9,10 +9,10 @@
 import Foundation
 class Guide {
     var key: String
-    var content: String
+    var content: [Item]!
     var fa_key: String
     
-    init(key: String, content: String) {
+    init(key: String, content: [Item]!) {
         self.key = key
         self.content = content
         self.fa_key = Utility.translate(key: key)! // TODO get from translate dic

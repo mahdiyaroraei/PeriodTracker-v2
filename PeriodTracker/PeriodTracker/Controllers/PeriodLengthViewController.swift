@@ -71,7 +71,11 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        let ce = ""
+        
+        let vc = GuideViewController()
+        vc.guide = Utility.createGuideObjectFromKey(key: "periodLengthViewController")!
+        present(vc, animated: true, completion: nil)
+        
         return false
     }
     
@@ -99,11 +103,25 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
     }
     
     @IBAction func yesButtonClicked(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "periodLengthSelectorViewController") as! PeriodLengthSelectorViewController
-        
-        vc.delegate = self
-        
-        present(vc, animated: true, completion: nil)
+        if isUserSavedData {
+            
+            if !UserDefaults.standard.bool(forKey: "setup-complete") {
+                showModal(modalObject: Modal(title: "اتمام راه اندازی؟", desc: "اطمینان حاصل کنید تمام مقادیر خواسته شده برنامه را داده اید تا برنامه به درستی کار کند.", image: nil, leftButtonTitle: "اتمام راه اندازی", rightButtonTitle: "بررسی دوباره", onLeftTapped: { (modal) in
+                        UserDefaults.standard.set(true, forKey: "setup-complete")
+                        modal.present((self.storyboard?.instantiateViewController(withIdentifier: "tabBarController"))!, animated: true, completion: nil)
+                }, onRightTapped: { (modal) in
+                    modal.dismissModal()
+                }))
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "periodLengthSelectorViewController") as! PeriodLengthSelectorViewController
+            
+            vc.delegate = self
+            
+            present(vc, animated: true, completion: nil)
+        }
     }
     
     // This function created by follow PeriodLengthDelegate protocol
@@ -160,7 +178,7 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
         periodImageView.tintColor = UIColor.white
         periodImageView.backgroundColor = UIColor.red
         
-        questionTextView.text = "طول دوره پریودی شما \(setup.periodLength) ثبت شده است."
+        questionTextView.text = "طول دوره پریودی شما \(setup.periodLength) روز ثبت شده است."
         
         isUserSavedData = true
 

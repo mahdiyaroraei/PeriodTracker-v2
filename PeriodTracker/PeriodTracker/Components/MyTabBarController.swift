@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class MyTabBarController: UITabBarController {
+class MyTabBarController: UITabBarController ,UITabBarControllerDelegate {
     
     public static var instance: MyTabBarController!
     
@@ -17,6 +17,8 @@ class MyTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.delegate = self
         
         var imageNames: [String] = ["tab-calendar", "tab-setting", "tab-article"]
         var tabTitles: [String] = ["تقویم", "تنظیمات", "مقالات"]
@@ -54,6 +56,20 @@ class MyTabBarController: UITabBarController {
             tabBar.title = tabTitles[index]
             tabBar.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "IRANSansFaNum-Medium", size: 9)! , NSForegroundColorAttributeName: UIColor.uicolorFromHex(rgbValue: 0x36454a)], for: .normal)
             tabBar.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "IRANSansFaNum-Medium", size: 11)! , NSForegroundColorAttributeName: UIColor.uicolorFromHex(rgbValue: 0x7ca013)], for: .selected)
+        }
+    }
+    
+    var canScroll = false
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController.childViewControllers.count > 0 , let articleViewController = viewController.childViewControllers[0] as? ArticleViewController { // viewController is NavigationController actually
+            if canScroll {
+                articleViewController.scrollToTop()
+            } else {
+                canScroll = true
+            }
+        } else {
+            canScroll = false
         }
     }
 

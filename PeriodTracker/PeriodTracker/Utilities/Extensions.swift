@@ -39,7 +39,7 @@ extension UIView {
 }
 
 extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFill) {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFill, complition: ((Bool) -> Void)? = nil) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
@@ -47,15 +47,23 @@ extension UIImageView {
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
-                else { return }
+                else {
+                    if complition != nil {
+                        complition!(false)
+                    }
+                    return
+            }
             DispatchQueue.main.async() { () -> Void in
                 self.image = image
+                if complition != nil {
+                    complition!(true)
+                }
             }
             }.resume()
     }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFill) {
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFill, complition: ((Bool) -> Void)? = nil) {
         guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
+        downloadedFrom(url: url, contentMode: mode, complition: complition)
     }
 }
 

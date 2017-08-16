@@ -109,6 +109,9 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
             
             return CGSize(width: self.view.frame.width, height: boundingRect.height + CGFloat(abortedFontCount * 15))
         } else if article.content[indexPath.item - 1].type == ItemType.Image {
+            if let aspectRatio = article.content[indexPath.item - 1].images?[0].aspectRatio {
+                return CGSize(width: self.view.frame.width, height: self.view.frame.width * CGFloat(aspectRatio))
+            }
             return CGSize(width: self.view.frame.width, height: 180)
         }
         return CGSize(width: self.view.frame.width, height: 280)

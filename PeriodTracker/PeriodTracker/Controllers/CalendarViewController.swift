@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , SelectCellDelegate {
+class CalendarViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , SelectCellDelegate , DayLogDelegate {
     @IBOutlet weak var monthsTableView: UITableView!
     
     @IBOutlet weak var stackView: UIStackView!
@@ -96,6 +96,10 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
         return cell
     }
     
+    func present(identifier: String) {
+        self.tabBarController?.selectedIndex = 2
+    }
+    
     func presentVC(id: String) {
         // If open in selector mode run this segment
         if id == "dayLogViewController" && isSeector {
@@ -103,6 +107,9 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
             self.dismiss(animated: true, completion: nil)
         }else{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: id)
+            if let dayLogVC = vc as? DayLogViewController {
+                dayLogVC.delegate = self
+            }
             self.present(vc!, animated: true, completion: nil)
         }
     }

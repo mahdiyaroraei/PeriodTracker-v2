@@ -10,9 +10,11 @@ import Foundation
 class Image {
     var imageURL: String!
     var link: String?
+    var aspectRatio: Float? // height / width
     
-    init(imageURL: String!, link: String?) {
+    init(imageURL: String!, link: String?, aspectRatio: Float?) {
         self.imageURL = imageURL
         self.link = link
+        self.aspectRatio = aspectRatio
     }
 }

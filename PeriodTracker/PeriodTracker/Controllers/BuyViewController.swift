@@ -195,4 +195,18 @@ class BuyViewController: UIViewController , UITextViewDelegate {
         }, type: .twoTextField))
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if UserDefaults.standard.bool(forKey: "another-device-use-this-code") {
+            showModal(modalObject: Modal(title: "اخطار", desc: "شما با این کد در دستگاه دیگری وارد شدید، شما تنها قادر به استفاده در یک دستگاه به صورت همزمان را دارید.", image: nil, leftButtonTitle: "خرید کد جدید", rightButtonTitle: "بیخیال", onLeftTapped: { (modal) in
+                modal.dismissModal()
+                self.noButtonClicked(modal)
+            }, onRightTapped: { (modal) in
+                modal.dismissModal()
+            }))
+            UserDefaults.standard.set(false, forKey: "another-device-use-this-code")
+        }
+    }
+    
 }

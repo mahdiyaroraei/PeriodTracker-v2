@@ -68,7 +68,7 @@
         <!--Setup Page View Controller-->
         <scene sceneID="TQ3-HD-j6h">
             <objects>
-                <pageViewController storyboardIdentifier="setupPageViewController" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QJT-ql-jNo" customClass="SetupPageViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="setupPageViewController" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" doubleSided="YES" id="QJT-ql-jNo" customClass="SetupPageViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zq-mu-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="121" y="1922"/>
@@ -795,6 +795,9 @@
                                 <state key="normal" title="bleeding" image="info">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="openGuide:" destination="gUD-gb-1tx" eventType="touchUpInside" id="w37-Dc-d8G"/>
+                                </connections>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y09-Dc-HSz">
                                 <rect key="frame" x="36" y="348.5" width="303" height="30"/>
@@ -971,21 +974,24 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="die-uN-T8s">
-                                <rect key="frame" x="329" y="27" width="30" height="30"/>
+                                <rect key="frame" x="331" y="28" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="ofT-Qs-gvY"/>
                                     <constraint firstAttribute="height" constant="30" id="xdH-S7-Vid"/>
                                 </constraints>
                                 <state key="normal" image="question"/>
+                                <connections>
+                                    <action selector="openGuide:" destination="3N1-OY-0Bg" eventType="touchUpInside" id="3ol-FX-Snm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="die-uN-T8s" firstAttribute="trailing" secondItem="6zu-Ve-Or3" secondAttribute="trailingMargin" id="7Jg-PV-msH"/>
                             <constraint firstItem="b0O-0O-SiL" firstAttribute="centerX" secondItem="6zu-Ve-Or3" secondAttribute="centerX" id="OLC-ZE-hLr"/>
+                            <constraint firstAttribute="trailing" secondItem="die-uN-T8s" secondAttribute="trailing" constant="14" id="Sce-3z-L6x"/>
                             <constraint firstItem="b0O-0O-SiL" firstAttribute="centerX" secondItem="6zu-Ve-Or3" secondAttribute="centerX" id="YcZ-fd-6bi"/>
                             <constraint firstItem="5Oy-4K-GIA" firstAttribute="leading" secondItem="6zu-Ve-Or3" secondAttribute="leadingMargin" id="k3O-8h-ZFD"/>
-                            <constraint firstItem="die-uN-T8s" firstAttribute="top" secondItem="G5l-7Q-J8e" secondAttribute="bottom" constant="7" id="nLv-ec-UZZ"/>
+                            <constraint firstItem="die-uN-T8s" firstAttribute="top" secondItem="G5l-7Q-J8e" secondAttribute="bottom" constant="8" id="nLv-ec-UZZ"/>
                             <constraint firstItem="b0O-0O-SiL" firstAttribute="top" secondItem="G5l-7Q-J8e" secondAttribute="bottom" constant="8" id="oTr-TZ-Ypf"/>
                             <constraint firstItem="5Oy-4K-GIA" firstAttribute="top" secondItem="G5l-7Q-J8e" secondAttribute="bottom" constant="7" id="oUV-QK-1y6"/>
                         </constraints>
@@ -1127,6 +1133,9 @@
                                             <constraint firstAttribute="width" constant="80" id="Zsx-cE-Ts8"/>
                                         </constraints>
                                         <state key="normal" image="ok"/>
+                                        <connections>
+                                            <action selector="yesButtonClicked:" destination="VUS-e0-I2Z" eventType="touchUpInside" id="Vyd-aE-7hx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRx-J0-7s3">
                                         <rect key="frame" x="130" y="0.0" width="80" height="80"/>
@@ -1135,6 +1144,9 @@
                                             <constraint firstAttribute="width" constant="80" id="dvQ-eV-roX"/>
                                         </constraints>
                                         <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="noButtonClicked:" destination="VUS-e0-I2Z" eventType="touchUpInside" id="9Nu-he-1nb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1401,6 +1413,9 @@
                                     <constraint firstAttribute="width" constant="30" id="zTI-ed-TPn"/>
                                 </constraints>
                                 <state key="normal" image="question"/>
+                                <connections>
+                                    <action selector="openGuide:" destination="fsm-Fa-5Df" eventType="touchUpInside" id="X4X-YV-L96"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" bounces="NO" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h1g-hz-RPc">
                                 <rect key="frame" x="0.0" y="138" width="375" height="80"/>
@@ -1488,14 +1503,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrc-N5-bXS">
-                                        <rect key="frame" x="8" y="17" width="18.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrc-N5-bXS">
+                                        <rect key="frame" x="8" y="17" width="10.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="12"/>
                                         <color key="textColor" red="0.64698678255081177" green="0.64710038900375366" blue="0.64697962999343872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="Xnh-ya-iIP">
-                                        <rect key="frame" x="29.5" y="20" width="25" height="14"/>
+                                        <rect key="frame" x="21.5" y="20" width="25" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="GLd-Ju-diz"/>
                                             <constraint firstAttribute="height" constant="14" id="Unm-He-KwQ"/>
@@ -1916,6 +1931,151 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKS-yq-RTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.6" y="-978.26086956521749"/>
+        </scene>
+        <!--About Cycle Length View Controller-->
+        <scene sceneID="tvO-c0-KaL">
+            <objects>
+                <viewController storyboardIdentifier="cycleLengthSelectorViewController" id="5YK-P6-J7c" customClass="AboutCycleLengthViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TFI-Ok-xly"/>
+                        <viewControllerLayoutGuide type="bottom" id="LSE-dY-ydg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vld-Cr-TmT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D64-q9-c7i">
+                                <rect key="frame" x="0.0" y="240" width="375" height="313"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYv-nA-HKR">
+                                <rect key="frame" x="19" y="23" width="10" height="22"/>
+                                <state key="normal" image="close_white"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="5YK-P6-J7c" eventType="touchUpInside" id="GEu-k9-ZcN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDQ-Pu-ngJ">
+                                <rect key="frame" x="152.5" y="570" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="bBR-Wd-7o1"/>
+                                    <constraint firstAttribute="height" constant="70" id="ich-BJ-En0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="17"/>
+                                <state key="normal" title="باشه">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okClicked:" destination="5YK-P6-J7c" eventType="touchUpInside" id="NLd-fm-rgR"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="Oso-cE-1XY">
+                                <rect key="frame" x="137.5" y="54" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Jmi-pT-S25"/>
+                                    <constraint firstAttribute="height" constant="100" id="MPH-mI-spY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="طول دوره پریودی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRw-ui-Bgk">
+                                <rect key="frame" x="114.5" y="176" width="147.5" height="37.5"/>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zRC-yK-xeY">
+                                <rect key="frame" x="36" y="350" width="303" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="yIT-rd-bBJ"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="برای طول  دوره پریودی میانگین جهانی">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="28">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="روز">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="را برای شما در نظر میگیریم.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="IRANSansFaNum"/>
+                                            <real key="NSKern" value="2"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.09792763739824295" green="0.57871049642562866" blue="0.50610202550888062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oYv-nA-HKR" firstAttribute="leading" secondItem="vld-Cr-TmT" secondAttribute="leadingMargin" constant="3" id="13D-G6-uew"/>
+                            <constraint firstItem="UDQ-Pu-ngJ" firstAttribute="top" secondItem="D64-q9-c7i" secondAttribute="bottom" constant="17" id="4NQ-Aj-IzN"/>
+                            <constraint firstItem="D64-q9-c7i" firstAttribute="top" secondItem="qRw-ui-Bgk" secondAttribute="bottom" constant="27" id="4xU-ok-2sS"/>
+                            <constraint firstAttribute="trailing" secondItem="D64-q9-c7i" secondAttribute="trailing" id="825-9I-mba"/>
+                            <constraint firstItem="UDQ-Pu-ngJ" firstAttribute="centerX" secondItem="vld-Cr-TmT" secondAttribute="centerX" id="8KG-CS-aXf"/>
+                            <constraint firstItem="oYv-nA-HKR" firstAttribute="top" secondItem="TFI-Ok-xly" secondAttribute="bottom" constant="3" id="Jz8-NI-R5L"/>
+                            <constraint firstItem="LSE-dY-ydg" firstAttribute="top" secondItem="UDQ-Pu-ngJ" secondAttribute="bottom" constant="27" id="KOt-bo-l8n"/>
+                            <constraint firstItem="D64-q9-c7i" firstAttribute="leading" secondItem="vld-Cr-TmT" secondAttribute="leading" id="OfN-Iz-XjU"/>
+                            <constraint firstItem="Oso-cE-1XY" firstAttribute="top" secondItem="TFI-Ok-xly" secondAttribute="bottom" constant="34" id="WFR-7U-RXj"/>
+                            <constraint firstItem="zRC-yK-xeY" firstAttribute="leading" secondItem="vld-Cr-TmT" secondAttribute="leadingMargin" constant="20" id="WPw-6O-FRa"/>
+                            <constraint firstItem="UDQ-Pu-ngJ" firstAttribute="top" secondItem="zRC-yK-xeY" secondAttribute="bottom" constant="80" id="bT9-Cn-LWy"/>
+                            <constraint firstItem="Oso-cE-1XY" firstAttribute="centerX" secondItem="vld-Cr-TmT" secondAttribute="centerX" id="hmY-77-ipz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zRC-yK-xeY" secondAttribute="trailing" constant="20" id="njn-PW-uam"/>
+                            <constraint firstItem="qRw-ui-Bgk" firstAttribute="top" secondItem="Oso-cE-1XY" secondAttribute="bottom" constant="22" id="qTK-bv-caf"/>
+                            <constraint firstItem="qRw-ui-Bgk" firstAttribute="centerX" secondItem="vld-Cr-TmT" secondAttribute="centerX" id="r4u-9p-hcc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutTimesPicker" destination="D64-q9-c7i" id="sR3-sG-flW"/>
+                        <outlet property="normalWorldValueLabel" destination="zRC-yK-xeY" id="a4k-Io-GmI"/>
+                        <outlet property="okButton" destination="UDQ-Pu-ngJ" id="MWq-vA-K8j"/>
+                        <outlet property="periodImageView" destination="Oso-cE-1XY" id="rMv-jh-JzL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Itm-en-Omb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2038" y="2671"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CycleViewController: UIViewController {
+class CycleViewController: UIViewController , DayLogDelegate {
     
     let circlePadding = 30
     
@@ -35,6 +35,11 @@ class CycleViewController: UIViewController {
     let realm = try! Realm()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let setup = realm.objects(Setup.self).last {
+            cycleLength = setup.cycleLength
+            periodLength = setup.periodLength
+        }
         
         pmsRange = cycleLength - 3...cycleLength
         periodRange = 0...periodLength + 1
@@ -216,8 +221,15 @@ class CycleViewController: UIViewController {
         logButton.layer.cornerRadius = circleRadius
     }
     
+    func present(identifier: String) {
+        self.tabBarController?.selectedIndex = 2
+    }
+    
     func logButtonClicked(sender: UIButton) {
-        present((self.storyboard?.instantiateViewController(withIdentifier: "dayLogViewController"))!, animated: true, completion: nil)
+        let vc = (self.storyboard?.instantiateViewController(withIdentifier: "dayLogViewController"))! as! DayLogViewController
+        vc.delegate = self
+        
+        present(vc, animated: true, completion: nil)
     }
 
     func drawCircle(option: CircleOption) {
@@ -236,5 +248,11 @@ class CycleViewController: UIViewController {
 
     @IBAction func todayClicked(_ sender: UIButton) {
         selectDay(sender: todayPoint)
+    }
+    
+    @IBAction func openGuide(_ sender: Any) {
+        let vc = GuideViewController()
+        vc.guide = Utility.createGuideObjectFromKey(key: "cycleViewController")!
+        present(vc, animated: true, completion: nil)
     }
 }

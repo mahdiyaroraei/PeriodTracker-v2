@@ -20,7 +20,6 @@ class ContactUsViewController: UIViewController {
     
     let cardView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.95)
         view.layer.cornerRadius = 15
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 1
@@ -28,6 +27,16 @@ class ContactUsViewController: UIViewController {
         view.layer.shadowRadius = 15
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    let cardBackgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "support-card-bg")
+        imageView.layer.cornerRadius = 15
+        imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     let appIconImageView: UIImageView = {
@@ -162,6 +171,7 @@ class ContactUsViewController: UIViewController {
         self.socialNetworksStackView.addArrangedSubview(instagramButton)
         self.socialNetworksStackView.addArrangedSubview(twitterButton)
         self.socialNetworksStackView.addArrangedSubview(webButton)
+        self.cardView.addSubview(cardBackgroundImageView)
         self.cardView.addSubview(appIconImageView)
         self.cardView.addSubview(companyNameLabel)
         self.cardView.addSubview(companyAddressLabel)
@@ -175,6 +185,7 @@ class ContactUsViewController: UIViewController {
             "topLayoutGuide": topLayoutGuide,
             "mapImageView": mapImageView,
             "cardView": cardView,
+            "cardBackgroundImageView": cardBackgroundImageView,
             "appIconImageView": appIconImageView,
             "companyNameLabel": companyNameLabel,
             "companyAddressLabel": companyAddressLabel,
@@ -190,6 +201,10 @@ class ContactUsViewController: UIViewController {
         allConstraint += NSLayoutConstraint.constraints(withVisualFormat: "V:[topLayoutGuide]-70-[cardView(225)]", options: [], metrics: nil, views: views)
         
         allConstraint += NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[cardView]-20-|", options: [], metrics: nil, views: views)
+        
+        allConstraint += NSLayoutConstraint.constraints(withVisualFormat: "V:|[cardBackgroundImageView]", options: [], metrics: nil, views: views)
+        
+        allConstraint += NSLayoutConstraint.constraints(withVisualFormat: "H:|[cardBackgroundImageView]|", options: [], metrics: nil, views: views)
         
         
         allConstraint += NSLayoutConstraint.constraints(withVisualFormat: "V:[appIconImageView(70)]", options: [], metrics: nil, views: views)

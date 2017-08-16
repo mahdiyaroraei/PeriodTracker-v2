@@ -12,22 +12,28 @@ import Alamofire
 import SwiftyJSON
 
 class PregnantViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout , UICollectionViewDataSource ,
-SelectCellDelegate {
+SelectCellDelegate , DayLogDelegate {
     
     var article: Article! {
         didSet {
             viewCountLabel.text = article.view.forrmated
             
-            articleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedOnArticle)))
         }
     }
     
     func tappedOnArticle() {
+        guard article != nil else {
+            showToast(message: "عدم دسترسی به اینترنت")
+            return
+        }
+        
         let vc = ArticlePageViewController()
         article.increaseView()
         vc.article = article
         navigationController?.pushViewController(vc, animated: true)
         navigationController?.navigationBar.isHidden = false
+        
+        viewCountLabel.text = article.view.forrmated
         
         Alamofire.request("\(Config.WEB_DOMAIN)view/\(article.id!)")
     }
@@ -101,6 +107,8 @@ SelectCellDelegate {
         //        let tap = UIGestureRecognizer(target: self, action: #selector(dissmisKeyboard))
         //        view.addGestureRecognizer(tap)
         
+        articleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedOnArticle)))
+        
         setupPregnantImage()
         setupPregnantLabel()
         setupPregnantLogLabel()
@@ -109,8 +117,9 @@ SelectCellDelegate {
     func getPregnantWeekArticle() {
         Alamofire.request("\(Config.WEB_DOMAIN)article/\(pregnantWeek!)").response { (response) in
             if let data = response.data {
-                let serilizedJson = JSON(data)
-                self.article = Utility.createArticleFromJSON((serilizedJson.array?[0])!)
+                if let serilizedJson = JSON(data).array {
+                    self.article = Utility.createArticleFromJSON((serilizedJson[0]))
+                }
             }
         }
     }
@@ -138,8 +147,13 @@ SelectCellDelegate {
         pregnantLogButton.addTarget(self, action: #selector(pregnantLogButtonClicked(sender:)), for: .touchUpInside)
     }
     
+    func present(identifier: String) {
+        self.tabBarController?.selectedIndex = 2
+    }
+    
     func pregnantLogButtonClicked(sender: UIButton) {
         let dayLogViewController = self.storyboard?.instantiateViewController(withIdentifier: "dayLogViewController") as! DayLogViewController
+        dayLogViewController.delegate = self
         dayLogViewController.isPregnant = true
         present(dayLogViewController , animated: true, completion: nil)
     }
@@ -320,6 +334,12 @@ SelectCellDelegate {
     func presentViewController(_ identifier: String) {
         let vc = storyboard?.instantiateViewController(withIdentifier: identifier)
         present(vc!, animated: true, completion: nil)
+    }
+    
+    @IBAction func openGuide(_ sender: Any) {
+        let vc = GuideViewController()
+        vc.guide = Utility.createGuideObjectFromKey(key: "pregnantViewController")!
+        present(vc, animated: true, completion: nil)
     }
 
 }

@@ -33,16 +33,16 @@ class DayCollectionViewCell: UICollectionViewCell {
             if let setup = realm.objects(Setup.self).last , let setting = realm.objects(Setting.self).last , setting.pregnantMode == 0 {
                 switch Utility.forecastingDate(dayDate , setup: setup) {
                 case .period:
-                    self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xFFABAB)
+                    self.backgroundColor = Colors.periodCellColor
                     break
                 case .fertile:
-                    self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xABE3FF)
+                    self.backgroundColor = Colors.fertileCellColor
                     break
                 case .fertileDate:
-                    self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xAB00FF)
+                    self.backgroundColor = Colors.fertileDayCellColor
                     break
                 case .pms:
-                    self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0x838383)
+                    self.backgroundColor = Colors.pmsCellColor
                     break
                 case.normal:
                     self.backgroundColor = Colors.normalCellColor
@@ -53,7 +53,7 @@ class DayCollectionViewCell: UICollectionViewCell {
         
         if let diffrence =  calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: dayDate).day , diffrence > 0 , diffrence % 7 == 0 { // For showing first day of pregnant week
             if let setting = realm.objects(Setting.self).last , setting.pregnantMode == 1 {
-                self.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xa286a0)
+                self.backgroundColor = Colors.pregnantCellColor
             }
         }
     }

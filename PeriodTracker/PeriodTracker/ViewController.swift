@@ -93,6 +93,7 @@ class ViewController: UIViewController , CAAnimationDelegate {
                 if let data = response.data {
                     if let success = JSON(data)["success"].int , success != 1 {
                         self.isLicenseValid = false
+                        UserDefaults.standard.set(true, forKey: "another-device-use-this-code")
                     }
                     self.takeAction()
                 }
@@ -107,8 +108,13 @@ class ViewController: UIViewController , CAAnimationDelegate {
         if animationEnd && apiResult {
             if isLicenseValid {
                 //Open app
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
-                self.present(vc!, animated: true, completion: nil)
+                if !UserDefaults.standard.bool(forKey: "setup-complete") {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
+                    self.present(vc!, animated: true, completion: nil)
+                } else {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+                    self.present(vc!, animated: true, completion: nil)
+                }
             } else {
                 if let user = realm.objects(User.self).last {
                     try! realm.write {

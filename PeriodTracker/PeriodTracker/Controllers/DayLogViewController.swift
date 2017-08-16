@@ -11,7 +11,7 @@ import RealmSwift
 
 class DayLogViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout ,
 SelectCellDelegate , SelectMoodDelegate{
-
+    
     @IBOutlet weak var moodValuesCollectionView: UICollectionView!
     @IBOutlet weak var moodCollectionView: UICollectionView!
     @IBOutlet weak var weekCollectionView: UICollectionView!
@@ -19,7 +19,7 @@ SelectCellDelegate , SelectMoodDelegate{
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-
+    
     @IBOutlet weak var moodInfoButton: UIButton!
     
     @IBOutlet weak var valueTextField: UITextField!
@@ -39,7 +39,7 @@ SelectCellDelegate , SelectMoodDelegate{
     // Value type of selected mood get from database store here
     var valueTypes: [String] = []
     var selectedMood: Mood!
-
+    
     let realm = try! Realm()
     
     var isPregnant = false
@@ -47,10 +47,14 @@ SelectCellDelegate , SelectMoodDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let setting = realm.objects(Setting.self).last {
+            isPregnant = setting.pregnantMode == 1
+        }
+        
         getEnabledMoodFromDatabase()
         
         todayLabel.text = "\(String(describing: Calendar(identifier: .persian).dateComponents([.day], from: nowDate).day!))"
-
+        
         self.weekCollectionView.dataSource = self
         self.weekCollectionView.delegate = self
         self.moodCollectionView.dataSource = self
@@ -69,8 +73,8 @@ SelectCellDelegate , SelectMoodDelegate{
         
         
         // Hide keyboard on touch outside textfield
-//        let tap = UIGestureRecognizer(target: self, action: #selector(dissmisKeyboard))
-//        view.addGestureRecognizer(tap)
+        //        let tap = UIGestureRecognizer(target: self, action: #selector(dissmisKeyboard))
+        //        view.addGestureRecognizer(tap)
         
     }
     
@@ -99,7 +103,7 @@ SelectCellDelegate , SelectMoodDelegate{
         bottomLineLayer.frame = CGRect(x:-50, y:stackView.frame.size.height - 1, width:stackView.frame.size.width + 100, height:1)
         stackView.layer.addSublayer(bottomLineLayer)
     }
-        
+    
     // Select mode and run this closure
     func updateCollectinView(cell: MoodCollectionViewCell , moodCell: MoodsCollectionViewCell) {
         moodCollectionView.reloadItems(at: [moodCollectionView.indexPath(for: moodCell)!])
@@ -201,7 +205,7 @@ SelectCellDelegate , SelectMoodDelegate{
     @IBAction func gotoCurrentWeek(_ sender: Any) {
         self.weekCollectionView.scrollToItem(at: IndexPath(row: 25, section: 0), at: .left, animated: true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -240,7 +244,7 @@ SelectCellDelegate , SelectMoodDelegate{
             
             cell.delegate = self
             cell.moods.removeAll()
-    
+            
             for i in 0...2{
                 // For avoid from index out of bounds
                 if (indexPath.row * 3) + i >= moods.count {
@@ -274,19 +278,29 @@ SelectCellDelegate , SelectMoodDelegate{
         }
     }
     
+    var delegate: DayLogDelegate?
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == moodValuesCollectionView {
             let cell = moodValuesCollectionView.cellForItem(at: indexPath) as! MoodValueCollectionViewCell
             
             if isPregnant && selectedMood.name == "bleeding" && cell.value != "spotting" {
-                showToast(message: "در حالت بارداری فقط امکان ذخیره لکه بینی را در دسته بندی خونریزی دارید")
+                showModal(modalObject: Modal(title: "پیغام", desc: "در زمانی که حالت بارداری فعال است، شما تنها میتوانید لکه بینی ثبت کنید و امکان ثبت پریودی وجود ندارد.", image: nil, leftButtonTitle: "متوجه شدم", rightButtonTitle: "صفحه تنظیمات", onLeftTapped: { (modal) in
+                    modal.dismissModal()
+                }, onRightTapped: { (modal) in
+                    self.delegate?.present(identifier: "settingViewController")
+                    modal.dismissModal()
+                    self.dismiss(animated: true, completion: nil)
+                }))
                 return
             } else if selectedMood.name == "bleeding" && cell.value != "spotting" {
                 if Utility.forecastingDate(CalendarViewController.selectedDate! , setup: realm.objects(Setup.self).last!) != .period && !cell.isSelect {
                     
-                    showModal(modalObject: Modal(title: "پریودی خارج از پیش بینی", desc: "پریودی شما طبق پیش بینی ما انجام نشده، این اتفاق میتواند به دلیل شرایط محیطی باشد، اما اگر دوره پریودی شما تغییر کرده یا اشتباهی در ورود اطلاعات دارید میتوانید دوباره اطلاعاتتان را راه اندازی کنید", image: nil, firstTextFieldHint: "", secondTextFieldHint: "", leftButtonTitle: "راه اندازی دوباره", rightButtonTitle: "بیخیال", onLeftTapped: { (modal) in
+                    showModal(modalObject: Modal(title: "پریودی خارج از پیش بینی", desc: "پریودی شما طبق پیش بینی ما انجام نشده، این اتفاق میتواند به دلیل شرایط محیطی باشد، اما اگر دوره پریودی شما تغییر کرده یا اشتباهی در ورود اطلاعات دارید میتوانید دوباره اطلاعاتتان را راه اندازی کنید", image: nil, firstTextFieldHint: "", secondTextFieldHint: "", leftButtonTitle: "صفحه تنظیمات", rightButtonTitle: "بیخیال", onLeftTapped: { (modal) in
                         // On left button tapped
-                        
+                        self.delegate?.present(identifier: "settingViewController")
+                        modal.dismissModal()
+                        self.dismiss(animated: true, completion: nil)
                     }, onRightTapped: { (modal) in
                         // On right button tapped
                         modal.dismiss(animated: false, completion: nil)
@@ -353,7 +367,13 @@ SelectCellDelegate , SelectMoodDelegate{
         let vc = storyboard?.instantiateViewController(withIdentifier: identifier)
         present(vc!, animated: true, completion: nil)
     }
-
+    
+    @IBAction func openGuide(_ sender: Any) {
+        let vc = GuideViewController()
+        vc.guide = Utility.createGuideObjectFromKey(key: "dayLogViewController")!
+        present(vc, animated: true, completion: nil)
+    }
+    
 }
 
 extension UIViewController{
@@ -375,4 +395,8 @@ extension UIViewController{
             toastLabel.removeFromSuperview()
         })
     }
+}
+
+protocol DayLogDelegate {
+    func present(identifier: String)
 }

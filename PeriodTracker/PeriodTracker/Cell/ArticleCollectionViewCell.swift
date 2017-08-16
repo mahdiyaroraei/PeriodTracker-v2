@@ -20,6 +20,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             
             if let readTime = article.article_read_time {
                 readTimeLabel.text = "زمان مطالعه: حدود \(readTime) دقیقه"
+            } else {
+                readTimeLabel.text = "حدود ۶ دقیقه"
             }
             
             let dateFormatter = DateFormatter()
@@ -30,18 +32,28 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             articleAddTimeLabel.text = Utility.timeAgoSince(date!)
             
             if let imageURL = article.image {
-                articleImageView.downloadedFrom(link: imageURL)
+                articleImageView.downloadedFrom(link: imageURL, contentMode: .scaleAspectFill, complition: { (loaded) in
+                    self.articleImageLoader.stopAnimating()
+                })
             }
         }
     }
     
     let articleImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "test_article"))
-        //        imageView.backgroundColor = .black
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xf2f2f2)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+    
+    let articleImageLoader: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        indicatorView.startAnimating()
+        indicatorView.hidesWhenStopped = true
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+        return indicatorView
     }()
     
     let creatorIconImageView: UIImageView = {
@@ -201,6 +213,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(articleImageView)
+        addSubview(articleImageLoader)
         addSubview(creatorIconImageView)
         subjectStack.addArrangedSubview(subjectLabel)
         subjectStack.addArrangedSubview(articleDescriptionLabel)
@@ -230,6 +243,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         let views: [String: Any] = [
             "articleImageView": articleImageView,
+            "articleImageLoader": articleImageLoader,
             "creatorIconImageView": creatorIconImageView,
             "subjectStack": subjectStack,
             "articleAddTimeLabel": articleAddTimeLabel,
@@ -242,6 +256,9 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[articleImageView]|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleImageView(175)]", options: [], metrics: nil, views: views))
+        
+        addConstraint(NSLayoutConstraint(item: self.articleImageLoader, attribute: .centerX, relatedBy: .equal, toItem: self.articleImageView, attribute: .centerX, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: self.articleImageLoader, attribute: .centerY, relatedBy: .equal, toItem: self.articleImageView, attribute: .centerY, multiplier: 1, constant: 0))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[creatorIconImageView(36)]-4-|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[articleImageView]-4-[creatorIconImageView(36)]", options: [], metrics: nil, views: views))

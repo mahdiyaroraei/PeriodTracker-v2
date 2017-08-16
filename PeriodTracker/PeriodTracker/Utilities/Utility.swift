@@ -43,9 +43,29 @@ class Utility: NSObject, UITextViewDelegate {
     }
     
     static func createGuideObjectFromKey(key: String) -> Guide? {
+        var items: [Item] = []
+        
         if let path = Bundle.main.path(forResource: "Guide", ofType: "plist") {
             if let dic = NSDictionary(contentsOfFile: path) as? [String: String] {
-                return Guide(key: key, content: dic[key]!)
+                let parsedItem = JSON(dic[key]!.data(using: .utf8)!)
+                for itemJson in parsedItem.array! {
+                    if itemJson["type"].string! == ItemType.AttributeText.rawValue {
+                        var attributes: [TextAttribute] = []
+                        for jsonAttribute in itemJson["attributes"].array! {
+                            attributes.append(TextAttribute(key: jsonAttribute["key"].string!, value: jsonAttribute["value"].string, range: jsonAttribute["range"].string))
+                        }
+                        let textItem = Item(text: itemJson["text"].string!, attributes: attributes , link: itemJson["link"].string)
+                        items.append(textItem)
+                    } else if itemJson["type"].string! == ItemType.Image.rawValue {
+                        var images: [Image] = []
+                        for jsonAttribute in itemJson["images"].array! {
+                            images.append(Image(imageURL: jsonAttribute["imageURL"].string!, link: jsonAttribute["link"].string, aspectRatio: jsonAttribute["aspect_ratio"].float))
+                        }
+                        let imageItem = Item(images: images)
+                        items.append(imageItem)
+                    }
+                }
+                return Guide(key: key, content: items)
             }
         }
         return nil
@@ -64,9 +84,7 @@ class Utility: NSObject, UITextViewDelegate {
         
         if let setting = realm.objects(Setting.self).last , setting.pregnantMode == 0 {
             if let setup = realm.objects(Setup.self).last {
-                //                if setup.startDate == 0 || setup.cycleLength == 0 || setup.periodLength == 0 {
-                
-                if setup.startDate == 0 || setup.periodLength == 0 {
+                if setup.startDate == 0 || setup.cycleLength == 0 || setup.periodLength == 0 {
                     return
                 }
                 if setting.fertileNotice == 1 {
@@ -154,7 +172,7 @@ class Utility: NSObject, UITextViewDelegate {
             } else if itemJson["type"].string! == ItemType.Image.rawValue {
                 var images: [Image] = []
                 for jsonAttribute in itemJson["images"].array! {
-                    images.append(Image(imageURL: jsonAttribute["imageURL"].string!, link: jsonAttribute["link"].string))
+                    images.append(Image(imageURL: jsonAttribute["imageURL"].string!, link: jsonAttribute["link"].string, aspectRatio: jsonAttribute["aspect_ratio"].float))
                 }
                 let imageItem = Item(images: images)
                 items.append(imageItem)
@@ -167,7 +185,9 @@ class Utility: NSObject, UITextViewDelegate {
     }
     
     static func nextPeriodDate(_ date: Date , setup: Setup) -> Date {
-        let cycleLength = 40
+        
+        let cycleLength = setup.cycleLength
+        
         let calendar = Calendar(identifier: .persian)
         let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: setup.startDate), to: date).day!
         let remain = diffrence % cycleLength
@@ -183,7 +203,9 @@ class Utility: NSObject, UITextViewDelegate {
     }
     
     static func nextFertileDate(_ date: Date , setup: Setup) -> Date {
-        let cycleLength = 40
+        
+        let cycleLength = setup.cycleLength
+        
         let calendar = Calendar(identifier: .persian)
         let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: setup.startDate), to: date).day!
         let remain = diffrence % cycleLength
@@ -199,7 +221,9 @@ class Utility: NSObject, UITextViewDelegate {
     }
     
     static func forecastingDate(_ date: Date , setup: Setup) -> DayType {
-        let cycleLength = 40
+        
+        let cycleLength = setup.cycleLength
+        
         let calendar = Calendar(identifier: .persian)
         let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: setup.startDate), to: date).day!
         let remain = diffrence % cycleLength
@@ -283,7 +307,7 @@ class Utility: NSObject, UITextViewDelegate {
     static func latestPeriodLog() -> Double{
         let realm = try! Realm()
         
-        if let log = realm.objects(Log.self).filter("mood.name == 'bleeding' AND value != 'spotting'").last {
+        if let log = realm.objects(Log.self).filter("mood.name == 'bleeding' AND value != 'spotting'").sorted(byKeyPath: "timestamp").last {
             return log.timestamp
         }else{
             return 0
