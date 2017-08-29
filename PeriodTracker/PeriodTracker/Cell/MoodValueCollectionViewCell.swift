@@ -11,6 +11,7 @@ import RealmSwift
 
 class MoodValueCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var moodImageView: UIImageView!
     
     var color: UIColor!
@@ -25,7 +26,9 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
     func refresh() {
         
         // Icon
-        moodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
+        moodLabel.text = Utility.translate(key: value)
+        moodLabel.textColor = color
+        moodImageView.image = UIImage(named: "mood-\(value!)")?.withRenderingMode(.alwaysTemplate)
         moodImageView.tintColor = color
         
         shapeLayer = CAShapeLayer()
@@ -42,9 +45,11 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
             self.isSelected = true
             shapeLayer.fillColor = color.cgColor
             moodImageView.tintColor = UIColor.white
+            moodLabel.textColor = UIColor.white
         }else{
             shapeLayer.fillColor = UIColor.clear.cgColor
             moodImageView.tintColor = color
+            moodLabel.textColor = color
         }
         
         self.layer.insertSublayer(shapeLayer, at: 0)
@@ -71,6 +76,7 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
         isSelect = true
         shapeLayer.fillColor = color.cgColor
         moodImageView.tintColor = UIColor.white
+        moodLabel.textColor = UIColor.white
         
         let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
         
@@ -98,6 +104,7 @@ class MoodValueCollectionViewCell: UICollectionViewCell {
         isSelect = false
         shapeLayer.fillColor = UIColor.clear.cgColor
         moodImageView.tintColor = color
+        moodLabel.textColor = color
         
         let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
         

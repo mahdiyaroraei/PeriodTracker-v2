@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GuideViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout , UICollectionViewDataSource{
+class GuideViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource{
     
     var guide: Guide! {
         didSet {
@@ -44,10 +44,11 @@ class GuideViewController: UIViewController , UICollectionViewDelegate , UIColle
     }()
     
     let articleCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = HorizontallyFlushCollectionViewFlowLayout()
         layout.minimumLineSpacing = 2
+        layout.sectionInset = UIEdgeInsetsMake(0, 4, 0, 4)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = Utility.uicolorFromHex(rgbValue: 0xF6F6F6)
+        collectionView.backgroundColor = Utility.uicolorFromHex(rgbValue: 0xFaFaFa)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -60,6 +61,9 @@ class GuideViewController: UIViewController , UICollectionViewDelegate , UIColle
         
         articleCollectionView.register(AttributeTextCollectionViewCell.self, forCellWithReuseIdentifier: "text_cell")
         
+        if let flowLayout = articleCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 1,height: 1)
+        }
     }
     
     
@@ -70,37 +74,36 @@ class GuideViewController: UIViewController , UICollectionViewDelegate , UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let textItem = guide.content[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "text_cell", for: indexPath) as! AttributeTextCollectionViewCell
-        cell.backgroundColor = .white
         cell.textItem = textItem
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        var abortedFontCount = 0
-        var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-        let text = guide.content[indexPath.item].text!
-        if let attributes = guide.content[indexPath.item].attributes {
-            for attribute in attributes {
-                let range = attribute.range == nil ? NSRange(location: 0, length: text.characters.count) : attribute.range!
-                if Double(range.length / text.characters.count) < 0.5 {
-                    abortedFontCount += 1
-                    continue
-                }
-                if attribute.key == "font" {
-                    font = UIFont(name: attribute.value!, size: 15)!
-                }
-            }
-        }
-        
-        let boundingRect = NSString(string: text).boundingRect(with: CGSize(width: collectionView.bounds.width, height: 1000),
-                                                               options: .usesLineFragmentOrigin,
-                                                               attributes: [NSFontAttributeName: font],
-                                                               context: nil)
-        
-        return CGSize(width: self.view.frame.width, height: boundingRect.height + CGFloat(abortedFontCount * 15))
-        
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        var abortedFontCount = 0
+//        var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+//        let text = guide.content[indexPath.item].text!
+//        if let attributes = guide.content[indexPath.item].attributes {
+//            for attribute in attributes {
+//                let range = attribute.range == nil ? NSRange(location: 0, length: text.characters.count) : attribute.range!
+//                if Double(range.length / text.characters.count) < 0.5 {
+//                    abortedFontCount += 1
+//                    continue
+//                }
+//                if attribute.key == "font" {
+//                    font = UIFont(name: attribute.value!, size: 15)!
+//                }
+//            }
+//        }
+//        
+//        let boundingRect = NSString(string: text).boundingRect(with: CGSize(width: collectionView.bounds.width - 100 , height: 1000),
+//                                                               options: .usesLineFragmentOrigin,
+//                                                               attributes: [NSFontAttributeName: font],
+//                                                               context: nil)
+//        
+//        return CGSize(width: self.view.frame.width, height: boundingRect.height + 20 + CGFloat(abortedFontCount * 15))
+//        
+//    }
     
     func setupViews() {
         self.navItemView.addSubview(titleLabel)

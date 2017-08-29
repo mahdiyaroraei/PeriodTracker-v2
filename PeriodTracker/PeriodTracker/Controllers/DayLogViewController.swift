@@ -86,7 +86,7 @@ SelectCellDelegate , SelectMoodDelegate{
         moodInfoButton.isHidden = false
         moodInfoButton.backgroundColor = Utility.uicolorFromHex(rgbValue: UInt32(selectedMood.color, radix: 16)!)
         moodInfoButton.layer.cornerRadius = 13
-        moodInfoButton.setTitle(selectedMood.name, for: .normal)
+        moodInfoButton.setTitle(Utility.translate(key: selectedMood.name), for: .normal)
     }
     
     override func viewWillLayoutSubviews() {
@@ -106,6 +106,10 @@ SelectCellDelegate , SelectMoodDelegate{
     
     // Select mode and run this closure
     func updateCollectinView(cell: MoodCollectionViewCell , moodCell: MoodsCollectionViewCell) {
+        if moodCollectionView.indexPath(for: moodCell) == nil {
+            return
+        }
+        
         moodCollectionView.reloadItems(at: [moodCollectionView.indexPath(for: moodCell)!])
         
         let mood = realm.objects(Mood.self).filter("name == '\(cell.name!)'").first
@@ -252,7 +256,7 @@ SelectCellDelegate , SelectMoodDelegate{
                     // Add manageMood as mood and should be handle when select
                     let manageMood = Mood()
                     manageMood.name = "manage_mood"
-                    manageMood.color = "E9E9E9"
+                    manageMood.color = "76858e"
                     cell.moods.append(manageMood)
                     
                     break
@@ -369,9 +373,9 @@ SelectCellDelegate , SelectMoodDelegate{
     }
     
     @IBAction func openGuide(_ sender: Any) {
-        let vc = GuideViewController()
-        vc.guide = Utility.createGuideObjectFromKey(key: "dayLogViewController")!
-        present(vc, animated: true, completion: nil)
+//        let vc = GuideViewController()
+//        vc.guide = Utility.createGuideObjectFromKey(key: "dayLogViewController")!
+//        present(vc, animated: true, completion: nil)
     }
     
 }

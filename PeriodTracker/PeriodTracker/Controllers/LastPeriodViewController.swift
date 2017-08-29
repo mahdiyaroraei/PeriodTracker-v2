@@ -14,12 +14,14 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
     @IBOutlet weak var periodImageView: UIImageView!
     @IBOutlet weak var questionTextView: UITextView!
     
+    @IBOutlet weak var nextButton: UIButton!
     let realm = try! Realm()
     
     var isUserSavedData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Change icon tint color and set image & circle arround icon
         periodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
@@ -96,9 +98,7 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
     
     @IBAction func yesButtonClicked(_ sender: Any) {
         if isUserSavedData {
-            let pageViewController: SetupPageViewController = self.parent as! SetupPageViewController
-            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "cycleLenghtViewController"))!], direction: .forward, animated: false, completion: nil)
-            pageViewController.pageController.currentPage = 1
+            next()
         } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "calendarViewController") as! CalendarViewController
             
@@ -107,6 +107,11 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
             
             present(vc, animated: true, completion: nil)
         }
+    }
+    
+    func next() {
+        let pageViewController: SetupPageViewController = self.parent as! SetupPageViewController
+        pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "cycleLenghtViewController"))!], direction: .forward, animated: true, completion: nil)
     }
     
     // This function created by follow CalendarDateSelector protocol
@@ -134,10 +139,14 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        (self.parent as! SetupPageViewController).pageController.currentPage = 0
+        
         checkExistDataInDatabase()
     }
     
     func checkExistDataInDatabase() {
+        
+        nextButton.setImage(UIImage(named: "ok"), for: .normal)
         
         guard let setup = realm.objects(Setup.self).first else {
             // if dont setup yet ui must clear
@@ -161,6 +170,8 @@ class LastPeriodViewController: UIViewController , UITextViewDelegate , Calendar
             
             return
         }
+        
+        nextButton.setImage(UIImage(named: "next"), for: .normal)
         
         // if setup this level ui should chnage from clear
         periodImageView.tintColor = UIColor.white

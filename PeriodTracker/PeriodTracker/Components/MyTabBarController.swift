@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import OneSignal
 
 class MyTabBarController: UITabBarController ,UITabBarControllerDelegate {
     
@@ -56,6 +57,28 @@ class MyTabBarController: UITabBarController ,UITabBarControllerDelegate {
             tabBar.title = tabTitles[index]
             tabBar.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "IRANSansFaNum-Medium", size: 9)! , NSForegroundColorAttributeName: UIColor.uicolorFromHex(rgbValue: 0x36454a)], for: .normal)
             tabBar.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "IRANSansFaNum-Medium", size: 11)! , NSForegroundColorAttributeName: UIColor.uicolorFromHex(rgbValue: 0x7ca013)], for: .selected)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !UserDefaults.standard.bool(forKey: "show-notification-alert") {
+            showModal(modalObject: Modal(title: "ارسال ناتیفیکیشن", desc: "برنامه برای اطلاع رسانی دوره بعدی شما و اطلاع رسانی انتشار مقاله جدید نیاز به اجازه شما به برنامه برای ارسال ناتیفیکیشن دارد.", image: UIImage(named: "modal-notification"), leftButtonTitle: "باشه", rightButtonTitle: "اجازه نمیدم", onLeftTapped: { (modal) in
+                
+                
+                // Recommend moving the below line to prompt for push after informing the user about
+                //   how your app will use them.
+                
+                modal.dismissModal()
+                
+                OneSignal.promptForPushNotifications(userResponse: { accepted in
+                    print("User accepted notifications: \(accepted)")
+                })
+            }, onRightTapped: { (modal) in
+                modal.dismissModal()
+            }))
+            UserDefaults.standard.set(true, forKey: "show-notification-alert")
         }
     }
     

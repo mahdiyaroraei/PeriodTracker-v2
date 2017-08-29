@@ -7,13 +7,6 @@
                "enable":"1"
                },
                {
-               "name":"appointment",
-               "color":"20b2aa",
-               "multiselect":"1",
-               "value_type":"ob,vacation,doctor,date",
-               "enable":"0"
-               },
-               {
                "name":"bleeding",
                "color":"D82525",
                "multiselect":"0",
@@ -73,28 +66,14 @@
                "name":"hair",
                "color":"008899",
                "multiselect":"1",
-               "value_type":"good,bad,oily,dry",
-               "enable":"0"
-               },
-               {
-               "name":"injection",
-               "color":"202794",
-               "multiselect":"0",
-               "value_type":"administered",
-               "enable":"0"
-               },
-               {
-               "name":"iud",
-               "color":"202794",
-               "multiselect":"1",
-               "value_type":"thread,inserted,removed",
+               "value_type":"good_hair,bad,oily,dry",
                "enable":"0"
                },
                {
                "name":"medication",
                "color":"202794",
                "multiselect":"1",
-               "value_type":"pain,cold,antibiotic,antihistamine",
+               "value_type":"pain_medication,cold_medication,antibiotic,antihistamine",
                "enable":"1"
                },
                {
@@ -112,13 +91,6 @@
                "enable":"0"
                },
                {
-               "name":"motivation",
-               "color":"ee6b48",
-               "multiselect":"1",
-               "value_type":"motivated,unmotivated,productive,unproductive",
-               "enable":"0"
-               },
-               {
                "name":"note",
                "color":"f8f9bd",
                "multiselect":"0",
@@ -129,21 +101,7 @@
                "name":"pain",
                "color":"008899",
                "multiselect":"1",
-               "value_type":"4",
-               "enable":"0"
-               },
-               {
-               "name":"party",
-               "color":"20b2aa",
-               "multiselect":"1",
-               "value_type":"drinks,cigarettes,hangover,big_night",
-               "enable":"0"
-               },
-               {
-               "name":"patch",
-               "color":"202794",
-               "multiselect":"0",
-               "value_type":"removed,replaced,remove_late,replaced_late",
+               "value_type":"cramps,headache,ovulation,breast",
                "enable":"0"
                },
                {
@@ -154,24 +112,17 @@
                "enable":"0"
                },
                {
-               "name":"ring",
-               "color":"202794",
-               "multiselect":"0",
-               "value_type":"removed,replaced,removed_late,replaced_late",
-               "enable":"0"
-               },
-               {
                "name":"sex",
                "color":"20b2aa",
                "multiselect":"1",
-               "value_type":"unprotected,protected,high_sex,withdrawal",
+               "value_type":"unprotected,protected",
                "enable":"1"
                },
                {
                "name":"skin",
                "color":"008899",
                "multiselect":"1",
-               "value_type":"good,oily,dry,acne",
+               "value_type":"good_skin,oily_skin,dry_skin,acne",
                "enable":"0"
                },
                {
@@ -182,17 +133,10 @@
                "enable":"1"
                },
                {
-               "name":"social",
-               "color":"ee6b48",
-               "multiselect":"1",
-               "value_type":"conflict,supportive,sociable,withdrawn",
-               "enable":"0"
-               },
-               {
                "name":"stool",
                "color":"008899",
                "multiselect":"1",
-               "value_type":"great,normal,constipated,diarrhea",
+               "value_type":"great_stool,normal,constipated,diarrhea",
                "enable":"0"
                },
                {
@@ -200,13 +144,6 @@
                "color":"008899",
                "multiselect":"0",
                "value_type":"float",
-               "enable":"0"
-               },
-               {
-               "name":"tests",
-               "color":"202794",
-               "multiselect":"1",
-               "value_type":"ova_pos,ova_neg,preg_pos,preg_neg",
                "enable":"0"
                },
                {

@@ -16,6 +16,7 @@ class CycleLengthViewController: UIViewController , UITextViewDelegate , PeriodL
     @IBOutlet weak var periodImageView: UIImageView!
     @IBOutlet weak var questionTextView: UITextView!
     
+    @IBOutlet weak var nextButton: UIButton!
     let realm = try! Realm()
     
     var isUserSavedData = false
@@ -105,8 +106,8 @@ class CycleLengthViewController: UIViewController , UITextViewDelegate , PeriodL
     @IBAction func yesButtonClicked(_ sender: Any) {
         if isUserSavedData {
             let pageViewController: SetupPageViewController = self.parent as! SetupPageViewController
-            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "periodLengthViewController"))!], direction: .forward, animated: false, completion: nil)
-            pageViewController.pageController.currentPage = 0
+            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "periodLengthViewController"))!], direction: .forward, animated: true, completion: nil)
+            pageViewController.pageController.currentPage = 2
         } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "cycleLengthSelectorViewController") as! AboutCycleLengthViewController
             
@@ -139,10 +140,14 @@ class CycleLengthViewController: UIViewController , UITextViewDelegate , PeriodL
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        (self.parent as! SetupPageViewController).pageController.currentPage = 1
+        
         checkExistDataInDatabase()
     }
     
     func checkExistDataInDatabase() {
+        
+        nextButton.setImage(UIImage(named: "ok"), for: .normal)
         
         guard let setup = realm.objects(Setup.self).first else {
             // if dont setup yet ui must clear
@@ -166,6 +171,8 @@ class CycleLengthViewController: UIViewController , UITextViewDelegate , PeriodL
             
             return
         }
+        
+        nextButton.setImage(UIImage(named: "next"), for: .normal)
         
         // if setup this level ui should chnage from clear
         periodImageView.tintColor = UIColor.white

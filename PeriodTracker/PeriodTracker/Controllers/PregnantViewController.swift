@@ -14,6 +14,8 @@ import SwiftyJSON
 class PregnantViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout , UICollectionViewDataSource ,
 SelectCellDelegate , DayLogDelegate {
     
+    @IBOutlet weak var accessImageView: UIImageView!
+    
     var article: Article! {
         didSet {
             viewCountLabel.text = article.view.forrmated
@@ -27,15 +29,20 @@ SelectCellDelegate , DayLogDelegate {
             return
         }
         
-        let vc = ArticlePageViewController()
-        article.increaseView()
-        vc.article = article
-        navigationController?.pushViewController(vc, animated: true)
-        navigationController?.navigationBar.isHidden = false
-        
-        viewCountLabel.text = article.view.forrmated
-        
-        Alamofire.request("\(Config.WEB_DOMAIN)view/\(article.id!)")
+        if subscribedArticle && !subscribe {
+            navigationController?.pushViewController(PricingViewController(), animated: true)
+            navigationController?.navigationBar.isHidden = false
+        } else {
+            let vc = ArticlePageViewController()
+            article.increaseView()
+            vc.article = article
+            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.navigationBar.isHidden = false
+            
+            viewCountLabel.text = article.view.forrmated
+            
+            Alamofire.request("\(Config.WEB_DOMAIN)view/\(article.id!)")
+        }
     }
     
     @IBOutlet weak var weekCollectionView: UICollectionView!
@@ -90,6 +97,14 @@ SelectCellDelegate , DayLogDelegate {
         navigationController?.navigationBar.isHidden = true
         
         pregnantWeek = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: Date()).day! / 7 + 1
+        
+        if pregnantWeek > 2 {
+            accessImageView.image = UIImage(named: "subscribe")
+            subscribedArticle = true
+        } else {
+            accessImageView.image = UIImage(named: "free")
+            subscribedArticle = false
+        }
         
         todayLabel.text = "\(String(describing: Calendar(identifier: .persian).dateComponents([.day], from: nowDate).day!))"
         
@@ -282,6 +297,8 @@ SelectCellDelegate , DayLogDelegate {
         refreshPregnantViewsIfWeekChange()
     }
     
+    var subscribedArticle: Bool = false
+    
     func refreshPregnantViewsIfWeekChange() {
         let tempPregnant = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: CalendarViewController.selectedDate!).day! / 7 + 1
         
@@ -298,6 +315,16 @@ SelectCellDelegate , DayLogDelegate {
         
         if pregnantWeek != tempPregnant {
             pregnantWeek = tempPregnant
+            
+            if pregnantWeek > 2 {
+                accessImageView.image = UIImage(named: "subscribe")
+                subscribedArticle = true
+            } else {
+                
+                accessImageView.image = UIImage(named: "free")
+                subscribedArticle = false
+            }
+            
             pregnantImageView.image = UIImage(named: "pregnant\(pregnantWeek!)")
             
             let title = "بارداری: هفته \(pregnantWeek!)"
@@ -313,9 +340,41 @@ SelectCellDelegate , DayLogDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        checkSubscribe()
+        
         self.weekCollectionView.reloadData()
         navigationController?.navigationBar.isHidden = true
     }
+    
+    var subscribe: Bool = false
+    
+    func checkSubscribe() {
+        let realm = try! Realm()
+        
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        loadingIndicator.startAnimating()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: loadingIndicator)
+        
+        if let user = realm.objects(User.self).last {
+            Alamofire.request("\(Config.WEB_DOMAIN)subscribe/\(user.license_id)/\(user.user_id)").responseJSON(completionHandler: { (response) in
+                if let data = response.data {
+                    guard let subscribe = JSON(data)["subscribe"].int else {
+                        return
+                    }
+                    
+                    self.subscribe = subscribe == 1
+                    
+                } else {
+                    self.subscribe = false
+                }
+            })
+        } else {
+            
+            subscribe = false
+            
+        }
+    }
+    
     
     func cannotSelectFuture() {
         showToast(message: "نمی‌توانید روز های آینده را انتخاب کنید!")

@@ -45,13 +45,21 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings.count
     }
+//    
+//    var settings = [
+//        SettingModel("یادآور", type: .normal, key: "notice"),
+//        SettingModel("راه اندازی مجدد", type: .normal, key: "setup"),
+//        SettingModel("حالت بارداری", type: .action, key: "pregnant"),
+//        SettingModel("پشتیبانی", type: .normal, key: "support"),
+//        SettingModel("راهنما", type: .normal, key: "guide")
+//    ]
+//    
     
     var settings = [
             SettingModel("یادآور", type: .normal, key: "notice"),
             SettingModel("راه اندازی مجدد", type: .normal, key: "setup"),
             SettingModel("حالت بارداری", type: .action, key: "pregnant"),
-            SettingModel("پشتیبانی", type: .normal, key: "support"),
-            SettingModel("راهنما", type: .normal, key: "guide")
+            SettingModel("پشتیبانی", type: .normal, key: "support")
     ]
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,7 +75,12 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         
         if settings[indexPath.item].key == "setup" {
-            navigationController?.pushViewController((self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController"))!, animated: true)
+            
+            self.dismiss(animated: false, completion: nil)
+            
+            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                delegate.window?.rootViewController?.present((self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController"))!, animated: true, completion: nil)
+            }
         } else if settings[indexPath.item].key == "notice" {
             let vc = SettingViewController()
             vc.settings = [

@@ -12,6 +12,13 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     var imageItem: Item! {
         didSet {
+            
+            var height: CGFloat = 180
+            if let aspectRatio = imageItem.images?[0].aspectRatio {
+                height = (UIScreen.main.bounds.width - 2 * 4) * CGFloat(aspectRatio)
+            }
+            self.heightAnchor.constraint(equalToConstant: height).isActive = true
+            
             imageView.downloadedFrom(link: imageItem.images![0].imageURL!, contentMode: .scaleAspectFill, complition: { (loaded) in
                 self.articleImageLoader.stopAnimating()
             })
@@ -37,6 +44,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 2 * 4).isActive = true
+        
         
         addSubview(imageView)
         addSubview(articleImageLoader)

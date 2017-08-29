@@ -17,6 +17,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             articleDescriptionLabel.text = article.desc!
             viewCountLabel.text = "\(article.view!.forrmated)"
             clapCountLabel.text = "\(article.clap!.forrmated)"
+            accessImageView.image = UIImage(named: article.access!)
             
             if let readTime = article.article_read_time {
                 readTimeLabel.text = "زمان مطالعه: حدود \(readTime) دقیقه"
@@ -26,7 +27,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //Your date format
-            dateFormatter.timeZone = TimeZone(abbreviation: "GMT+3:30") //Current time zone
+            dateFormatter.timeZone = TimeZone(identifier: "Asia/Tehran") //Current time zone
             let date = dateFormatter.date(from: article.addedtime!) //according to date format your date string
             
             articleAddTimeLabel.text = Utility.timeAgoSince(date!)
@@ -209,8 +210,20 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
+    // access
+    let accessImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "free")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         
         addSubview(articleImageView)
         addSubview(articleImageLoader)
@@ -219,6 +232,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         subjectStack.addArrangedSubview(articleDescriptionLabel)
         addSubview(subjectStack)
         addSubview(articleAddTimeLabel)
+        addSubview(accessImageView)
         addSubview(seperatorView)
         addSubview(clappingCountLabel)
         
@@ -251,11 +265,12 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             "clapCountStack": clapCountStack,
             "readTimeStack": readTimeStack,
             "seperatorView": seperatorView,
-            "clappingCountLabel": clappingCountLabel
+            "clappingCountLabel": clappingCountLabel,
+            "accessImageView": accessImageView
         ]
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[articleImageView]|", options: [], metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleImageView(175)]", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleImageView]", options: [], metrics: nil, views: views))
         
         addConstraint(NSLayoutConstraint(item: self.articleImageLoader, attribute: .centerX, relatedBy: .equal, toItem: self.articleImageView, attribute: .centerX, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: self.articleImageLoader, attribute: .centerY, relatedBy: .equal, toItem: self.articleImageView, attribute: .centerY, multiplier: 1, constant: 0))
@@ -268,6 +283,9 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[articleImageView]-[articleAddTimeLabel]", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[articleAddTimeLabel]", options: [], metrics: nil, views: views))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[articleAddTimeLabel]-2-[accessImageView(20)]", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-4-[accessImageView(40)]", options: [], metrics: nil, views: views))
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[seperatorView]|", options: [], metrics: nil, views: views))
         
@@ -284,6 +302,15 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         addConstraint(NSLayoutConstraint(item: clapImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
         addConstraint(NSLayoutConstraint(item: viewImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
         addConstraint(NSLayoutConstraint(item: timeImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
+        
+        addConstraint(NSLayoutConstraint(item: self.articleImageView, attribute: .height, relatedBy: .equal, toItem: self.articleImageView, attribute: .width, multiplier: 0.55, constant: 0))
+        
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.accessImageView.image = nil
         
     }
     

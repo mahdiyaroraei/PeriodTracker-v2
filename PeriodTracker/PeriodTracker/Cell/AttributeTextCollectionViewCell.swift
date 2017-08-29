@@ -21,6 +21,7 @@ class AttributeTextCollectionViewCell: UICollectionViewCell {
         textView.textAlignment = .right
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.backgroundColor = UIColor.clear
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -28,14 +29,17 @@ class AttributeTextCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 2 * 4).isActive = true
+        
         addSubview(textView)
         
         let views = [
             "textView": textView
         ]
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textView]-|", options: [], metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[textView]-|", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[textView]-2-|", options: [], metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-2-[textView]-2-|", options: [], metrics: nil, views: views))
     }
     
     required init?(coder aDecoder: NSCoder) {

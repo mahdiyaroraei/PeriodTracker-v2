@@ -14,12 +14,14 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
     @IBOutlet weak var periodImageView: UIImageView!
     @IBOutlet weak var questionTextView: UITextView!
     
+    @IBOutlet weak var nextButton: UIButton!
     let realm = try! Realm()
     
     var isUserSavedData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Change icon tint color and set image & circle arround icon
         periodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
@@ -146,10 +148,14 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        (self.parent as! SetupPageViewController).pageController.currentPage = 2
+        
         checkExistDataInDatabase()
     }
     
     func checkExistDataInDatabase() {
+        
+        nextButton.setImage(UIImage(named: "ok"), for: .normal)
         
         guard let setup = realm.objects(Setup.self).first else {
             // if dont setup yet ui must clear
@@ -173,6 +179,8 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
             
             return
         }
+        
+        nextButton.setImage(UIImage(named: "finish"), for: .normal)
         
         // if setup this level ui should chnage from clear
         periodImageView.tintColor = UIColor.white

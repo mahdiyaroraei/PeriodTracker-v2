@@ -38,7 +38,11 @@ class MoodSelectorViewController: UIViewController , UITableViewDelegate , UITab
         let cell = moodTableView.dequeueReusableCell(withIdentifier: "mood_cell") as! MoodSelectorTableViewCell
         
         cell.mood = moods[indexPath.row]
-        cell.moodNameLabel.text = moods[indexPath.row].name
+        if let name = Utility.translate(key: moods[indexPath.row].name) {
+            cell.moodNameLabel.text = name
+        } else {
+            cell.moodNameLabel.text = moods[indexPath.row].name
+        }
         cell.moodSwitch.setOn(moods[indexPath.row].enable == 1, animated: false)
         
         return cell

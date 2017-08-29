@@ -15,7 +15,7 @@ class SetupPageViewController: UIPageViewController, UIPageViewControllerDelegat
     let pageController: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 3
-        pageControl.currentPage = 3
+        pageControl.currentPage = 0
         pageControl.tintColor = UIColor.black
         pageControl.pageIndicatorTintColor = UIColor.gray
         pageControl.currentPageIndicatorTintColor = UIColor.black
@@ -51,24 +51,22 @@ class SetupPageViewController: UIPageViewController, UIPageViewControllerDelegat
         pageController.center = CGPoint(x: self.view.center.x, y: self.view.frame.height - 15)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
+    deinit {
         if let myTabBarController = self.tabBarController {
             myTabBarController.viewDidLoad()
         }
     }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        let pageContentViewController = pageViewController.viewControllers![0]
-        var index = pages.index(of: pageContentViewController.restorationIdentifier!)!
-        if index == 0 {
-            index = 2
-        } else if index == 2 {
-            index = 0
-        }
-        self.pageController.currentPage = index
-    }
+//    
+//    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+//        let pageContentViewController = pageViewController.viewControllers![0]
+//        var index = pages.index(of: pageContentViewController.restorationIdentifier!)!
+//        if index == 0 {
+//            index = 2
+//        } else if index == 2 {
+//            index = 0
+//        }
+//        self.pageController.currentPage = index
+//    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let identifier = viewController.restorationIdentifier else {
@@ -79,14 +77,15 @@ class SetupPageViewController: UIPageViewController, UIPageViewControllerDelegat
             return nil
         }
         
-        if index > 0 {
-            return self.storyboard?.instantiateViewController(withIdentifier: pages[index - 1])
+        if index < pages.count - 1 {
+            return self.storyboard?.instantiateViewController(withIdentifier: pages[index + 1])
         }else{
             return nil
         }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
         guard let identifier = viewController.restorationIdentifier else {
             return nil
         }
@@ -95,8 +94,8 @@ class SetupPageViewController: UIPageViewController, UIPageViewControllerDelegat
             return nil
         }
         
-        if index < pages.count - 1 {
-            return self.storyboard?.instantiateViewController(withIdentifier: pages[index + 1])
+        if index > 0 {
+            return self.storyboard?.instantiateViewController(withIdentifier: pages[index - 1])
         }else{
             return nil
         }

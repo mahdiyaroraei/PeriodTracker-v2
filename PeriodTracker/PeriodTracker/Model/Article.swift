@@ -16,9 +16,11 @@ class Article: NSObject {
     public var clap : Int!
     public var desc : String?
     public var image : String?
-    public var content : [Item]! // TODO create item class
+    public var content : [Item]!
     public var creator_name : String?
     public var article_read_time : String?
+    public var access : String!
+    public var comment_count: Int
     
     init(id: Int! ,
          title : String!,
@@ -29,7 +31,9 @@ class Article: NSObject {
          image : String?,
          content : [Item]!,
          creator_name : String?,
-         article_read_time : String?) {
+         article_read_time : String?,
+         access : String!,
+         comment_count: Int) {
         self.id = id
         self.title = title
         self.addedtime = addedtime
@@ -40,6 +44,8 @@ class Article: NSObject {
         self.content = content
         self.creator_name = creator_name
         self.article_read_time = article_read_time
+        self.access = access
+        self.comment_count = comment_count
     }
     
     public func increaseView(){

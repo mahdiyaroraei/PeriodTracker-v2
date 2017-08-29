@@ -13,6 +13,12 @@
 		5505E91C1F30AF7500379085 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505E91B1F30AF7500379085 /* Extensions.swift */; };
 		5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */; };
 		5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */; };
+		550AC31C1F4D5B1D0067A804 /* IRAN Kharazmi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 550AC31B1F4D5B1D0067A804 /* IRAN Kharazmi.ttf */; };
+		550AC3201F4D5B980067A804 /* IRANYekanMobileBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 550AC31D1F4D5B980067A804 /* IRANYekanMobileBold.ttf */; };
+		550AC3211F4D5B980067A804 /* IRANYekanMobileLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 550AC31E1F4D5B980067A804 /* IRANYekanMobileLight.ttf */; };
+		550AC3221F4D5B980067A804 /* IRANYekanMobileRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 550AC31F1F4D5B980067A804 /* IRANYekanMobileRegular.ttf */; };
+		550AC3261F4DC62D0067A804 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550AC3251F4DC62D0067A804 /* Category.swift */; };
+		550AC3281F4DC6E80067A804 /* ArticleCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550AC3271F4DC6E80067A804 /* ArticleCategoryCollectionViewCell.swift */; };
 		551145561F0AC92700C2C08B /* mood.json in Resources */ = {isa = PBXBuildFile; fileRef = 551145551F0AC92700C2C08B /* mood.json */; };
 		5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */; };
 		5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */; };
@@ -24,8 +30,12 @@
 		553039D31F025EA600C8EF07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553039D21F025EA600C8EF07 /* Colors.swift */; };
 		5535EB631F25F926007D70F5 /* AboutLastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */; };
 		5537E5A41F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537E5A31F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift */; };
+		5539632F1F4EF4F4003E0CFC /* ArticleCommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539632E1F4EF4F4003E0CFC /* ArticleCommentCollectionViewCell.swift */; };
 		5539B1071F3C27F300872983 /* ActivityIndicatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539B1061F3C27F300872983 /* ActivityIndicatorCollectionViewCell.swift */; };
 		55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55445B081EFA9AFB0073DC75 /* LogoView.swift */; };
+		5552351A1F485644006B402F /* PricingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555235191F485644006B402F /* PricingViewController.swift */; };
+		5552351C1F487944006B402F /* PricingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552351B1F487944006B402F /* PricingCollectionViewCell.swift */; };
+		5552351E1F4879C5006B402F /* Pricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552351D1F4879C5006B402F /* Pricing.swift */; };
 		556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA07A1EFBDE8B008C5EA1 /* Setup.swift */; };
 		556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA07C1EFBDEF5008C5EA1 /* Log.swift */; };
 		556CA07F1EFBE2A3008C5EA1 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556CA07E1EFBE2A3008C5EA1 /* Mood.swift */; };
@@ -45,8 +55,6 @@
 		556FB7F61F398884006DDAB9 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7F51F398884006DDAB9 /* ArticleCollectionViewCell.swift */; };
 		556FB7F81F399B68006DDAB9 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB7F71F399B68006DDAB9 /* MyTabBarController.swift */; };
 		55743EBD1F3B59BC003FF4EC /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55743EBC1F3B59BC003FF4EC /* Image.swift */; };
-		55743EC51F3B61CE003FF4EC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55743EC41F3B61CE003FF4EC /* NotificationService.swift */; };
-		55743EC91F3B61CE003FF4EC /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 55743EC21F3B61CE003FF4EC /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F959E1EFE628A00D1D68A /* Reachability.swift */; };
 		557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */; };
 		557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */; };
@@ -64,9 +72,18 @@
 		55E532501F41A86500759741 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5324F1F41A86500759741 /* ContactUsViewController.swift */; };
 		55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */; };
 		55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */; };
+		55F110491F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F110481F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift */; };
 		55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA41F400E3E00761F71 /* ModalViewController.swift */; };
 		55F5FDA71F403D7200761F71 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA61F403D7200761F71 /* Modal.swift */; };
 		55F8E13D1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */; };
+		55FD75941F51A3B1002CCC52 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75931F51A3B1002CCC52 /* ConversationViewController.swift */; };
+		55FD75961F51A4A7002CCC52 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75951F51A4A7002CCC52 /* CommentTableViewCell.swift */; };
+		55FD75981F51A512002CCC52 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75971F51A512002CCC52 /* Comment.swift */; };
+		55FD759A1F52D4CE002CCC52 /* ActivityIndicatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75991F52D4CE002CCC52 /* ActivityIndicatorTableViewCell.swift */; };
+		55FD759C1F52E3BB002CCC52 /* ReplyCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD759B1F52E3BB002CCC52 /* ReplyCommentTableViewCell.swift */; };
+		55FD759E1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD759D1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift */; };
+		55FD75AC1F551F2A002CCC52 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75AB1F551F2A002CCC52 /* NotificationService.swift */; };
+		55FD75B01F551F2A002CCC52 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 55FD75A91F551F2A002CCC52 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */; };
 		55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */; };
 		55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */; };
@@ -76,28 +93,27 @@
 		730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */; };
 		730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */; };
 		730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DB3051EFBE07B001495EF /* BuyViewController.swift */; };
-		80855FA3316F1D2F5DD802AA /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68722E14B424FD015AB91083 /* libPods-OneSignalNotificationServiceExtension.a */; };
 		A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		55743EC71F3B61CE003FF4EC /* PBXContainerItemProxy */ = {
+		55FD75AE1F551F2A002CCC52 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55B9BD2A1EF94ADE00F75794 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55743EC11F3B61CE003FF4EC;
+			remoteGlobalIDString = 55FD75A81F551F2A002CCC52;
 			remoteInfo = OneSignalNotificationServiceExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		55743ECD1F3B61CE003FF4EC /* Embed App Extensions */ = {
+		55FD75B41F551F2A002CCC52 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				55743EC91F3B61CE003FF4EC /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+				55FD75B01F551F2A002CCC52 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +128,12 @@
 		5505E91B1F30AF7500379085 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
 		5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleLengthViewController.swift; path = Controllers/CycleLengthViewController.swift; sourceTree = "<group>"; };
 		5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthViewController.swift; path = Controllers/PeriodLengthViewController.swift; sourceTree = "<group>"; };
+		550AC31B1F4D5B1D0067A804 /* IRAN Kharazmi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRAN Kharazmi.ttf"; sourceTree = "<group>"; };
+		550AC31D1F4D5B980067A804 /* IRANYekanMobileBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANYekanMobileBold.ttf; sourceTree = "<group>"; };
+		550AC31E1F4D5B980067A804 /* IRANYekanMobileLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANYekanMobileLight.ttf; sourceTree = "<group>"; };
+		550AC31F1F4D5B980067A804 /* IRANYekanMobileRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANYekanMobileRegular.ttf; sourceTree = "<group>"; };
+		550AC3251F4DC62D0067A804 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Model/Category.swift; sourceTree = "<group>"; };
+		550AC3271F4DC6E80067A804 /* ArticleCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleCategoryCollectionViewCell.swift; path = Cell/ArticleCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		551145551F0AC92700C2C08B /* mood.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mood.json; sourceTree = "<group>"; };
 		5518D2A21F06CEE6001EB0B3 /* DayLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayLogViewController.swift; path = Controllers/DayLogViewController.swift; sourceTree = "<group>"; };
 		5518D2A41F06D4BE001EB0B3 /* WeekCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekCollectionViewCell.swift; path = Cell/WeekCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -123,8 +145,12 @@
 		553039D21F025EA600C8EF07 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Utilities/Colors.swift; sourceTree = "<group>"; };
 		5535EB621F25F926007D70F5 /* AboutLastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutLastPeriodViewController.swift; path = Controllers/AboutLastPeriodViewController.swift; sourceTree = "<group>"; };
 		5537E5A31F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodSelectorTableViewCell.swift; path = Cell/MoodSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		5539632E1F4EF4F4003E0CFC /* ArticleCommentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleCommentCollectionViewCell.swift; path = Cell/ArticleCommentCollectionViewCell.swift; sourceTree = "<group>"; };
 		5539B1061F3C27F300872983 /* ActivityIndicatorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorCollectionViewCell.swift; path = Cell/ActivityIndicatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		55445B081EFA9AFB0073DC75 /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogoView.swift; path = Components/LogoView.swift; sourceTree = "<group>"; };
+		555235191F485644006B402F /* PricingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PricingViewController.swift; path = Controllers/PricingViewController.swift; sourceTree = "<group>"; };
+		5552351B1F487944006B402F /* PricingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PricingCollectionViewCell.swift; path = Cell/PricingCollectionViewCell.swift; sourceTree = "<group>"; };
+		5552351D1F4879C5006B402F /* Pricing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pricing.swift; path = Model/Pricing.swift; sourceTree = "<group>"; };
 		556CA07A1EFBDE8B008C5EA1 /* Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setup.swift; path = Database/Setup.swift; sourceTree = "<group>"; };
 		556CA07C1EFBDEF5008C5EA1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Database/Log.swift; sourceTree = "<group>"; };
 		556CA07E1EFBE2A3008C5EA1 /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = Database/Mood.swift; sourceTree = "<group>"; };
@@ -144,9 +170,6 @@
 		556FB7F51F398884006DDAB9 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleCollectionViewCell.swift; path = Cell/ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		556FB7F71F399B68006DDAB9 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTabBarController.swift; path = Components/MyTabBarController.swift; sourceTree = "<group>"; };
 		55743EBC1F3B59BC003FF4EC /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Model/Image.swift; sourceTree = "<group>"; };
-		55743EC21F3B61CE003FF4EC /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		55743EC41F3B61CE003FF4EC /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		55743EC61F3B61CE003FF4EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		557F959E1EFE628A00D1D68A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Utilities/Reachability.swift; sourceTree = "<group>"; };
 		557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = Controllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthTableViewCell.swift; path = Cell/MonthTableViewCell.swift; sourceTree = "<group>"; };
@@ -166,9 +189,20 @@
 		55E5324F1F41A86500759741 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactUsViewController.swift; path = Controllers/ContactUsViewController.swift; sourceTree = "<group>"; };
 		55EAEB581F209F140034E0D0 /* SetupPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupPageViewController.swift; path = Controllers/SetupPageViewController.swift; sourceTree = "<group>"; };
 		55EAEB5A1F20B6800034E0D0 /* LastPeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastPeriodViewController.swift; path = Controllers/LastPeriodViewController.swift; sourceTree = "<group>"; };
+		55F110481F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontallyFlushCollectionViewFlowLayout.swift; path = Components/HorizontallyFlushCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		55F5FDA41F400E3E00761F71 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalViewController.swift; path = Controllers/ModalViewController.swift; sourceTree = "<group>"; };
 		55F5FDA61F403D7200761F71 /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutCycleLengthViewController.swift; path = Controllers/AboutCycleLengthViewController.swift; sourceTree = "<group>"; };
+		55FD75931F51A3B1002CCC52 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversationViewController.swift; path = Controllers/ConversationViewController.swift; sourceTree = "<group>"; };
+		55FD75951F51A4A7002CCC52 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = Cell/CommentTableViewCell.swift; sourceTree = "<group>"; };
+		55FD75971F51A512002CCC52 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		55FD75991F52D4CE002CCC52 /* ActivityIndicatorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicatorTableViewCell.swift; path = Cell/ActivityIndicatorTableViewCell.swift; sourceTree = "<group>"; };
+		55FD759B1F52E3BB002CCC52 /* ReplyCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplyCommentTableViewCell.swift; path = Cell/ReplyCommentTableViewCell.swift; sourceTree = "<group>"; };
+		55FD759D1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleFooterTableViewCell.swift; path = Cell/ArticleFooterTableViewCell.swift; sourceTree = "<group>"; };
+		55FD759F1F545E22002CCC52 /* PeriodTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PeriodTracker.entitlements; sourceTree = "<group>"; };
+		55FD75A91F551F2A002CCC52 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FD75AB1F551F2A002CCC52 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		55FD75AD1F551F2A002CCC52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodsCollectionViewCell.swift; path = Cell/MoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodCollectionViewCell.swift; path = Cell/MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodSelectorViewController.swift; path = Controllers/MoodSelectorViewController.swift; sourceTree = "<group>"; };
@@ -180,25 +214,24 @@
 		730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum).ttf"; sourceTree = "<group>"; };
 		730DB3051EFBE07B001495EF /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuyViewController.swift; path = Controllers/BuyViewController.swift; sourceTree = "<group>"; };
 		88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		A4BA5733ECF71680998CDF0A /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
-		CE409A6F12DBBE23CC7344AA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		A6EF34C4B483C4794603E87F /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		C5764619AC55ABD59D044E49 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		55743EBF1F3B61CE003FF4EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80855FA3316F1D2F5DD802AA /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		55B9BD2F1EF94ADE00F75794 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55FD75A61F551F2A002CCC52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +243,8 @@
 			children = (
 				88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */,
 				3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */,
-				CE409A6F12DBBE23CC7344AA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
-				A4BA5733ECF71680998CDF0A /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				C5764619AC55ABD59D044E49 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				A6EF34C4B483C4794603E87F /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -236,6 +269,9 @@
 				55743EBC1F3B59BC003FF4EC /* Image.swift */,
 				551AD1AF1F3F3D87003167E0 /* Guide.swift */,
 				55F5FDA61F403D7200761F71 /* Modal.swift */,
+				5552351D1F4879C5006B402F /* Pricing.swift */,
+				550AC3251F4DC62D0067A804 /* Category.swift */,
+				55FD75971F51A512002CCC52 /* Comment.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,17 +281,9 @@
 			children = (
 				55445B081EFA9AFB0073DC75 /* LogoView.swift */,
 				556FB7F71F399B68006DDAB9 /* MyTabBarController.swift */,
+				55F110481F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift */,
 			);
 			name = Components;
-			sourceTree = "<group>";
-		};
-		55743EC31F3B61CE003FF4EC /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXGroup;
-			children = (
-				55743EC41F3B61CE003FF4EC /* NotificationService.swift */,
-				55743EC61F3B61CE003FF4EC /* Info.plist */,
-			);
-			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		557F959D1EFE625E00D1D68A /* Utilities */ = {
@@ -285,6 +313,13 @@
 				556FB7F31F38876B006DDAB9 /* ImageCollectionViewCell.swift */,
 				556FB7F51F398884006DDAB9 /* ArticleCollectionViewCell.swift */,
 				5539B1061F3C27F300872983 /* ActivityIndicatorCollectionViewCell.swift */,
+				5552351B1F487944006B402F /* PricingCollectionViewCell.swift */,
+				550AC3271F4DC6E80067A804 /* ArticleCategoryCollectionViewCell.swift */,
+				5539632E1F4EF4F4003E0CFC /* ArticleCommentCollectionViewCell.swift */,
+				55FD75951F51A4A7002CCC52 /* CommentTableViewCell.swift */,
+				55FD75991F52D4CE002CCC52 /* ActivityIndicatorTableViewCell.swift */,
+				55FD759B1F52E3BB002CCC52 /* ReplyCommentTableViewCell.swift */,
+				55FD759D1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -293,7 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				55B9BD341EF94ADE00F75794 /* PeriodTracker */,
-				55743EC31F3B61CE003FF4EC /* OneSignalNotificationServiceExtension */,
+				55FD75AA1F551F2A002CCC52 /* OneSignalNotificationServiceExtension */,
 				55B9BD331EF94ADE00F75794 /* Products */,
 				08ADBFE0F03EA28EB31F2B00 /* Pods */,
 				0B31585D3726198C9F573533 /* Frameworks */,
@@ -304,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				55B9BD321EF94ADE00F75794 /* PeriodTracker.app */,
-				55743EC21F3B61CE003FF4EC /* OneSignalNotificationServiceExtension.appex */,
+				55FD75A91F551F2A002CCC52 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,6 +347,7 @@
 		55B9BD341EF94ADE00F75794 /* PeriodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				55FD759F1F545E22002CCC52 /* PeriodTracker.entitlements */,
 				55016A701F29C2B400EC567E /* Model */,
 				557F95A21EFEA90600D1D68A /* Cell */,
 				557F959D1EFE625E00D1D68A /* Utilities */,
@@ -352,14 +388,27 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
+		55FD75AA1F551F2A002CCC52 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				55FD75AB1F551F2A002CCC52 /* NotificationService.swift */,
+				55FD75AD1F551F2A002CCC52 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		730DB2F71EFBB29C001495EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				550AC31B1F4D5B1D0067A804 /* IRAN Kharazmi.ttf */,
 				551145551F0AC92700C2C08B /* mood.json */,
 				730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */,
 				730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */,
 				730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */,
 				730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */,
+				550AC31D1F4D5B980067A804 /* IRANYekanMobileBold.ttf */,
+				550AC31E1F4D5B980067A804 /* IRANYekanMobileLight.ttf */,
+				550AC31F1F4D5B980067A804 /* IRANYekanMobileRegular.ttf */,
 				730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */,
 				551AD1B11F3F3F2F003167E0 /* Guide.plist */,
 				551AD1B31F3F45BD003167E0 /* translate-fa.plist */,
@@ -389,6 +438,8 @@
 				55F5FDA41F400E3E00761F71 /* ModalViewController.swift */,
 				55E5324F1F41A86500759741 /* ContactUsViewController.swift */,
 				55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */,
+				555235191F485644006B402F /* PricingViewController.swift */,
+				55FD75931F51A3B1002CCC52 /* ConversationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -396,25 +447,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		55743EC11F3B61CE003FF4EC /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 55743ECA1F3B61CE003FF4EC /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
-			buildPhases = (
-				51CAC6CD7C2E6281B09D872B /* [CP] Check Pods Manifest.lock */,
-				55743EBE1F3B61CE003FF4EC /* Sources */,
-				55743EBF1F3B61CE003FF4EC /* Frameworks */,
-				55743EC01F3B61CE003FF4EC /* Resources */,
-				9C7ED642BC6EBB8D9887500F /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OneSignalNotificationServiceExtension;
-			productName = OneSignalNotificationServiceExtension;
-			productReference = 55743EC21F3B61CE003FF4EC /* OneSignalNotificationServiceExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		55B9BD311EF94ADE00F75794 /* PeriodTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55B9BD441EF94ADE00F75794 /* Build configuration list for PBXNativeTarget "PeriodTracker" */;
@@ -425,17 +457,34 @@
 				55B9BD301EF94ADE00F75794 /* Resources */,
 				2D4192A9402CB83BFBE466A5 /* [CP] Embed Pods Frameworks */,
 				F44F77D52C5624C0BB771025 /* [CP] Copy Pods Resources */,
-				55743ECD1F3B61CE003FF4EC /* Embed App Extensions */,
+				55FD75B41F551F2A002CCC52 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				55743EC81F3B61CE003FF4EC /* PBXTargetDependency */,
+				55FD75AF1F551F2A002CCC52 /* PBXTargetDependency */,
 			);
 			name = PeriodTracker;
 			productName = PeriodTracker;
 			productReference = 55B9BD321EF94ADE00F75794 /* PeriodTracker.app */;
 			productType = "com.apple.product-type.application";
+		};
+		55FD75A81F551F2A002CCC52 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55FD75B11F551F2A002CCC52 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				55FD75A51F551F2A002CCC52 /* Sources */,
+				55FD75A61F551F2A002CCC52 /* Frameworks */,
+				55FD75A71F551F2A002CCC52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 55FD75A91F551F2A002CCC52 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -447,20 +496,23 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Mahdiar ";
 				TargetAttributes = {
-					55743EC11F3B61CE003FF4EC = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = JBW63E2G5G;
-						ProvisioningStyle = Automatic;
-					};
 					55B9BD311EF94ADE00F75794 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = JBW63E2G5G;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = MURMBQ4ZAR;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
+					};
+					55FD75A81F551F2A002CCC52 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = MURMBQ4ZAR;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -478,34 +530,38 @@
 			projectRoot = "";
 			targets = (
 				55B9BD311EF94ADE00F75794 /* PeriodTracker */,
-				55743EC11F3B61CE003FF4EC /* OneSignalNotificationServiceExtension */,
+				55FD75A81F551F2A002CCC52 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		55743EC01F3B61CE003FF4EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		55B9BD301EF94ADE00F75794 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550AC3211F4D5B980067A804 /* IRANYekanMobileLight.ttf in Resources */,
 				730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */,
 				55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */,
+				550AC3221F4D5B980067A804 /* IRANYekanMobileRegular.ttf in Resources */,
 				551AD1B41F3F45BD003167E0 /* translate-fa.plist in Resources */,
 				551145561F0AC92700C2C08B /* mood.json in Resources */,
 				55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */,
 				55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */,
+				550AC31C1F4D5B1D0067A804 /* IRAN Kharazmi.ttf in Resources */,
+				550AC3201F4D5B980067A804 /* IRANYekanMobileBold.ttf in Resources */,
 				730DB3011EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf in Resources */,
 				730DB2FF1EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf in Resources */,
 				551AD1B21F3F3F2F003167E0 /* Guide.plist in Resources */,
 				730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */,
 				730DB3001EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55FD75A71F551F2A002CCC52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,36 +581,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		51CAC6CD7C2E6281B09D872B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9C7ED642BC6EBB8D9887500F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDCF98458082E3F9F787362D /* [CP] Check Pods Manifest.lock */ = {
@@ -590,14 +616,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		55743EBE1F3B61CE003FF4EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				55743EC51F3B61CE003FF4EC /* NotificationService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		55B9BD2E1EF94ADE00F75794 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,10 +627,12 @@
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
 				556FB7E21F37365C006DDAB9 /* Article.swift in Sources */,
 				55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */,
+				55F110491F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift in Sources */,
 				556FB7E41F382768006DDAB9 /* Config.swift in Sources */,
 				55743EBD1F3B59BC003FF4EC /* Image.swift in Sources */,
 				55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */,
 				55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */,
+				55FD759E1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift in Sources */,
 				55DAEFDD1F34C79300937210 /* SettingViewController.swift in Sources */,
 				5520DE7F1F302CEB0003A844 /* PregnantViewController.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
@@ -623,30 +643,41 @@
 				556CA0811EFBE445008C5EA1 /* LogMood.swift in Sources */,
 				556FB7F41F38876B006DDAB9 /* ImageCollectionViewCell.swift in Sources */,
 				556CA07D1EFBDEF5008C5EA1 /* Log.swift in Sources */,
+				55FD759A1F52D4CE002CCC52 /* ActivityIndicatorTableViewCell.swift in Sources */,
 				556CA07B1EFBDE8B008C5EA1 /* Setup.swift in Sources */,
 				730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */,
 				5537E5A41F1CE48A00C479F1 /* MoodSelectorTableViewCell.swift in Sources */,
 				5518D2A31F06CEE6001EB0B3 /* DayLogViewController.swift in Sources */,
 				55F5FDA71F403D7200761F71 /* Modal.swift in Sources */,
+				550AC3281F4DC6E80067A804 /* ArticleCategoryCollectionViewCell.swift in Sources */,
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
 				55F8E13D1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift in Sources */,
 				55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */,
+				55FD75981F51A512002CCC52 /* Comment.swift in Sources */,
 				556CA07F1EFBE2A3008C5EA1 /* Mood.swift in Sources */,
 				55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */,
 				55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */,
 				557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */,
 				55E532501F41A86500759741 /* ContactUsViewController.swift in Sources */,
 				55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */,
+				5552351E1F4879C5006B402F /* Pricing.swift in Sources */,
 				556FB7EE1F3851C6006DDAB9 /* Item.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
 				55016A6F1F29C22F00EC567E /* CycleViewController.swift in Sources */,
 				55016A741F29C30100EC567E /* CircleOption.swift in Sources */,
+				55FD75941F51A3B1002CCC52 /* ConversationViewController.swift in Sources */,
 				5535EB631F25F926007D70F5 /* AboutLastPeriodViewController.swift in Sources */,
+				5552351A1F485644006B402F /* PricingViewController.swift in Sources */,
 				557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */,
+				55FD759C1F52E3BB002CCC52 /* ReplyCommentTableViewCell.swift in Sources */,
 				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
+				55FD75961F51A4A7002CCC52 /* CommentTableViewCell.swift in Sources */,
 				5539B1071F3C27F300872983 /* ActivityIndicatorCollectionViewCell.swift in Sources */,
 				55B958011F35A45A004AAFA3 /* SettingTableViewCell.swift in Sources */,
+				550AC3261F4DC62D0067A804 /* Category.swift in Sources */,
 				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
+				5539632F1F4EF4F4003E0CFC /* ArticleCommentCollectionViewCell.swift in Sources */,
+				5552351C1F487944006B402F /* PricingCollectionViewCell.swift in Sources */,
 				5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */,
 				556FB7E61F3848AC006DDAB9 /* ArticlePageViewController.swift in Sources */,
 				556FB7DE1F372844006DDAB9 /* ArticleViewController.swift in Sources */,
@@ -661,13 +692,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		55FD75A51F551F2A002CCC52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55FD75AC1F551F2A002CCC52 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		55743EC81F3B61CE003FF4EC /* PBXTargetDependency */ = {
+		55FD75AF1F551F2A002CCC52 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 55743EC11F3B61CE003FF4EC /* OneSignalNotificationServiceExtension */;
-			targetProxy = 55743EC71F3B61CE003FF4EC /* PBXContainerItemProxy */;
+			target = 55FD75A81F551F2A002CCC52 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 55FD75AE1F551F2A002CCC52 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -691,34 +730,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		55743ECB1F3B61CE003FF4EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE409A6F12DBBE23CC7344AA /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
-			buildSettings = {
-				DEVELOPMENT_TEAM = JBW63E2G5G;
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.periodtracker.PeriodTracker.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		55743ECC1F3B61CE003FF4EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4BA5733ECF71680998CDF0A /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
-			buildSettings = {
-				DEVELOPMENT_TEAM = JBW63E2G5G;
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.periodtracker.PeriodTracker.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		55B9BD421EF94ADE00F75794 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -818,11 +829,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JBW63E2G5G;
+				CODE_SIGN_ENTITLEMENTS = PeriodTracker/PeriodTracker.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = MURMBQ4ZAR;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.periodtracker.PeriodTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
+				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -833,11 +848,47 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JBW63E2G5G;
+				CODE_SIGN_ENTITLEMENTS = PeriodTracker/PeriodTracker.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = MURMBQ4ZAR;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.periodtracker.PeriodTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
+				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		55FD75B21F551F2A002CCC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = MURMBQ4ZAR;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
+				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		55FD75B31F551F2A002CCC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = MURMBQ4ZAR;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
+				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -845,15 +896,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55743ECA1F3B61CE003FF4EC /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				55743ECB1F3B61CE003FF4EC /* Debug */,
-				55743ECC1F3B61CE003FF4EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		55B9BD2D1EF94ADE00F75794 /* Build configuration list for PBXProject "PeriodTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -871,6 +913,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		55FD75B11F551F2A002CCC52 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55FD75B21F551F2A002CCC52 /* Debug */,
+				55FD75B31F551F2A002CCC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

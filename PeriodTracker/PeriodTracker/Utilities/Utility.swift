@@ -158,6 +158,17 @@ class Utility: NSObject, UITextViewDelegate {
     }
     
     static func createArticleFromJSON(_ json: JSON) -> Article {
+        var access = "free"
+        if let jsonAccess = json["access"].string , jsonAccess != "" {
+            access = jsonAccess
+        }
+        
+        let article = Article(id: Int(json["id"].string!)!, title: json["title"].string, addedtime: json["addedtime"].string, view: Int(json["view"].string!)!, clap: Int(json["clap"].string!)!, desc: json["desc"].string, image: json["image"].string, content: [], creator_name: json["creator_name"].string, article_read_time: json["article_read_time"].string, access: access, comment_count: json["comment_count"].int!)
+        
+        return article
+    }
+    
+    static func createContentFromJSON(_ json: JSON) -> [Item] {
         
         var items: [Item] = []
         let parsedItem = JSON(json["content"].string!.data(using: .utf8)!)
@@ -179,9 +190,7 @@ class Utility: NSObject, UITextViewDelegate {
             }
         }
         
-        let article = Article(id: Int(json["id"].string!)!, title: json["title"].string, addedtime: json["addedtime"].string, view: Int(json["view"].string!)!, clap: Int(json["clap"].string!)!, desc: json["desc"].string, image: json["image"].string, content: items, creator_name: json["creator_name"].string, article_read_time: json["article_read_time"].string)
-        
-        return article
+        return items
     }
     
     static func nextPeriodDate(_ date: Date , setup: Setup) -> Date {
@@ -209,9 +218,7 @@ class Utility: NSObject, UITextViewDelegate {
         let calendar = Calendar(identifier: .persian)
         let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: setup.startDate), to: date).day!
         let remain = diffrence % cycleLength
-        if remain < setup.periodLength {
-            return nextFertileDate(calendar.date(byAdding: .day, value: 1, to: date)!, setup: setup)
-        } else if computeFertileRange(cycleLength).first! == remain { // Start of fertile
+        if computeFertileRange(cycleLength).first! == remain { // Start of fertile
             return date
         } else if cycleLength - remain < 4 {
             return nextFertileDate(calendar.date(byAdding: .day, value: 1, to: date)!, setup: setup)
@@ -261,15 +268,23 @@ class Utility: NSObject, UITextViewDelegate {
             for attribute in attributes {
                 let range = attribute.range == nil ? NSRange(location: 0, length: text!.characters.count) : attribute.range!
                 if attribute.key == "font" {
-                    attributeText.addAttribute(NSFontAttributeName, value: UIFont(name: attribute.value!, size: 15)!, range: range)
+                    if let font = attribute.value , font.components(separatedBy: "@").count > 1 {
+                        // font has font size
+                        attributeText.addAttribute(NSFontAttributeName, value: UIFont(name:font.components(separatedBy: "@")[0], size: CGFloat(Int(font.components(separatedBy: "@")[1])!))!, range: range)
+                    } else {
+                        attributeText.addAttribute(NSFontAttributeName, value: UIFont(name: attribute.value!, size: 15)!, range: range)
+                    }
                 } else if attribute.key == "text_alignment" {
                     let paragraph = NSMutableParagraphStyle()
+                    paragraph.lineSpacing = 5
                     if attribute.value! == "left" {
                         paragraph.alignment = .left
                     } else if attribute.value! == "center" {
                         paragraph.alignment = .center
                     } else if attribute.value! == "right" {
                         paragraph.alignment = .right
+                        
+//                        attributeText.addAttribute(NSKernAttributeName, value: 0.5, range: range)
                     }
                     attributeText.addAttribute(NSParagraphStyleAttributeName, value: paragraph, range: range)
                 } else if attribute.key == "text_color" {
@@ -307,11 +322,22 @@ class Utility: NSObject, UITextViewDelegate {
     static func latestPeriodLog() -> Double{
         let realm = try! Realm()
         
-        if let log = realm.objects(Log.self).filter("mood.name == 'bleeding' AND value != 'spotting'").sorted(byKeyPath: "timestamp").last {
-            return log.timestamp
-        }else{
-            return 0
+        let result = realm.objects(Log.self).filter("mood.name == 'bleeding' AND value != 'spotting'").sorted(byKeyPath: "timestamp", ascending: false)
+        
+        var timestamp: Double = 0
+        for log in result {
+            if timestamp == 0 {
+                timestamp = log.timestamp
+            } else {
+                if Calendar.current.dateComponents([.day], from: Date(timeIntervalSince1970: log.timestamp), to: Date(timeIntervalSince1970: timestamp)).day! == 1 {
+                    timestamp = log.timestamp
+                } else {
+                    break
+                }
+            }
         }
+        
+        return timestamp
     }
     
     static func computeFertileRange(_ cycleLength: Int) -> CountableClosedRange<Int> {
@@ -341,10 +367,11 @@ class Utility: NSObject, UITextViewDelegate {
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
     
-    static func timeAgoSince(_ date: Date) -> String {
+    
+    static func timeAgoSinceFromNow(_ date: Date) -> String {
         
         let calendar = Calendar(identifier: .persian)
-        let now = calendar.startOfDay(for: Date())
+        let now = Date()
         let unitFlags: NSCalendar.Unit = [.second, .minute, .hour, .day, .weekOfYear, .month, .year]
         let components = (calendar as NSCalendar).components(unitFlags, from: date, to: now, options: [])
         
@@ -407,5 +434,83 @@ class Utility: NSObject, UITextViewDelegate {
         let dateComponents = calendar.dateComponents([.year , .month , .day], from: date)
         return "\(dateComponents.year!)/\(dateComponents.month!)/\(dateComponents.day!)"
         
+    }
+    
+    static func timeAgoSince(_ date: Date) -> String {
+        
+        let calendar = Calendar(identifier: .persian)
+        let now = calendar.startOfDay(for: Date())
+        let unitFlags: NSCalendar.Unit = [.second, .minute, .hour, .day, .weekOfYear, .month, .year]
+        let components = (calendar as NSCalendar).components(unitFlags, from: date, to: now, options: [])
+        
+        if let year = components.year, year >= 2 {
+            return "\(year) سال قبل"
+        }
+        
+        if let year = components.year, year >= 1 {
+            return "سال قبل"
+        }
+        
+        if let month = components.month, month >= 2 {
+            return "\(month) ماه پیش"
+        }
+        
+        if let month = components.month, month >= 1 {
+            return "ماه قبل"
+        }
+        
+        if let week = components.weekOfYear, week >= 2 {
+            return "\(week) هفته پیش"
+        }
+        
+        if let week = components.weekOfYear, week >= 1 {
+            return "هفته قبل"
+        }
+        
+        if let day = components.day, day >= 2 {
+            return "\(day) روز پیش"
+        }
+        
+        if let day = components.day, day >= 1 {
+            return "دیروز"
+        }
+        
+        if let hour = components.hour, hour >= 2 {
+            return "\(hour) ساعت پیش"
+        }
+        
+        if let hour = components.hour, hour >= 1 {
+            return "یک ساعت پیش"
+        }
+        
+        if let minute = components.minute, minute >= 2 {
+            return "\(minute) دقیقه پیش"
+        }
+        
+        if let minute = components.minute, minute >= 1 {
+            return "یک دقیقه پیش"
+        }
+        
+        if let second = components.second, second >= 3 {
+            return "\(second) ثانیه پیش"
+        }
+        
+        if let day = components.day , day == 0 {
+            return "همین الان"
+        }
+        
+        let dateComponents = calendar.dateComponents([.year , .month , .day], from: date)
+        return "\(dateComponents.year!)/\(dateComponents.month!)/\(dateComponents.day!)"
+        
+    }
+    
+    static func persianDate(from date: Date) -> String {
+        var persianDateString = ""
+        
+        let calendar = Calendar(identifier: .persian)
+        let dateComponenets = calendar.dateComponents([.year , .month , .day], from: date)
+        persianDateString = "\(dateComponenets.year!)/\(dateComponenets.month!)/\(dateComponenets.day!)"
+        
+        return persianDateString
     }
 }

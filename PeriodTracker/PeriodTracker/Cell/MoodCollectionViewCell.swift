@@ -24,7 +24,7 @@ class MoodCollectionViewCell: UICollectionViewCell {
         strokeShape = CAShapeLayer()
         
         // Icon
-        moodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
+        moodImageView.image = UIImage(named: "mood-\(name!)")?.withRenderingMode(.alwaysTemplate)
         moodImageView.tintColor = color
         
         // Draw circle arround cell
@@ -38,19 +38,10 @@ class MoodCollectionViewCell: UICollectionViewCell {
         // If has a log for mood fill mood circle
         let realm = try! Realm()
         let timestamp = Calendar.current.startOfDay(for: CalendarViewController.selectedDate!).timeIntervalSince1970
-        let logs = realm.objects(Log.self).filter("timestamp == \(timestamp)")
+        
         var logExist = false
-        for log in logs {
-            if mood.value_type.contains(log.value) {
-                logExist = true
-                break
-            }else if mood.value_type == "float" && Float(log.value) != nil{
-                logExist = true
-                break
-            }else if mood.value_type == "array" && log.value.contains("["){
-                logExist = true
-                break
-            }
+        if let logs = realm.objects(Log.self).filter("timestamp == \(timestamp) AND mood.name = '\(mood.name)'").first {
+            logExist = true
         }
         hasLog(logExist)
         

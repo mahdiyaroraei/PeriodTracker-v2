@@ -118,6 +118,21 @@ class SettingTableViewCell: UITableViewCell {
     
     func actionSwitchValueChanged(sender: UISwitch) {
         if setting.key == "pregnant" {
+            
+            
+            if Utility.latestPeriodLog() == 0 {
+                sender.setOn(false, animated: true)
+                MyTabBarController.instance.showModal(modalObject: Modal(title: "فعال کردن حالت بارداری", desc: "بارداری از اولین روز آخرین پریودی محاسبه خواهد شد، شما ابتدا باید یک روز در گذشته که خونریزی داشته اید در برنامه ثبت کنید و سپس بارداری را فعال کنید.", image: nil, leftButtonTitle: "ثبت خونریزی", rightButtonTitle: "باشه", onLeftTapped: { (modal) in
+                    CalendarViewController.selectedDate = Calendar.current.startOfDay(for: Date())
+                    
+                    modal.dismissModal()
+                    MyTabBarController.instance.present((MyTabBarController.instance.storyboard?.instantiateViewController(withIdentifier: "dayLogViewController"))!, animated: true, completion: nil)
+                }, onRightTapped: { (modal) in
+                    modal.dismissModal()
+                }))
+            }
+            
+            
             if let setting = realm.objects(Setting.self).last {
                 try! realm.write {
                     setting.pregnantMode = sender.isOn ? 1 : 0

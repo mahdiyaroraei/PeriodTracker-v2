@@ -49,16 +49,16 @@ class CycleViewController: UIViewController , DayLogDelegate {
         todayButton.setTitle("\(calendar.component(.day, from: Date()))", for: .normal)
         
         // Draw basic circle
-        drawCircle(option: CircleOption(color: UIColor.gray, startAngle: 0, endAngle: CGFloat(Double.pi * 2)))
+        drawCircle(option: CircleOption(color: Colors.normalCycleBasicColor, startAngle: 0, endAngle: CGFloat(Double.pi * 2)))
         
         // Draw PMS on cycle
-        drawCircle(option: CircleOption(color: .white, startAngle: CGFloat(Double.pi * 2 - degreeUnit * 3), endAngle: CGFloat(Double.pi * 2)))
+        drawCircle(option: CircleOption(color: Colors.pmsCycleColor , startAngle: CGFloat(Double.pi * 2 - degreeUnit * 3), endAngle: CGFloat(Double.pi * 2)))
         
         // Draw period on cycle
-        drawCircle(option: CircleOption(color: .red, startAngle: 0, endAngle: CGFloat(degreeUnit * Double(periodLength))))
+        drawCircle(option: CircleOption(color: Colors.periodCycleColor , startAngle: 0, endAngle: CGFloat(degreeUnit * Double(periodLength))))
         
         // Draw Fertile on cycle
-        drawCircle(option: CircleOption(color: .blue, startAngle: CGFloat(degreeUnit * Double(fertileRange.min()! - 1)), endAngle: CGFloat(degreeUnit * Double(fertileRange.max()! - 1))))
+        drawCircle(option: CircleOption(color: Colors.fertileCycleColor , startAngle: CGFloat(degreeUnit * Double(fertileRange.min()! - 1)), endAngle: CGFloat(degreeUnit * Double(fertileRange.max()! - 1))))
         
         drawCircleButton()
         
@@ -71,8 +71,9 @@ class CycleViewController: UIViewController , DayLogDelegate {
     
     func initDayMarkerView() {
         dayMarker.frame.size = CGSize(width: 50, height: 50)
-        dayMarker.backgroundColor = UIColor.red
+        dayMarker.backgroundColor = Colors.accentColor
         dayMarker.text = "1"
+        dayMarker.textColor = .white
         dayMarker.textAlignment = .center
         
         self.view.addSubview(dayMarker)
@@ -103,19 +104,17 @@ class CycleViewController: UIViewController , DayLogDelegate {
         dayMarker.center = selectedPoint
         dayMarker.text = "\(day)"
         
-        if periodRange.contains(day) {
-            dayMarker.backgroundColor = .red
-            logButton.backgroundColor = .red
-        }else if fertileRange.contains(day){
-            dayMarker.backgroundColor = .blue
-            logButton.backgroundColor = .blue
-        }else if pmsRange.contains(day){
-            dayMarker.backgroundColor = .white
-            logButton.backgroundColor = .white
-        }else{
-            dayMarker.backgroundColor = .orange
-            logButton.backgroundColor = .orange
-        }
+        logButton.backgroundColor = Colors.accentColor
+        
+//        if periodRange.contains(day) {
+//            logButton.backgroundColor = Colors.periodCellColor
+//        }else if fertileRange.contains(day) {
+//            logButton.backgroundColor = Colors.fertileCellColor
+//        }else if pmsRange.contains(day) {
+//            logButton.backgroundColor = Colors.pmsCellColor
+//        }else{
+//            logButton.backgroundColor = Colors.accentColor
+//        }
         
         let date = calendar.date(byAdding: .day, value: day - 1, to: startPeriodDate)
         if date! > Date() {
@@ -164,6 +163,51 @@ class CycleViewController: UIViewController , DayLogDelegate {
             let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: realm.objects(Setup.self).last!.startDate), to: calendar.startOfDay(for: Date())).day! % cycleLength
             startPeriodDate = calendar.date(byAdding: .day, value: -diffrence, to: calendar.startOfDay(for: Date()))
             
+            
+            if fertileDayIndex == i {
+                for j in 0...2 {
+                    // Fertile mark visible in this condition
+                    let fertileDayMarker = UILabel()
+                    
+                    var size: CGSize? = nil
+                    var center: CGPoint? = nil
+                    
+                    switch j {
+                    case 0:
+                        fertileDayMarker.layer.cornerRadius = 10
+                        size = CGSize(width: 20, height: 20)
+                        center = points[i - 1]
+                        break
+                    case 1:
+                        fertileDayMarker.layer.cornerRadius = 20
+                        size = CGSize(width: 40, height: 40)
+                        center = points[i]
+                        
+                        let imageView = UIImageView(image: UIImage(named: "cycle-fertile-day"))
+                        imageView.frame.size = CGSize(width: 75, height: 75)
+                        imageView.center = center!
+                        imageView.dropShine()
+                        self.view.addSubview(imageView)
+                        break
+                    case 2:
+                        fertileDayMarker.layer.cornerRadius = 15
+                        size = CGSize(width: 30, height: 30)
+                        center = CGPoint(x: CGFloat(Double (centerPoint.x) + Double (radius) * cos(Double (i + 1) * a - Double.pi / 2)), y: CGFloat(Double (centerPoint.y) + Double (radius) * sin(Double (i + 1) * a - Double.pi / 2)))
+                        break
+                    default:
+                        break
+                    }
+                    fertileDayMarker.frame.size = size!
+                    fertileDayMarker.center = center!
+                    
+                    fertileDayMarker.backgroundColor = Colors.fertileDayCycleColor
+                    
+                    fertileDayMarker.layer.masksToBounds = true
+                    
+                    self.view.addSubview(fertileDayMarker)
+                }
+            }
+            
             if calendar.isDateInToday(calendar.date(byAdding: .day, value: i, to: startPeriodDate!)!) {
                 // Today mark visible in this condition
                 let todayMark = UILabel()
@@ -178,24 +222,9 @@ class CycleViewController: UIViewController , DayLogDelegate {
                 todayMark.layer.masksToBounds = true
                 todayMark.layer.cornerRadius = 25
                 todayMark.layer.borderWidth = 3
-                todayMark.layer.borderColor = UIColor.green.cgColor
+                todayMark.layer.borderColor = Colors.accentColor.cgColor
                 
                 self.view.addSubview(todayMark)
-            }
-            if fertileDayIndex == i {
-                // Fertile mark visible in this condition
-                let fertileDayMarker = UILabel()
-                
-                fertileDayMarker.frame.size = CGSize(width: 50, height: 50)
-                fertileDayMarker.backgroundColor = UIColor.yellow
-                
-                self.view.addSubview(fertileDayMarker)
-                
-                fertileDayMarker.center = points[i]
-                fertileDayMarker.layer.masksToBounds = true
-                fertileDayMarker.layer.cornerRadius = 25
-                
-                self.view.addSubview(fertileDayMarker)
             }
         }
     }
@@ -209,7 +238,7 @@ class CycleViewController: UIViewController , DayLogDelegate {
         logButton.titleLabel?.lineBreakMode = .byWordWrapping
         logButton.titleLabel?.textAlignment = .center
         logButton.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 15)
-        logButton.backgroundColor = UIColor.red
+        logButton.backgroundColor = Colors.periodCellColor
         logButton.setTitleColor(.white, for: .normal)
         logButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .highlighted)
         logButton.frame.size = CGSize(width: circleRadius * 2, height: circleRadius * 2)

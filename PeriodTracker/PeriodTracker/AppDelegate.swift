@@ -35,15 +35,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         
-        // Recommend moving the below line to prompt for push after informing the user about
-        //   how your app will use them.
-        OneSignal.promptForPushNotifications(userResponse: { accepted in
-            print("User accepted notifications: \(accepted)")
-        })
-        
         Utility.setLocalPushForEnableNotices(withCompletionHandler: nil)
+        
+        initSetting()
                 
         return true
+    }
+    
+    func initSetting() {
+        let realm = try! Realm()
+        guard realm.objects(Setting.self).last != nil else {
+            try! realm.write {
+                let setting = Setting()
+                setting.pregnantMode = 0
+                realm.add(setting)
+            }
+            return
+        }
+
     }
     
     private func importMoodTable() {
@@ -72,6 +81,68 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let urlComponnets = NSURLComponents(url: url, resolvingAgainstBaseURL: false)
+        let items = urlComponnets?.queryItems
+        
+        guard items?.first?.name == "email" , let email = items?.first?.value else { return true }
+        
+        guard items?.last?.name == "code" , let code = items?.last?.value else { return true }
+        
+        let parameters = [
+            "email": email,
+            "code": code,
+            "app": "period_tracker"
+        ]
+        
+        
+        Alamofire.request("\(Config.WEB_DOMAIN)v2/activation", method: .post, parameters: parameters).responseJSON(completionHandler: { (response) in
+            if let data = response.data {
+                guard let licenseId = JSON(data)["license_id"].int else {
+                    self.window?.rootViewController?.showToast(message: "اطلاعات صحیح نیست")
+                    return
+                }
+                
+                guard let userId = JSON(data)["user_id"].int else {
+                    self.window?.rootViewController?.showToast(message: "اطلاعات صحیح نیست")
+                    return
+                }
+                
+                guard let email = JSON(data)["email"].string else {
+                    self.window?.rootViewController?.showToast(message: "اطلاعات صحیح نیست")
+                    return
+                }
+                
+                let realm = try! Realm()
+                if let user = realm.objects(User.self).last {
+                    try! realm.write {
+                        user.email = email
+                        user.user_id = userId
+                        user.license_id = licenseId
+                    }
+                } else {
+                    
+                    try! realm.write {
+                        let user = User()
+                        user.email = email
+                        user.user_id = userId
+                        user.license_id = licenseId
+                        
+                        realm.add(user)
+                    }
+                    
+                }
+                self.window?.rootViewController?.showModal(modalObject: Modal(title: "با موفقیت وارد شدید", desc: "اشتراک شما با ایمیل \(email) با موفقیت فعال شد.", image: UIImage(named: "modal-code"), leftButtonTitle: "باشه", rightButtonTitle: "", onLeftTapped: { (modal) in
+                    modal.dismissModal()
+                }, onRightTapped: { (modal) in
+                    
+                }))
+            }
+        })
+        
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
