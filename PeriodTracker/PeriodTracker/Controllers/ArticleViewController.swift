@@ -45,6 +45,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = Utility.uicolorFromHex(rgbValue: 0xDCDCDC)
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = false
         collectionView.allowsMultipleSelection = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -64,6 +65,9 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         
         self.articleCollectionView.delegate = self
         self.articleCollectionView.dataSource = self
+        
+        
+        self.automaticallyAdjustsScrollViewInsets = false
         
         
         offset = 0
@@ -293,6 +297,11 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "category_cell", for: indexPath) as! ArticleCategoryCollectionViewCell
             cell.category = categories[indexPath.item]
+            if indexPath.item == selectedCategory {
+                cell.didSelect()
+            } else {
+                cell.didDeSelect()
+            }
             return cell
         }
     }
@@ -315,9 +324,11 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
             return UIEdgeInsetsMake(4, 3, 4, 3)
         } else {
             
-            return UIEdgeInsetsMake(0, 3, 15, 3)
+            return UIEdgeInsetsMake(10, 3, 10, 3)
         }
     }
+    
+    var selectedCategory = 0
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == articleCollectionView {
@@ -337,6 +348,8 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         } else if collectionView == categoryCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! ArticleCategoryCollectionViewCell
             cell.didSelect()
+            selectedCategory = indexPath.item
+            collectionView.reloadData()
             
             categoryId = categories[indexPath.item].id
         }
@@ -345,6 +358,9 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
+            if collectionView.cellForItem(at: indexPath) == nil {
+                return
+            }
             let cell = collectionView.cellForItem(at: indexPath) as! ArticleCategoryCollectionViewCell
             cell.didDeSelect()
         }

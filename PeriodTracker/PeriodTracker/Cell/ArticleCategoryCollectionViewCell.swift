@@ -13,7 +13,7 @@ class ArticleCategoryCollectionViewCell: UICollectionViewCell {
     var category: Category! {
         didSet {
             if category.id == -1 {
-                self.categoryImageView.image = UIImage(named: "test_article")
+                self.categoryImageView.image = UIImage(named: "all_filter")
             } else {
                 self.categoryImageView.downloadedFrom(link: category.imageURL)
             }

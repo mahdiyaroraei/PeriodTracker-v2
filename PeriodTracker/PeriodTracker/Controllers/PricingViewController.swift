@@ -47,6 +47,8 @@ class PricingViewController: UIViewController , UICollectionViewDelegate , UICol
         
         setupLogin()
         
+        AppDelegate.pricingViewController = self
+        
     }
     
     func setupLogin() {

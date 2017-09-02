@@ -311,6 +311,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         
         self.accessImageView.image = nil
+        self.articleImageView.image = nil
         
     }
     

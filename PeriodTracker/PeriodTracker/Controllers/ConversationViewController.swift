@@ -184,7 +184,7 @@ class ConversationViewController: UIViewController , UITableViewDelegate , UITab
                 return
             }
             
-            let comment = Comment(id: 0, userId: userId, articleId: articleId, parentId: nil, addedTime: Date(), content: commentTextField.text, email: email)
+            let comment = Comment(id: 0, userId: userId, articleId: articleId, parentId: nil, addedTime: Date(), content: commentTextField.text.emojiEscapedString, email: email)
             postComment(comment: comment)
             
             self.view.endEditing(true)
@@ -241,13 +241,13 @@ class ConversationViewController: UIViewController , UITableViewDelegate , UITab
         if comment.parentId == nil {
             parameters = [
                 "user_id" : comment.userId,
-                "content": comment.content
+                "content": comment.content.emojiEscapedString
             ]
         } else {
             parameters = [
                 "user_id" : comment.userId,
                 "parent_id": comment.parentId!,
-                "content": comment.content
+                "content": comment.content.emojiEscapedString
             ]
         }
         

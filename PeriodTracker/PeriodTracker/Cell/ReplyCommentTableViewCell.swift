@@ -12,9 +12,9 @@ class ReplyCommentTableViewCell: UITableViewCell {
     
     var comment: Comment! {
         didSet {
-            let attributeString = NSMutableAttributedString(string: comment.content)
+            let attributeString = NSMutableAttributedString(string: comment.content.emojiUnescapedString)
             let font = UIFont(name: "IRANYekanMobile-Light", size: 15)!
-            let range = NSRange(location: 0, length: comment.content.characters.count)
+            let range = NSRange(location: 0, length: attributeString.length)
             attributeString.addAttribute(NSFontAttributeName, value: font, range: range)
             
             // Center the text

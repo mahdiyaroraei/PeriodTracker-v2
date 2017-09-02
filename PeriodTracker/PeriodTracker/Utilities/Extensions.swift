@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 extension UIView {
     func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
@@ -48,6 +49,28 @@ extension UIView {
         self.layer.shadowPath = UIBezierPath(rect: CGRect(x: 10, y: 10, width: 50, height: 50)).cgPath
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+}
+
+extension Alamofire.SessionManager{
+    @discardableResult
+    open func requestWithoutCache(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters: Parameters?,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil)
+        -> DataRequest
+    {
+        do {
+            var urlRequest = try URLRequest(url: url, method: method, headers: headers)
+            urlRequest.cachePolicy = .reloadIgnoringCacheData // <<== Cache disabled
+            let encodedURLRequest = try encoding.encode(urlRequest, with: parameters)
+            return request(encodedURLRequest)
+        } catch {
+            print(error)
+            return request(URLRequest(url: URL(string: "http://example.com/wrong_request")!))
+        }
     }
 }
 

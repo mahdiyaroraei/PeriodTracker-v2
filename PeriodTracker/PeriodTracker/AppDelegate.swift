@@ -13,9 +13,11 @@ import RealmSwift
 import OneSignal
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
 
     var window: UIWindow?
+    
+    public static var pricingViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,13 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             importMoodTable()
         }
         
+        OneSignal.add(self as OSSubscriptionObserver)
+        
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "IRANSans(FaNum)", size: 14.0)!], for: .normal)
         
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         
         // Replace '11111111-2222-3333-4444-0123456789ab' with your OneSignal App ID.
         OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: "4cfd7b92-652b-489d-a20b-58ce48b3dcc9",
+                                        appId: "e3a5e04c-5585-401a-8c4a-9da217272ac3",
                                         handleNotificationAction: nil,
                                         settings: onesignalInitSettings)
         
@@ -40,6 +44,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initSetting()
                 
         return true
+    }
+    
+    // After you add the observer on didFinishLaunching, this method will be called when the notification subscription property changes.
+    func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
+        if !stateChanges.from.subscribed && stateChanges.to.subscribed {
+            print("Subscribed for OneSignal push notifications!")
+        }
+        print("SubscriptionStateChange: \n\(stateChanges)")
+        
+        //The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
+        if let playerId = stateChanges.to.userId {
+            print("Current playerId \(playerId)")
+            
+            UserDefaults.standard.set(playerId, forKey: "player_id")
+        }
     }
     
     func initSetting() {
@@ -134,7 +153,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     
                 }
-                self.window?.rootViewController?.showModal(modalObject: Modal(title: "با موفقیت وارد شدید", desc: "اشتراک شما با ایمیل \(email) با موفقیت فعال شد.", image: UIImage(named: "modal-code"), leftButtonTitle: "باشه", rightButtonTitle: "", onLeftTapped: { (modal) in
+                ArticleViewController.subscribe = true
+                AppDelegate.pricingViewController?.showModal(modalObject: Modal(title: "با موفقیت وارد شدید", desc: "اشتراک شما با ایمیل \(email) با موفقیت فعال شد.", image: UIImage(named: "modal-code"), leftButtonTitle: "باشه", rightButtonTitle: "", onLeftTapped: { (modal) in
                     modal.dismissModal()
                 }, onRightTapped: { (modal) in
                     
