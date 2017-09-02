@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class CalendarViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , SelectCellDelegate , DayLogDelegate {
     @IBOutlet weak var monthsTableView: UITableView!
@@ -48,6 +50,46 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
         // Hide seperator line between cells
         monthsTableView.separatorStyle = .none
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkAppUpdate()
+    }
+    
+    func checkAppUpdate() {
+        
+        let parameters: Parameters = [
+            "name": "period_tracker"
+        ]
+        
+        Alamofire.request("\(Config.WEB_DOMAIN)checkupdate", method: .post, parameters: parameters).responseJSON{ response in
+            
+            if let JSON = response.result.value as? [String: Any] {
+                
+                let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+                
+                if Float(JSON["version"]! as! String)! > 0.0 && Float(JSON["version"]! as! String)! > Float(version!)!{
+                    let attributedString = NSAttributedString(string: "نسخه جدید", attributes: [
+                        NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 17)
+                        ])
+                    
+                    let alert = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.setValue(attributedString, forKey: "attributedTitle")
+                    alert.setValue(NSAttributedString(string: "نسخه جدید برنامه را دانلود کنید و از ویژگی های جدید آن استفاده کنید", attributes: [
+                        NSFontAttributeName : UIFont(name: "IRANSans(FaNum)", size: 13)
+                        ])
+                        , forKey: "attributedMessage")
+                    
+                    alert.addAction(UIAlertAction(title: "دانلود", style: UIAlertActionStyle.default, handler: {action in Utility.openLinkInSafari(link: JSON["link"] as! String)}))
+                    alert.addAction(UIAlertAction(title: "خیر", style: UIAlertActionStyle.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+            }
+        }
     }
     
     // Scroll to current after layout subviews completed

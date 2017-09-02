@@ -152,15 +152,15 @@ class ContactUsViewController: UIViewController {
     func buttonTapped(sender: UIButton) {
         var link: String = ""
         if sender == instagramButton {
-            link = "https://instagram.com/periodtracker.ir"
+            link = "https://instagram.com/royanapp.ir"
         } else if sender == telegramButton {
-            link = "https://telegram.me/Periodtracker_ir"
+            link = "https://telegram.me/RoyanApp_ir"
         } else if sender == twitterButton {
             link = "https://twitter.com/irperiodtracker"
         } else if sender == webButton {
-            link = "http://periodtracker.ir"
+            link = "http://royanapp.ir"
         } else if sender == supportButton {
-            link = "https://telegram.me/Periodtracker_support"
+            link = "https://telegram.me/Royan_support"
         }
         
         Utility.openLinkInSafari(link: link)

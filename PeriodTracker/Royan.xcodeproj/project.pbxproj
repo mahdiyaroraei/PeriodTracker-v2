@@ -184,7 +184,7 @@
 		5581C35B1F55B53C00A297D7 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		5581C35D1F55B55100A297D7 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
 		55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewCell.swift; path = Cell/SettingTableViewCell.swift; sourceTree = "<group>"; };
-		55B9BD321EF94ADE00F75794 /* PeriodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeriodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55B9BD321EF94ADE00F75794 /* Royan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Royan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B9BD351EF94ADE00F75794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B9BD371EF94ADE00F75794 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55B9BD3A1EF94ADE00F75794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -355,7 +355,7 @@
 		55B9BD331EF94ADE00F75794 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55B9BD321EF94ADE00F75794 /* PeriodTracker.app */,
+				55B9BD321EF94ADE00F75794 /* Royan.app */,
 				551CCCBE1F55884800AE84EC /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
@@ -493,7 +493,7 @@
 			);
 			name = PeriodTracker;
 			productName = PeriodTracker;
-			productReference = 55B9BD321EF94ADE00F75794 /* PeriodTracker.app */;
+			productReference = 55B9BD321EF94ADE00F75794 /* Royan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -916,7 +916,7 @@
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Royan;
 				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
 				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
 				SWIFT_VERSION = 3.0;
@@ -936,7 +936,7 @@
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Royan;
 				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
 				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
 				SWIFT_VERSION = 3.0;

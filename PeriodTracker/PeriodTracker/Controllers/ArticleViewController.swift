@@ -349,7 +349,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
             let cell = collectionView.cellForItem(at: indexPath) as! ArticleCategoryCollectionViewCell
             cell.didSelect()
             selectedCategory = indexPath.item
-            collectionView.reloadData()
+            collectionView.reloadItems(at: [IndexPath(item: 0, section: 0)])
             
             categoryId = categories[indexPath.item].id
         }

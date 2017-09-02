@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
         return true
     }
     
+    
     // After you add the observer on didFinishLaunching, this method will be called when the notification subscription property changes.
     func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges!) {
         if !stateChanges.from.subscribed && stateChanges.to.subscribed {

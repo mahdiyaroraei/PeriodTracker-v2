@@ -11,7 +11,7 @@
                "color":"D82525",
                "multiselect":"0",
                "value_type":"light,medium,heavy,spotting",
-               "enable":"0"
+               "enable":"1"
                },
                {
                "name":"collection_method",
@@ -74,7 +74,7 @@
                "color":"202794",
                "multiselect":"1",
                "value_type":"pain_medication,cold_medication,antibiotic,antihistamine",
-               "enable":"1"
+               "enable":"0"
                },
                {
                "name":"meditation",
@@ -102,7 +102,7 @@
                "color":"008899",
                "multiselect":"1",
                "value_type":"cramps,headache,ovulation,breast",
-               "enable":"0"
+               "enable":"1"
                },
                {
                "name":"pill",
