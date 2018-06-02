@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -198,7 +198,7 @@
                                 <rect key="frame" x="0.0" y="240" width="375" height="313"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugf-kw-Gtj">
-                                <rect key="frame" x="19" y="23" width="10" height="22"/>
+                                <rect key="frame" x="19" y="23" width="25" height="25"/>
                                 <state key="normal" image="close_white"/>
                                 <connections>
                                     <action selector="closeClicked:" destination="v3T-Qv-9YM" eventType="touchUpInside" id="6sC-qe-BFY"/>
@@ -271,7 +271,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qvj-Ic-lRS">
-                                <rect key="frame" x="0.0" y="91" width="375" height="576"/>
+                                <rect key="frame" x="0.0" y="91" width="375" height="526"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="BLT-J5-iyx" customClass="MonthTableViewCell" customModule="Royan" customModuleProvider="target">
@@ -282,7 +282,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pQ3-P3-bDJ">
-                                                    <rect key="frame" x="0.0" y="57" width="375" height="343"/>
+                                                    <rect key="frame" x="0.0" y="60" width="375" height="340"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="gOk-DW-kKY">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -321,7 +321,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vuo-2H-8Ea">
-                                                    <rect key="frame" x="18" y="15" width="339" height="35"/>
+                                                    <rect key="frame" x="25" y="18" width="325" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="0oV-LE-eMm"/>
                                                     </constraints>
@@ -453,23 +453,40 @@
                                     <action selector="openGuide:" destination="aDM-ua-en0" eventType="touchUpInside" id="tHj-1b-JJg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvB-mh-1s6">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.4823529412" green="0.62745098040000002" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="R6r-8Q-uJ2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="17"/>
+                                <state key="normal" title="انتخاب روز">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSelectDayTouch:" destination="aDM-ua-en0" eventType="touchUpInside" id="xvw-tL-DjI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IvB-mh-1s6" secondAttribute="trailing" id="4cA-h2-lKz"/>
                             <constraint firstItem="Fyk-Ze-ISD" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leadingMargin" id="9Jb-Mp-lVt"/>
+                            <constraint firstItem="GFm-tM-nbp" firstAttribute="top" secondItem="IvB-mh-1s6" secondAttribute="bottom" id="9h3-Dt-YG6"/>
                             <constraint firstItem="qvj-Ic-lRS" firstAttribute="top" secondItem="Nln-5g-07W" secondAttribute="bottom" id="A1I-Na-wpu"/>
                             <constraint firstAttribute="trailing" secondItem="Nln-5g-07W" secondAttribute="trailing" constant="10" id="BFN-VS-26H"/>
                             <constraint firstItem="FXL-ZN-s2j" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="7" id="D5x-Rv-nbU"/>
                             <constraint firstAttribute="trailing" secondItem="qvj-Ic-lRS" secondAttribute="trailing" id="RXe-DB-llH"/>
                             <constraint firstItem="Fyk-Ze-ISD" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="16" id="SBe-lO-EMJ"/>
+                            <constraint firstItem="IvB-mh-1s6" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leading" id="W9z-s9-qb4"/>
                             <constraint firstItem="H2Y-f5-6Im" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="13" id="WsO-TK-AaE"/>
                             <constraint firstItem="FXL-ZN-s2j" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leadingMargin" id="azd-pm-Ic2"/>
                             <constraint firstAttribute="trailing" secondItem="fO9-Tb-Yh2" secondAttribute="trailing" constant="14" id="e1w-rV-zJk"/>
                             <constraint firstItem="Nln-5g-07W" firstAttribute="top" secondItem="FXL-ZN-s2j" secondAttribute="bottom" constant="12" id="ea3-pV-dWI"/>
+                            <constraint firstItem="IvB-mh-1s6" firstAttribute="top" secondItem="qvj-Ic-lRS" secondAttribute="bottom" id="f4b-1H-cbx"/>
                             <constraint firstItem="H2Y-f5-6Im" firstAttribute="centerX" secondItem="Glv-Cv-Czm" secondAttribute="centerX" id="fYt-ft-1N9"/>
                             <constraint firstItem="qvj-Ic-lRS" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leading" id="gEJ-vM-1JV"/>
                             <constraint firstItem="fO9-Tb-Yh2" firstAttribute="top" secondItem="T6r-vB-Bd6" secondAttribute="bottom" constant="8" id="gIN-4o-3GL"/>
-                            <constraint firstItem="GFm-tM-nbp" firstAttribute="top" secondItem="qvj-Ic-lRS" secondAttribute="bottom" id="oXO-Ve-PiA"/>
                             <constraint firstItem="Nln-5g-07W" firstAttribute="leading" secondItem="Glv-Cv-Czm" secondAttribute="leading" constant="10" id="rl1-VV-WQL"/>
                         </constraints>
                     </view>
@@ -899,7 +916,7 @@
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWR-de-rox">
-                                                    <rect key="frame" x="322.5" y="16" width="36.5" height="24"/>
+                                                    <rect key="frame" x="315.5" y="16" width="36.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1621,7 +1638,7 @@
                                 <rect key="frame" x="0.0" y="240" width="375" height="313"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsp-1e-jU2">
-                                <rect key="frame" x="19" y="23" width="10" height="22"/>
+                                <rect key="frame" x="19" y="23" width="25" height="25"/>
                                 <state key="normal" image="close_white"/>
                                 <connections>
                                     <action selector="closeClicked:" destination="KlF-qH-hKg" eventType="touchUpInside" id="eQ6-Ne-tiF"/>
@@ -1757,7 +1774,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="P12-Sl-rzU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EPJ-pN-TUg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1776,7 +1793,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="qUc-lu-kl5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0Io-Bn-xfy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1794,7 +1811,7 @@
                 <navigationController storyboardIdentifier="pregnantViewController" automaticallyAdjustsScrollViewInsets="NO" id="dKG-Lh-lxV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rms-8V-2Yn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1868,10 +1885,10 @@
                                         <rect key="frame" x="67" y="38" width="240" height="165.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBm-m3-aEQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="139.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping" translatesAutoresizingMaskIntoConstraints="NO" id="pHC-B9-hwc">
-                                                        <rect key="frame" x="60" y="10" width="120" height="120"/>
+                                                        <rect key="frame" x="60" y="4.5" width="120" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="WRW-Sp-YqS"/>
                                                             <constraint firstAttribute="height" constant="120" id="ZUm-LE-wne"/>
@@ -1884,7 +1901,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="صفحه خرید برنامه" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez9-6Q-CCV">
-                                                <rect key="frame" x="0.0" y="139.5" width="240" height="26"/>
+                                                <rect key="frame" x="0.0" y="128" width="240" height="37.5"/>
                                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                                 <color key="textColor" red="0.3221927285194397" green="0.60970783233642578" blue="0.54904192686080933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1972,7 +1989,7 @@
                                 <rect key="frame" x="0.0" y="240" width="375" height="313"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYv-nA-HKR">
-                                <rect key="frame" x="19" y="23" width="10" height="22"/>
+                                <rect key="frame" x="19" y="23" width="25" height="25"/>
                                 <state key="normal" image="close_white"/>
                                 <connections>
                                     <action selector="closeClicked:" destination="5YK-P6-J7c" eventType="touchUpInside" id="GEu-k9-ZcN"/>
@@ -2105,14 +2122,14 @@
     <resources>
         <image name="calendar_green" width="40" height="40"/>
         <image name="cancel" width="512" height="512"/>
-        <image name="close_white" width="10" height="10"/>
+        <image name="close_white" width="25" height="25"/>
         <image name="eye" width="23" height="14"/>
         <image name="free" width="120" height="60"/>
         <image name="info" width="10" height="10"/>
         <image name="ok" width="80" height="80"/>
         <image name="question" width="40" height="40"/>
         <image name="red_gradient" width="1242" height="2208"/>
-        <image name="shopping" width="96" height="96"/>
+        <image name="shopping" width="61" height="61"/>
         <image name="smiling" width="36" height="38"/>
     </resources>
 </document>

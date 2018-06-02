@@ -19,6 +19,11 @@ class CalendarViewController: UIViewController , UITableViewDelegate , UITableVi
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var todayLabel: UILabel!
     
+    @IBAction func onSelectDayTouch(_ sender: Any) {
+        if let _ = CalendarViewController.selectedDate{
+            self.presentVC(id: "dayLogViewController")
+        }
+    }
     // start of day and month
     let nowDate = Calendar.current.startOfDay(for: Date())
     

@@ -233,6 +233,11 @@ class Utility: NSObject, UITextViewDelegate {
         
         let calendar = Calendar(identifier: .persian)
         let diffrence = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: setup.startDate), to: date).day!
+        
+        if cycleLength == 0 {
+            return .normal
+        }
+ 
         let remain = diffrence % cycleLength
         if remain < setup.periodLength {
             return .period

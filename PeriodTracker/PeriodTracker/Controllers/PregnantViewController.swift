@@ -29,7 +29,7 @@ SelectCellDelegate , DayLogDelegate {
             return
         }
         
-        if subscribedArticle && !subscribe {
+        if subscribedArticle && !subscribe && false {
             navigationController?.pushViewController(PricingViewController(), animated: true)
             navigationController?.navigationBar.isHidden = false
         } else {
@@ -98,13 +98,9 @@ SelectCellDelegate , DayLogDelegate {
         
         pregnantWeek = calendar.dateComponents([.day], from: Date(timeIntervalSince1970: Utility.latestPeriodLog()), to: Date()).day! / 7 + 1
         
-        if pregnantWeek > 2 {
-            accessImageView.image = UIImage(named: "subscribe")
-            subscribedArticle = true
-        } else {
-            accessImageView.image = UIImage(named: "free")
-            subscribedArticle = false
-        }
+        
+        accessImageView.image = #imageLiteral(resourceName: "free")
+        subscribedArticle = false
         
         todayLabel.text = "\(String(describing: Calendar(identifier: .persian).dateComponents([.day], from: nowDate).day!))"
         
@@ -194,7 +190,9 @@ SelectCellDelegate , DayLogDelegate {
     
     func setupPregnantImage() {
 
-        let centerY = (self.view.frame.height - (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height)) / 2 + (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height) - 85 // 40 is padding + 45 for hidden nav item
+        let part1 = (self.view.frame.height - (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height)) / 2
+        let part2 = (weekCollectionView.frame.origin.y +  weekCollectionView.frame.size.height) - 85
+        let centerY = part1 + part2 // 40 is padding + 45 for hidden nav item
         
         pregnantImageView = UIImageView(image: UIImage(named: "pregnant\(pregnantWeek!)"))
         pregnantImageView.backgroundColor = .blue
@@ -316,14 +314,8 @@ SelectCellDelegate , DayLogDelegate {
         if pregnantWeek != tempPregnant {
             pregnantWeek = tempPregnant
             
-            if pregnantWeek > 2 {
-                accessImageView.image = UIImage(named: "subscribe")
-                subscribedArticle = true
-            } else {
-                
-                accessImageView.image = UIImage(named: "free")
-                subscribedArticle = false
-            }
+            accessImageView.image = UIImage(named: "free")
+            subscribedArticle = false
             
             pregnantImageView.image = UIImage(named: "pregnant\(pregnantWeek!)")
             
