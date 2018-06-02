@@ -145,3 +145,162 @@ extension Int {
         }
     }
 }
+public extension UIImage {
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
+    }
+}
+
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+}
+
+extension String {
+    
+    
+    func isValidEmail() -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
+    }
+    
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
+}
+
+enum Font {
+    case IRANSans
+    case IRANSansBold
+    case IRANYekan
+    case IRANYekanBold
+    case IRANSansUltraLight
+}
+
+
+extension UITextView {
+    
+    func font(_ font: Font , size: CGFloat = 15) {
+        switch font {
+        case .IRANSans:
+            self.font = UIFont(name: "IRANSans(FaNum)", size: size)!
+            
+        case .IRANSansBold:
+            self.font = UIFont(name: "IRANSansFaNum-Bold", size: size)!
+            
+        case .IRANSansUltraLight:
+            self.font = UIFont(name: "IRANSansFaNum-UltraLight", size: size)!
+            
+        case .IRANYekan:
+            self.font = UIFont(name: "IRANYekanMobile", size: size)!
+            
+        case .IRANYekanBold:
+            self.font = UIFont(name: "IRANYekanMobile-Bold", size: size)!
+            
+        default:
+            self.font = UIFont(name: "IRANSans(FaNum)", size: size)!
+        }
+    }
+}
+
+extension UITextField {
+    
+    func font(_ font: Font , size: CGFloat = 15) {
+        switch font {
+        case .IRANSans:
+            self.font = UIFont(name: "IRANSans(FaNum)", size: size)!
+            
+        case .IRANSansBold:
+            self.font = UIFont(name: "IRANSansFaNum-Bold", size: size)!
+            
+        case .IRANSansUltraLight:
+            self.font = UIFont(name: "IRANSansFaNum-UltraLight", size: size)!
+            
+        case .IRANYekan:
+            self.font = UIFont(name: "IRANYekanMobile", size: size)!
+            
+        case .IRANYekanBold:
+            self.font = UIFont(name: "IRANYekanMobile-Bold", size: size)!
+            
+        default:
+            self.font = UIFont(name: "IRANSans(FaNum)", size: size)!
+        }
+    }
+}
+
+extension UILabel {
+    
+    func font(_ font: Font , size: CGFloat = 15) {
+        switch font {
+        case .IRANSans:
+            self.font = UIFont(name: "IRANSans(FaNum)", size: size)!
+            
+        case .IRANSansBold:
+            self.font = UIFont(name: "IRANSansFaNum-Bold", size: size)!
+            
+        case .IRANSansUltraLight:
+            self.font = UIFont(name: "IRANSansFaNum-UltraLight", size: size)!
+            
+        case .IRANYekan:
+            self.font = UIFont(name: "IRANYekanMobile", size: size)!
+            
+        case .IRANYekanBold:
+            self.font = UIFont(name: "IRANYekanMobile-Bold", size: size)!
+            
+        default:
+            self.font = UIFont(name: "IRANSans(FaNum)", size: size)!
+        }
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        self.navigationController?.navigationBar.isHidden = false
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+extension Dictionary {
+    func sortedKeys(isOrderedBefore:(Key,Key) -> Bool) -> [Key] {
+        return Array(self.keys).sorted(by: isOrderedBefore)
+    }
+    
+    // Slower because of a lot of lookups, but probably takes less memory (this is equivalent to Pascals answer in an generic extension)
+    func sortedKeysByValue(isOrderedBefore:(Value, Value) -> Bool) -> [Key] {
+        return sortedKeys {
+            isOrderedBefore(self[$0]!, self[$1]!)
+        }
+    }
+    
+    // Faster because of no lookups, may take more memory because of duplicating contents
+    func keysSortedByValue(isOrderedBefore:(Value, Value) -> Bool) -> [Key] {
+        return Array(self)
+            .sorted() {
+                let (_, lv) = $0
+                let (_, rv) = $1
+                return isOrderedBefore(lv, rv)
+            }
+            .map {
+                let (k, _) = $0
+                return k
+        }
+    }
+}

@@ -25,7 +25,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -44,7 +44,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u10-oK-5a5" customClass="LogoView" customModule="PeriodTracker" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u10-oK-5a5" customClass="LogoView" customModule="Royan" customModuleProvider="target">
                                 <rect key="frame" x="154.5" y="283.5" width="66" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="D6i-kW-6lt"/>
@@ -71,7 +71,7 @@
         <!--Setup Page View Controller-->
         <scene sceneID="TQ3-HD-j6h">
             <objects>
-                <pageViewController storyboardIdentifier="setupPageViewController" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" doubleSided="YES" id="QJT-ql-jNo" customClass="SetupPageViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="setupPageViewController" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" doubleSided="YES" id="QJT-ql-jNo" customClass="SetupPageViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zq-mu-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="121" y="1922"/>
@@ -79,7 +79,7 @@
         <!--Last Period View Controller-->
         <scene sceneID="FYM-tD-etm">
             <objects>
-                <viewController restorationIdentifier="lastPeriodViewController" storyboardIdentifier="lastPeriodViewController" extendedLayoutIncludesOpaqueBars="YES" id="i6b-I6-tvg" customClass="LastPeriodViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="lastPeriodViewController" storyboardIdentifier="lastPeriodViewController" extendedLayoutIncludesOpaqueBars="YES" id="i6b-I6-tvg" customClass="LastPeriodViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Bx-tf-WJh"/>
                         <viewControllerLayoutGuide type="bottom" id="I8c-th-pqr"/>
@@ -134,7 +134,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="241"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Plw-WZ-feh">
-                                        <rect key="frame" x="127" y="42.5" width="120.5" height="157.5"/>
+                                        <rect key="frame" x="127" y="42" width="120.5" height="157.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="JZ9-iX-MF7">
                                                 <rect key="frame" x="0.0" y="0.0" width="120.5" height="120"/>
@@ -185,7 +185,7 @@
         <!--About Last Period View Controller-->
         <scene sceneID="j9h-2M-sXO">
             <objects>
-                <viewController storyboardIdentifier="aboutLastPeriodViewController" id="v3T-Qv-9YM" customClass="AboutLastPeriodViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutLastPeriodViewController" id="v3T-Qv-9YM" customClass="AboutLastPeriodViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iy5-yI-NOH"/>
                         <viewControllerLayoutGuide type="bottom" id="iNg-kB-kgc"/>
@@ -261,7 +261,7 @@
         <!--Item-->
         <scene sceneID="j8Y-P0-GVC">
             <objects>
-                <viewController storyboardIdentifier="calendarViewController" id="aDM-ua-en0" customClass="CalendarViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="calendarViewController" id="aDM-ua-en0" customClass="CalendarViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T6r-vB-Bd6"/>
                         <viewControllerLayoutGuide type="bottom" id="GFm-tM-nbp"/>
@@ -274,7 +274,7 @@
                                 <rect key="frame" x="0.0" y="91" width="375" height="576"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="BLT-J5-iyx" customClass="MonthTableViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="BLT-J5-iyx" customClass="MonthTableViewCell" customModule="Royan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BLT-J5-iyx" id="6un-qq-Wy9">
@@ -291,7 +291,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="4JW-EQ-6Fe" customClass="DayCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="4JW-EQ-6Fe" customClass="DayCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                                             <rect key="frame" x="325" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -488,7 +488,7 @@
         <!--Day Log View Controller-->
         <scene sceneID="cLw-Cm-TA6">
             <objects>
-                <viewController storyboardIdentifier="dayLogViewController" id="gUD-gb-1tx" customClass="DayLogViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dayLogViewController" id="gUD-gb-1tx" customClass="DayLogViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MxR-fY-7LC"/>
                         <viewControllerLayoutGuide type="bottom" id="s9F-sr-okK"/>
@@ -618,7 +618,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="week_cell" id="Aa4-F5-pb7" customClass="WeekCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="week_cell" id="Aa4-F5-pb7" customClass="WeekCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="9.5" width="310" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -635,7 +635,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Xvu-z5-ag3" customClass="DayCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Xvu-z5-ag3" customClass="DayCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                                             <rect key="frame" x="260" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -692,7 +692,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moods_cell" id="hKQ-qs-DTF" customClass="MoodsCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moods_cell" id="hKQ-qs-DTF" customClass="MoodsCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -709,7 +709,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mood_cell" id="fmR-Vh-9xD" customClass="MoodCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mood_cell" id="fmR-Vh-9xD" customClass="MoodCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                                             <rect key="frame" x="260" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -763,7 +763,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="value_cell" id="yhZ-6f-7Rk" customClass="MoodValueCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="value_cell" id="yhZ-6f-7Rk" customClass="MoodValueCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                         <rect key="frame" x="51.5" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -872,7 +872,7 @@
         <!--Mood Selector View Controller-->
         <scene sceneID="4ss-Mj-XhE">
             <objects>
-                <viewController storyboardIdentifier="moodSelectorViewController" id="w2N-Fo-trX" customClass="MoodSelectorViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="moodSelectorViewController" id="w2N-Fo-trX" customClass="MoodSelectorViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fDO-WN-4wo"/>
                         <viewControllerLayoutGuide type="bottom" id="zwb-14-oFL"/>
@@ -885,7 +885,7 @@
                                 <rect key="frame" x="0.0" y="59" width="375" height="608"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="mood_cell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mood_cell" id="CMI-ig-7zA" customClass="MoodSelectorTableViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="mood_cell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mood_cell" id="CMI-ig-7zA" customClass="MoodSelectorTableViewCell" customModule="Royan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMI-ig-7zA" id="n8h-e8-asM">
@@ -899,7 +899,7 @@
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWR-de-rox">
-                                                    <rect key="frame" x="322.5" y="15.5" width="36.5" height="24"/>
+                                                    <rect key="frame" x="322.5" y="16" width="36.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -954,7 +954,7 @@
         <!--Item-->
         <scene sceneID="QlV-sV-4R7">
             <objects>
-                <viewController storyboardIdentifier="cycleViewController" id="3N1-OY-0Bg" customClass="CycleViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cycleViewController" id="3N1-OY-0Bg" customClass="CycleViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G5l-7Q-J8e"/>
                         <viewControllerLayoutGuide type="bottom" id="bmR-WW-7V2"/>
@@ -1024,7 +1024,7 @@
         <!--Setting View Controller-->
         <scene sceneID="uME-KO-QWx">
             <objects>
-                <viewController id="2G5-Md-1vI" customClass="SettingViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2G5-Md-1vI" customClass="SettingViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Hz-cQ-55I"/>
                         <viewControllerLayoutGuide type="bottom" id="Vrb-dU-KUQ"/>
@@ -1043,7 +1043,7 @@
         <!--Article View Controller-->
         <scene sceneID="LTj-EE-ZhS">
             <objects>
-                <viewController id="v3Y-2L-42c" customClass="ArticleViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="v3Y-2L-42c" customClass="ArticleViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="85h-00-aUB"/>
                         <viewControllerLayoutGuide type="bottom" id="mQN-DG-6b8"/>
@@ -1062,7 +1062,7 @@
         <!--Cycle Length View Controller-->
         <scene sceneID="XE9-78-95r">
             <objects>
-                <viewController restorationIdentifier="cycleLenghtViewController" storyboardIdentifier="cycleLenghtViewController" id="VUS-e0-I2Z" customClass="CycleLengthViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="cycleLenghtViewController" storyboardIdentifier="cycleLenghtViewController" id="VUS-e0-I2Z" customClass="CycleLengthViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="beX-CL-KvI"/>
                         <viewControllerLayoutGuide type="bottom" id="oVK-yN-L9m"/>
@@ -1113,7 +1113,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="241"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RFf-n4-rzY">
-                                        <rect key="frame" x="127.5" y="42.5" width="120" height="157.5"/>
+                                        <rect key="frame" x="127.5" y="42" width="120" height="157.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-pK-1KO">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -1191,7 +1191,7 @@
         <!--Period Length View Controller-->
         <scene sceneID="bmT-l9-ehg">
             <objects>
-                <viewController restorationIdentifier="periodLengthViewController" storyboardIdentifier="periodLengthViewController" id="FGL-1Z-A9i" customClass="PeriodLengthViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="periodLengthViewController" storyboardIdentifier="periodLengthViewController" id="FGL-1Z-A9i" customClass="PeriodLengthViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dBO-oR-Ret"/>
                         <viewControllerLayoutGuide type="bottom" id="9ri-am-eAX"/>
@@ -1269,7 +1269,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="241"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0rC-9y-jbH">
-                                        <rect key="frame" x="127.5" y="42.5" width="120" height="157.5"/>
+                                        <rect key="frame" x="127.5" y="42" width="120" height="157.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="71F-me-Gt7">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -1320,7 +1320,7 @@
         <!--Pregnant View Controller-->
         <scene sceneID="F5W-CP-901">
             <objects>
-                <viewController id="fsm-Fa-5Df" customClass="PregnantViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fsm-Fa-5Df" customClass="PregnantViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="32U-55-Mke"/>
                         <viewControllerLayoutGuide type="bottom" id="Vct-j2-4jo"/>
@@ -1447,7 +1447,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="week_cell" id="mCI-Bb-MVe" customClass="WeekCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="week_cell" id="mCI-Bb-MVe" customClass="WeekCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="9.5" width="310" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1464,7 +1464,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="5Wy-zT-zp4" customClass="DayCollectionViewCell" customModule="PeriodTracker" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="5Wy-zT-zp4" customClass="DayCollectionViewCell" customModule="Royan" customModuleProvider="target">
                                                             <rect key="frame" x="260" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1518,7 +1518,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrc-N5-bXS">
-                                        <rect key="frame" x="8" y="17" width="10.5" height="20.5"/>
+                                        <rect key="frame" x="8" y="16.5" width="10.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="12"/>
                                         <color key="textColor" red="0.64698678255081177" green="0.64710038900375366" blue="0.64697962999343872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1593,7 +1593,7 @@
         <!--My Tab Bar Controller-->
         <scene sceneID="xEb-5E-Cd3">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="gt5-Wi-WaG" customClass="MyTabBarController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="gt5-Wi-WaG" customClass="MyTabBarController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="mVz-Tg-6CR">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -1608,7 +1608,7 @@
         <!--Period Length Selector View Controller-->
         <scene sceneID="URS-5t-fqQ">
             <objects>
-                <viewController storyboardIdentifier="periodLengthSelectorViewController" id="KlF-qH-hKg" customClass="PeriodLengthSelectorViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="periodLengthSelectorViewController" id="KlF-qH-hKg" customClass="PeriodLengthSelectorViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5j0-0f-cTH"/>
                         <viewControllerLayoutGuide type="bottom" id="49A-SU-udA"/>
@@ -1809,7 +1809,7 @@
         <!--Buy View Controller-->
         <scene sceneID="fyl-Ym-mKr">
             <objects>
-                <viewController storyboardIdentifier="buyViewController" extendedLayoutIncludesOpaqueBars="YES" id="fxD-iK-DGx" customClass="BuyViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="buyViewController" extendedLayoutIncludesOpaqueBars="YES" id="fxD-iK-DGx" customClass="BuyViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7aQ-5S-McD"/>
                         <viewControllerLayoutGuide type="bottom" id="xvG-1q-5l5"/>
@@ -1870,7 +1870,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBm-m3-aEQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="139.5"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiling" translatesAutoresizingMaskIntoConstraints="NO" id="pHC-B9-hwc">
+                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping" translatesAutoresizingMaskIntoConstraints="NO" id="pHC-B9-hwc">
                                                         <rect key="frame" x="60" y="10" width="120" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="WRW-Sp-YqS"/>
@@ -1883,7 +1883,7 @@
                                                     <constraint firstItem="pHC-B9-hwc" firstAttribute="centerX" secondItem="jBm-m3-aEQ" secondAttribute="centerX" id="rmF-4p-ZKC"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خریدی ثبت نشده" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez9-6Q-CCV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="صفحه خرید برنامه" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez9-6Q-CCV">
                                                 <rect key="frame" x="0.0" y="139.5" width="240" height="26"/>
                                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                                 <color key="textColor" red="0.3221927285194397" green="0.60970783233642578" blue="0.54904192686080933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1905,14 +1905,17 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GON-ny-Eck">
-                                <rect key="frame" x="61.5" y="623" width="252" height="36"/>
+                                <rect key="frame" x="77" y="623" width="221" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqz-Ht-jWb">
-                                        <rect key="frame" x="0.0" y="0.0" width="252" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="221" height="36"/>
                                         <fontDescription key="fontDescription" name="IRANSansFaNum" family="IRANSans(FaNum)" pointSize="14"/>
-                                        <state key="normal" title="تراکنش انجام دادید و کدی دریافت نکرده اید؟">
+                                        <state key="normal" title="ارتباط با پشتیبانی در تلگرام (کلیک کنید)">
                                             <color key="titleColor" red="0.031372549019607843" green="0.035294117647058823" blue="0.035294117647058823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="supportButtonTapped:" destination="fxD-iK-DGx" eventType="touchUpInside" id="SDd-KY-hBs"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1956,7 +1959,7 @@
         <!--About Cycle Length View Controller-->
         <scene sceneID="tvO-c0-KaL">
             <objects>
-                <viewController storyboardIdentifier="cycleLengthSelectorViewController" id="5YK-P6-J7c" customClass="AboutCycleLengthViewController" customModule="PeriodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cycleLengthSelectorViewController" id="5YK-P6-J7c" customClass="AboutCycleLengthViewController" customModule="Royan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TFI-Ok-xly"/>
                         <viewControllerLayoutGuide type="bottom" id="LSE-dY-ydg"/>
@@ -1997,7 +2000,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="طول دوره پریودی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRw-ui-Bgk">
-                                <rect key="frame" x="114.5" y="176" width="147.5" height="37.5"/>
+                                <rect key="frame" x="114" y="176" width="147.5" height="37.5"/>
                                 <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSans(FaNum)" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2109,6 +2112,7 @@
         <image name="ok" width="80" height="80"/>
         <image name="question" width="40" height="40"/>
         <image name="red_gradient" width="1242" height="2208"/>
+        <image name="shopping" width="96" height="96"/>
         <image name="smiling" width="36" height="38"/>
     </resources>
 </document>

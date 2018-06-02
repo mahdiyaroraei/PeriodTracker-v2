@@ -69,7 +69,7 @@ class AboutCycleLengthViewController: UIViewController , UIPickerViewDelegate , 
     func initViews() {
         
         // Change icon tint color and set image & circle arround icon
-        periodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
+        periodImageView.image = UIImage(named: "blood-drop")?.withRenderingMode(.alwaysTemplate)
         periodImageView.tintColor = UIColor.white
         
         periodImageView.backgroundColor = UIColor.clear

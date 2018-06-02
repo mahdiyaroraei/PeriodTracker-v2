@@ -1,0 +1,115 @@
+//
+//  TopicTableViewCell.swift
+//  PeriodTracker
+//
+//  Created by Mahdiar  on 12/25/17.
+//  Copyright © 2017 Mahdiar . All rights reserved.
+//
+
+import UIKit
+
+class TopicTableViewCell: UITableViewCell {
+    
+    var model: Topic! {
+        didSet {
+            self.dateLabel.text = Utility.timeAgoSince(model.updated_at)
+            self.subjectLabel.text = model.subject
+            self.descLabel.text = model.content
+            
+            self.verfiedImageView.isHidden = model.user.verified != 1
+        }
+    }
+    
+    
+    let topicMenuIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "ic_topic_menu")
+        
+        imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let subjectLabel: UILabel = {
+        let label = UILabel()
+        label.font(.IRANYekanBold , size: 23)
+        label.textColor = UIColor.uicolorFromHex(rgbValue: 0x4D4D4D)
+        label.numberOfLines = 1
+        label.textAlignment = .right
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let verfiedImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "ic_verified_account"))
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.widthAnchor.constraint(equalToConstant: 23).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 23).isActive = true
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.font(.IRANSans , size: 12)
+        label.textColor = UIColor.uicolorFromHex(rgbValue: 0x7CA012)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let descLabel: UILabel = {
+        let label = UILabel()
+        label.font(.IRANSansUltraLight)
+        label.textColor = UIColor.uicolorFromHex(rgbValue: 0x4D4D4D)
+        label.numberOfLines = 0
+        label.textAlignment = .right
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        self.addSubview(topicMenuIconImageView)
+        self.addSubview(dateLabel)
+        self.addSubview(subjectLabel)
+        self.addSubview(verfiedImageView)
+        self.addSubview(descLabel)
+        
+        self.topicMenuIconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor , constant: 17).isActive = true
+        self.topicMenuIconImageView.topAnchor.constraint(equalTo: self.topAnchor , constant: 17).isActive = true
+        
+        self.dateLabel.centerYAnchor.constraint(equalTo: self.topicMenuIconImageView.centerYAnchor).isActive = true
+        self.dateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor , constant: -17).isActive = true
+        
+        self.subjectLabel.centerYAnchor.constraint(equalTo: self.topicMenuIconImageView.centerYAnchor).isActive = true
+        self.subjectLabel.leadingAnchor.constraint(equalTo: self.topicMenuIconImageView.trailingAnchor , constant: 17).isActive = true
+        self.subjectLabel.trailingAnchor.constraint(equalTo: self.verfiedImageView.leadingAnchor , constant: -3).isActive = true
+        
+        
+        self.verfiedImageView.leadingAnchor.constraint(equalTo: self.subjectLabel.trailingAnchor , constant: 7).isActive = true
+        self.verfiedImageView.trailingAnchor.constraint(equalTo: self.dateLabel.leadingAnchor , constant: -7).isActive = true
+        self.verfiedImageView.centerYAnchor.constraint(equalTo: self.subjectLabel.centerYAnchor).isActive = true
+        
+        self.descLabel.leadingAnchor.constraint(equalTo: self.subjectLabel.leadingAnchor , constant: 17).isActive = true
+        self.descLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor , constant: -7).isActive = true
+        self.descLabel.topAnchor.constraint(equalTo: self.subjectLabel.bottomAnchor , constant: 7).isActive = true
+        self.descLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor , constant: -7).isActive = true
+    }
+
+}

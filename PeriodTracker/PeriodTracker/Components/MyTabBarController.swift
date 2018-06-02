@@ -21,8 +21,8 @@ class MyTabBarController: UITabBarController ,UITabBarControllerDelegate {
         
         self.delegate = self
         
-        var imageNames: [String] = ["tab-calendar", "tab-setting", "tab-article"]
-        var tabTitles: [String] = ["تقویم", "تنظیمات", "مقالات"]
+        var imageNames: [String] = ["tab-calendar", "tab-setting", "tab-article" , "tab-topics"]
+        var tabTitles: [String] = ["تقویم", "تنظیمات", "مقالات" ,"تالار"]
         
         MyTabBarController.instance = self
         
@@ -31,6 +31,8 @@ class MyTabBarController: UITabBarController ,UITabBarControllerDelegate {
         controllers.append((self.storyboard?.instantiateViewController(withIdentifier: "calendarViewController"))!)
         controllers.append((self.storyboard?.instantiateViewController(withIdentifier: "settingViewController"))!)
         controllers.append((self.storyboard?.instantiateViewController(withIdentifier: "articlesViewController"))!)
+        
+        controllers.append(UINavigationController(rootViewController: TopicsViewController()))
         
         var pregnantEnable = false
         let realm = try! Realm()

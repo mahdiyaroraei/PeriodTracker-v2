@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import OneSignal
 
 class BuyViewController: UIViewController , UITextViewDelegate {
     
@@ -19,8 +20,10 @@ class BuyViewController: UIViewController , UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AppDelegate.buyViewController = self
+        
         // Change icon tint color and set image & circle arround icon
-        periodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
+        periodImageView.image = UIImage(named: "shopping")?.withRenderingMode(.alwaysTemplate)
         periodImageView.tintColor = UIColor.uicolorFromHex(rgbValue: 0x157e68)
         
         periodImageView.backgroundColor = UIColor.white
@@ -92,6 +95,9 @@ class BuyViewController: UIViewController , UITextViewDelegate {
         }, type: .oneTextField))
     }
     
+    @IBAction func supportButtonTapped(_ sender: Any) {
+        Utility.openLinkInSafari(link: "https://telegram.me/Royan_support")
+    }
     @IBAction func noButtonClicked(_ sender: Any) {
         
         showModal(modalObject: Modal(title: "خرید با کارت اعتباری", desc: "برای خرید برنامه ایمیل خود را در ورودی زیر وارد کنید و دکمه خرید را بزنید، سپس به درگاه بانکی منتقل خواهید شد و بعد از پرداخت میتوانید از برنامه استفاده کنید", image: UIImage(named: "modal-buy"), firstTextFieldHint: "ایمیل شما", secondTextFieldHint: "کد", leftButtonTitle: "خرید", rightButtonTitle: "بیخیال", onLeftTapped: { (modal) in
@@ -114,6 +120,7 @@ class BuyViewController: UIViewController , UITextViewDelegate {
                     if let licenseId = JSON(data)["license_id"].int {
                         modal.stopLoading()
                         Utility.openLinkInSafari(link: "\(Config.WEB_DOMAIN)pay/\(licenseId)")
+                        modal.dismissModal()
                     }
                 }
             })
@@ -185,7 +192,7 @@ class BuyViewController: UIViewController , UITextViewDelegate {
                         
                     }
                     // Open app
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
                     modal.present(vc!, animated: true, completion: nil)
                 }
             })
@@ -197,6 +204,14 @@ class BuyViewController: UIViewController , UITextViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if !UserDefaults.standard.bool(forKey: "show-notification-alert-buy") {
+            
+            OneSignal.promptForPushNotifications(userResponse: { accepted in
+                print("User accepted notifications: \(accepted)")
+            })
+            UserDefaults.standard.set(true, forKey: "show-notification-alert-buy")
+        }
         
         if UserDefaults.standard.bool(forKey: "another-device-use-this-code") {
             showModal(modalObject: Modal(title: "اخطار", desc: "شما با این کد در دستگاه دیگری وارد شدید، شما تنها قادر به استفاده در یک دستگاه به صورت همزمان را دارید.", image: nil, leftButtonTitle: "خرید کد جدید", rightButtonTitle: "بیخیال", onLeftTapped: { (modal) in

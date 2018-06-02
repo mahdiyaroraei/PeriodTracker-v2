@@ -174,7 +174,7 @@ class PricingViewController: UIViewController , UICollectionViewDelegate , UICol
                         
                     }
                     
-                    ArticleViewController.subscribe = true
+//                    ArticleViewController.subscribe = true
                     
                     modal.showModal(modalObject: Modal(title: "با موفقیت وارد شدید", desc: "اشتراک شما با ایمیل \(email) با موفقیت فعال شد.", image: UIImage(named: "modal-code"), leftButtonTitle: "باشه", rightButtonTitle: "", onLeftTapped: { (modal) in
                         modal.dismissModal()

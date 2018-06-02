@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
     var window: UIWindow?
     
     public static var pricingViewController: UIViewController?
+    public static var buyViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -154,12 +155,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
                     }
                     
                 }
-                ArticleViewController.subscribe = true
+//                ArticleViewController.subscribe = true
                 AppDelegate.pricingViewController?.showModal(modalObject: Modal(title: "با موفقیت وارد شدید", desc: "اشتراک شما با ایمیل \(email) با موفقیت فعال شد.", image: UIImage(named: "modal-code"), leftButtonTitle: "باشه", rightButtonTitle: "", onLeftTapped: { (modal) in
                     modal.dismissModal()
                 }, onRightTapped: { (modal) in
                     
                 }))
+                let vc = AppDelegate.buyViewController?.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
+                AppDelegate.buyViewController?.present(vc!, animated: true, completion: nil)
+                
             }
         })
         

@@ -90,8 +90,8 @@ class Utility: NSObject, UITextViewDelegate {
                 if setting.fertileNotice == 1 {
                     
                     let date = Utility.nextFertileDate(Date(), setup: try! Realm().objects(Setup.self).last!)
-                    let title = "Period"
-                    let body = "Don't forget"
+                    let title = "شروع اوج تخمک گذاری"
+                    let body = "امروز شروع دوره اوج تخمک گذاری شماست، با رویان همراه باشید."
                     
                     if #available(iOS 10.0, *) {
                         sendLocalPushiOS10(date: date, title: title, body: body , identifier: "PeriodLocalNotification", withCompletionHandler: withCompletionHandler)
@@ -104,8 +104,8 @@ class Utility: NSObject, UITextViewDelegate {
                 if setting.priodNotice == 1 {
                     
                     let date = Utility.nextPeriodDate(Date(), setup: try! Realm().objects(Setup.self).last!)
-                    let title = "Fertile"
-                    let body = "Don't forget"
+                    let title = "شروع پریودی"
+                    let body = "امروز اولین روز شروع دوره پریودی شماست، با رویان همراه باشید."
                     
                     if #available(iOS 10.0, *) {
                         sendLocalPushiOS10(date: date, title: title, body: body , identifier: "FertileLocalNotification", withCompletionHandler: withCompletionHandler)
@@ -439,9 +439,9 @@ class Utility: NSObject, UITextViewDelegate {
     static func timeAgoSince(_ date: Date) -> String {
         
         let calendar = Calendar(identifier: .persian)
-        let now = calendar.startOfDay(for: Date())
+        let now = Date()
         let unitFlags: NSCalendar.Unit = [.second, .minute, .hour, .day, .weekOfYear, .month, .year]
-        let components = (calendar as NSCalendar).components(unitFlags, from: date, to: now, options: [])
+        var components = (calendar as NSCalendar).components(unitFlags, from: date, to: now, options: [])
         
         if let year = components.year, year >= 2 {
             return "\(year) سال قبل"
@@ -493,11 +493,10 @@ class Utility: NSObject, UITextViewDelegate {
         
         if let second = components.second, second >= 3 {
             return "\(second) ثانیه پیش"
-        }
-        
-        if let day = components.day , day == 0 {
+        } else if let day = components.day , day == 0 {
             return "همین الان"
         }
+        
         
         let dateComponents = calendar.dateComponents([.year , .month , .day], from: date)
         return "\(dateComponents.year!)/\(dateComponents.month!)/\(dateComponents.day!)"

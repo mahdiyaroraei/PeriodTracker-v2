@@ -12,6 +12,10 @@
 		55016A6F1F29C22F00EC567E /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A6E1F29C22F00EC567E /* CycleViewController.swift */; };
 		55016A741F29C30100EC567E /* CircleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A731F29C30100EC567E /* CircleOption.swift */; };
 		5505E91C1F30AF7500379085 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505E91B1F30AF7500379085 /* Extensions.swift */; };
+		550630EB1FF228AE009145C4 /* AddTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550630EA1FF228AE009145C4 /* AddTopicViewController.swift */; };
+		550630ED1FF239B8009145C4 /* Success.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550630EC1FF239B8009145C4 /* Success.swift */; };
+		550630EF1FF260C5009145C4 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550630EE1FF260C5009145C4 /* TopicViewController.swift */; };
+		550630F11FF264EA009145C4 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550630F01FF264EA009145C4 /* MessageTableViewCell.swift */; };
 		5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */; };
 		5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */; };
 		550AC31C1F4D5B1D0067A804 /* IRAN Kharazmi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 550AC31B1F4D5B1D0067A804 /* IRAN Kharazmi.ttf */; };
@@ -62,8 +66,14 @@
 		557F95A11EFE9FCB00D1D68A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */; };
 		557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */; };
 		557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F95A51EFEA9BF00D1D68A /* DayCollectionViewCell.swift */; };
+		558022601FEFF4C6001A0B58 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580225F1FEFF4C6001A0B58 /* TopicsViewController.swift */; };
 		5581C35C1F55B53C00A297D7 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581C35B1F55B53C00A297D7 /* Emoji.swift */; };
 		5581C35E1F55B55100A297D7 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5581C35D1F55B55100A297D7 /* String+Emoji.swift */; };
+		559567D91FF0E9DD001A8231 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559567D81FF0E9DD001A8231 /* Http.swift */; };
+		559567DB1FF0EA81001A8231 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559567DA1FF0EA81001A8231 /* Topic.swift */; };
+		559567DD1FF0EB05001A8231 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559567DC1FF0EB05001A8231 /* Message.swift */; };
+		559567DF1FF0EBB1001A8231 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559567DE1FF0EBB1001A8231 /* Users.swift */; };
+		559567E11FF0F3F7001A8231 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559567E01FF0F3F7001A8231 /* TopicTableViewCell.swift */; };
 		55B958011F35A45A004AAFA3 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */; };
 		55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD351EF94ADE00F75794 /* AppDelegate.swift */; };
 		55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9BD371EF94ADE00F75794 /* ViewController.swift */; };
@@ -81,6 +91,7 @@
 		55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA41F400E3E00761F71 /* ModalViewController.swift */; };
 		55F5FDA71F403D7200761F71 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5FDA61F403D7200761F71 /* Modal.swift */; };
 		55F8E13D1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */; };
+		55FBC6F91FF3B62200FA7554 /* ChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FBC6F81FF3B62200FA7554 /* ChatLabel.swift */; };
 		55FD75941F51A3B1002CCC52 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75931F51A3B1002CCC52 /* ConversationViewController.swift */; };
 		55FD75961F51A4A7002CCC52 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75951F51A4A7002CCC52 /* CommentTableViewCell.swift */; };
 		55FD75981F51A512002CCC52 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD75971F51A512002CCC52 /* Comment.swift */; };
@@ -130,6 +141,10 @@
 		55016A6E1F29C22F00EC567E /* CycleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleViewController.swift; path = Controllers/CycleViewController.swift; sourceTree = "<group>"; };
 		55016A731F29C30100EC567E /* CircleOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleOption.swift; path = Model/CircleOption.swift; sourceTree = "<group>"; };
 		5505E91B1F30AF7500379085 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
+		550630EA1FF228AE009145C4 /* AddTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddTopicViewController.swift; path = Controllers/AddTopicViewController.swift; sourceTree = "<group>"; };
+		550630EC1FF239B8009145C4 /* Success.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Success.swift; sourceTree = "<group>"; };
+		550630EE1FF260C5009145C4 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicViewController.swift; path = Controllers/TopicViewController.swift; sourceTree = "<group>"; };
+		550630F01FF264EA009145C4 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = Cell/MessageTableViewCell.swift; sourceTree = "<group>"; };
 		5506D5671F21D15F00F66E6D /* CycleLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleLengthViewController.swift; path = Controllers/CycleLengthViewController.swift; sourceTree = "<group>"; };
 		5506D5691F21D17900F66E6D /* PeriodLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthViewController.swift; path = Controllers/PeriodLengthViewController.swift; sourceTree = "<group>"; };
 		550AC31B1F4D5B1D0067A804 /* IRAN Kharazmi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRAN Kharazmi.ttf"; sourceTree = "<group>"; };
@@ -181,8 +196,14 @@
 		557F95A01EFE9FCB00D1D68A /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = Controllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		557F95A31EFEA96400D1D68A /* MonthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthTableViewCell.swift; path = Cell/MonthTableViewCell.swift; sourceTree = "<group>"; };
 		557F95A51EFEA9BF00D1D68A /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayCollectionViewCell.swift; path = Cell/DayCollectionViewCell.swift; sourceTree = "<group>"; };
+		5580225F1FEFF4C6001A0B58 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicsViewController.swift; path = Controllers/TopicsViewController.swift; sourceTree = "<group>"; };
 		5581C35B1F55B53C00A297D7 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		5581C35D1F55B55100A297D7 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
+		559567D81FF0E9DD001A8231 /* Http.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Http.swift; sourceTree = "<group>"; };
+		559567DA1FF0EA81001A8231 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Topic.swift; path = Model/Topic.swift; sourceTree = "<group>"; };
+		559567DC1FF0EB05001A8231 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		559567DE1FF0EBB1001A8231 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		559567E01FF0F3F7001A8231 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicTableViewCell.swift; path = Cell/TopicTableViewCell.swift; sourceTree = "<group>"; };
 		55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewCell.swift; path = Cell/SettingTableViewCell.swift; sourceTree = "<group>"; };
 		55B9BD321EF94ADE00F75794 /* Royan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Royan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B9BD351EF94ADE00F75794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +223,7 @@
 		55F5FDA41F400E3E00761F71 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalViewController.swift; path = Controllers/ModalViewController.swift; sourceTree = "<group>"; };
 		55F5FDA61F403D7200761F71 /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutCycleLengthViewController.swift; path = Controllers/AboutCycleLengthViewController.swift; sourceTree = "<group>"; };
+		55FBC6F81FF3B62200FA7554 /* ChatLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatLabel.swift; path = Components/ChatLabel.swift; sourceTree = "<group>"; };
 		55FD75931F51A3B1002CCC52 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversationViewController.swift; path = Controllers/ConversationViewController.swift; sourceTree = "<group>"; };
 		55FD75951F51A4A7002CCC52 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = Cell/CommentTableViewCell.swift; sourceTree = "<group>"; };
 		55FD75971F51A512002CCC52 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -278,6 +300,10 @@
 				5552351D1F4879C5006B402F /* Pricing.swift */,
 				550AC3251F4DC62D0067A804 /* Category.swift */,
 				55FD75971F51A512002CCC52 /* Comment.swift */,
+				559567DA1FF0EA81001A8231 /* Topic.swift */,
+				559567DC1FF0EB05001A8231 /* Message.swift */,
+				559567DE1FF0EBB1001A8231 /* Users.swift */,
+				550630EC1FF239B8009145C4 /* Success.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,6 +323,7 @@
 				55445B081EFA9AFB0073DC75 /* LogoView.swift */,
 				556FB7F71F399B68006DDAB9 /* MyTabBarController.swift */,
 				55F110481F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift */,
+				55FBC6F81FF3B62200FA7554 /* ChatLabel.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -337,6 +364,8 @@
 				55FD75991F52D4CE002CCC52 /* ActivityIndicatorTableViewCell.swift */,
 				55FD759B1F52E3BB002CCC52 /* ReplyCommentTableViewCell.swift */,
 				55FD759D1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift */,
+				559567E01FF0F3F7001A8231 /* TopicTableViewCell.swift */,
+				550630F01FF264EA009145C4 /* MessageTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -387,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */,
+				559567D81FF0E9DD001A8231 /* Http.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -448,6 +478,9 @@
 				55F8E13C1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift */,
 				555235191F485644006B402F /* PricingViewController.swift */,
 				55FD75931F51A3B1002CCC52 /* ConversationViewController.swift */,
+				5580225F1FEFF4C6001A0B58 /* TopicsViewController.swift */,
+				550630EA1FF228AE009145C4 /* AddTopicViewController.swift */,
+				550630EE1FF260C5009145C4 /* TopicViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -508,13 +541,13 @@
 				TargetAttributes = {
 					551CCCBD1F55884800AE84EC = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = MURMBQ4ZAR;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = WQAL4X8P6C;
+						ProvisioningStyle = Automatic;
 					};
 					55B9BD311EF94ADE00F75794 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = MURMBQ4ZAR;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = WQAL4X8P6C;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -670,20 +703,26 @@
 			files = (
 				55016A6D1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift in Sources */,
 				556CA0851EFBE587008C5EA1 /* Information.swift in Sources */,
+				550630ED1FF239B8009145C4 /* Success.swift in Sources */,
 				556FB7E81F3850F6006DDAB9 /* AttributeTextCollectionViewCell.swift in Sources */,
 				553039D31F025EA600C8EF07 /* Colors.swift in Sources */,
 				557F95A41EFEA96400D1D68A /* MonthTableViewCell.swift in Sources */,
+				55FBC6F91FF3B62200FA7554 /* ChatLabel.swift in Sources */,
 				556FB7E21F37365C006DDAB9 /* Article.swift in Sources */,
 				55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */,
 				55F110491F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift in Sources */,
 				556FB7E41F382768006DDAB9 /* Config.swift in Sources */,
 				55743EBD1F3B59BC003FF4EC /* Image.swift in Sources */,
+				550630F11FF264EA009145C4 /* MessageTableViewCell.swift in Sources */,
 				55FF9A4B1F1E22BB006281F7 /* MoodSelectorViewController.swift in Sources */,
 				5581C35E1F55B55100A297D7 /* String+Emoji.swift in Sources */,
 				55FE278B1F0E5E390042DBD3 /* MoodCollectionViewCell.swift in Sources */,
 				55FD759E1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift in Sources */,
+				558022601FEFF4C6001A0B58 /* TopicsViewController.swift in Sources */,
 				55DAEFDD1F34C79300937210 /* SettingViewController.swift in Sources */,
 				5520DE7F1F302CEB0003A844 /* PregnantViewController.swift in Sources */,
+				550630EF1FF260C5009145C4 /* TopicViewController.swift in Sources */,
+				559567DB1FF0EA81001A8231 /* Topic.swift in Sources */,
 				556CA0831EFBE522008C5EA1 /* Setting.swift in Sources */,
 				55B9BD381EF94ADE00F75794 /* ViewController.swift in Sources */,
 				55EAEB591F209F150034E0D0 /* SetupPageViewController.swift in Sources */,
@@ -709,6 +748,7 @@
 				557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */,
 				55E532501F41A86500759741 /* ContactUsViewController.swift in Sources */,
 				55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */,
+				559567D91FF0E9DD001A8231 /* Http.swift in Sources */,
 				5552351E1F4879C5006B402F /* Pricing.swift in Sources */,
 				556FB7EE1F3851C6006DDAB9 /* Item.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
@@ -721,7 +761,10 @@
 				55FD759C1F52E3BB002CCC52 /* ReplyCommentTableViewCell.swift in Sources */,
 				557F959F1EFE628A00D1D68A /* Reachability.swift in Sources */,
 				55FD75961F51A4A7002CCC52 /* CommentTableViewCell.swift in Sources */,
+				550630EB1FF228AE009145C4 /* AddTopicViewController.swift in Sources */,
+				559567DF1FF0EBB1001A8231 /* Users.swift in Sources */,
 				5539B1071F3C27F300872983 /* ActivityIndicatorCollectionViewCell.swift in Sources */,
+				559567DD1FF0EB05001A8231 /* Message.swift in Sources */,
 				55B958011F35A45A004AAFA3 /* SettingTableViewCell.swift in Sources */,
 				550AC3261F4DC62D0067A804 /* Category.swift in Sources */,
 				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
@@ -736,6 +779,7 @@
 				556FB7F21F387016006DDAB9 /* TextAttribute.swift in Sources */,
 				556FB7DA1F36D34D006DDAB9 /* SettingModel.swift in Sources */,
 				5505E91C1F30AF7500379085 /* Extensions.swift in Sources */,
+				559567E11FF0F3F7001A8231 /* TopicTableViewCell.swift in Sources */,
 				556CF44B1F0135A100E3456B /* Utility.swift in Sources */,
 				556FB7F61F398884006DDAB9 /* ArticleCollectionViewCell.swift in Sources */,
 				5506D5681F21D15F00F66E6D /* CycleLengthViewController.swift in Sources */,
@@ -777,14 +821,15 @@
 			baseConfigurationReference = 3417E3B908EE494F06ECBCB9 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				DEVELOPMENT_TEAM = MURMBQ4ZAR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1.OneSignalNotificationServiceExtension2;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10.OneSignalNotificationServiceExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76ce3242-90f4-4160-8d9a-94aed2d75e7e";
-				PROVISIONING_PROFILE_SPECIFIER = ptnnn;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -795,14 +840,15 @@
 			baseConfigurationReference = 889AF98AD015A836D74612B9 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				DEVELOPMENT_TEAM = MURMBQ4ZAR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1.OneSignalNotificationServiceExtension2;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10.OneSignalNotificationServiceExtension2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76ce3242-90f4-4160-8d9a-94aed2d75e7e";
-				PROVISIONING_PROFILE_SPECIFIER = ptnnn;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -850,7 +896,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -895,7 +941,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -911,14 +957,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PeriodTracker/PeriodTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				DEVELOPMENT_TEAM = MURMBQ4ZAR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10;
 				PRODUCT_NAME = Royan;
-				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
-				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -931,14 +978,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PeriodTracker/PeriodTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MODERN LIFE COMPUTER (LLC)";
-				DEVELOPMENT_TEAM = MURMBQ4ZAR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker1;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10;
 				PRODUCT_NAME = Royan;
-				PROVISIONING_PROFILE = "95ce2a96-4615-4ce7-b507-ebd545b03cd7";
-				PROVISIONING_PROFILE_SPECIFIER = "period-tracker";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

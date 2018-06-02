@@ -213,6 +213,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     // access
     let accessImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.isHidden = true // TODO Subscribe
         imageView.image = UIImage(named: "free")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false

@@ -132,17 +132,17 @@ class ViewController: UIViewController , CAAnimationDelegate {
     }
     
     func openPurchaseController() {
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "buyViewController")
-//        self.present(vc!, animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "buyViewController")
+        self.present(vc!, animated: true, completion: nil)
         
         //Open app
-        if !UserDefaults.standard.bool(forKey: "setup-complete") {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
-            self.present(vc!, animated: true, completion: nil)
-        } else {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
-            self.present(vc!, animated: true, completion: nil)
-        }
+//        if !UserDefaults.standard.bool(forKey: "setup-complete") {
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
+//            self.present(vc!, animated: true, completion: nil)
+//        } else {
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+//            self.present(vc!, animated: true, completion: nil)
+//        }
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {

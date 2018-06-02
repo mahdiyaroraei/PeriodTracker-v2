@@ -9,6 +9,7 @@
 import UIKit
 
 class Colors: NSObject {
+    static let backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xF6F6F6)
     static let accentColor = UIColor.uicolorFromHex(rgbValue: 0x7CA113)
     
     // Cycle colors

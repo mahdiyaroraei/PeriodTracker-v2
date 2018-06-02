@@ -25,7 +25,7 @@ class CycleLengthViewController: UIViewController , UITextViewDelegate , PeriodL
         super.viewDidLoad()
         
         // Change icon tint color and set image & circle arround icon
-        periodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
+        periodImageView.image = UIImage(named: "small-calendar")?.withRenderingMode(.alwaysTemplate)
         periodImageView.tintColor = color
         
         periodImageView.backgroundColor = UIColor.white

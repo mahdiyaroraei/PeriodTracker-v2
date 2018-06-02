@@ -24,7 +24,7 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
         
         
         // Change icon tint color and set image & circle arround icon
-        periodImageView.image = UIImage(named: "smiling")?.withRenderingMode(.alwaysTemplate)
+        periodImageView.image = UIImage(named: "blood-drop")?.withRenderingMode(.alwaysTemplate)
         periodImageView.tintColor = UIColor.red
         
         periodImageView.backgroundColor = UIColor.white
@@ -115,7 +115,9 @@ class PeriodLengthViewController: UIViewController , UITextViewDelegate , Period
                     modal.dismissModal()
                 }))
             } else {
-                dismiss(animated: true, completion: nil)
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+                self.present(vc!, animated: true, completion: nil)
             }
         } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "periodLengthSelectorViewController") as! PeriodLengthSelectorViewController

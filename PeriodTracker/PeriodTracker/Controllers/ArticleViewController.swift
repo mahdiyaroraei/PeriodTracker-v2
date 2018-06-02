@@ -74,7 +74,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         getArticleCategories()
     }
     
-    static var subscribe: Bool?
+    static let subscribe: Bool? = true
     var deadLineButton: UIButton? = nil
     
     func checkSubscribe() {
@@ -82,7 +82,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
         
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loadingIndicator.startAnimating()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: loadingIndicator)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: loadingIndicator)
         
         if let user = realm.objects(User.self).last {
             Alamofire.request("\(Config.WEB_DOMAIN)subscribe/\(user.license_id)/\(user.user_id)").responseJSON(completionHandler: { (response) in
@@ -91,7 +91,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
                         return
                     }
                     
-                    ArticleViewController.subscribe = subscribe == 1
+//                    ArticleViewController.subscribe = subscribe == 1
                     
                     var subscribeButtonString = "اشتراک ندارید"
                     if let subscribeDate = JSON(data)["subscribe_expire_on"].string {
@@ -105,6 +105,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
                         deadLineButton.setTitle(subscribeButtonString , for: .normal)
                     } else {
                         self.deadLineButton = UIButton()
+                        self.deadLineButton?.isHidden = true
                         self.deadLineButton?.setTitle(subscribeButtonString , for: .normal)
                         self.deadLineButton?.setTitleColor(UIColor.uicolorFromHex(rgbValue: 0xdb2b42), for: .normal)
                         self.deadLineButton?.titleLabel?.textAlignment = .center
@@ -120,6 +121,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
                 } else {
                     var subscribeButtonString = "اشتراک ندارید"
                     self.deadLineButton = UIButton()
+                    self.deadLineButton?.isHidden = true
                     self.deadLineButton?.setTitle(subscribeButtonString , for: .normal)
                     self.deadLineButton?.setTitleColor(UIColor.uicolorFromHex(rgbValue: 0xdb2b42), for: .normal)
                     self.deadLineButton?.titleLabel?.textAlignment = .center
@@ -130,7 +132,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
                     self.deadLineButton?.layer.cornerRadius = 4
                     self.deadLineButton?.frame = CGRect(x: 0, y: 0, width: 75, height: 25)
                     
-                    ArticleViewController.subscribe = false
+//                    ArticleViewController.subscribe = false
                     
                     self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: self.deadLineButton!)
                 }
@@ -139,6 +141,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
             
             var subscribeButtonString = "اشتراک ندارید"
             self.deadLineButton = UIButton()
+            self.deadLineButton?.isHidden = true
             self.deadLineButton?.setTitle(subscribeButtonString , for: .normal)
             self.deadLineButton?.setTitleColor(UIColor.uicolorFromHex(rgbValue: 0xdb2b42), for: .normal)
             self.deadLineButton?.titleLabel?.textAlignment = .center
@@ -149,7 +152,7 @@ class ArticleViewController: UIViewController , UICollectionViewDelegate , UICol
             self.deadLineButton?.layer.cornerRadius = 4
             self.deadLineButton?.frame = CGRect(x: 0, y: 0, width: 75, height: 25)
             
-            ArticleViewController.subscribe = false
+//            ArticleViewController.subscribe = false
             
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: self.deadLineButton!)
         }
