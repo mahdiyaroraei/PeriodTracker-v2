@@ -16,12 +16,9 @@ class LicenseHelper {
     
     private static var instance: LicenseHelper?
     
-    public static func getInstance(delegate: LicenseDelegate?) -> LicenseHelper {
+    public static func getInstance(delegate: LicenseDelegate) -> LicenseHelper {
         if LicenseHelper.instance == nil {
-            
-            if let delegate = delegate {
-                LicenseHelper.instance = LicenseHelper(delegate: delegate)
-            }
+            LicenseHelper.instance = LicenseHelper(delegate: delegate)
         }
         
         return LicenseHelper.instance!

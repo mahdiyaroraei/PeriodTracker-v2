@@ -8,7 +8,16 @@
 
 import UIKit
 
-class LicenseViewController: UIViewController {
+class LicenseViewController: UIViewController, LicenseDelegate {
+    
+    func present(viewController: UIViewController) {
+        
+    }
+    
+    func openApplication() {
+        
+    }
+    
     var window: UIWindow?
     
     let backgroundImage: UIImageView = {
@@ -332,7 +341,13 @@ class LicenseViewController: UIViewController {
         self.view.addSubview(leadingLineView)
         self.view.addSubview(trailingLineView)
         
-        self.view.addSubview(fieldsStackView)
+        
+        let centerFieldsView = UIView()
+        centerFieldsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        centerFieldsView.addSubview(fieldsStackView)
+        self.view.addSubview(centerFieldsView)
+        
         
         for _ in 0...15 {
             let imageView = self.flowerImageView
@@ -354,6 +369,7 @@ class LicenseViewController: UIViewController {
         
         self.titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30).isActive = true
         self.titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.titleLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         
         self.logoImageView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 15).isActive = true
@@ -387,15 +403,20 @@ class LicenseViewController: UIViewController {
         self.codeTextField?.attributedPlaceholder = NSAttributedString(string: "کد تخفیف (ضروری نیست)",
                                                                        attributes: [NSForegroundColorAttributeName: UIColor.white , NSParagraphStyleAttributeName: paragraph])
         
+        
+        let noButtonViewHolder = UIView()
+        noButtonViewHolder.translatesAutoresizingMaskIntoConstraints = false
+        
+        noButtonViewHolder.addSubview(noButton)
+        
+        noButtonViewHolder.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.noButton.centerXAnchor.constraint(equalTo: noButtonViewHolder.centerXAnchor).isActive = true
+        self.noButton.centerYAnchor.constraint(equalTo: noButtonViewHolder.centerYAnchor).isActive = true
+        
         self.fieldsStackView.addArrangedSubview(self.emailTextField!)
         self.fieldsStackView.addArrangedSubview(self.codeTextField!)
         self.fieldsStackView.addArrangedSubview(buyButton)
-        self.fieldsStackView.addArrangedSubview(noButton)
-        
-        self.emailTextField?.widthAnchor.constraint(equalTo: fieldsStackView.widthAnchor).isActive = true
-        self.codeTextField?.widthAnchor.constraint(equalTo: fieldsStackView.widthAnchor).isActive = true
-        self.buyButton.widthAnchor.constraint(equalTo: fieldsStackView.widthAnchor).isActive = true
-        self.noButton.widthAnchor.constraint(equalTo: fieldsStackView.widthAnchor).isActive = true
+        self.fieldsStackView.addArrangedSubview(noButtonViewHolder)
         
         let emailImageView = self.iconImageView
         let codeImageView = self.iconImageView
@@ -436,6 +457,8 @@ class LicenseViewController: UIViewController {
         self.bottomStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive
             = true
         
+        self.bottomStackView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        
         //        self.movieStackView.bottomAnchor.constraint(equalTo: bottomLine.topAnchor, constant: -17).isActive = true
         //        self.movieStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         //        self.movieStackView.widthAnchor.constraint(equalToConstant: 300).isActive = true
@@ -451,10 +474,14 @@ class LicenseViewController: UIViewController {
         self.loadingActivityIndicator.centerYAnchor.constraint(equalTo: self.buyButton.centerYAnchor).isActive = true
         
         
-        self.fieldsStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 25).isActive = true
-        self.fieldsStackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -25).isActive = true
-        self.fieldsStackView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 30).isActive = true
-        self.fieldsStackView.bottomAnchor.constraint(equalTo: bottomLine.topAnchor).isActive = true
+        centerFieldsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        centerFieldsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        centerFieldsView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor).isActive = true
+        centerFieldsView.bottomAnchor.constraint(equalTo: bottomLine.topAnchor).isActive = true
+        
+        self.fieldsStackView.leadingAnchor.constraint(equalTo: centerFieldsView.leadingAnchor, constant: 25).isActive = true
+        self.fieldsStackView.trailingAnchor.constraint(equalTo: centerFieldsView.trailingAnchor, constant: -25).isActive = true
+        self.fieldsStackView.centerYAnchor.constraint(equalTo: centerFieldsView.centerYAnchor).isActive = true
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         self.buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
@@ -495,7 +522,7 @@ class LicenseViewController: UIViewController {
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         if emailTest.evaluate(with: email) {
-            LicenseHelper.getInstance(delegate: nil).buy(email: email, code: codeTextField?.text, completion: { (success) in
+            LicenseHelper.getInstance(delegate: self).buy(email: email, code: codeTextField?.text, completion: { (success) in
                 
                 self.buyButton.setTitle("خرید برنامه", for: .normal)
                 self.loadingActivityIndicator.stopAnimating()
