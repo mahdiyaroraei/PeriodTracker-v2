@@ -353,6 +353,11 @@ SelectCellDelegate , SelectMoodDelegate{
         self.weekCollectionView.reloadData()
         self.moodCollectionView.reloadData()
         self.moodValuesCollectionView.reloadData()
+        
+        if !Config.isPermiumUser {
+            self.dismiss(animated: true, completion: nil)
+            self.present(LicenseViewController(), animated: true, completion: nil)
+        }
     }
     
     func cannotSelectFuture() {

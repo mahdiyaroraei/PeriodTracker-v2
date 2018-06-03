@@ -80,6 +80,16 @@
 		55B9BD3B1EF94ADE00F75794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD391EF94ADE00F75794 /* Main.storyboard */; };
 		55B9BD3D1EF94ADE00F75794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */; };
 		55B9BD401EF94ADE00F75794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B9BD3E1EF94ADE00F75794 /* LaunchScreen.storyboard */; };
+		55C6E93620C2D24800D158BB /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E93520C2D24800D158BB /* LicenseViewController.swift */; };
+		55C6E93820C2D97B00D158BB /* LicenseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E93720C2D97B00D158BB /* LicenseHelper.swift */; };
+		55C6E93A20C2DA8000D158BB /* HttpLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E93920C2DA8000D158BB /* HttpLicense.swift */; };
+		55C6E94720C2DBDA00D158BB /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E93D20C2DBD800D158BB /* App.swift */; };
+		55C6E94820C2DBDA00D158BB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E93E20C2DBD800D158BB /* Person.swift */; };
+		55C6E94B20C2DBDA00D158BB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E94120C2DBD900D158BB /* Level.swift */; };
+		55C6E94C20C2DBDA00D158BB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E94220C2DBD900D158BB /* Model.swift */; };
+		55C6E94E20C2DBDA00D158BB /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E94420C2DBD900D158BB /* Music.swift */; };
+		55C6E94F20C2DBDA00D158BB /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E94520C2DBDA00D158BB /* Activation.swift */; };
+		55C6E95020C2DBDA00D158BB /* Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6E94620C2DBDA00D158BB /* Buy.swift */; };
 		55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */; };
 		55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC45901EFBDB1F00E34DD3 /* User.swift */; };
 		55CF83311F16867E00212BFF /* MoodValueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */; };
@@ -212,6 +222,16 @@
 		55B9BD3C1EF94ADE00F75794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B9BD3F1EF94ADE00F75794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B9BD411EF94ADE00F75794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C6E93520C2D24800D158BB /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LicenseViewController.swift; path = Controllers/LicenseViewController.swift; sourceTree = "<group>"; };
+		55C6E93720C2D97B00D158BB /* LicenseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LicenseHelper.swift; path = Controllers/LicenseHelper.swift; sourceTree = "<group>"; };
+		55C6E93920C2DA8000D158BB /* HttpLicense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpLicense.swift; path = Controllers/HttpLicense.swift; sourceTree = "<group>"; };
+		55C6E93D20C2DBD800D158BB /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		55C6E93E20C2DBD800D158BB /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		55C6E94120C2DBD900D158BB /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		55C6E94220C2DBD900D158BB /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		55C6E94420C2DBD900D158BB /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		55C6E94520C2DBDA00D158BB /* Activation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
+		55C6E94620C2DBDA00D158BB /* Buy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buy.swift; sourceTree = "<group>"; };
 		55CC458D1EFBC88000E34DD3 /* PeriodTrackerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodTrackerRouter.swift; path = API/PeriodTrackerRouter.swift; sourceTree = "<group>"; };
 		55CC45901EFBDB1F00E34DD3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Database/User.swift; sourceTree = "<group>"; };
 		55CF83301F16867E00212BFF /* MoodValueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodValueCollectionViewCell.swift; path = Cell/MoodValueCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -393,6 +413,7 @@
 		55B9BD341EF94ADE00F75794 /* PeriodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				55C6E93B20C2DB9000D158BB /* License */,
 				55FD759F1F545E22002CCC52 /* PeriodTracker.entitlements */,
 				55016A701F29C2B400EC567E /* Model */,
 				557F95A21EFEA90600D1D68A /* Cell */,
@@ -410,6 +431,31 @@
 				730DB2F71EFBB29C001495EF /* Resources */,
 			);
 			path = PeriodTracker;
+			sourceTree = "<group>";
+		};
+		55C6E93B20C2DB9000D158BB /* License */ = {
+			isa = PBXGroup;
+			children = (
+				55C6E93C20C2DBAB00D158BB /* model */,
+				55C6E93520C2D24800D158BB /* LicenseViewController.swift */,
+				55C6E93720C2D97B00D158BB /* LicenseHelper.swift */,
+				55C6E93920C2DA8000D158BB /* HttpLicense.swift */,
+			);
+			name = License;
+			sourceTree = "<group>";
+		};
+		55C6E93C20C2DBAB00D158BB /* model */ = {
+			isa = PBXGroup;
+			children = (
+				55C6E94520C2DBDA00D158BB /* Activation.swift */,
+				55C6E93D20C2DBD800D158BB /* App.swift */,
+				55C6E94620C2DBDA00D158BB /* Buy.swift */,
+				55C6E94120C2DBD900D158BB /* Level.swift */,
+				55C6E94220C2DBD900D158BB /* Model.swift */,
+				55C6E94420C2DBD900D158BB /* Music.swift */,
+				55C6E93E20C2DBD800D158BB /* Person.swift */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		55CC45861EFBB4CD00E34DD3 /* API */ = {
@@ -713,6 +759,8 @@
 				55FBC6F91FF3B62200FA7554 /* ChatLabel.swift in Sources */,
 				556FB7E21F37365C006DDAB9 /* Article.swift in Sources */,
 				55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */,
+				55C6E94820C2DBDA00D158BB /* Person.swift in Sources */,
+				55C6E93820C2D97B00D158BB /* LicenseHelper.swift in Sources */,
 				55F110491F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift in Sources */,
 				556FB7E41F382768006DDAB9 /* Config.swift in Sources */,
 				55743EBD1F3B59BC003FF4EC /* Image.swift in Sources */,
@@ -744,18 +792,23 @@
 				55445B091EFA9AFB0073DC75 /* LogoView.swift in Sources */,
 				55F8E13D1F4309FB00B8F5B7 /* AboutCycleLengthViewController.swift in Sources */,
 				55FE27891F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift in Sources */,
+				55C6E93A20C2DA8000D158BB /* HttpLicense.swift in Sources */,
 				55FD75981F51A512002CCC52 /* Comment.swift in Sources */,
 				556CA07F1EFBE2A3008C5EA1 /* Mood.swift in Sources */,
 				55EAEB5B1F20B6800034E0D0 /* LastPeriodViewController.swift in Sources */,
 				55CC458E1EFBC88000E34DD3 /* PeriodTrackerRouter.swift in Sources */,
+				55C6E94B20C2DBDA00D158BB /* Level.swift in Sources */,
 				557F95A61EFEA9BF00D1D68A /* DayCollectionViewCell.swift in Sources */,
 				55E532501F41A86500759741 /* ContactUsViewController.swift in Sources */,
 				55CC45911EFBDB1F00E34DD3 /* User.swift in Sources */,
 				559567D91FF0E9DD001A8231 /* Http.swift in Sources */,
+				55C6E93620C2D24800D158BB /* LicenseViewController.swift in Sources */,
 				5552351E1F4879C5006B402F /* Pricing.swift in Sources */,
 				556FB7EE1F3851C6006DDAB9 /* Item.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
 				55016A6F1F29C22F00EC567E /* CycleViewController.swift in Sources */,
+				55C6E95020C2DBDA00D158BB /* Buy.swift in Sources */,
+				55C6E94F20C2DBDA00D158BB /* Activation.swift in Sources */,
 				55016A741F29C30100EC567E /* CircleOption.swift in Sources */,
 				55FD75941F51A3B1002CCC52 /* ConversationViewController.swift in Sources */,
 				5535EB631F25F926007D70F5 /* AboutLastPeriodViewController.swift in Sources */,
@@ -772,7 +825,9 @@
 				550AC3261F4DC62D0067A804 /* Category.swift in Sources */,
 				5506D56A1F21D17900F66E6D /* PeriodLengthViewController.swift in Sources */,
 				5539632F1F4EF4F4003E0CFC /* ArticleCommentCollectionViewCell.swift in Sources */,
+				55C6E94720C2DBDA00D158BB /* App.swift in Sources */,
 				5552351C1F487944006B402F /* PricingCollectionViewCell.swift in Sources */,
+				55C6E94E20C2DBDA00D158BB /* Music.swift in Sources */,
 				5518D2A51F06D4BE001EB0B3 /* WeekCollectionViewCell.swift in Sources */,
 				556FB7E61F3848AC006DDAB9 /* ArticlePageViewController.swift in Sources */,
 				5581C35C1F55B53C00A297D7 /* Emoji.swift in Sources */,
@@ -780,6 +835,7 @@
 				556FB7F81F399B68006DDAB9 /* MyTabBarController.swift in Sources */,
 				551AD1AE1F3F3B28003167E0 /* GuideViewController.swift in Sources */,
 				556FB7F21F387016006DDAB9 /* TextAttribute.swift in Sources */,
+				55C6E94C20C2DBDA00D158BB /* Model.swift in Sources */,
 				556FB7DA1F36D34D006DDAB9 /* SettingModel.swift in Sources */,
 				5505E91C1F30AF7500379085 /* Extensions.swift in Sources */,
 				559567E11FF0F3F7001A8231 /* TopicTableViewCell.swift in Sources */,

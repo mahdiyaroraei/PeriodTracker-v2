@@ -26,17 +26,9 @@ class ViewController: UIViewController , CAAnimationDelegate {
         let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             
-//            self.animationEnd = true
-//            self.takeAction()
-            
-            
-            if !UserDefaults.standard.bool(forKey: "setup-complete") {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
-                self.present(vc!, animated: true, completion: nil)
-            } else {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
-                self.present(vc!, animated: true, completion: nil)
-            }
+            self.animationEnd = true
+            self.takeAction()
+
             
         }
     }
@@ -48,40 +40,40 @@ class ViewController: UIViewController , CAAnimationDelegate {
         return indicatorView
     }()
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//
-//        let realm = try! Realm()
-//        let user = realm.objects(User.self).last
-//        if (user != nil){
-//            if Reachability.isConnectedToNetwork() {
-//                if (user?.license_id)! > 0{
-//                    //Check license status with alamofire
-//                    self.checkUserLicense()
-//                }else{
-//                    self.isLicenseValid = false
-//                    self.apiResult = true
-//                    takeAction()
-//                }
-//            }else{
-//                if (user?.license_id)! > 0{
-//                    //Open app
-//                    self.isLicenseValid = true
-//                    self.apiResult = true
-//                    takeAction()
-//                }else{
-//                    self.isLicenseValid = false
-//                    self.apiResult = true
-//                    takeAction()
-//                }
-//            }
-//        }else{
-//            self.isLicenseValid = false
-//            self.apiResult = true
-//            takeAction()
-//        }
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+
+        let realm = try! Realm()
+        let user = realm.objects(User.self).last
+        if (user != nil){
+            if Reachability.isConnectedToNetwork() {
+                if (user?.license_id)! > 0{
+                    //Check license status with alamofire
+                    self.checkUserLicense()
+                }else{
+                    self.isLicenseValid = false
+                    self.apiResult = true
+                    takeAction()
+                }
+            } else {
+                if (user?.license_id)! > 0{
+                    //Open app
+                    self.isLicenseValid = true
+                    self.apiResult = true
+                    takeAction()
+                }else{
+                    self.isLicenseValid = false
+                    self.apiResult = true
+                    takeAction()
+                }
+            }
+        }else{
+            self.isLicenseValid = false
+            self.apiResult = true
+            takeAction()
+        }
+    }
     
     let realm = try! Realm()
     
@@ -117,21 +109,17 @@ class ViewController: UIViewController , CAAnimationDelegate {
     func takeAction() {
         if animationEnd && apiResult {
             if isLicenseValid {
-                //Open app
-                if !UserDefaults.standard.bool(forKey: "setup-complete") {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
-                    self.present(vc!, animated: true, completion: nil)
-                } else {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
-                    self.present(vc!, animated: true, completion: nil)
-                }
+                Config.isPermiumUser = true
             } else {
-                if let user = realm.objects(User.self).last {
-                    try! realm.write {
-                        realm.delete(user)
-                    }
-                }
-                openPurchaseController()
+                Config.isPermiumUser = false
+            }
+            
+            if !UserDefaults.standard.bool(forKey: "setup-complete") {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
+                self.present(vc!, animated: true, completion: nil)
+            } else {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+                self.present(vc!, animated: true, completion: nil)
             }
         } else if animationEnd {
             self.view.addSubview(loadingActivityIndicatorView)

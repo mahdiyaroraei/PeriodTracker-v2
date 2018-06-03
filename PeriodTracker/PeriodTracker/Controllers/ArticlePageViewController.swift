@@ -41,6 +41,14 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
         return view
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !Config.isPermiumUser {
+            self.present(LicenseViewController(), animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

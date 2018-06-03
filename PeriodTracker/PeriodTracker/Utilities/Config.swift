@@ -13,4 +13,5 @@ class Config {
 //    public static let WEB_DOMAIN = "http://172.20.10.4/license/public/"
     public static let WEB_DOMAIN = "http://periodtracker.ir/license/public/"
     public static var Locale = "fa"
+    public static var isPermiumUser = false
 }
