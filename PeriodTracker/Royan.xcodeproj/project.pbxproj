@@ -592,11 +592,11 @@
 					};
 					55B9BD311EF94ADE00F75794 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = WQAL4X8P6C;
+						DevelopmentTeam = MAZVBHUQRT;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1019,7 +1019,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WQAL4X8P6C;
+				DEVELOPMENT_TEAM = MAZVBHUQRT;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10;
@@ -1040,7 +1040,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WQAL4X8P6C;
+				DEVELOPMENT_TEAM = MAZVBHUQRT;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10;
