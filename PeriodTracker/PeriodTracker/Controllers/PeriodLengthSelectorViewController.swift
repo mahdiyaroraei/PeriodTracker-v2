@@ -35,7 +35,7 @@ class PeriodLengthSelectorViewController: UIViewController , UIPickerViewDelegat
         dismiss(animated: true, completion: nil)
     }
     
-    private let min = 1 , max = 10
+    private let min = 1 , max = 18
     
     override func viewDidLoad() {
         super.viewDidLoad()

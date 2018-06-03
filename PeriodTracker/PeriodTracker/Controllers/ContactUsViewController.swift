@@ -154,7 +154,7 @@ class ContactUsViewController: UIViewController {
         if sender == instagramButton {
             link = "https://instagram.com/royanapp.ir"
         } else if sender == telegramButton {
-            link = "https://telegram.me/RoyanApp_ir"
+            link = "https://telegram.me/AppLauncher_support"
         } else if sender == twitterButton {
             link = "https://twitter.com/irperiodtracker"
         } else if sender == webButton {

@@ -1089,15 +1089,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Il-tR-OW8">
-                                <rect key="frame" x="36" y="266" width="303" height="100"/>
+                                <rect key="frame" x="36" y="266" width="303" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="apw-0a-Ozr"/>
+                                    <constraint firstAttribute="height" constant="150" id="apw-0a-Ozr"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="آیا از طول آخرین ">
                                         <attributes>
                                             <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <font key="NSFont" metaFont="system" size="23"/>
                                             <real key="NSKern" value="2"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
@@ -1105,7 +1105,7 @@
                                     <fragment content="دوره">
                                         <attributes>
                                             <color key="NSColor" red="0.074510000000000007" green="0.49412" blue="0.40783999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="23" name="IRANSans-Medium"/>
+                                            <font key="NSFont" metaFont="system" size="23"/>
                                             <real key="NSKern" value="2"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                             <integer key="NSUnderline" value="1"/>
@@ -1117,7 +1117,7 @@
 برایتان رخ داده اطلاع دارید؟</string>
                                         <attributes>
                                             <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <font key="NSFont" metaFont="system" size="23"/>
                                             <real key="NSKern" value="2"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                             <color key="NSUnderlineColor" red="0.074510000000000007" green="0.49412" blue="0.40783999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1226,7 +1226,7 @@
                                     <fragment content="آیا از طول مدت آخرین ">
                                         <attributes>
                                             <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <font key="NSFont" metaFont="system" size="23"/>
                                             <real key="NSKern" value="2"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
@@ -1234,7 +1234,7 @@
                                     <fragment content="پریودیتان">
                                         <attributes>
                                             <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="23" name="IRANSans-Medium"/>
+                                            <font key="NSFont" metaFont="system" size="23"/>
                                             <real key="NSKern" value="2"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                             <integer key="NSUnderline" value="1"/>
@@ -1246,7 +1246,7 @@
  اطلاع دارید؟</string>
                                         <attributes>
                                             <color key="NSColor" red="0.50195999999999996" green="0.50195999999999996" blue="0.50195999999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="23" name="IRANSans-Light"/>
+                                            <font key="NSFont" metaFont="system" size="23"/>
                                             <real key="NSKern" value="2"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                             <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

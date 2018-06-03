@@ -369,7 +369,7 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         
         self.titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30).isActive = true
         self.titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.titleLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.titleLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         
         self.logoImageView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 15).isActive = true
@@ -409,7 +409,7 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         
         noButtonViewHolder.addSubview(noButton)
         
-        noButtonViewHolder.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        noButtonViewHolder.heightAnchor.constraint(equalToConstant: 40).isActive = true
         self.noButton.centerXAnchor.constraint(equalTo: noButtonViewHolder.centerXAnchor).isActive = true
         self.noButton.centerYAnchor.constraint(equalTo: noButtonViewHolder.centerYAnchor).isActive = true
         
@@ -495,7 +495,7 @@ class LicenseViewController: UIViewController, LicenseDelegate {
     
     
     @objc func supportButtonTapped() {
-        let telegramHooks = "tg://resolve?domain=App_Launcher"
+        let telegramHooks = "tg://resolve?domain=AppLauncher_support"
         let telegramUrl = NSURL(string: telegramHooks)
         if UIApplication.shared.canOpenURL(telegramUrl! as URL)
         {
