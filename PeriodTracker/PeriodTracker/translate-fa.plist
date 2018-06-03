@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cycleLengthViewController</key>
+	<string>صفحه انتخاب طول دوره پریودی </string>
+	<key>dayLogViewController</key>
+	<string></string>
+	<key>pregnantViewController</key>
+	<string>صفحه بارداری</string>
+	<key>periodLengthViewController</key>
+	<string>صفحه انتخاب طول پریودی</string>
+	<key>cycleViewController</key>
+	<string>صفحه دوره جاری</string>
+	<key>lastPeriodViewController</key>
+	<string>صفحه انتخاب آخرین پریودی</string>
+	<key>calendarViewController</key>
+	<string>صفحه تقویم</string>
+	<key>ailment</key>
+	<string>بیماری</string>
+	<key>appointment</key>
+	<string>قرار</string>
+	<key>bleeding</key>
+	<string>خونریزی</string>
+	<key>collection_method</key>
+	<string>جلوگیری از خونریزی</string>
+	<key>craving</key>
+	<string>اشتها</string>
+	<key>digestion</key>
+	<string>هضم</string>
+	<key>emotions</key>
+	<string>احساسات</string>
+	<key>energy</key>
+	<string>انرژی</string>
+	<key>exercise</key>
+	<string>ورزش</string>
+	<key>fluid</key>
+	<string>مایعات</string>
+	<key>hair</key>
+	<string>مو</string>
+	<key>injection</key>
+	<string>تزریق</string>
+	<key>iud</key>
+	<string>IUD</string>
+	<key>medication</key>
+	<string>دارو</string>
+	<key>mental</key>
+	<string>ذهنی</string>
+	<key>meditation</key>
+	<string>مراقبه</string>
+	<key>motivation</key>
+	<string>انگیزه</string>
+	<key>note</key>
+	<string>نوشته</string>
+	<key>pain</key>
+	<string>درد</string>
+	<key>party</key>
+	<string>مهمانی</string>
+	<key>patch</key>
+	<string>پچ</string>
+	<key>pill</key>
+	<string>قرص</string>
+	<key>ring</key>
+	<string>حلقه</string>
+	<key>sex</key>
+	<string>نزدیکی</string>
+	<key>skin</key>
+	<string>پوست</string>
+	<key>sleep</key>
+	<string>خواب</string>
+	<key>social</key>
+	<string>روابط اجتماعی</string>
+	<key>stool</key>
+	<string>مدفوع</string>
+	<key>temperature</key>
+	<string>دما</string>
+	<key>tests</key>
+	<string>تست</string>
+	<key>weight</key>
+	<string>وزن</string>
+	<key>fever</key>
+	<string>تب</string>
+	<key>cold</key>
+	<string>سرماخوردگی</string>
+	<key>allergy</key>
+	<string>حساسیت</string>
+	<key>injury</key>
+	<string>آسیب بدنی</string>
+	<key>light</key>
+	<string>کم</string>
+	<key>medium</key>
+	<string>متوسط</string>
+	<key>heavy</key>
+	<string>زیاد</string>
+	<key>spotting</key>
+	<string>لکه بینی</string>
+	<key>tampon</key>
+	<string>تامپون</string>
+	<key>pad</key>
+	<string>نوار بهداشتی</string>
+	<key>panty_liner</key>
+	<string>لباس زیر</string>
+	<key>menstural_cup</key>
+	<string>فنجان قاعدگی</string>
+	<key>sweet</key>
+	<string>شیرینی</string>
+	<key>salty</key>
+	<string>شوری</string>
+	<key>carbs</key>
+	<string>کربوهیدرات</string>
+	<key>chocolate</key>
+	<string>شکلات</string>
+	<key>great</key>
+	<string>عالی</string>
+	<key>bloated</key>
+	<string>نفخ</string>
+	<key>nauseated</key>
+	<string>تهوع</string>
+	<key>gassy</key>
+	<string>گازدار</string>
+	<key>happy</key>
+	<string>خوشحال</string>
+	<key>sensitive</key>
+	<string>حساس</string>
+	<key>sad</key>
+	<string>غمگین</string>
+	<key>pms</key>
+	<string>pms</string>
+	<key>energized</key>
+	<string>خیلی زیاد</string>
+	<key>high</key>
+	<string>زیاد</string>
+	<key>low</key>
+	<string>کم</string>
+	<key>exhausted</key>
+	<string>خسته</string>
+	<key>running</key>
+	<string>دویدن</string>
+	<key>yoga</key>
+	<string>یوگا</string>
+	<key>biking</key>
+	<string>دوچرخه سواری</string>
+	<key>swimming</key>
+	<string>شنا</string>
+	<key>egg_white</key>
+	<string>سفید و گوله ای</string>
+	<key>sticky</key>
+	<string>چسبناک</string>
+	<key>creamy</key>
+	<string>کرمی</string>
+	<key>atypical</key>
+	<string>بدون حالت خاص</string>
+	<key>good_hair</key>
+	<string>خوش حالت</string>
+	<key>bad</key>
+	<string>بد حالت</string>
+	<key>oily</key>
+	<string>چرب</string>
+	<key>dry</key>
+	<string>خشک</string>
+	<key>pain_medication</key>
+	<string>آرامش بخش</string>
+	<key>cold_medication</key>
+	<string>سرماخوردگی</string>
+	<key>antibiotic</key>
+	<string>آنتیبیوتیک</string>
+	<key>antihistamine</key>
+	<string>آنتی هیستامین</string>
+	<key>focused</key>
+	<string>متمرکز</string>
+	<key>distracted</key>
+	<string>آشفته</string>
+	<key>calm</key>
+	<string>خونسرد</string>
+	<key>stressed</key>
+	<string>استرسی</string>
+	<key>cramps</key>
+	<string>گرفتگی عضلانی</string>
+	<key>headache</key>
+	<string>سردرد</string>
+	<key>ovulation</key>
+	<string>تخمک گذاری</string>
+	<key>breast</key>
+	<string>پستان حساس</string>
+	<key>taken</key>
+	<string>مصرف شده</string>
+	<key>late</key>
+	<string>تاخیر &lt;۲۴</string>
+	<key>missed</key>
+	<string>تاخیر &gt;۲۴</string>
+	<key>double</key>
+	<string>فراموشی ۲ قرص</string>
+	<key>unprotected</key>
+	<string>محافظت نشده</string>
+	<key>protected</key>
+	<string>محافظت شده</string>
+	<key>good_skin</key>
+	<string>نرمال</string>
+	<key>oily_skin</key>
+	<string>چرب</string>
+	<key>dry_skin</key>
+	<string>خشک</string>
+	<key>acne</key>
+	<string>آکنه</string>
+	<key>0_3</key>
+	<string>0-3</string>
+	<key>3_6</key>
+	<string>3-5</string>
+	<key>6_9</key>
+	<string>6-9</string>
+	<key>9_up</key>
+	<string>9 up</string>
+	<key>great_stool</key>
+	<string>عالی</string>
+	<key>normal</key>
+	<string>نرمال</string>
+	<key>constipated</key>
+	<string>یبوست</string>
+	<key>diarrhea</key>
+	<string>اسهال</string>
+</dict>
+</plist>

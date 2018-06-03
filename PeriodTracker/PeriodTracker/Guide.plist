@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cycleLengthViewController</key>
+	<string>[
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;طول مدت دوره پریودیتان را میتوانید به صورت تقریبی و دقیق توسط این صفحه انتخاب کنید.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Medium@13&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  }
+]
+</string>
+	<key>dayLogViewController</key>
+	<string>[
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;,
+        &quot;range&quot;: &quot;14...40&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;C30F1B&quot;
+      },
+      {
+        &quot;key&quot;: &quot;link&quot;,
+        &quot;value&quot;: &quot;http://www.periodtracker.ir&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;,
+        &quot;range&quot;: &quot;14...40&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;C30F1B&quot;
+      },
+      {
+        &quot;key&quot;: &quot;link&quot;,
+        &quot;value&quot;: &quot;http://www.periodtracker.ir&quot;
+      }
+    ]
+  }
+]
+</string>
+	<key>pregnantViewController</key>
+	<string>[
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;در این صفحه می توانید جزییات وضعیت جنین خود را مشاهده کنید، برای مشاهده جزییات بیشتر به مقاله قرار گرفته در پایین صفحه مراجعه کنید، همچنین در این وضعیت روز هایی با رنگ آبی مشخص شده اند که نمایانگر ابتدای هفته بارداری خواهد بود. مقالات هفته اول و دوم رایگان است و هفته های بعد از آن تنها با خرید اشتراک قابل دسترسی خواهد بود.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Medium@13&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;db2b42&quot;,
+        &quot;range&quot;: &quot;290...11&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;049ae4&quot;,
+        &quot;range&quot;: &quot;88...5&quot;
+      }
+    ]
+  }
+]
+</string>
+	<key>periodLengthViewController</key>
+	<string>[
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;طول مدت پریودی را میتوانید به صورت تقریبی و دقیق توسط این صفحه انتخاب کنید.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Medium@13&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  }
+]
+</string>
+	<key>cycleViewController</key>
+	<string>[
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;این صفحه به شما دوره جاری که در آن قرار دارید نشان خواهد داد، میتوانید از راهنمای زیر برای استفاده از این صفحه استفاده کنید:&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Medium@13&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ قرمز کم رنگ»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;EF9A9A&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;یکی از کاربرد های این برنامه پیش بینی روزهای آتی شماست، این رنگ به معنای پیش بینی روزهای پریودی است.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ آبی کم رنگ»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;00abc1&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;این رنگ به معنای پیش بینی دوران اوج تخمک گذاری است که برای بارداری و عدم بارداری باید توجه ویژه ای به این قسمت داشت، همچنین در این میان یک روز با این رنگ (کمی پر رنگ تر) مشخص شده است که روزی است که بیشترین احتمال تخمک گذاری در آن روز پیش بینی میشود&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;0096a6&quot;,
+        &quot;range&quot;: &quot;146...7&quot;
+      },
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;,
+        &quot;range&quot;: &quot;146...7&quot;
+      },
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)@13&quot;,
+        &quot;range&quot;: &quot;153...17&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ خاکستری»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;d1d1d1&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;این رنگ نمایانگر روز های بروز علایم قاعدگی است که به اختصار PMS نامیده میشود.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  }
+]
+</string>
+	<key>lastPeriodViewController</key>
+	<string>[
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;آخرین پریودی که در ماه اخیر برایتان اتفاق افتاده را مشخص کنید، در صورت فراموشی می توانید زمان تقریبی را انتخاب کنید.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Medium@13&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  }
+]
+</string>
+	<key>calendarViewController</key>
+	<string>[
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;صفحه تقویم برای نمایش دوره آینده شما و همچنین برای ثبت و نمایش پریودی های گذشته شماست. هر روز داخل تقویم می تواند با رنگ هایی با معنی مشخص شود، برای معانی این رنگ ها لطفا ادامه توضیحات را مطالعه کنید:&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Medium@13&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ قرمز»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;b61c1c&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;رنگ قرمز به معنای روز هایی است که شما توسط برنامه در آن تاریخ خونریزی را گزارش کرده اید، شما میتوانید برای ثبت گزارشات بروی روز مد نظرتان کلیک کرده تا به حالت انتخاب در بیاید و پس از اطمینان حاصل کردن از روز انتخاب شده دوباره بروی آن کلیک کنید.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ قرمز کم رنگ»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;EF9A9A&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;یکی از کاربرد های این برنامه پیش بینی روزهای آتی شماست، این رنگ به معنای پیش بینی روزهای پریودی است.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ آبی کم رنگ»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;00abc1&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;این رنگ به معنای پیش بینی دوران اوج تخمک گذاری است که برای بارداری و عدم بارداری باید توجه ویژه ای به این قسمت داشت، همچنین در این میان یک روز با این رنگ (کمی پر رنگ تر) مشخص شده است که روزی است که بیشترین احتمال تخمک گذاری در آن روز پیش بینی میشود&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;0096a6&quot;,
+        &quot;range&quot;: &quot;146...7&quot;
+      },
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;,
+        &quot;range&quot;: &quot;146...7&quot;
+      },
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)@13&quot;,
+        &quot;range&quot;: &quot;153...17&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ خاکستری»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;d1d1d1&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;این رنگ نمایانگر روز های بروز علایم قاعدگی است که به اختصار PMS نامیده میشود.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;----««رنگ آبی»»----&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;center&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;049ae4&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;attribute_text&quot;,
+    &quot;text&quot;: &quot;یکی از امکانات این برنامه امکان فعال کردن حالت بارداری است، بعد از فعال کردن این ویژگی از صفحه تنظیمات هفته های بارداری شما از اولین روز آخرین دوره پریودی که خونریزی در آن گزارش کرده اید محاسبه خواهد شد، در این حالت شما میتوانید وضعیت جنین، مقاله مربوط به هفته بارداری و... را در اختیار داشته باشید.&quot;,
+    &quot;attributes&quot;: [
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSans(FaNum)&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_alignment&quot;,
+        &quot;value&quot;: &quot;right&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;36454a&quot;
+      },
+      {
+        &quot;key&quot;: &quot;text_color&quot;,
+        &quot;value&quot;: &quot;b61c1c&quot;,
+        &quot;range&quot;: &quot;124...30&quot;
+      },
+      {
+        &quot;key&quot;: &quot;font&quot;,
+        &quot;value&quot;: &quot;IRANSansFaNum-Bold&quot;,
+        &quot;range&quot;: &quot;124...30&quot;
+      }
+    ]
+  }
+]
+</string>
+</dict>
+</plist>
