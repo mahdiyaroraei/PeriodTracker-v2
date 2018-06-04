@@ -81,6 +81,10 @@ class MyTabBarController: UITabBarController ,UITabBarControllerDelegate {
                 modal.dismissModal()
             }))
             UserDefaults.standard.set(true, forKey: "show-notification-alert")
+        } else {
+            // MARK: setup change log
+
+            
         }
     }
     

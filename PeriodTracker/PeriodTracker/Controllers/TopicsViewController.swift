@@ -139,7 +139,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         
         setupViews()
         
-        getDataFromServer()
+//        getDataFromServer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -191,7 +191,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TopicTableViewCell
         cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
         
-        // TODO verify my id
+        // TODO: verify my id
         
         if indexPath.section == sectionItems.keys.count - 1 && indexPath.row == sectionItems[Array(self.sectionItems.keys)[indexPath.section]]!.count - 1 && !lockOffset && !loadNewArticle {
             offset = offset + 1
