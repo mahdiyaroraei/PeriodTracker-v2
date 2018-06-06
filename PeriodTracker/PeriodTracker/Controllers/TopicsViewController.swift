@@ -12,7 +12,7 @@ import RealmSwift
 class TopicsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
     var loadNewArticle = true
-    let limit = 10
+    let limit = 20
     var lockOffset = false
     
     var sectionItems: [Date : [Topic]] = [ : ]
@@ -46,7 +46,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0.8
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+//        blurEffectView.isHidden = true
         return blurEffectView
     }()
     
@@ -107,7 +107,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         let tableView = UITableView()
         tableView.rowHeight = 110
         tableView.semanticContentAttribute = .forceRightToLeft
-        
+        tableView.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xecf0f1)
+        tableView.separatorColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -153,35 +154,35 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         return self.sectionItems.keys.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let date = Array(self.sectionItems.keys)[section]
-        
-        let headerView = UIView()
-        
-        let label: UILabel = {
-            let l = UILabel()
-            l.font(.IRANYekanBold , size: 13)
-            l.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-            l.layer.cornerRadius = 20
-            l.translatesAutoresizingMaskIntoConstraints = false
-            l.textAlignment = .center
-            return l
-        }()
-        
-        headerView.addSubview(label)
-        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
-        label.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "fa_IR")
-        dateFormatter.dateStyle = .medium
-        let today = dateFormatter.string(from: date)
-        
-        label.text = today
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let date = Array(self.sectionItems.keys)[section]
+//
+//        let headerView = UIView()
+//
+//        let label: UILabel = {
+//            let l = UILabel()
+//            l.font(.IRANYekanBold , size: 13)
+//            l.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+//            l.layer.cornerRadius = 20
+//            l.translatesAutoresizingMaskIntoConstraints = false
+//            l.textAlignment = .center
+//            return l
+//        }()
+//
+//        headerView.addSubview(label)
+//        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+//        label.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
+//        label.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+//        label.heightAnchor.constraint(equalToConstant: 25).isActive = true
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "fa_IR")
+//        dateFormatter.dateStyle = .medium
+//        let today = dateFormatter.string(from: date)
+//
+//        label.text = today
+//        return headerView
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sectionItems[Array(self.sectionItems.keys)[section]]!.count
@@ -256,8 +257,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         self.blurEffectView.contentView.addSubview(self.noticeLabel)
         self.blurEffectView.contentView.addSubview(self.submitButton)
         
-        self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
-        
+//        self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
+        self.blurEffectView.isHidden = true
         self.nikNameTextField.centerYAnchor.constraint(equalTo: self.blurEffectView.centerYAnchor , constant: -75).isActive = true
         self.nikNameTextField.centerXAnchor.constraint(equalTo: self.blurEffectView.centerXAnchor).isActive = true
         

@@ -12,6 +12,8 @@ class TopicTableViewCell: UITableViewCell {
     
     var model: Topic! {
         didSet {
+            self.backgroundColor = .clear
+            
             self.dateLabel.text = Utility.timeAgoSince(model.updated_at)
             self.subjectLabel.text = model.subject
             self.descLabel.text = model.content
@@ -74,6 +76,15 @@ class TopicTableViewCell: UITableViewCell {
         return label
     }()
     
+    let backView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 8
+        return view
+    }()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -85,11 +96,17 @@ class TopicTableViewCell: UITableViewCell {
     }
     
     func setupViews() {
+        self.addSubview(backView)
         self.addSubview(topicMenuIconImageView)
         self.addSubview(dateLabel)
         self.addSubview(subjectLabel)
         self.addSubview(verfiedImageView)
         self.addSubview(descLabel)
+
+        self.backView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        self.backView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4).isActive = true
+        self.backView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
+        self.backView.heightAnchor.constraint(equalToConstant: 105).isActive = true
         
         self.topicMenuIconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor , constant: 17).isActive = true
         self.topicMenuIconImageView.topAnchor.constraint(equalTo: self.topAnchor , constant: 17).isActive = true
