@@ -11,6 +11,7 @@ struct Topic: Decodable {
     var id: Int
     var subject: String
     var content: String
+    var category: String
     var user: Users
     var created_at: Date
     var updated_at: Date

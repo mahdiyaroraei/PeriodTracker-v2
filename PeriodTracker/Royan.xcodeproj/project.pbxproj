@@ -117,6 +117,8 @@
 		730DB3021EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */; };
 		730DB3031EFBB2C3001495EF /* IRANSans(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */; };
 		730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DB3051EFBE07B001495EF /* BuyViewController.swift */; };
+		73A67AEE20C858010091E609 /* TopicsViewController+CategoryCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A67AED20C858010091E609 /* TopicsViewController+CategoryCV.swift */; };
+		73A67AF020C85DC80091E609 /* CategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A67AEF20C85DC80091E609 /* CategoryCVCell.swift */; };
 		A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -261,6 +263,8 @@
 		730DB2FC1EFBB2C3001495EF /* IRANSans(FaNum)_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_UltraLight.ttf"; sourceTree = "<group>"; };
 		730DB2FD1EFBB2C3001495EF /* IRANSans(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum).ttf"; sourceTree = "<group>"; };
 		730DB3051EFBE07B001495EF /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuyViewController.swift; path = Controllers/BuyViewController.swift; sourceTree = "<group>"; };
+		73A67AED20C858010091E609 /* TopicsViewController+CategoryCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopicsViewController+CategoryCV.swift"; sourceTree = "<group>"; };
+		73A67AEF20C85DC80091E609 /* CategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCVCell.swift; sourceTree = "<group>"; };
 		889AF98AD015A836D74612B9 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,6 +390,7 @@
 				55FD759D1F53DB61002CCC52 /* ArticleFooterTableViewCell.swift */,
 				559567E01FF0F3F7001A8231 /* TopicTableViewCell.swift */,
 				550630F01FF264EA009145C4 /* MessageTableViewCell.swift */,
+				73A67AEF20C85DC80091E609 /* CategoryCVCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				555235191F485644006B402F /* PricingViewController.swift */,
 				55FD75931F51A3B1002CCC52 /* ConversationViewController.swift */,
 				5580225F1FEFF4C6001A0B58 /* TopicsViewController.swift */,
+				73A67AED20C858010091E609 /* TopicsViewController+CategoryCV.swift */,
 				550630EA1FF228AE009145C4 /* AddTopicViewController.swift */,
 				550630EE1FF260C5009145C4 /* TopicViewController.swift */,
 			);
@@ -760,6 +766,7 @@
 				556FB7E21F37365C006DDAB9 /* Article.swift in Sources */,
 				55F5FDA51F400E3E00761F71 /* ModalViewController.swift in Sources */,
 				55C6E94820C2DBDA00D158BB /* Person.swift in Sources */,
+				73A67AF020C85DC80091E609 /* CategoryCVCell.swift in Sources */,
 				55C6E93820C2D97B00D158BB /* LicenseHelper.swift in Sources */,
 				55F110491F45790E009C4B54 /* HorizontallyFlushCollectionViewFlowLayout.swift in Sources */,
 				556FB7E41F382768006DDAB9 /* Config.swift in Sources */,
@@ -804,6 +811,7 @@
 				559567D91FF0E9DD001A8231 /* Http.swift in Sources */,
 				55C6E93620C2D24800D158BB /* LicenseViewController.swift in Sources */,
 				5552351E1F4879C5006B402F /* Pricing.swift in Sources */,
+				73A67AEE20C858010091E609 /* TopicsViewController+CategoryCV.swift in Sources */,
 				556FB7EE1F3851C6006DDAB9 /* Item.swift in Sources */,
 				55B9BD361EF94ADE00F75794 /* AppDelegate.swift in Sources */,
 				55016A6F1F29C22F00EC567E /* CycleViewController.swift in Sources */,

@@ -9,7 +9,8 @@
 import UIKit
 
 class TopicTableViewCell: UITableViewCell {
-    
+    let colorName = [Colors.niceBlue, Colors.niceYellow, Colors.niceRed, Colors.niceGreen]
+
     var model: Topic! {
         didSet {
             self.backgroundColor = .clear
@@ -18,6 +19,16 @@ class TopicTableViewCell: UITableViewCell {
             self.subjectLabel.text = model.subject
             self.descLabel.text = model.content
             
+            if model.category == "pregnant"{
+                self.topicMenuIconImageView.tintColor = colorName[0]
+            } else if model.category == "sick"{
+                self.topicMenuIconImageView.tintColor = colorName[1]
+            } else if model.category == "period"{
+                self.topicMenuIconImageView.tintColor = colorName[2]
+            } else {
+                self.topicMenuIconImageView.tintColor = colorName[3]
+            }
+            
             self.verfiedImageView.isHidden = model.user.verified != 1
         }
     }
@@ -25,7 +36,7 @@ class TopicTableViewCell: UITableViewCell {
     
     let topicMenuIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "ic_topic_menu")
+        imageView.image = UIImage(named: "ic_topic_menu")?.withRenderingMode(.alwaysTemplate)
         
         imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 15).isActive = true

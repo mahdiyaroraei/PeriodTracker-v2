@@ -19,6 +19,14 @@ class Colors: NSObject {
     static let fertileDayCycleColor = UIColor.uicolorFromHex(rgbValue: 0x00B8D4)
     static let pmsCycleColor = UIColor.uicolorFromHex(rgbValue: 0xEEEEEE)
     
+    // Forum colors
+    static let toosi = UIColor.uicolorFromHex(rgbValue: 0xecf0f1)
+    static let darkToosi = UIColor.uicolorFromHex(rgbValue: 0xbdc3c7)
+    static let niceBlue = UIColor.uicolorFromHex(rgbValue: 0x3498db)
+    static let niceYellow = UIColor.uicolorFromHex(rgbValue: 0xf1c40f)
+    static let niceRed = UIColor.uicolorFromHex(rgbValue: 0xe74c3c)
+    static let niceGreen = UIColor.uicolorFromHex(rgbValue: 0x1abc9c)
+    
     
     // Day cell colors
     static let normalCellColor = UIColor.uicolorFromHex(rgbValue: 0xe1e4e7)

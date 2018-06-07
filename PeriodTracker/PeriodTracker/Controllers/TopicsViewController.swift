@@ -14,8 +14,11 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     var loadNewArticle = true
     let limit = 20
     var lockOffset = false
-    
     var sectionItems: [Date : [Topic]] = [ : ]
+    let colorName = [Colors.niceBlue, Colors.niceYellow, Colors.niceRed, Colors.niceGreen]
+    var trashModel: [Topic] = []
+    let category: [String] = ["pregnant", "sick", "period", "more"]
+    var filterCategory: [String] = [""]
     
     var models: [Topic] = [] {
         didSet {
@@ -40,6 +43,21 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
             }
         }
     }
+    
+    lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 0
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xecf0f1)
+        cv.delegate = self
+        cv.dataSource = self
+        cv.allowsMultipleSelection = true
+        cv.allowsSelection = true
+        cv.register(CategoryCVCell.self, forCellWithReuseIdentifier: "categorycell")
+        return cv
+    }()
     
     let blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
@@ -119,9 +137,11 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xF6F6F6)
         
+        // setup Category CV
+        setupCV()
+        
+        self.view.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xecf0f1)
         self.title = "تالار"
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_nav_create_topic"), style: .plain, target: self, action: #selector(onCreateTopicTapped))
@@ -145,8 +165,9 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        collectionView.reloadData()
         self.models.removeAll()
+        self.filterCategory.removeAll()
         offset = 0
     }
     
@@ -194,9 +215,9 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         
         // TODO: verify my id
         
-        if indexPath.section == sectionItems.keys.count - 1 && indexPath.row == sectionItems[Array(self.sectionItems.keys)[indexPath.section]]!.count - 1 && !lockOffset && !loadNewArticle {
-            offset = offset + 1
-        }
+//        if indexPath.section == sectionItems.keys.count - 1 && indexPath.row == sectionItems[Array(self.sectionItems.keys)[indexPath.section]]!.count - 1 && !lockOffset && !loadNewArticle {
+//            offset = offset + 1
+//        }
         
         return cell
     }
@@ -240,6 +261,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
                     }
                     
                     self.models += serverModels
+                    self.trashModel += serverModels
                 } catch {
                     
                 }
@@ -271,7 +293,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         self.submitButton.centerXAnchor.constraint(equalTo: self.blurEffectView.centerXAnchor).isActive = true
         self.submitButton.topAnchor.constraint(equalTo: self.noticeLabel.bottomAnchor , constant: 17).isActive = true
         
-        self.topicTableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.topicTableView.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 4).isActive = true
         self.topicTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         self.topicTableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.topicTableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
