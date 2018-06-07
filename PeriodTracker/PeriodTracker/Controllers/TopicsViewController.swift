@@ -166,7 +166,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
-        self.models.removeAll()
+//        self.trashModel.removeAll()
+//        self.models.removeAll()
         self.filterCategory.removeAll()
         offset = 0
     }
@@ -223,7 +224,11 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     @objc func refresh(_ refreshControl: UIRefreshControl) {
+        self.sectionItems.removeAll()
         self.models.removeAll()
+        self.trashModel.removeAll()
+        collectionView.reloadData()
+        filterCategory.removeAll()
         offset = 0
     }
     
@@ -259,9 +264,13 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
                     } else {
                         self.lockOffset = false
                     }
-                    
-                    self.models += serverModels
-                    self.trashModel += serverModels
+                    DispatchQueue.main.async {
+                        self.trashModel.removeAll()
+                        self.models.removeAll()
+                        self.models += serverModels
+                        self.trashModel += serverModels
+                    }
+
                 } catch {
                     
                 }
@@ -279,8 +288,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         self.blurEffectView.contentView.addSubview(self.noticeLabel)
         self.blurEffectView.contentView.addSubview(self.submitButton)
         
-//        self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
-        self.blurEffectView.isHidden = true
+        self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
         self.nikNameTextField.centerYAnchor.constraint(equalTo: self.blurEffectView.centerYAnchor , constant: -75).isActive = true
         self.nikNameTextField.centerXAnchor.constraint(equalTo: self.blurEffectView.centerXAnchor).isActive = true
         

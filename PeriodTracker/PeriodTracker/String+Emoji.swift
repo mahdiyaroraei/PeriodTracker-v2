@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Safx Developers. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     

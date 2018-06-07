@@ -98,7 +98,7 @@ class TopicTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.prepareForReuse()
         setupViews()
     }
     
@@ -139,5 +139,13 @@ class TopicTableViewCell: UITableViewCell {
         self.descLabel.topAnchor.constraint(equalTo: self.subjectLabel.bottomAnchor , constant: 7).isActive = true
         self.descLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor , constant: -7).isActive = true
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.dateLabel.text = nil
+        self.subjectLabel.text = nil
+        self.descLabel.text = nil
+        self.topicMenuIconImageView.tintColor = nil
+    }
 }

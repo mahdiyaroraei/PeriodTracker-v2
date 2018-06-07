@@ -574,6 +574,7 @@ class LicenseViewController: UIViewController, LicenseDelegate {
     }
     
 }
+
 class TextField: UITextField {
     
     let padding = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 25);
