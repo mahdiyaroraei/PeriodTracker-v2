@@ -96,7 +96,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         textView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         textView.backgroundColor = .clear
         textView.layer.borderColor = UIColor.lightGray.cgColor
-        textView.layer.borderWidth = 1
+        textView.layer.borderWidth = 0.5
         textView.text = "پیام خود را بنویسید..."
         textView.textColor = .lightGray
         textView.font(.IRANSans)
@@ -225,7 +225,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let date = Array(self.sectionItems.keys)[section]
+        let date = Array(self.sectionItems.keys.sorted())[section]
         
         let headerView = UIView()
         
@@ -263,13 +263,8 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MessageTableViewCell
-        cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
-        
-        
-        if indexPath.section == 0 && indexPath.row == 0 && !lockOffset && !loadNewArticle && isScrollToBottom {
-            offset = offset + 1
-        }
-        
+//        cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
+        cell.model = self.sectionItems[self.sectionItems.keys.sorted()[indexPath.section]]![indexPath.row]
         
         return cell
     }
@@ -302,7 +297,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
                     
                     let serverModels = try self.decoder.decode([Message].self , from: data)
                     
-                    if serverModels.count < self.limit {
+                    if serverModels.count > 0 {
                         // All topics loads
                         self.lockOffset = true
                     } else {
