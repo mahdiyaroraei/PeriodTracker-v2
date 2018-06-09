@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 // for update tableview after selecting another cell for deselect enabled cell from another collectionview
 protocol SelectCellDelegate: class {
     func updateTableView()

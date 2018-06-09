@@ -271,8 +271,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
                         self.trashModel += serverModels
                     }
 
-                } catch {
-                    
+                } catch let err {
+                    print(err)
                 }
             }
             self.loadNewArticle = false
