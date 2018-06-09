@@ -288,8 +288,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         self.blurEffectView.contentView.addSubview(self.noticeLabel)
         self.blurEffectView.contentView.addSubview(self.submitButton)
         
-//        self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
-        self.blurEffectView.isHidden = true
+        self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
+//        self.blurEffectView.isHidden = true
         
         self.nikNameTextField.centerYAnchor.constraint(equalTo: self.blurEffectView.centerYAnchor , constant: -75).isActive = true
         self.nikNameTextField.centerXAnchor.constraint(equalTo: self.blurEffectView.centerXAnchor).isActive = true
