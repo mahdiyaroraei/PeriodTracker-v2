@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
     
     public static var pricingViewController: UIViewController?
     public static var buyViewController: UIViewController?
+    
+    public var licenseViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -136,6 +138,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
                     return
                 }
                 
+                Config.isPermiumUser = true
+                
                 let realm = try! Realm()
                 if let user = realm.objects(User.self).last {
                     try! realm.write {
@@ -144,7 +148,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
                         user.license_id = licenseId
                     }
                 } else {
-                    
                     try! realm.write {
                         let user = User()
                         user.email = email
@@ -153,17 +156,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OSSubscriptionObserver {
                         
                         realm.add(user)
                     }
-                    
                 }
-//                ArticleViewController.subscribe = true
-                AppDelegate.pricingViewController?.showModal(modalObject: Modal(title: "با موفقیت وارد شدید", desc: "اشتراک شما با ایمیل \(email) با موفقیت فعال شد.", image: UIImage(named: "modal-code"), leftButtonTitle: "باشه", rightButtonTitle: "", onLeftTapped: { (modal) in
-                    modal.dismissModal()
-                }, onRightTapped: { (modal) in
-                    
-                }))
-                let vc = AppDelegate.buyViewController?.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController")
-                AppDelegate.buyViewController?.present(vc!, animated: true, completion: nil)
                 
+                let successPaymentDialog = UIAlertController(title: "خرید موفق", message: "برنامه برای شما فعال شد، امیدواریم از برنامه لذت ببرید", preferredStyle: .alert)
+                successPaymentDialog.addAction(UIAlertAction(title: "باشه", style: .default, handler: { (alert) in
+                   self.licenseViewController?.dismiss(animated: true, completion: nil)
+                }))
+                
+                self.licenseViewController?.present(successPaymentDialog, animated: true, completion: nil)
             }
         })
         

@@ -45,6 +45,7 @@ class ArticlePageViewController: UIViewController , UICollectionViewDelegate , U
         super.viewDidAppear(animated)
         
         if !Config.isPermiumUser {
+            self.navigationController?.popViewController(animated: true)
             self.present(LicenseViewController(), animated: true, completion: nil)
         }
     }
