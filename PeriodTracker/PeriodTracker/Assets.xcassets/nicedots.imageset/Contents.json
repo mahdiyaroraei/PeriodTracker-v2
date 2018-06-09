@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "nicedots.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "big-and-small-dots.png",
       "scale" : "2x"
     },
     {

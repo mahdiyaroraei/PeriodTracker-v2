@@ -162,6 +162,9 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         topicTableView.dataSource = self
         topicTableView.delegate = self
         topicTableView.register(MessageTableViewCell.self, forCellReuseIdentifier: "cell")
+        topicTableView.register(TopicTableViewCell.self, forCellReuseIdentifier: "tcell")
+
+        topicTableView.setContentOffset(.zero, animated: true)
         
         setupViews()
         
@@ -225,6 +228,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
         let date = Array(self.sectionItems.keys.sorted())[section]
         
         let headerView = UIView()
@@ -255,18 +259,29 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         
         label.text = today
         return headerView
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sectionItems[Array(self.sectionItems.keys)[section]]!.count
+        return self.sectionItems[Array(self.sectionItems.keys)[section]]!.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MessageTableViewCell
-//        cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
-        cell.model = self.sectionItems[self.sectionItems.keys.sorted()[indexPath.section]]![indexPath.row]
         
-        return cell
+        if indexPath.row == 0 {
+            
+            let tcell = tableView.dequeueReusableCell(withIdentifier: "tcell") as! TopicTableViewCell
+            tcell.model = topic
+            return tcell
+        } else {
+//            indexPath = indexPath(row: indexPath.row , section: indexPath.section)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MessageTableViewCell
+            cell.model = self.sectionItems[self.sectionItems.keys.sorted()[indexPath.section]]![indexPath.row-1]
+            return cell
+        }
+
+        
+        
     }
     
     @objc func refresh(_ refreshControl: UIRefreshControl) {
