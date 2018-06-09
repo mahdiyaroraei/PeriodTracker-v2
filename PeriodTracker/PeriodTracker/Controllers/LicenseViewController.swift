@@ -524,13 +524,15 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         if emailTest.evaluate(with: email) {
             LicenseHelper.getInstance(delegate: self).buy(email: email, code: codeTextField?.text, completion: { (success) in
                 
-                self.buyButton.setTitle("خرید برنامه", for: .normal)
-                self.loadingActivityIndicator.stopAnimating()
-                
-                if success {
-                    //
-                } else {
-                    self.showMessage(text: "مشکلی رخ داده است")
+                DispatchQueue.main.async {
+                    self.buyButton.setTitle("خرید برنامه", for: .normal)
+                    self.loadingActivityIndicator.stopAnimating()
+                    
+                    if success {
+                        //
+                    } else {
+                        self.showMessage(text: "مشکلی رخ داده است")
+                    }
                 }
             })
         } else {
@@ -566,6 +568,10 @@ class LicenseViewController: UIViewController, LicenseDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if let appDelegate = UIApplication.shared.delegate , let delegate = appDelegate as? AppDelegate {
+            delegate.licenseViewController = self
+        }
         
         if UserDefaults.standard.bool(forKey: "another-device-use-this-code") {
             self.showMessage(text: "در دستگاه دیگری با این کد وارد شده‌اید.")
