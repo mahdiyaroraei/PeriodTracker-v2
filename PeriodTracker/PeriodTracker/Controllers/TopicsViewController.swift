@@ -11,6 +11,8 @@ import RealmSwift
 
 class TopicsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
+    let realm = try! Realm()
+    
     var loadNewArticle = true
     let limit = 20
     var lockOffset = false
@@ -153,6 +155,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         
         topicTableView.refreshControl = refreshControl
+        topicTableView.refreshControl?.beginRefreshing()
         
         topicTableView.dataSource = self
         topicTableView.delegate = self
@@ -289,6 +292,11 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         self.blurEffectView.contentView.addSubview(self.submitButton)
         
         self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
+        
+        if let _ = realm.objects(User.self).last {
+            self.blurEffectView.isHidden = true
+        }
+        
         self.nikNameTextField.centerYAnchor.constraint(equalTo: self.blurEffectView.centerYAnchor , constant: -75).isActive = true
         self.nikNameTextField.centerXAnchor.constraint(equalTo: self.blurEffectView.centerXAnchor).isActive = true
         
@@ -323,8 +331,6 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         guard let playerId = UserDefaults.standard.string(forKey: "player_id") else { return }
         
         guard let nikName = nikNameTextField.text , nikName != "" else { return }
-        
-        let realm = try! Realm()
         
         if let user = realm.objects(User.self).last {
             
@@ -375,11 +381,19 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     @objc func onCreateTopicTapped() {
-        self.present(UINavigationController(rootViewController: AddTopicViewController()), animated: true, completion: nil)
+        if let _ = realm.objects(User.self).last {
+            self.present(UINavigationController(rootViewController: AddTopicViewController()), animated: true, completion: nil)
+        } else {
+            self.present(LicenseViewController(), animated: true, completion: nil)
+        }
     }
     
     @objc func onSearchTapped() {
-        self.blurEffectView.isHidden = false
+        if let _ = realm.objects(User.self).last {
+            self.blurEffectView.isHidden = false
+        } else {
+            self.present(LicenseViewController(), animated: true, completion: nil)
+        }
     }
 
 }

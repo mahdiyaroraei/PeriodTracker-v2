@@ -16,6 +16,8 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     let limit = 10
     var lockOffset = false
     var isScrollToBottom = false
+    var messageTextViewHeightConstraint: NSLayoutConstraint?
+    var firstMessageTextViewY: CGFloat?
     
     var offset = 0 {
         didSet {
@@ -61,7 +63,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
                 self.topicTableView.reloadData()
                 
                 if self.sectionItems.count > 0 , !self.isScrollToBottom {
-                    self.topicTableView.scrollToRow(at: IndexPath(row: self.sectionItems[Array(self.sectionItems.keys)[self.sectionItems.keys.count - 1]]!.count - 1, section: self.sectionItems.keys.count - 1), at: UITableViewScrollPosition.bottom, animated: false)
+                    self.topicTableView.scrollToRow(at: IndexPath(row: self.sectionItems[Array(self.sectionItems.keys.sorted())[self.sectionItems.keys.count - 1]]!.count - 1, section: self.sectionItems.keys.count - 1), at: UITableViewScrollPosition.bottom, animated: false)
                     self.isScrollToBottom = true
                 }
             }
@@ -93,7 +95,6 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     
     let messageTextView: UITextView = {
         let textView = UITextView()
-        textView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         textView.backgroundColor = .clear
         textView.layer.borderColor = UIColor.lightGray.cgColor
         textView.layer.borderWidth = 0.5
@@ -112,8 +113,6 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     let sendImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "ic_send_message"))
         imageView.contentMode = .scaleAspectFit
-        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         imageView.isUserInteractionEnabled = true
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -164,7 +163,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         topicTableView.register(MessageTableViewCell.self, forCellReuseIdentifier: "cell")
         
         setupViews()
-        
+    
         if let nikName = topic.user.nikname {
             topic.subject = nikName
         } else {
@@ -182,25 +181,16 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height - 50
-            self.topicTableView.frame.size.height = tableViewY - keyboardHeight
-            self.messageTextView.frame.origin.y = messageY - keyboardHeight
-            self.sendImageView.frame.origin.y = sendImageY - keyboardHeight
-            self.sendingActivityIndicatorBG.frame.origin.y = sendImageY - keyboardHeight
             
-            if self.sectionItems.count > 0 {
-                self.topicTableView.scrollToRow(at: IndexPath(row: self.sectionItems[Array(self.sectionItems.keys)[self.sectionItems.keys.count - 1]]!.count - 1, section: self.sectionItems.keys.count - 1), at: UITableViewScrollPosition.bottom, animated: true)
-            }
+            self.view.frame.origin.y = -keyboardHeight
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.topicTableView.frame.size.height = tableViewY
-        self.messageTextView.frame.origin.y = messageY
-        self.sendImageView.frame.origin.y = sendImageY
-        self.sendingActivityIndicatorBG.frame.origin.y = sendImageY
-        
+        self.view.frame.origin.y = 0
     }
     
     var tableViewY: CGFloat = 0
@@ -258,7 +248,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sectionItems[Array(self.sectionItems.keys)[section]]!.count
+        return self.sectionItems[Array(self.sectionItems.keys.sorted())[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -328,21 +318,24 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         self.topicTableViewCell.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         
         self.topicTableView.topAnchor.constraint(equalTo: self.topicTableViewCell.bottomAnchor , constant: 7).isActive = true
-        self.topicTableView.bottomAnchor.constraint(equalTo: self.messageTextView.topAnchor, constant: -7).isActive = true
         self.topicTableView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 7).isActive = true
         self.topicTableView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -7).isActive = true
+        self.topicTableView.bottomAnchor.constraint(equalTo: self.messageTextView.topAnchor, constant: -3).isActive = true
         
+        messageTextViewHeightConstraint = self.messageTextView.heightAnchor.constraint(equalToConstant: 44)
+        messageTextViewHeightConstraint?.isActive = true
         self.messageTextView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor , constant: -7).isActive = true
+        
         self.messageTextView.leftAnchor.constraint(equalTo: self.view.leftAnchor , constant: 7).isActive = true
         self.messageTextView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -7).isActive = true
         
         self.sendImageView.centerYAnchor.constraint(equalTo: self.messageTextView.centerYAnchor).isActive = true
         self.sendImageView.rightAnchor.constraint(equalTo: self.messageTextView.rightAnchor , constant: -2).isActive = true
-        
-        
+
+
         self.sendingActivityIndicatorBG.centerYAnchor.constraint(equalTo: self.sendImageView.centerYAnchor).isActive = true
         self.sendingActivityIndicatorBG.centerXAnchor.constraint(equalTo: self.sendImageView.centerXAnchor).isActive = true
-        
+
         self.sendingActivityIndicator.centerYAnchor.constraint(equalTo: self.sendingActivityIndicatorBG.centerYAnchor).isActive = true
         self.sendingActivityIndicator.centerXAnchor.constraint(equalTo: self.sendingActivityIndicatorBG.centerXAnchor).isActive = true
         
@@ -386,7 +379,16 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
                 }
                 self.sendingActivityIndicatorBG.isHidden = true
             }
+        } else {
+            self.present(LicenseViewController(), animated: true, completion: nil)
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let fixedWidth = textView.frame.size.width
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        messageTextViewHeightConstraint?.constant = min(newSize.height, 200)
+        messageTextView.layoutIfNeeded()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
