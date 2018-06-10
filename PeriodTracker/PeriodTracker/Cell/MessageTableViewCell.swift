@@ -28,6 +28,15 @@ class MessageTableViewCell: UITableViewCell {
             var newFrame = self.messageTextView.frame
             newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
             self.messageTextView.frame = newFrame;
+            
+            if (model.id == 0)  {
+                self.messageTextView.backgroundColor = Colors.toosi
+                self.messageTextView.textColor = .black
+                self.messageTextView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+            } else {
+                self.messageTextView.backgroundColor = Colors.accentColor
+                self.messageTextView.textColor = .white
+            }
         }
     }
     

@@ -44,6 +44,10 @@ extension TopicsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         sectionItems.removeAll()
         models.removeAll()
         
+        if filterCategory == [] {
+            offset = 0
+        }
+        
         for topic in self.trashModel {
             for cat in filterCategory {
                 if topic.category == cat {

@@ -14,7 +14,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     let realm = try! Realm()
     
     var loadNewArticle = true
-    let limit = 20
+    let limit = 200
     var lockOffset = false
     var sectionItems: [Date : [Topic]] = [ : ]
     let colorName = [Colors.niceBlue, Colors.niceYellow, Colors.niceRed, Colors.niceGreen]
@@ -215,8 +215,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TopicTableViewCell
-        cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
-        
+//        cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
+        cell.model = self.sectionItems[self.sectionItems.keys.sorted(by: >)[indexPath.section]]![0]
         // TODO: verify my id
         
 //        if indexPath.section == sectionItems.keys.count - 1 && indexPath.row == sectionItems[Array(self.sectionItems.keys)[indexPath.section]]!.count - 1 && !lockOffset && !loadNewArticle {
@@ -376,7 +376,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
         let topicViewController = TopicViewController()
-        topicViewController.topic = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
+        topicViewController.topic = self.sectionItems[self.sectionItems.keys.sorted(by: >)[indexPath.section]]![0]
+        
         self.navigationController?.pushViewController(topicViewController, animated: true)
     }
     

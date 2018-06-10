@@ -13,7 +13,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     
     
     var loadNewArticle = true
-    let limit = 10
+    let limit = 30
     var lockOffset = false
     var isScrollToBottom = false
     var messageTextViewHeightConstraint: NSLayoutConstraint?
@@ -31,18 +31,29 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     
     var topic: Topic! {
         didSet {
+            sectionItems.removeAll()
             if topic.disallow_send_message == 1 {
                 self.messageTextView.text = "شما دسترسی ارسال پیام در این تاپیک را ندارید"
                 self.messageTextView.isEditable = false
             }
             self.sendImageView.isHidden = topic.disallow_send_message == 1
+            let dateComponents = Calendar.current.dateComponents([.year , .month , .day], from: topic.created_at)
+            let date = Calendar.current.date(from: dateComponents)
+
+            if self.sectionItems[date!] == nil {
+                self.sectionItems[date!] = []
+            }
+            
+            let message = Message(id: 0, message: topic.content, topic: topic, user: topic.user, created_at: topic.created_at, updated_at: topic.updated_at)
+            
+            self.sectionItems[date!]?.append(message)
         }
     }
     
     var models: [Message] = [] {
         didSet {
             
-            sectionItems.removeAll()
+            
             
             for topic in self.models {
                 
@@ -74,7 +85,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         let cell = TopicTableViewCell()
         cell.semanticContentAttribute = .forceRightToLeft
         cell.backgroundColor = .white
-        
+        cell.isHidden = true
         cell.translatesAutoresizingMaskIntoConstraints = false
         return cell
     }()
@@ -161,6 +172,9 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         topicTableView.dataSource = self
         topicTableView.delegate = self
         topicTableView.register(MessageTableViewCell.self, forCellReuseIdentifier: "cell")
+        topicTableView.register(TopicTableViewCell.self, forCellReuseIdentifier: "tcell")
+
+        topicTableView.setContentOffset(.zero, animated: true)
         
         setupViews()
     
@@ -215,48 +229,57 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let date = Array(self.sectionItems.keys.sorted())[section]
-        
-        let headerView = UIView()
-        
-        let label: UILabel = {
-            let l = UILabel()
-            l.font(.IRANYekanBold , size: 13)
-            l.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-            l.layer.cornerRadius = 13
-            l.layer.masksToBounds = true
-            l.translatesAutoresizingMaskIntoConstraints = false
-            l.textAlignment = .center
-            return l
-        }()
-        
-        headerView.addSubview(label)
-        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
-        label.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 26).isActive = true
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "fa_IR")
-        dateFormatter.dateStyle = .medium
-        
-        let today = dateFormatter.string(from: date)
-        print(today)
-        
-        label.text = today
-        return headerView
+        if section == -1 {
+            let view = UIView()
+            view.isHidden = true
+            return view
+        } else {
+            
+            let date = Array(self.sectionItems.keys.sorted())[section]
+            
+            let headerView = UIView()
+            
+            let label: UILabel = {
+                let l = UILabel()
+                l.font(.IRANYekanBold , size: 13)
+                l.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+                l.layer.cornerRadius = 13
+                l.layer.masksToBounds = true
+                l.translatesAutoresizingMaskIntoConstraints = false
+                l.textAlignment = .center
+                return l
+            }()
+            
+            headerView.addSubview(label)
+            label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+            label.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
+            label.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            label.heightAnchor.constraint(equalToConstant: 26).isActive = true
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "fa_IR")
+            dateFormatter.dateStyle = .medium
+            
+            let today = dateFormatter.string(from: date)
+            print(today)
+            
+            label.text = today
+            return headerView
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sectionItems[Array(self.sectionItems.keys.sorted())[section]]!.count
+        return (sectionItems[self.sectionItems.keys.sorted()[section]]?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MessageTableViewCell
-//        cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MessageTableViewCell
         cell.model = self.sectionItems[self.sectionItems.keys.sorted()[indexPath.section]]![indexPath.row]
+
         
-        return cell
+            return cell
+        
     }
     
     @objc func refresh(_ refreshControl: UIRefreshControl) {
@@ -317,7 +340,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         self.topicTableViewCell.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.topicTableViewCell.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         
-        self.topicTableView.topAnchor.constraint(equalTo: self.topicTableViewCell.bottomAnchor , constant: 7).isActive = true
+        self.topicTableView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor , constant: 7).isActive = true
         self.topicTableView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 7).isActive = true
         self.topicTableView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -7).isActive = true
         self.topicTableView.bottomAnchor.constraint(equalTo: self.messageTextView.topAnchor, constant: -3).isActive = true
