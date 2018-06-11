@@ -77,7 +77,7 @@ class SettingViewController: UIViewController , UITableViewDelegate , UITableVie
         if settings[indexPath.item].key == "setup" {
             
             self.dismiss(animated: false, completion: nil)
-            
+            UserDefaults.standard.set(false, forKey: "setup-complete")
             if let delegate = UIApplication.shared.delegate as? AppDelegate {
                 delegate.window?.rootViewController?.present((self.storyboard?.instantiateViewController(withIdentifier: "setupPageViewController"))!, animated: true, completion: nil)
             }

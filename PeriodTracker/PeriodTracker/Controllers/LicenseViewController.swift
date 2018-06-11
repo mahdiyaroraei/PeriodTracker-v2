@@ -19,6 +19,7 @@ class LicenseViewController: UIViewController, LicenseDelegate {
     }
     
     var window: UIWindow?
+    var isRetrive: Bool = false
     
     let backgroundImage: UIImageView = {
         let imageView = UIImageView()
@@ -119,6 +120,14 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         }
     }
     
+    let codeImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        image.image = UIImage(named: "ic_local_offer")
+        return image
+    }()
+    
     var inputTextField: TextField {
         get {
             let textField = TextField()
@@ -158,6 +167,20 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         return button
     }()
     
+    let retriveButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("بازیابی خرید", for: .normal)
+        button.backgroundColor = .clear
+        button.titleLabel?.font(.IRANSansBold , size: 21)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 25
+        
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     let noButton: UIButton = {
         let button = UIButton()
         button.setTitle("فعلا نه", for: .normal)
@@ -166,7 +189,7 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 25
         
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -282,42 +305,9 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    //    let closeButton: UIButton = {
-    //        let b = UIButton()
-    //        b.setImage(UIImage(named: "exit")?.withRenderingMode(.alwaysTemplate), for: .normal)
-    //        b.tintColor = .white
-    //
-    //        return b
-    //    }()
-    
     func setupSupportView() {
-        //        let width = view.frame.width
-        //        let height = view.frame.height
-        //
-        //        view.addSubview(supportView)
-        ////        supportView.addSubview(supportImage)
-        //        supportView.addSubview(supportButtomYes)
-        //        supportView.addSubview(supportButtomNo)
-        //
-        //        supportView.frame = view.frame
-        //        supportImage.frame = supportView.frame
-        //        supportButtomNo.frame = CGRect(x: 0, y: height-60, width: width/2, height: 60)
-        //        supportButtomYes.frame = CGRect(x: width/2, y: height-60, width: width/2, height: 60)
-        
-        //        supportButtomYes.addTarget(self, action: #selector(YesTapped), for: .touchUpInside)
-        //        supportButtomNo.addTarget(self, action: #selector(NoTapped), for: .touchUpInside)
-        
     }
     
-    //    @objc func YesTapped() {
-    //        let width = view.frame.width
-    //        let height = view.frame.height
-    //
-    //        UIView.animate(withDuration: 0.4, delay: 0.2, options: .curveEaseIn, animations: {
-    //            self.supportView.frame = CGRect(x: 0, y: height, width: width, height: height)
-    //        }, completion: nil)
-    //    }
-    //
     @objc func NoTapped() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -416,12 +406,10 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         self.fieldsStackView.addArrangedSubview(self.emailTextField!)
         self.fieldsStackView.addArrangedSubview(self.codeTextField!)
         self.fieldsStackView.addArrangedSubview(buyButton)
+        self.fieldsStackView.addArrangedSubview(retriveButton)
         self.fieldsStackView.addArrangedSubview(noButtonViewHolder)
         
         let emailImageView = self.iconImageView
-        let codeImageView = self.iconImageView
-        
-        codeImageView.image = UIImage(named: "ic_local_offer")
         
         self.view.addSubview(emailImageView)
         self.view.addSubview(codeImageView)
@@ -440,33 +428,20 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         
         self.view.addSubview(bottomLine)
         self.view.addSubview(self.bottomStackView)
-        //        self.view.addSubview(self.movieStackView)
-        //        self.view.addSubview(movieButton)
         
         self.bottomStackView.addArrangedSubview(self.supportButton)
         self.bottomStackView.addArrangedSubview(self.supportLabel)
         
-        //        self.movieStackView.addArrangedSubview(self.movieImageView)
-        //        self.movieStackView.addArrangedSubview(self.movieLabel)
         
         bottomLine.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 17).isActive = true
         bottomLine.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -17).isActive = true
-        bottomLine.bottomAnchor.constraint(equalTo: self.bottomStackView.topAnchor, constant: -12).isActive = true
+        bottomLine.bottomAnchor.constraint(equalTo: self.bottomStackView.topAnchor, constant: 0).isActive = true
         
-        self.bottomStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -12).isActive = true
+        self.bottomStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -8).isActive = true
         self.bottomStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive
             = true
         
-        self.bottomStackView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        
-        //        self.movieStackView.bottomAnchor.constraint(equalTo: bottomLine.topAnchor, constant: -17).isActive = true
-        //        self.movieStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        //        self.movieStackView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        
-        //        self.movieButton.bottomAnchor.constraint(equalTo: bottomLine.topAnchor, constant: -17).isActive = true
-        //        self.movieButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        //        self.movieButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        //        self.movieButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.bottomStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         self.view.addSubview(self.loadingActivityIndicator)
         
@@ -485,7 +460,7 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         self.buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
-        
+        self.retriveButton.addTarget(self, action: #selector(retriveButtonTapped), for: .touchUpInside)
         self.supportButton.addTarget(self, action: #selector(supportButtonTapped), for: .touchUpInside)
         
         //        view.addSubview(closeButton)
@@ -493,6 +468,24 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         self.noButton.addTarget(self, action: #selector(NoTapped), for: .touchUpInside)
     }
     
+    @objc func retriveButtonTapped() {
+        //  hide discount animate - change color button - change title button
+        if isRetrive {
+            self.codeTextField?.isHidden = false
+            self.codeImageView.isHidden = false
+            self.retriveButton.setTitle("بازیابی خرید", for: .normal)
+            self.buyButton.setTitle("خرید برنامه", for: .normal)
+            isRetrive = false
+        } else {
+            self.codeTextField?.isHidden = true
+            self.codeImageView.isHidden = true
+            self.buyButton.setTitle("بازیابی خرید", for: .normal)
+            self.retriveButton.setTitle("خرید برنامه", for: .normal)
+            
+            isRetrive = true
+        }
+        self.view.layoutIfNeeded()
+    }
     
     @objc func supportButtonTapped() {
         let telegramHooks = "tg://resolve?domain=AppLauncher_support"
@@ -522,25 +515,51 @@ class LicenseViewController: UIViewController, LicenseDelegate {
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         if emailTest.evaluate(with: email) {
-            LicenseHelper.getInstance(delegate: self).buy(email: email, code: codeTextField?.text, completion: { (success) in
-                
-                DispatchQueue.main.async {
-                    self.buyButton.setTitle("خرید برنامه", for: .normal)
-                    self.loadingActivityIndicator.stopAnimating()
-                    
-                    if success {
-                        //
-                    } else {
-                        self.showMessage(text: "مشکلی رخ داده است")
+            if isRetrive {
+                // TODO: set license helper for retrive
+                LicenseHelper.getInstance(delegate: self).restore(email: email) { (success) in
+                    DispatchQueue.main.async {
+                        self.buyButton.setTitle("بازیابی خرید", for: .normal)
+                        self.loadingActivityIndicator.stopAnimating()
+                        
+                        if success {
+                            
+                            let alert = UIAlertController(title: "بازیابی موفق", message: "ایمیل فعالسازی برای شما ارسال شده است.\n فقط کافیه دکمه فعالساری رو از ایمیل بزنید.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "باشه", style: .cancel, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                            
+                        } else {
+                            self.showMessage(text: "مشکلی رخ داده است")
+                        }
                     }
                 }
-            })
+                
+            } else {
+                LicenseHelper.getInstance(delegate: self).buy(email: email, code: codeTextField?.text, completion: { (success) in
+                    
+                    DispatchQueue.main.async {
+                        self.buyButton.setTitle("خرید برنامه", for: .normal)
+                        self.loadingActivityIndicator.stopAnimating()
+                        
+                        if success {
+                            //
+                        } else {
+                            self.showMessage(text: "مشکلی رخ داده است")
+                        }
+                    }
+                })
+            }
+            
         } else {
             let alert = UIAlertController(title: "مشکل در ورود اطلاعات", message: "ایمیل به درستی وارد نشده است", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "باشه", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            if isRetrive {
+                self.buyButton.setTitle("بازیابی خرید", for: .normal)
+            } else {
+                self.buyButton.setTitle("خرید برنامه", for: .normal)
+            }
             
-            self.buyButton.setTitle("خرید برنامه", for: .normal)
             self.loadingActivityIndicator.stopAnimating()
         }
     }

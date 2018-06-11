@@ -112,7 +112,41 @@ class LicenseHelper {
         }
     }
     
-    
+    public func restore(email: String , completion: @escaping ((Bool) -> Void)) {
+        
+        let parameters = [
+            "email": email,
+            "app": appName
+        ]
+        
+        HttpLicense().request(endpoint: "restore", method: .POST, parameters: parameters) { (data, response, error) in
+            do{
+                if let data = data {
+                    let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+                    
+                    if let json = jsonSerialized {
+                        if let link = json["url"] as? String {
+                            DispatchQueue.main.async {
+                                
+                                guard let url = URL(string: link) else {
+                                    completion(false)
+                                    return
+                                }
+                                
+                                completion(true)
+                                
+                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                
+                            }
+                        }
+                    }
+                }
+            } catch let error as NSError {
+                completion(false)
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     private init(delegate: LicenseDelegate) {
         self.delegate = delegate
