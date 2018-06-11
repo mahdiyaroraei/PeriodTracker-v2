@@ -216,6 +216,7 @@
 		559567DC1FF0EB05001A8231 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		559567DE1FF0EBB1001A8231 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		559567E01FF0F3F7001A8231 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicTableViewCell.swift; path = Cell/TopicTableViewCell.swift; sourceTree = "<group>"; };
+		5599374020CD50FF00F9DDAB /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		55B958001F35A45A004AAFA3 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewCell.swift; path = Cell/SettingTableViewCell.swift; sourceTree = "<group>"; };
 		55B9BD321EF94ADE00F75794 /* Royan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Royan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B9BD351EF94ADE00F75794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -335,6 +336,7 @@
 		551CCCBF1F55884800AE84EC /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				5599374020CD50FF00F9DDAB /* OneSignalNotificationServiceExtension.entitlements */,
 				551CCCC01F55884900AE84EC /* NotificationService.swift */,
 				551CCCC21F55884900AE84EC /* Info.plist */,
 			);
@@ -593,12 +595,17 @@
 				TargetAttributes = {
 					551CCCBD1F55884800AE84EC = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = MAZVBHUQRT;
+						DevelopmentTeam = WQAL4X8P6C;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					55B9BD311EF94ADE00F75794 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = MAZVBHUQRT;
+						DevelopmentTeam = WQAL4X8P6C;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -608,7 +615,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -887,13 +894,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3417E3B908EE494F06ECBCB9 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAZVBHUQRT;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.tracker.OneSignalNotificationServiceExtension2;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -906,14 +914,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 889AF98AD015A836D74612B9 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAZVBHUQRT;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.tracker.OneSignalNotificationServiceExtension2;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1027,10 +1036,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAZVBHUQRT;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10;
 				PRODUCT_NAME = Royan;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1048,10 +1057,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAZVBHUQRT;
+				DEVELOPMENT_TEAM = WQAL4X8P6C;
 				INFOPLIST_FILE = PeriodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = ir.mahdiyar.periodtracker10;
 				PRODUCT_NAME = Royan;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

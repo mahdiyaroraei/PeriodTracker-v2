@@ -294,6 +294,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
         
         if let _ = realm.objects(User.self).last {
+        } else {
             self.blurEffectView.isHidden = true
         }
         

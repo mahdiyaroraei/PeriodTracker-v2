@@ -154,13 +154,13 @@ class ContactUsViewController: UIViewController {
         if sender == instagramButton {
             link = "https://instagram.com/royanapp.ir"
         } else if sender == telegramButton {
-            link = "https://telegram.me/AppLauncher_support"
+            link = "https://telegram.me/App_Launcher"
         } else if sender == twitterButton {
             link = "https://twitter.com/irperiodtracker"
         } else if sender == webButton {
             link = "http://royanapp.ir"
         } else if sender == supportButton {
-            link = "https://telegram.me/Royan_support"
+            link = "https://telegram.me/AppLauncher_support"
         }
         
         Utility.openLinkInSafari(link: link)

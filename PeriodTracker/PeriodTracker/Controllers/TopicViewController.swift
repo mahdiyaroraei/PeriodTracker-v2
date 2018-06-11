@@ -126,6 +126,9 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
         
+        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -400,7 +403,11 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
                         
                     }
                 }
-                self.sendingActivityIndicatorBG.isHidden = true
+                DispatchQueue.main.async {
+                    self.sendingActivityIndicatorBG.isHidden = true
+                    self.messageTextViewHeightConstraint?.constant = 44
+                    self.messageTextView.layoutIfNeeded()
+                }
             }
         } else {
             self.present(LicenseViewController(), animated: true, completion: nil)
