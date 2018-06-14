@@ -13,7 +13,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     
     
     var loadNewArticle = true
-    let limit = 30
+    let limit = 10
     var lockOffset = false
     var isScrollToBottom = false
     var messageTextViewHeightConstraint: NSLayoutConstraint?
@@ -39,7 +39,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
             self.sendImageView.isHidden = topic.disallow_send_message == 1
             let dateComponents = Calendar.current.dateComponents([.year , .month , .day], from: topic.created_at)
             let date = Calendar.current.date(from: dateComponents)
-
+            
             if self.sectionItems[date!] == nil {
                 self.sectionItems[date!] = []
             }
@@ -53,6 +53,18 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     var models: [Message] = [] {
         didSet {
             
+            sectionItems.removeAll()
+            
+            let dateComponents = Calendar.current.dateComponents([.year , .month , .day], from: topic.created_at)
+            let date = Calendar.current.date(from: dateComponents)
+            
+            if self.sectionItems[date!] == nil {
+                self.sectionItems[date!] = []
+            }
+            
+            let message = Message(id: 0, message: topic.content, topic: topic, user: topic.user, created_at: topic.created_at, updated_at: topic.updated_at)
+            
+            self.sectionItems[date!]?.append(message)
             
             
             for topic in self.models {
@@ -176,11 +188,11 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         topicTableView.delegate = self
         topicTableView.register(MessageTableViewCell.self, forCellReuseIdentifier: "cell")
         topicTableView.register(TopicTableViewCell.self, forCellReuseIdentifier: "tcell")
-
+        
         topicTableView.setContentOffset(.zero, animated: true)
         
         setupViews()
-    
+        
         if let nikName = topic.user.nikname {
             topic.subject = nikName
         } else {
@@ -276,12 +288,17 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MessageTableViewCell
-        cell.model = self.sectionItems[self.sectionItems.keys.sorted()[indexPath.section]]![indexPath.row]
-
         
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MessageTableViewCell
+        
+        if indexPath.section == 0 && indexPath.row == 0 && !lockOffset && !loadNewArticle && isScrollToBottom {
+            offset = offset + 1
+        }
+        
+        cell.model = self.sectionItems[self.sectionItems.keys.sorted()[indexPath.section]]![indexPath.row]
+        
+        
+        return cell
         
     }
     
@@ -313,7 +330,7 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
                     
                     let serverModels = try self.decoder.decode([Message].self , from: data)
                     
-                    if serverModels.count > 0 {
+                    if serverModels.count < self.limit {
                         // All topics loads
                         self.lockOffset = true
                     } else {
@@ -357,11 +374,11 @@ class TopicViewController: UIViewController , UITableViewDelegate , UITableViewD
         
         self.sendImageView.centerYAnchor.constraint(equalTo: self.messageTextView.centerYAnchor).isActive = true
         self.sendImageView.rightAnchor.constraint(equalTo: self.messageTextView.rightAnchor , constant: -2).isActive = true
-
-
+        
+        
         self.sendingActivityIndicatorBG.centerYAnchor.constraint(equalTo: self.sendImageView.centerYAnchor).isActive = true
         self.sendingActivityIndicatorBG.centerXAnchor.constraint(equalTo: self.sendImageView.centerXAnchor).isActive = true
-
+        
         self.sendingActivityIndicator.centerYAnchor.constraint(equalTo: self.sendingActivityIndicatorBG.centerYAnchor).isActive = true
         self.sendingActivityIndicator.centerXAnchor.constraint(equalTo: self.sendingActivityIndicatorBG.centerXAnchor).isActive = true
         

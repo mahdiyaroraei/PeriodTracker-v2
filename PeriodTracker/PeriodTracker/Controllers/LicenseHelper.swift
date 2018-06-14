@@ -125,18 +125,14 @@ class LicenseHelper {
                     let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
                     
                     if let json = jsonSerialized {
-                        if let link = json["url"] as? String {
+                        if let link = json["success"] as? Int {
                             DispatchQueue.main.async {
                                 
-                                guard let url = URL(string: link) else {
+                                if link == 1 {
+                                    completion(true)
+                                } else {
                                     completion(false)
-                                    return
                                 }
-                                
-                                completion(true)
-                                
-                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                                
                             }
                         }
                     }

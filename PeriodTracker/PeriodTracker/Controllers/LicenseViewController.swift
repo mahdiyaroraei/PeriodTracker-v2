@@ -529,7 +529,9 @@ class LicenseViewController: UIViewController, LicenseDelegate {
                             self.present(alert, animated: true, completion: nil)
                             
                         } else {
-                            self.showMessage(text: "مشکلی رخ داده است")
+                            let alert = UIAlertController(title: "بازیابی ناموفق", message: "خریدی با این ایمیل یافت نشد", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "باشه", style: .cancel, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
                         }
                     }
                 }

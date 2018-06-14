@@ -14,7 +14,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     let realm = try! Realm()
     
     var loadNewArticle = true
-    let limit = 200
+    let limit = 10
     var lockOffset = false
     var sectionItems: [Date : [Topic]] = [ : ]
     let colorName = [Colors.niceBlue, Colors.niceYellow, Colors.niceRed, Colors.niceGreen]
@@ -163,16 +163,8 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         
         setupViews()
         
-//        getDataFromServer()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        collectionView.reloadData()
-//        self.trashModel.removeAll()
-//        self.models.removeAll()
-        self.filterCategory.removeAll()
         offset = 0
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -210,18 +202,18 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
 //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sectionItems[Array(self.sectionItems.keys)[section]]!.count
+        return self.sectionItems[Array(self.sectionItems.keys.sorted(by: >))[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TopicTableViewCell
 //        cell.model = self.sectionItems[Array(self.sectionItems.keys)[indexPath.section]]![indexPath.row]
-        cell.model = self.sectionItems[self.sectionItems.keys.sorted(by: >)[indexPath.section]]![0]
+        cell.model = self.sectionItems[self.sectionItems.keys.sorted(by: >)[indexPath.section]]![indexPath.row]
         // TODO: verify my id
         
-//        if indexPath.section == sectionItems.keys.count - 1 && indexPath.row == sectionItems[Array(self.sectionItems.keys)[indexPath.section]]!.count - 1 && !lockOffset && !loadNewArticle {
-//            offset = offset + 1
-//        }
+        if indexPath.section == sectionItems.keys.count - 1 && indexPath.row == sectionItems[Array(self.sectionItems.keys.sorted(by: >))[indexPath.section]]!.count - 1 && !lockOffset && !loadNewArticle {
+            offset = offset + 1
+        }
         
         return cell
     }
@@ -268,8 +260,6 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
                         self.lockOffset = false
                     }
                     DispatchQueue.main.async {
-                        self.trashModel.removeAll()
-                        self.models.removeAll()
                         self.models += serverModels
                         self.trashModel += serverModels
                     }
@@ -376,7 +366,7 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
         let topicViewController = TopicViewController()
-        topicViewController.topic = self.sectionItems[self.sectionItems.keys.sorted(by: >)[indexPath.section]]![0]
+        topicViewController.topic = self.sectionItems[self.sectionItems.keys.sorted(by: >)[indexPath.section]]![indexPath.row]
         
         self.navigationController?.pushViewController(topicViewController, animated: true)
     }
