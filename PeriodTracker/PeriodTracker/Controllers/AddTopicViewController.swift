@@ -14,8 +14,8 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
     var category: String?
     let backgroundStackView: UIStackView = {
         let view = UIStackView()
-        view.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xAAAE7F)
-        view.heightAnchor.constraint(equalToConstant: 440).isActive = true
+//        view.backgroundColor = UIColor.uicolorFromHex(rgbValue: 0xAAAE7F)
+        view.heightAnchor.constraint(equalToConstant: 300).isActive = true
         view.axis = .vertical
         view.spacing = 7
         
@@ -30,9 +30,9 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 0
-        imageView.layer.borderColor = UIColor.uicolorFromHex(rgbValue: 0xb3b3b3).cgColor
+//        imageView.layer.borderColor = UIColor.uicolorFromHex(rgbValue: 0xb3b3b3).cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "discussion")
+//        imageView.image = UIImage(named: "discussion")
         return imageView
     }()
     
@@ -51,7 +51,6 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
         button.setTitle("بارداری", for: .normal)
         button.setTitleColor(Colors.darkToosi, for: .normal)
         button.backgroundColor = .white
-//        button.backgroundColor = Colors.niceBlue
         button.titleLabel?.font(.IRANYekanBold)
         button.layer.cornerRadius = 6
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +63,6 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
         button.setTitle("بیماری ها", for: .normal)
         button.setTitleColor(Colors.darkToosi, for: .normal)
         button.backgroundColor = .white
-//        button.backgroundColor = Colors.niceYellow
         button.layer.cornerRadius = 6
         button.titleLabel?.font(.IRANYekanBold)
         button.tag = 1
@@ -78,7 +76,6 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
         button.setTitle("قاعدگی", for: .normal)
         button.setTitleColor(Colors.darkToosi, for: .normal)
         button.backgroundColor = .white
-//        button.backgroundColor = Colors.niceRed
         button.layer.cornerRadius = 6
         button.titleLabel?.font(.IRANYekanBold)
         button.tag = 2
@@ -92,8 +89,6 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
         button.setTitleColor(Colors.darkToosi, for: .normal)
         button.backgroundColor = .white
         button.tag = 3
-
-//        button.backgroundColor = Colors.niceGreen
         button.layer.cornerRadius = 6
         button.titleLabel?.font(.IRANYekanBold)
         
@@ -138,7 +133,7 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
     let logLabel: UILabel = {
         let label = UILabel()
         label.font(.IRANYekanBold)
-        label.textColor = .red
+        label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -160,7 +155,6 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
         self.view.addSubview(backgroundStackView)
         self.view.addSubview(categoryStackView)
         
-        self.backgroundStackView.addArrangedSubview(imageView)
         self.backgroundStackView.addArrangedSubview(categoryStackView)
         self.backgroundStackView.addArrangedSubview(subjectTextField)
         self.backgroundStackView.addArrangedSubview(contentTextField)
@@ -181,8 +175,6 @@ class AddTopicViewController: UIViewController , UITextViewDelegate {
         
         self.contentTextField.leadingAnchor.constraint(equalTo: self.backgroundStackView.leadingAnchor).isActive = true
         self.contentTextField.trailingAnchor.constraint(equalTo: self.backgroundStackView.trailingAnchor).isActive = true
-        
-        self.imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
         self.contentTextField.delegate = self
         

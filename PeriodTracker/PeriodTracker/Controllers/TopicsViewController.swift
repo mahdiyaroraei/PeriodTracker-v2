@@ -290,7 +290,6 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
         self.blurEffectView.contentView.addSubview(self.nikNameImageView)
         self.blurEffectView.contentView.addSubview(self.noticeLabel)
         self.blurEffectView.contentView.addSubview(self.submitButton)
-        
         self.blurEffectView.isHidden = UserDefaults.standard.bool(forKey: "userinfo")
         
         if let _ = realm.objects(User.self).last {
