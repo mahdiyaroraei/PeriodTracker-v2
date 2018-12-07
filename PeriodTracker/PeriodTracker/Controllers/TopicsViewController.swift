@@ -318,15 +318,13 @@ class TopicsViewController: UIViewController , UITableViewDelegate , UITableView
             return
         }
         
-        guard let playerId = UserDefaults.standard.string(forKey: "player_id") else { return }
-        
         guard let nikName = nikNameTextField.text , nikName != "" else { return }
         
         if let user = realm.objects(User.self).last {
             
             let parameters: Dictionary<String , Any> = [
                 "user_id" : user.user_id,
-                "player_id" : playerId,
+                "player_id" : "player_id",
                 "nikname" : nikName
             ]
             

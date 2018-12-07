@@ -16,6 +16,15 @@ DEPENDENCIES:
   - RQShineLabel
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - OneSignal
+    - Realm
+    - RealmSwift
+    - RQShineLabel
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
@@ -24,6 +33,6 @@ SPEC CHECKSUMS:
   RQShineLabel: ae66343d6c779a8efdf61241734ddcec5d79d351
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 418fcad1804b8e99dfae5a98e07857c4190bfe4d
+PODFILE CHECKSUM: 4b7e4846743353dd33faf0792da6c51dfccdf8cc
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.3

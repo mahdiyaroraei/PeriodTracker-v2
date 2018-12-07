@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13012AB782B384647BCF0466 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68722E14B424FD015AB91083 /* libPods-OneSignalNotificationServiceExtension.a */; };
 		55016A6D1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */; };
 		55016A6F1F29C22F00EC567E /* CycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A6E1F29C22F00EC567E /* CycleViewController.swift */; };
 		55016A741F29C30100EC567E /* CircleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55016A731F29C30100EC567E /* CircleOption.swift */; };
@@ -119,7 +118,8 @@
 		730DB3061EFBE07C001495EF /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730DB3051EFBE07B001495EF /* BuyViewController.swift */; };
 		73A67AEE20C858010091E609 /* TopicsViewController+CategoryCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A67AED20C858010091E609 /* TopicsViewController+CategoryCV.swift */; };
 		73A67AF020C85DC80091E609 /* CategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A67AEF20C85DC80091E609 /* CategoryCVCell.swift */; };
-		A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */; };
+		B2659A557A9762AD726817B6 /* Pods_PeriodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD59A2C6B423AF16F1FF016 /* Pods_PeriodTracker.framework */; };
+		F408BE1A3F678B83DB6B1482 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEB86E490A4933DC74CD66C /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,8 +147,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3417E3B908EE494F06ECBCB9 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
+		027C19C3480BE8683BB05DF3 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		2B931D550280DF1512D6CB44 /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		4CEB86E490A4933DC74CD66C /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD59A2C6B423AF16F1FF016 /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		533083C631EDA48E61D51D6F /* Pods-PeriodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.release.xcconfig"; sourceTree = "<group>"; };
 		55016A6C1F290F3E00EC567E /* PeriodLengthSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodLengthSelectorViewController.swift; path = Controllers/PeriodLengthSelectorViewController.swift; sourceTree = "<group>"; };
 		55016A6E1F29C22F00EC567E /* CycleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleViewController.swift; path = Controllers/CycleViewController.swift; sourceTree = "<group>"; };
 		55016A731F29C30100EC567E /* CircleOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleOption.swift; path = Model/CircleOption.swift; sourceTree = "<group>"; };
@@ -257,7 +260,6 @@
 		55FE27881F0E5DD70042DBD3 /* MoodsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodsCollectionViewCell.swift; path = Cell/MoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FE278A1F0E5E390042DBD3 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodCollectionViewCell.swift; path = Cell/MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FF9A4A1F1E22BB006281F7 /* MoodSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoodSelectorViewController.swift; path = Controllers/MoodSelectorViewController.swift; sourceTree = "<group>"; };
-		68722E14B424FD015AB91083 /* libPods-OneSignalNotificationServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		730DB2F91EFBB2C3001495EF /* IRANSans(FaNum)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Bold.ttf"; sourceTree = "<group>"; };
 		730DB2FA1EFBB2C3001495EF /* IRANSans(FaNum)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Light.ttf"; sourceTree = "<group>"; };
 		730DB2FB1EFBB2C3001495EF /* IRANSans(FaNum)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSans(FaNum)_Medium.ttf"; sourceTree = "<group>"; };
@@ -266,9 +268,7 @@
 		730DB3051EFBE07B001495EF /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuyViewController.swift; path = Controllers/BuyViewController.swift; sourceTree = "<group>"; };
 		73A67AED20C858010091E609 /* TopicsViewController+CategoryCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopicsViewController+CategoryCV.swift"; sourceTree = "<group>"; };
 		73A67AEF20C85DC80091E609 /* CategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCVCell.swift; sourceTree = "<group>"; };
-		889AF98AD015A836D74612B9 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
-		88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeriodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeriodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3AEE3794CE0E426C4F662B0 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +276,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13012AB782B384647BCF0466 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */,
+				F408BE1A3F678B83DB6B1482 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,29 +284,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0A9058E2F1C5CF4528719D4 /* Pods_PeriodTracker.framework in Frameworks */,
+				B2659A557A9762AD726817B6 /* Pods_PeriodTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08ADBFE0F03EA28EB31F2B00 /* Pods */ = {
+		4066577DADBAD361356A677D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */,
-				3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */,
-				3417E3B908EE494F06ECBCB9 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
-				889AF98AD015A836D74612B9 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		0B31585D3726198C9F573533 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E9429A523F682D67B99B203A /* Pods_PeriodTracker.framework */,
-				68722E14B424FD015AB91083 /* libPods-OneSignalNotificationServiceExtension.a */,
+				4CEB86E490A4933DC74CD66C /* Pods_OneSignalNotificationServiceExtension.framework */,
+				4FD59A2C6B423AF16F1FF016 /* Pods_PeriodTracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -403,8 +392,8 @@
 				55B9BD341EF94ADE00F75794 /* PeriodTracker */,
 				551CCCBF1F55884800AE84EC /* OneSignalNotificationServiceExtension */,
 				55B9BD331EF94ADE00F75794 /* Products */,
-				08ADBFE0F03EA28EB31F2B00 /* Pods */,
-				0B31585D3726198C9F573533 /* Frameworks */,
+				9B1F4F707FED1E4D07AA0F6C /* Pods */,
+				4066577DADBAD361356A677D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -539,6 +528,17 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		9B1F4F707FED1E4D07AA0F6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3AEE3794CE0E426C4F662B0 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				027C19C3480BE8683BB05DF3 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				2B931D550280DF1512D6CB44 /* Pods-PeriodTracker.debug.xcconfig */,
+				533083C631EDA48E61D51D6F /* Pods-PeriodTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -546,11 +546,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 551CCCC61F55884900AE84EC /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
-				5B3DA9476435E33666B22A57 /* [CP] Check Pods Manifest.lock */,
+				A57C7FC83F0BDB886CFC4DD1 /* [CP] Check Pods Manifest.lock */,
 				551CCCBA1F55884800AE84EC /* Sources */,
 				551CCCBB1F55884800AE84EC /* Frameworks */,
 				551CCCBC1F55884800AE84EC /* Resources */,
-				EC17C71DAB037217707052F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -565,13 +564,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55B9BD441EF94ADE00F75794 /* Build configuration list for PBXNativeTarget "PeriodTracker" */;
 			buildPhases = (
-				CDCF98458082E3F9F787362D /* [CP] Check Pods Manifest.lock */,
+				003269553006F8EBBE701826 /* [CP] Check Pods Manifest.lock */,
 				55B9BD2E1EF94ADE00F75794 /* Sources */,
 				55B9BD2F1EF94ADE00F75794 /* Frameworks */,
 				55B9BD301EF94ADE00F75794 /* Resources */,
-				2D4192A9402CB83BFBE466A5 /* [CP] Embed Pods Frameworks */,
-				F44F77D52C5624C0BB771025 /* [CP] Copy Pods Resources */,
 				55FD75B41F551F2A002CCC52 /* Embed App Extensions */,
+				2A5D7AC91061CD91EA1C11BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -673,79 +671,66 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2D4192A9402CB83BFBE466A5 /* [CP] Embed Pods Frameworks */ = {
+		003269553006F8EBBE701826 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PeriodTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A5D7AC91061CD91EA1C11BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RQShineLabel/RQShineLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RQShineLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5B3DA9476435E33666B22A57 /* [CP] Check Pods Manifest.lock */ = {
+		A57C7FC83F0BDB886CFC4DD1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CDCF98458082E3F9F787362D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EC17C71DAB037217707052F6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F44F77D52C5624C0BB771025 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PeriodTracker/Pods-PeriodTracker-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -892,7 +877,7 @@
 /* Begin XCBuildConfiguration section */
 		551CCCC71F55884900AE84EC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3417E3B908EE494F06ECBCB9 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			baseConfigurationReference = F3AEE3794CE0E426C4F662B0 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -912,7 +897,7 @@
 		};
 		551CCCC81F55884900AE84EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 889AF98AD015A836D74612B9 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			baseConfigurationReference = 027C19C3480BE8683BB05DF3 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1028,7 +1013,7 @@
 		};
 		55B9BD451EF94ADE00F75794 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88B9190A548FDD9CB8428D7D /* Pods-PeriodTracker.debug.xcconfig */;
+			baseConfigurationReference = 2B931D550280DF1512D6CB44 /* Pods-PeriodTracker.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1049,7 +1034,7 @@
 		};
 		55B9BD461EF94ADE00F75794 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E8A2305E983DFAE6FF8EC23 /* Pods-PeriodTracker.release.xcconfig */;
+			baseConfigurationReference = 533083C631EDA48E61D51D6F /* Pods-PeriodTracker.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
